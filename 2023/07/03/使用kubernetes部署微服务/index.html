@@ -13,17 +13,24 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://blog.lsmcloud.top/categories/云原生与微服务开发/"/>
+    <link rel="canonical" href="http://blog.lsmcloud.top/2023/07/03/使用kubernetes部署微服务/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://blog.lsmcloud.top/categories/%E4%BA%91%E5%8E%9F%E7%94%9F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91/index.html">
+        <meta name="description" content="使用kubernetes部署云服务 这个小项目通过kubernetes部署，包括eureka服务器，userService，adminService，并部署mysql服务存储持久化对象   首先启动mysql服务  拉取镜像  12docker pull mysql:8.0.33&#x2F;&#x2F;这个版本要与deployment.yaml和pv.yaml里面的版本一致   部署mysql  1234567891">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用kubernetes部署云服务">
+<meta property="og:url" content="http://blog.lsmcloud.top/2023/07/03/%E4%BD%BF%E7%94%A8kubernetes%E9%83%A8%E7%BD%B2%E5%BE%AE%E6%9C%8D%E5%8A%A1/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用kubernetes部署云服务 这个小项目通过kubernetes部署，包括eureka服务器，userService，adminService，并部署mysql服务存储持久化对象   首先启动mysql服务  拉取镜像  12docker pull mysql:8.0.33&#x2F;&#x2F;这个版本要与deployment.yaml和pv.yaml里面的版本一致   部署mysql  1234567891">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-07-03T09:19:23.000Z">
+<meta property="article:modified_time" content="2023-07-03T12:05:55.896Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="kubernetes">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
     
     
@@ -36,7 +43,7 @@
     
     <title>
         
-            Category: 云原生与微服务开发 -
+            使用kubernetes部署云服务 -
         
         力崽的blog
     </title>
@@ -160,7 +167,7 @@
                         
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active" 
+                                <a class="" 
                                     href="/categories"  >
                                     
                                         
@@ -297,7 +304,7 @@
             
                 
                     <li class="drawer-navbar-item flex-center">
-                        <a class="active" 
+                        <a class="" 
                         href="/categories"  >
                              
                                 
@@ -391,45 +398,248 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="category-container">
-        <div class="category-name">
-            <i class="fa-solid fa-folder"></i>&nbsp;云原生与微服务开发
-        </div>
-        <div class="category-post-list">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
             
-<div class="archive-list-container">
+            
+                <div class="article-title">
+                    <h1 class="article-title-regular">使用kubernetes部署云服务</h1>
+                </div>
+            
+                
+            
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.svg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">力崽！</span>
+                            
+                                <span class="author-label">Lv1</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-07-03 17:19:23</span>
+        <span class="mobile">2023-07-03 17:19</span>
+        <span class="hover-info">Created</span>
+    </span>
     
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2023</span>
-                <span class="archive-year-post-count">[2]</span>
-            </div>
-            <ul class="article-list">
-              
-              <li class="article-item" date-is='07-03'>
-                <a href="/2023/07/03/%E4%BD%BF%E7%94%A8kubernetes%E9%83%A8%E7%BD%B2%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
-                  <span class="article-title">使用kubernetes部署云服务</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='07-01'>
-                <a href="/2023/07/01/%E4%BD%BF%E7%94%A8%E5%AE%B9%E5%99%A8%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/">
-                  <span class="article-title">使用容器部署服务</span>
-                </a>
-              </li>
-              
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-07-03 20:05:55</span>
+            <span class="mobile">2023-07-03 20:05</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91/">云原生与微服务开发</a>&nbsp;
+                    </li>
+                
             </ul>
-        </section>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/docker/">docker</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/kubernetes/">kubernetes</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/mysql/">mysql</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
-        </div>
-    </div>
-    <div class="category-paginator">
-        <div class="paginator">
-    <span class="page-number current">1</span>
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h1 id="使用kubernetes部署云服务"><a href="#使用kubernetes部署云服务" class="headerlink" title="使用kubernetes部署云服务"></a>使用kubernetes部署云服务</h1><blockquote>
+<p>这个小项目通过kubernetes部署，包括eureka服务器，userService，adminService，并部署mysql服务存储持久化对象</p>
+</blockquote>
+<ol>
+<li><p>首先启动mysql服务</p>
+<ul>
+<li>拉取镜像</li>
+</ul>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:8.0.33</span><br><span class="line">//这个版本要与deployment.yaml和pv.yaml里面的版本一致</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>部署mysql</li>
+</ul>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">piVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - port: 3306</span><br><span class="line">  selector:</span><br><span class="line">    app: mysql</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: mysql</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: mysql</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - image: mysql:8.0.33</span><br><span class="line">        name: mysql</span><br><span class="line">        env:</span><br><span class="line">          # 在实际中使用 secret</span><br><span class="line">        - name: MYSQL_ROOT_PASSWORD</span><br><span class="line">          value: dangerous</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 3306</span><br><span class="line">          name: mysql</span><br><span class="line">        volumeMounts:</span><br><span class="line">        - name: mysql-persistent-storage</span><br><span class="line">          mountPath: /var/lib/mysql</span><br><span class="line">      volumes:</span><br><span class="line">      - name: mysql-persistent-storage</span><br><span class="line">        persistentVolumeClaim:</span><br><span class="line">          claimName: mysql-pv-claim</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-volume</span><br><span class="line">  labels:</span><br><span class="line">    type: local</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 100Mi</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  hostPath:</span><br><span class="line">  	# 注意这里改成服务器上的一个空文件夹路径</span><br><span class="line">    path: &quot;/Users/lyl/moss&quot;</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolumeClaim</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-claim</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  resources:</span><br><span class="line">    requests:</span><br><span class="line">      storage: 100Mi</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>apply</li>
+</ul>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f mysql-deployment.yaml  </span><br><span class="line">kubectl apply -f mysql-pv.yaml </span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>在容器中创建user database</li>
+</ul>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">kubectl run -it --rm --image=mysql:8.0.33 --restart=Never mysqlclient -- mysql -h mysql -pdangerous</span><br><span class="line">If you don&#x27;t see a command prompt, try pressing enter.</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">create database user;</span></span><br><span class="line">Query OK, 1 row affected (0.03 sec)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">^C</span></span><br><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash"><span class="built_in">exit</span></span></span><br><span class="line">Bye</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>查看资源</li>
+</ul>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po,svc                                                                                 </span><br><span class="line">NAME                         READY   STATUS    RESTARTS   AGE</span><br><span class="line">pod/mysql-7b99cd9bc9-js7lh   1/1     Running   0          23m</span><br><span class="line"></span><br><span class="line">NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE</span><br><span class="line">service/kubernetes   ClusterIP   10.96.0.1    &lt;none&gt;        443/TCP    176m</span><br><span class="line">service/mysql        ClusterIP   None         &lt;none&gt;        3306/TCP   23m</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>这里可能会遇到一个问题：The PersistentVolume “mysql-pv-volume” is invalid: spec.persistentvolumesource: Forbidden: spec.persistentvolumesource is immutable after creation，这是因为这个mysql服务已经存在了，解决方案是换一个名字或者把原来服务的删除</li>
+</ul>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pv</span><br><span class="line">kubectl get pvc</span><br><span class="line">kubectl delete pvc mysql-pv-claim</span><br><span class="line">kubectl delete pv mysql-pv-volume</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>接下来将三个服务的jar包打好</p>
+<p>在三个服务的子文件夹下运行</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -B -Dmaven.test.skip clean package</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>接下来根据dockerfile将容器build出来</p>
+<p><strong>特别注意这里的标签名要和development.yaml里面的名字相符</strong></p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker build -t user-service:2023 .</span><br><span class="line">docker build -t admin-service:2023 .</span><br><span class="line">docker build -t eureka:2023 .</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>接下来我们apply，通过kubernetes部署三个service</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f admin-deployment.yaml </span><br><span class="line">kubectl apply -f admin-service.yaml</span><br><span class="line">//user-service和eureka以此类推</span><br></pre></td></tr></table></figure></div>
+
+<p>现在我们查看资源：</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po,svc</span><br><span class="line">NAME                                 READY   STATUS    RESTARTS   AGE</span><br><span class="line">pod/admin-service-84444789db-mtrdt   1/1     Running   0          7m20s</span><br><span class="line">pod/eurkea-76cff4d569-j2hbt          1/1     Running   0          9m41s</span><br><span class="line">pod/mysql-7b99cd9bc9-js7lh           1/1     Running   0          55m</span><br><span class="line">pod/user-service-7cb8755bd7-xhd6w    1/1     Running   0          9m2s</span><br><span class="line"></span><br><span class="line">NAME                    TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)           AGE</span><br><span class="line">service/admin-service   NodePort    10.108.205.242   &lt;none&gt;        10000:30521/TCP   7m7s</span><br><span class="line">service/eureka          NodePort    10.104.237.255   &lt;none&gt;        8080:31011/TCP    9m28s</span><br><span class="line">service/kubernetes      ClusterIP   10.96.0.1        &lt;none&gt;        443/TCP           3h27m</span><br><span class="line">service/mysql           ClusterIP   None             &lt;none&gt;        3306/TCP          55m</span><br><span class="line">service/user-service    NodePort    10.99.98.6       &lt;none&gt;        9090:32657/TCP    8m50s</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>验证部署已经成功</p>
+<p>向user-service发送一个post请求</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H &quot;Content-Type: application/json&quot; -X POST -d &#x27;&#123;&quot;name&quot;:&quot;张三&quot;, &quot;pwd&quot;:&quot;888&quot;&#125;&#x27;  http://localhost:32657/user </span><br></pre></td></tr></table></figure></div>
+
+<p>收到回应</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;id&quot;:1,&quot;name&quot;:&quot;张三&quot;,&quot;pwd&quot;:&quot;888&quot;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>![Screen Shot 2023-07-03 at 7.52.09 PM](&#x2F;Users&#x2F;lyl&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;Screen Shot 2023-07-03 at 7.52.09 PM.png)</p>
+<p>向user-service发送错误的post请求，收到报错</p>
+<p>![Screen Shot 2023-07-03 at 7.54.29 PM](&#x2F;Users&#x2F;lyl&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;Screen Shot 2023-07-03 at 7.54.29 PM.png)</p>
+<p>同时也可以访问eureka服务</p>
+<p>![Screen Shot 2023-07-03 at 8.05.09 PM](&#x2F;Users&#x2F;lyl&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;Screen Shot 2023-07-03 at 8.05.09 PM.png)</p>
+</li>
+<li><p>负载均衡</p>
+</li>
+</ol>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> 使用kubernetes部署云服务</li>
+        <li><strong>Author:</strong> 力崽！</li>
+        <li><strong>Created at:</strong> 2023-07-03 17:19:23</li>
+        
+            <li>
+                <strong>Updated at:</strong> 2023-07-03 20:05:55
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://blog.lsmcloud.top/2023/07/03/使用kubernetes部署微服务/
+        </li>
+        <li>
+            <strong>License:</strong> This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
+        </li>
+    </ul>
 </div>
 
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/docker/">#docker</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/kubernetes/">#kubernetes</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/mysql/">#mysql</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/07/01/%E4%BD%BF%E7%94%A8%E5%AE%B9%E5%99%A8%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">使用容器部署服务</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">使用kubernetes部署云服务</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8kubernetes%E9%83%A8%E7%BD%B2%E4%BA%91%E6%9C%8D%E5%8A%A1"><span class="nav-text">使用kubernetes部署云服务</span></a></li></ol>
+
+    </div>
+</div>
+            </div>
+        
     </div>
 </div>
 
@@ -507,6 +717,23 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-side-tools-container">
@@ -618,6 +845,16 @@
 
 
 <div class="post-scripts pjax">
+    
+        
+<script src="/js/tools/tocToggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
     
 </div>
 
