@@ -28,8 +28,10 @@
 <meta property="og:image" content="https://files.lsmcloud.top/blogtelegram-cloud-photo-size-5-6165872329247274374-y.jpg">
 <meta property="og:image" content="https://files.lsmcloud.top/blogtelegram-cloud-photo-size-5-6167820376088884886-y.jpg">
 <meta property="og:image" content="https://files.lsmcloud.top/blogtelegram-cloud-photo-size-5-6167820376088884887-y.jpg">
+<meta property="og:image" content="https://files.lsmcloud.top/blogtelegram-cloud-photo-size-5-6167820376088884967-y.jpg">
+<meta property="og:image" content="https://files.lsmcloud.top/blogtelegram-cloud-photo-size-5-6167820376088884978-y.jpg">
 <meta property="article:published_time" content="2023-07-15T03:17:36.000Z">
-<meta property="article:modified_time" content="2023-07-15T04:16:30.756Z">
+<meta property="article:modified_time" content="2023-07-15T08:18:02.122Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="电脑修复">
 <meta name="twitter:card" content="summary">
@@ -391,8 +393,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-07-15 12:16:30</span>
-            <span class="mobile">2023-07-15 12:16</span>
+            <span class="desktop">2023-07-15 16:18:02</span>
+            <span class="mobile">2023-07-15 16:18</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -484,7 +486,40 @@
 <p>但是执行到fixboot却提示拒绝访问，但是我明明应该是在管理员模式下的</p>
 <p>windows论坛建议在安全模式下再试试，我想等我下次重启电脑再尝试吧</p>
 <h2 id="寻找卡顿原因"><a href="#寻找卡顿原因" class="headerlink" title="寻找卡顿原因"></a>寻找卡顿原因</h2><p>我首先想到中毒的可能性，但是在此之前老爸似乎没有什么会让电脑被木马入侵的操作，并且cpu和内存的占用都很低，所以我更加怀疑是驱动问题。</p>
-<p>我运行了火绒的全盘扫描</p>
+<p>我运行了火绒的全盘扫描，到下午两点我来看的时候，发现大丰收了：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blogtelegram-cloud-photo-size-5-6167820376088884967-y.jpg"
+                     
+                ></p>
+<blockquote>
+<p>内核后门病毒是一种恶意软件，针对计算机操作系统的内核进行攻击并在系统内植入恶意代码。它利用操作系统的漏洞或者其他弱点，绕过系统的安全机制，从而获得对操作系统的完全控制权限。</p>
+<p>内核后门病毒通常以隐蔽的方式操作，常常隐藏在合法的系统文件或驱动程序中，使其难以被检测和清除。一旦内核后门病毒成功安装在目标系统中，它可以执行各种恶意活动，包括但不限于以下几个方面：</p>
+<ol>
+<li>控制和监视：内核后门病毒可以远程控制受感染系统，并监视用户的活动，例如记录键盘输入、截取屏幕截图、窃取敏感信息等。</li>
+<li>文件和进程操控：内核后门病毒可以修改、删除或隐藏文件和进程，包括系统文件和进程，从而破坏系统的正常运行。</li>
+<li>网络攻击：内核后门病毒可以与远程恶意服务器建立连接，用于传输数据、下载其他恶意软件，或者作为僵尸网络的一部分，进行分布式拒绝服务攻击（DDoS）等网络攻击。</li>
+<li>权限提升：内核后门病毒可以利用漏洞提升自身的权限，从普通用户权限提升到管理员或系统级别权限，以获取更高的访问权限和控制权。</li>
+</ol>
+</blockquote>
+<p>不幸的是，处理这些病毒和广告程序并没有改善电脑卡顿的情况，但是在修复的同时，电脑还弹出了另一个提示框</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blogtelegram-cloud-photo-size-5-6167820376088884978-y.jpg"
+                     
+                ></p>
+<p>这让我怀疑硬盘存在配置、驱动甚至是硬件本身的故障</p>
+<h2 id="问题仍在"><a href="#问题仍在" class="headerlink" title="问题仍在"></a>问题仍在</h2><p>我以为删除了两个病毒，这时再重启就可以避免0xc0000e了，但是重启后电脑再一次出现引导分区损坏</p>
+<p>为了修复引导分区，我开始着手解决fixboot拒绝访问的问题</p>
+<p>”拒绝访问“是微软windows众多粪坑中的一个，在当前的情况下，既可能是引导分区损坏及其严重，也可能是第三方（在当前的情况下，最可能是内核病毒）在阻止我启动fixboot，我在这篇文章找到了下面的解决方案</p>
+<p>(<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/hymnal/article/details/105205194" > fixboot拒绝访问问题的修复_hymnal的博客-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>)</p>
+<div class="highlight-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bootrec /fixmbr</span><br><span class="line">bootsect /nt60 sys /mbr</span><br><span class="line">bootrec /fixboot</span><br><span class="line">bcdboot c:\windows /l zh<span class="literal">-cn</span></span><br><span class="line">bootedit /<span class="class"><span class="keyword">enum</span> //查看启动点</span></span><br></pre></td></tr></table></figure></div>
+
+<p>然而这也只是短暂能让电脑开机，当我尝试重启时，第一次系统未能正常关闭，第二次系统仍然是未能正常关闭，第三次，引导分区再一次损坏</p>
+<h2 id="启动磁盘扫描"><a href="#启动磁盘扫描" class="headerlink" title="启动磁盘扫描"></a>启动磁盘扫描</h2><p>再次启动usb恢复盘，我开启了梅傲磁盘修复工具，扫描整个c盘，目前预计剩余时间达到了28小时…</p>
+<h2 id="回到最初的错误"><a href="#回到最初的错误" class="headerlink" title="回到最初的错误"></a>回到最初的错误</h2><p>一筹莫展之际，我想到了最初的错误日志，我决定从这里入手，通过查询，我发现schannel errror 36887是一个相当常见的错误，通常是TLS的问题</p>
 
             </div>
 
@@ -497,7 +532,7 @@
         <li><strong>Created at:</strong> 2023-07-15 11:17:36</li>
         
             <li>
-                <strong>Updated at:</strong> 2023-07-15 12:16:30
+                <strong>Updated at:</strong> 2023-07-15 16:18:02
             </li>
         
         <li>
@@ -556,7 +591,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">windows7 0x0000004F与0xc00000e修复</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E7%9A%84%E5%BC%80%E5%A7%8B"><span class="nav-text">错误的开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%9D%E8%AF%95%E4%BF%AE%E5%A4%8D%E5%BC%95%E5%AF%BC%E5%88%86%E5%8C%BA"><span class="nav-text">尝试修复引导分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%9D%E8%AF%95%E6%BF%80%E6%B4%BBwindows%E6%88%96%E7%A6%81%E7%94%A8%E7%9B%97%E7%89%88%E6%A3%80%E6%9F%A5"><span class="nav-text">尝试激活windows或禁用盗版检查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%9D%E8%AF%95%E6%9F%A5%E7%9C%8BDump%E6%96%87%E4%BB%B6"><span class="nav-text">尝试查看Dump文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%9D%E8%AF%95%E5%BD%BB%E5%BA%95%E4%BF%AE%E5%A4%8D%E5%BC%95%E5%AF%BC%E5%88%86%E5%8C%BA%E5%87%BA%E9%94%99"><span class="nav-text">尝试彻底修复引导分区出错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E5%8D%A1%E9%A1%BF%E5%8E%9F%E5%9B%A0"><span class="nav-text">寻找卡顿原因</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E7%9A%84%E5%BC%80%E5%A7%8B"><span class="nav-text">错误的开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%9D%E8%AF%95%E4%BF%AE%E5%A4%8D%E5%BC%95%E5%AF%BC%E5%88%86%E5%8C%BA"><span class="nav-text">尝试修复引导分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%9D%E8%AF%95%E6%BF%80%E6%B4%BBwindows%E6%88%96%E7%A6%81%E7%94%A8%E7%9B%97%E7%89%88%E6%A3%80%E6%9F%A5"><span class="nav-text">尝试激活windows或禁用盗版检查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%9D%E8%AF%95%E6%9F%A5%E7%9C%8BDump%E6%96%87%E4%BB%B6"><span class="nav-text">尝试查看Dump文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%9D%E8%AF%95%E5%BD%BB%E5%BA%95%E4%BF%AE%E5%A4%8D%E5%BC%95%E5%AF%BC%E5%88%86%E5%8C%BA%E5%87%BA%E9%94%99"><span class="nav-text">尝试彻底修复引导分区出错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E5%8D%A1%E9%A1%BF%E5%8E%9F%E5%9B%A0"><span class="nav-text">寻找卡顿原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E4%BB%8D%E5%9C%A8"><span class="nav-text">问题仍在</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E7%A3%81%E7%9B%98%E6%89%AB%E6%8F%8F"><span class="nav-text">启动磁盘扫描</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E5%88%B0%E6%9C%80%E5%88%9D%E7%9A%84%E9%94%99%E8%AF%AF"><span class="nav-text">回到最初的错误</span></a></li></ol>
 
     </div>
 </div>
