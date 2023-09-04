@@ -13,24 +13,18 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://blog.lsmcloud.top/2023/08/16/记一次azure突然无法访问互联网/"/>
+    <link rel="canonical" href="http://blog.lsmcloud.top/tags/前端开发/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="8月13日，突然clash订阅就不能用了，显示i&#x2F;o timeout   最开始以为是被墙了  当时第一反应就是被墙了，但是经过ip和端口的ping和curl测试发现没有被墙，域名也没有被抢   完全无法访问外网  通过azure cls登录后，发现v2ray和Nginx都在正常运行，所以也排除了脚本出问题  这个时候我想用apt update检查依赖并且更新依赖，结果得到了无法访问u">
-<meta property="og:type" content="article">
-<meta property="og:title" content="记一次azure突然无法访问互联网">
-<meta property="og:url" content="http://blog.lsmcloud.top/2023/08/16/%E8%AE%B0%E4%B8%80%E6%AC%A1azure%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E4%BA%92%E8%81%94%E7%BD%91/index.html">
+        <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://blog.lsmcloud.top/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="8月13日，突然clash订阅就不能用了，显示i&#x2F;o timeout   最开始以为是被墙了  当时第一反应就是被墙了，但是经过ip和端口的ping和curl测试发现没有被墙，域名也没有被抢   完全无法访问外网  通过azure cls登录后，发现v2ray和Nginx都在正常运行，所以也排除了脚本出问题  这个时候我想用apt update检查依赖并且更新依赖，结果得到了无法访问u">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://files.lsmcloud.top/blog202308161120843.png">
-<meta property="article:published_time" content="2023-08-16T02:30:21.000Z">
-<meta property="article:modified_time" content="2023-08-16T03:33:51.746Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://files.lsmcloud.top/blog202308161120843.png">
     
     
     <!--- Icon Part-->
@@ -42,7 +36,7 @@
     
     <title>
         
-            记一次azure突然无法访问互联网 -
+            Tag: 前端开发 -
         
         力崽的blog
     </title>
@@ -352,262 +346,39 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="post-page-container">
-        <div class="article-content-container">
-
-            
-                      
-                <div class="article-title">
-                    <img src="https://files.lsmcloud.top/blog202308161033592.png" alt="记一次azure突然无法访问互联网" />
-                    <h1 class="article-title-cover">记一次azure突然无法访问互联网</h1>
-                </div>
-            
-                
-            
-
-            
-                <div class="article-header">
-                    <div class="avatar">
-                        <img src="/images/avatar.svg">
-                    </div>
-                    <div class="info">
-                        <div class="author">
-                            <span class="name">力崽！</span>
-                            
-                                <span class="author-label">Lv2</span>
-                            
-                        </div>
-                        <div class="meta-info">
-                            <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2023-08-16 10:30:21</span>
-        <span class="mobile">2023-08-16 10:30</span>
-        <span class="hover-info">Created</span>
-    </span>
-    
-        <span class="article-date article-meta-item">
-            <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-08-16 11:33:51</span>
-            <span class="mobile">2023-08-16 11:33</span>
-            <span class="hover-info">Updated</span>
-        </span>
-    
-
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa-regular fa-folders"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E4%BA%91%E6%9C%8D%E5%8A%A1/">云服务</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        &gt; <a href="/categories/%E4%BA%91%E6%9C%8D%E5%8A%A1/azure/">azure</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-
-    
-    
-    
-    
-        <span class="article-pv article-meta-item">
-            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
-        </span>
-    
-</div>
-
-                        </div>
-                    </div>
-                </div>
-            
-
-            <div class="article-content markdown-body">
-                <blockquote>
-<p>8月13日，突然clash订阅就不能用了，显示i&#x2F;o timeout</p>
-</blockquote>
-<ol>
-<li><p>最开始以为是被墙了</p>
-<ul>
-<li>当时第一反应就是被墙了，但是经过ip和端口的ping和curl测试发现没有被墙，域名也没有被抢</li>
-</ul>
-</li>
-<li><p>完全无法访问外网</p>
-<ul>
-<li><p>通过azure cls登录后，发现v2ray和Nginx都在正常运行，所以也排除了脚本出问题</p>
-</li>
-<li><p>这个时候我想用apt update检查依赖并且更新依赖，结果得到了无法访问ubuntu依赖仓库的报错</p>
-</li>
-<li><p>这个时候事情就变得魔幻了，我开始尝试</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.google.com</span><br></pre></td></tr></table></figure></div>
-
-<p>但是发现package 100% loss</p>
-<p>但是</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 127.0.0.1</span><br></pre></td></tr></table></figure></div>
-
-<p>完全正常</p>
-</li>
-</ul>
-</li>
-<li><p>检查dns</p>
-<ul>
-<li>论坛上查询后有人说可能是dns解析时间过长（因为azure默认使用由azure特别提供的dns，然而这个dns会定期抽风），于是我将vps的dns换成了1.1.1.1，但是无济于事，并且我ping 1.1.1.1也是不通的，所以应该不是dns解析的问题</li>
-</ul>
-</li>
-<li><p>检查防火墙规则</p>
-<ul>
-<li>接下来有人说可能是防火墙，但是我的ubuntu本身的防火墙早就为了省事禁用了，azure自己的安全组也是早就配好了的，为了验证这一点，我甚至尝试直接允许了所有inbounds和所有outbounds，但是还是不行</li>
-</ul>
-</li>
-<li><p>检查虚拟网卡</p>
-<ul>
-<li><p>在一段长时间痛苦的迷思之后我想到了NIC，azrure的vps都是通过虚拟网卡获得mac地址并且上网的，而这个虚拟网卡，根据论坛网友的反馈，也经常抽风</p>
-</li>
-<li><p>我一开始想的是干脆把整个网络服务重启算了</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service network restart</span><br></pre></td></tr></table></figure></div>
-
-<p>结果vps没有network这个service</p>
-</li>
-<li><p>所以还是通过卸载网卡来处理</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure></div>
-
-<p>首先查看网络配置</p>
-<p>发现了虚拟网卡eth0</p>
-<p>接着卸载它</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig eth0 down</span><br></pre></td></tr></table></figure></div>
-
-<p>本来我下一步是up，结果我忘了我是远程连接vps的，这一下直接给vps干失联了…</p>
-</li>
-<li><p>但是最好玩的是当我回到控制台，发现vps正在重启，重启完成以后，vps又能正常上网了，clash也能用了…</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://files.lsmcloud.top/blog202308161120843.png"
-                     
-                ></p>
-</li>
-</ul>
-</li>
-<li><p>复盘</p>
-<ul>
-<li><p>其实我到现在也没想明白导致这一切的原因，不过有一种可能的解释：</p>
-<ul>
-<li><p>我是通过vmess+tls+wf+tcp出境的，为了访问chatgpt还套了一层cloudflare warp</p>
-</li>
-<li><p>这一套虽然用起来很爽，但是因为我两个部分使用github上不同大神的不同一键脚本分别部署的，而这两个脚本的依赖之间似乎有冲突，所以我运行了一段时间之后，Nginx就突然停止运行了</p>
-</li>
-<li><p>我当时并没有多想，直接重启了Nginx服务，就这样又搞了几周，依赖冲突终于在一天爆炸了，当时我登录后好多命令都不能用了（</p>
-<ul>
-<li><p>为了修复我是这么做的</p>
-</li>
-<li><pre><code class="shell">sudo dpkg --configure -a
-sudo apt-get install -f
-sudo dpkg -i --force-overwrite /var/cache/apt/archives/*package+name*
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  这确实解决了dkpg的问题，但是或许也一起干掉了azure的虚拟网卡需要的一些依赖，因为我当时一心想着重装v2ray，其他被干掉的包都没怎么管</span><br><span class="line"></span><br><span class="line">- 最后我的这条命令</span><br><span class="line"></span><br><span class="line">- ```shell</span><br><span class="line">  ifconfig eth0 down</span><br></pre></td></tr></table></figure></div>
-
-或许触发了azure vps的某种保护机制，促使azure重新为我的vps装载了虚拟网卡
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<blockquote>
-<p>后记：</p>
-<p>问题解决了吗？我想没有，也许再过两天Nginx又会停止运行，下一次遇见这个问题，我不能再像个无头苍蝇一样乱搞了，应该先读一读那两个脚本的源码，看看它们到底对我的vps做了什么…</p>
-</blockquote>
-
-            </div>
-
-            
-                <div class="post-copyright-info">
-                    <div class="article-copyright-info-container">
-    <ul>
-        <li><strong>Title:</strong> 记一次azure突然无法访问互联网</li>
-        <li><strong>Author:</strong> 力崽！</li>
-        <li><strong>Created at:</strong> 2023-08-16 10:30:21</li>
-        
-            <li>
-                <strong>Updated at:</strong> 2023-08-16 11:33:51
-            </li>
-        
-        <li>
-            <strong>Link:</strong> https://blog.lsmcloud.top/2023/08/16/记一次azure突然无法访问互联网/
-        </li>
-        <li>
-            <strong>License:</strong> This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
-        </li>
-    </ul>
-</div>
-
-                </div>
-            
-
-            
-
-            
-
-            
-                <div class="article-nav">
-                    
-                        <div class="article-prev">
-                            <a class="prev"
-                            rel="prev"
-                            href="/2023/08/16/%E5%AD%A6%E4%B9%A0next-js/"
-                            >
-                                <span class="left arrow-icon flex-center">
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                </span>
-                                <span class="title flex-center">
-                                    <span class="post-nav-title-item">学习next.js</span>
-                                    <span class="post-nav-item">Prev posts</span>
-                                </span>
-                            </a>
-                        </div>
-                    
-                    
-                        <div class="article-next">
-                            <a class="next"
-                            rel="next"
-                            href="/2023/07/21/Android%E5%BC%80%E5%8F%91%E5%9D%91%E6%80%BB%E7%BB%93/"
-                            >
-                                <span class="title flex-center">
-                                    <span class="post-nav-title-item">Android开发坑总结</span>
-                                    <span class="post-nav-item">Next posts</span>
-                                </span>
-                                <span class="right arrow-icon flex-center">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </span>
-                            </a>
-                        </div>
-                    
-                </div>
-            
-
-
-            
+    <div class="tag-container">
+        <div class="tag-name"><i class="fa-solid fa-tag"></i>&nbsp;前端开发
         </div>
-
-        
-            <div class="toc-content-container">
-                <div class="post-toc-wrap">
-    <div class="post-toc">
-        <div class="toc-title">On this page</div>
-        <div class="page-title">记一次azure突然无法访问互联网</div>
-        
-
-    </div>
-</div>
+        <div class="tag-post-list">
+            
+<div class="archive-list-container">
+    
+        <section class="archive-item">
+            <div class="archive-item-header">
+                <span class="archive-year">2023</span>
+                <span class="archive-year-post-count">[1]</span>
             </div>
-        
+            <ul class="article-list">
+              
+              <li class="article-item" date-is='08-16'>
+                <a href="/2023/08/16/%E5%AD%A6%E4%B9%A0next-js/">
+                  <span class="article-title">学习next.js</span>
+                </a>
+              </li>
+              
+            </ul>
+        </section>
+    
+</div>
+
+        </div>
+    </div>
+
+    <div class="tag-paginator">
+        <div class="paginator">
+    <span class="page-number current">1</span>
+</div>
+
     </div>
 </div>
 
@@ -685,23 +456,6 @@ sudo dpkg -i --force-overwrite /var/cache/apt/archives/*package+name*
         </div>
     </div>
 
-    
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="article-tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="right-bottom-tools page-aside-toggle">
-                <i class="fa-regular fa-outdent"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-    </ul>
-</div>
-
-        </div>
     
 
     <div class="right-side-tools-container">
@@ -813,16 +567,6 @@ sudo dpkg -i --force-overwrite /var/cache/apt/archives/*package+name*
 
 
 <div class="post-scripts pjax">
-    
-        
-<script src="/js/tools/tocToggle.js"></script>
-
-<script src="/js/libs/anime.min.js"></script>
-
-<script src="/js/layouts/toc.js"></script>
-
-<script src="/js/plugins/tabs.js"></script>
-
     
 </div>
 
