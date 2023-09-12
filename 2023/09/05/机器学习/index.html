@@ -26,7 +26,7 @@
 <meta property="og:description" content="机器学习人工智能的三大基石技术之一 推理 知识 学习  利用经验改善系统的性能 经典机器学习学习是一个蕴含特定目的的知识获取过程，其内部表现为新知识的不断建立和修正，而外部表现则为性能改善 现代机器学习任何通过数据训练的学习算法都属于机器学习  线性回归 K-均值聚类 主成分分析 决策树和随机森林 支持向量机 人工神经网络  学习系统stateDiagram  模型空间 --&gt; 学习算法  数据">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-05T10:31:20.000Z">
-<meta property="article:modified_time" content="2023-09-05T13:26:40.460Z">
+<meta property="article:modified_time" content="2023-09-12T14:51:01.912Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
@@ -396,8 +396,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-09-05 21:26:40</span>
-            <span class="mobile">2023-09-05 21:26:40</span>
+            <span class="desktop">2023-09-12 22:51:01</span>
+            <span class="mobile">2023-09-12 22:51:01</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -562,6 +562,156 @@
 <li>深度强化学习</li>
 <li>…</li>
 </ul>
+<h2 id="概率与学习：KNN"><a href="#概率与学习：KNN" class="headerlink" title="概率与学习：KNN"></a>概率与学习：KNN</h2><p>拿到数据之后，首先做一个特征工程（手动），得到比如一个特征向量</p>
+<p>但是现在又有深度学习了，可以学习到数据的特征</p>
+<h3 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h3><p>训练集</p>
+<p>$$D_{trian} &#x3D; {(x_1,y_1),(x_2,y_2),…,(x_n,y_n)}$$</p>
+<p>训练样本是这些x，它们一般是向量</p>
+<p>样本标签是这些y，标签有时候是离散的，比如猫、狗，有时是连续的，比如身高</p>
+<p>还要一个测试集来检验</p>
+<h3 id="回归问题"><a href="#回归问题" class="headerlink" title="回归问题"></a>回归问题</h3><h3 id="K近邻分类器"><a href="#K近邻分类器" class="headerlink" title="K近邻分类器"></a>K近邻分类器</h3><ol>
+<li>计算样本$\bar{x}$和$D_{train}$中所有训练样本之间的距离</li>
+<li>对计算的距离&#x2F;相似度进行升序（降序）排列</li>
+<li>选择k个最近的训练样本</li>
+<li>采用投票法，将近邻样本数最多的类别标签分配给$\bar{x}$</li>
+</ol>
+<h4 id="最近邻分类器"><a href="#最近邻分类器" class="headerlink" title="最近邻分类器"></a>最近邻分类器</h4><p>$$letk&#x3D;1$$</p>
+<ul>
+<li>泛化错误率：即便最近邻分类器如此简单，<strong>最近邻分类器的错误率没有超过贝叶斯分类器的两倍</strong></li>
+</ul>
+<h4 id="k-近邻回归"><a href="#k-近邻回归" class="headerlink" title="k-近邻回归"></a>k-近邻回归</h4><p>将标签进行加和</p>
+<p>更好的方式是离我越近的，我就给越大的权重，做加权平均：一种简单的方式是令权重为距离的倒数</p>
+<h4 id="近邻平滑"><a href="#近邻平滑" class="headerlink" title="近邻平滑"></a>近邻平滑</h4><h5 id="核平滑法"><a href="#核平滑法" class="headerlink" title="核平滑法"></a>核平滑法</h5><ul>
+<li>二次核</li>
+<li>次方核</li>
+<li>高斯核</li>
+<li>…</li>
+</ul>
+<p>k-NN是典型的“懒惰学习”</p>
+<ul>
+<li>训练阶段把样本存起来，啥也不做，所以训练开销为0</li>
+<li>拿到了测试样本才真正开始计算</li>
+<li>这在样本较小时是比较舒服的，但是如果样本很多就寄咯</li>
+</ul>
+<p>SVM、CNN等是“急切学习”</p>
+<p>训练阶段就对样本进行了学习处理，这类方法尝试在训练期间构造一个通用的、预输入无关的目标函数</p>
+<h4 id="KNN，评价"><a href="#KNN，评价" class="headerlink" title="KNN，评价"></a>KNN，评价</h4><p>优点：</p>
+<ul>
+<li>精度高</li>
+<li>对异常值不敏感（把k设大点）</li>
+<li>无数据输入假定</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>计算复杂度高：<ul>
+<li>训练阶段：0</li>
+<li>测试阶段：$O(nd+nlogk)$<ul>
+<li>logk是因为只用排出前k个，不用全拍了，所以不是快排的$nlogn$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>空间复杂度高</li>
+</ul>
+<h4 id="降低计算难度"><a href="#降低计算难度" class="headerlink" title="降低计算难度"></a>降低计算难度</h4><ul>
+<li>特征维度2-5：维诺图 Voronoi diagrams<ul>
+<li>根据一组给定的目标，将平面划分成靠近每一个目标的多个区块</li>
+<li>维诺单元：X是一个点集，包含K个基点<ul>
+<li>$$R_k&#x3D;{x \in X|d}$$</li>
+<li>维诺单元永远是凸多边形</li>
+<li>不同的距离度量得到不同的维诺图</li>
+<li>查询或测试<ul>
+<li>二维数据：计算图$O(nlogn)$ 查询$O(logn)$</li>
+<li>多维可以做树优化，但是复杂度很难量化</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>特征维度6-30：KD-Tree<ul>
+<li>KD树是一种对K维空间中的实例点进行存储以便对其进行快速检索</li>
+<li>构造流程<ol>
+<li>确定split域，计算每个特征维度的方差，方差最大的维度即为split域的值</li>
+<li>确定Node-data域，数据集点集按期第split域的值排序</li>
+<li>。。。</li>
+</ol>
+</li>
+<li>时间复杂度<ul>
+<li>排序算法选得好的话$O(nlogn)$</li>
+<li>查询：$O(logn)$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>高维特征：<ul>
+<li>降维算法，例如PCA</li>
+<li>近似最近邻（approximate nearest neighbor，ANN）<ul>
+<li>核心思想：搜索可能是近邻的数据项而不再只局限于返回最可能的数据项，在牺牲可接受范围内精度的情况下提高检索效率</li>
+</ul>
+</li>
+<li>哈希（hashing）用简单的特征比如01代替复杂的特征比如实数<ul>
+<li>利用hash将任意长度的输入映射为固定长度的输出</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="概率化KNN"><a href="#概率化KNN" class="headerlink" title="概率化KNN"></a>概率化KNN</h4><p>传统knn的主要问题是不建立在任何概率框架上</p>
+<h3 id="K近邻算法的前途"><a href="#K近邻算法的前途" class="headerlink" title="K近邻算法的前途"></a>K近邻算法的前途</h3><p>小样本学习</p>
+<h2 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h2><p><strong>聚类的好坏不存在绝对的标准</strong></p>
+<p>聚类也许是机器学习中“新算法”出现最多、最快的领域，总能找到一个新的“标准”，使以往算法对它无能为力</p>
+<h3 id="聚类算法"><a href="#聚类算法" class="headerlink" title="聚类算法"></a>聚类算法</h3><p>根据给定的相似性评价标准，将一个数据集合分组&#x2F;划分成几个聚类（簇）</p>
+<h3 id="数学形式化"><a href="#数学形式化" class="headerlink" title="数学形式化"></a>数学形式化</h3><h3 id="聚类的依据"><a href="#聚类的依据" class="headerlink" title="聚类的依据"></a>聚类的依据</h3><p>将整个数据集中每个样本的特征向量看成是分布在特征空间中的一些点，点与点之间的距离可以作为相似度</p>
+<h3 id="一个好的聚类算法："><a href="#一个好的聚类算法：" class="headerlink" title="一个好的聚类算法："></a>一个好的聚类算法：</h3><ul>
+<li>内部高相似性</li>
+<li>之间低相似性</li>
+</ul>
+<h3 id="类的特征"><a href="#类的特征" class="headerlink" title="类的特征"></a>类的特征</h3><ul>
+<li>不是实现给定的</li>
+<li>聚类的数目和结构都没有实现假定</li>
+</ul>
+<h3 id="目的是寻找数据中的"><a href="#目的是寻找数据中的" class="headerlink" title="目的是寻找数据中的"></a>目的是寻找数据中的</h3><ul>
+<li>潜在的自然分组结构</li>
+<li>感兴趣的关系</li>
+</ul>
+<h3 id="距离度量对聚类的影响"><a href="#距离度量对聚类的影响" class="headerlink" title="距离度量对聚类的影响"></a>距离度量对聚类的影响</h3><p>数据的粗聚类是2类，细聚类是四类（因为距离度量函数不同）</p>
+<h3 id="数据分部形式影响聚类分析的有效性"><a href="#数据分部形式影响聚类分析的有效性" class="headerlink" title="数据分部形式影响聚类分析的有效性"></a>数据分部形式影响聚类分析的有效性</h3><h3 id="距离度量"><a href="#距离度量" class="headerlink" title="距离度量"></a>距离度量</h3><h4 id="度量空间与度量函数"><a href="#度量空间与度量函数" class="headerlink" title="度量空间与度量函数"></a>度量空间与度量函数</h4><p>一个有序对$(X,d)$,X是一个集合，d是X上的度量函数，d将X中的每一对点$(x,y)$映射到一个非负实数，并满足一下四条公理</p>
+<ul>
+<li>非负</li>
+<li>唯一 $d(x,y)&#x3D;0 \leftrightarrow x&#x3D;y $</li>
+<li>对称 $d(x,y)&#x3D;d(y,x)$</li>
+<li>三角不等式 $x,y,z \in X, d(x,z)\leq d(x,y)+d(y,z)$</li>
+<li>常用度量函数是前面讲到的一些距离，还有一个是把欧式、曼哈顿和切比雪夫距离囊括的闵可夫斯基距离（Minkowski distance）</li>
+</ul>
+<h3 id="聚类准则"><a href="#聚类准则" class="headerlink" title="聚类准则"></a>聚类准则</h3><ul>
+<li>xi和xj之间的距离小于某个阈值就是一起的<ul>
+<li>$d(x_i,x_j)\leq h$</li>
+</ul>
+</li>
+<li>试探方法</li>
+<li>聚类准则函数方法<ul>
+<li>$J&#x3D;$</li>
+</ul>
+</li>
+</ul>
+<h3 id="基于试探的聚类搜索算法"><a href="#基于试探的聚类搜索算法" class="headerlink" title="基于试探的聚类搜索算法"></a>基于试探的聚类搜索算法</h3><h4 id="按最近邻规则的简单试探法"><a href="#按最近邻规则的简单试探法" class="headerlink" title="按最近邻规则的简单试探法"></a>按最近邻规则的简单试探法</h4><p>任取一个样本$x_i$作为聚类中心的初始值，例如z1&#x3D;x1</p>
+<p>计算$D_{21}&#x3D;||x_2-z_1||$</p>
+<p>如果小于阈值T，那么x2和z1在同一个聚类</p>
+<p>如果大于，那么x2形成新的聚类中心z2&#x3D;x1</p>
+<p>接下来对于已经存在z1，z2…zn的情况，xn进来尝试归到小于阈值且最近的聚类中，如果都大于阈值，那么形成新的聚类</p>
+<h5 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h5><ol>
+<li>样本初始选取产生不同分类</li>
+<li>样本顺序不同产生不同聚类</li>
+<li>阈值不同产生不同聚类</li>
+</ol>
+<h4 id="最大最小距离算法"><a href="#最大最小距离算法" class="headerlink" title="最大最小距离算法"></a>最大最小距离算法</h4><p>基本思想：以试探类间欧式几何距离为最大作为预选出聚类中心的条件</p>
+<ol>
+<li>任意选一个样本作为第一个聚类中心z1&#x3D;x1</li>
+<li>选距离z1最远的样本作为第二个聚类中心，比如z2&#x3D;x6</li>
+<li>逐个计算剩下样本与z1，z2间的距离，并选出其中最小距离</li>
+<li>又选出最小值中的最大值，若改制达到z1-z2一定比例以上，那么取相应样本点为新的聚类中心</li>
+</ol>
 
         </div>
 
@@ -576,7 +726,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2023-09-05 21:26:40
+                    :</strong> 2023-09-12 22:51:01
             </li>
         
         <li>
@@ -656,7 +806,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">机器学习</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="nav-text">机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E4%B8%89%E5%A4%A7%E5%9F%BA%E7%9F%B3%E6%8A%80%E6%9C%AF%E4%B9%8B%E4%B8%80"><span class="nav-text">人工智能的三大基石技术之一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="nav-text">经典机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E4%BB%A3%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="nav-text">现代机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F"><span class="nav-text">学习系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E5%85%B3%E7%B3%BB%E5%9B%BE"><span class="nav-text">学习方法关系图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B"><span class="nav-text">学习过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E5%92%8C%E5%9B%9E%E5%BD%92"><span class="nav-text">分类和回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%84%E6%9C%AF%E8%AF%AD%E5%8F%8A%E5%85%B6%E6%A0%87%E8%AE%B0"><span class="nav-text">常规术语及其标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%B4%E6%95%B0%E7%81%BE%E9%9A%BE"><span class="nav-text">维数灾难</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E5%88%92%E5%88%86"><span class="nav-text">数据集的划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E6%A8%A1%E6%9C%89%E5%85%B3%E7%9A%84%E8%A6%81%E7%B4%A0"><span class="nav-text">建模有关的要素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%EF%BC%88Over-fitting%EF%BC%89"><span class="nav-text">过拟合（Over-fitting）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-text">欠拟合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98"><span class="nav-text">机器学习的共性问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9"><span class="nav-text">模型选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96%E5%8F%AF%E7%94%A8"><span class="nav-text">正则化可用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="nav-text">评价指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROC%E6%9B%B2%E7%BA%BF"><span class="nav-text">ROC曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%B9%B3%E8%A1%A1%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">不平衡数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E9%87%8F%E7%B2%BE%E5%BA%A6"><span class="nav-text">测量精度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88%E9%AA%8C%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="nav-text">先验的重要性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%91%E5%B0%8F%E9%B8%AD%E5%AE%9A%E7%90%86"><span class="nav-text">丑小鸭定理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">统计学基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E7%BB%9F%E8%AE%A1%E9%87%8F"><span class="nav-text">数据集的统计量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F%E5%87%BD%E6%95%B0"><span class="nav-text">距离度量函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83"><span class="nav-text">数据分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E7%8E%87"><span class="nav-text">概率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E8%A7%92%E5%BA%A6%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E5%88%86%E7%B1%BB"><span class="nav-text">概率角度的机器学习方法分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%8A%80%E6%9C%AF%E6%96%B0%E5%8F%91%E5%B1%95"><span class="nav-text">机器学习技术新发展</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="nav-text">机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E4%B8%89%E5%A4%A7%E5%9F%BA%E7%9F%B3%E6%8A%80%E6%9C%AF%E4%B9%8B%E4%B8%80"><span class="nav-text">人工智能的三大基石技术之一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="nav-text">经典机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E4%BB%A3%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="nav-text">现代机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F"><span class="nav-text">学习系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E5%85%B3%E7%B3%BB%E5%9B%BE"><span class="nav-text">学习方法关系图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B"><span class="nav-text">学习过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E5%92%8C%E5%9B%9E%E5%BD%92"><span class="nav-text">分类和回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%84%E6%9C%AF%E8%AF%AD%E5%8F%8A%E5%85%B6%E6%A0%87%E8%AE%B0"><span class="nav-text">常规术语及其标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%B4%E6%95%B0%E7%81%BE%E9%9A%BE"><span class="nav-text">维数灾难</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E5%88%92%E5%88%86"><span class="nav-text">数据集的划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E6%A8%A1%E6%9C%89%E5%85%B3%E7%9A%84%E8%A6%81%E7%B4%A0"><span class="nav-text">建模有关的要素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%EF%BC%88Over-fitting%EF%BC%89"><span class="nav-text">过拟合（Over-fitting）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-text">欠拟合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98"><span class="nav-text">机器学习的共性问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9"><span class="nav-text">模型选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96%E5%8F%AF%E7%94%A8"><span class="nav-text">正则化可用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="nav-text">评价指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROC%E6%9B%B2%E7%BA%BF"><span class="nav-text">ROC曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%B9%B3%E8%A1%A1%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">不平衡数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E9%87%8F%E7%B2%BE%E5%BA%A6"><span class="nav-text">测量精度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88%E9%AA%8C%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="nav-text">先验的重要性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%91%E5%B0%8F%E9%B8%AD%E5%AE%9A%E7%90%86"><span class="nav-text">丑小鸭定理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">统计学基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E7%BB%9F%E8%AE%A1%E9%87%8F"><span class="nav-text">数据集的统计量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F%E5%87%BD%E6%95%B0"><span class="nav-text">距离度量函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83"><span class="nav-text">数据分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E7%8E%87"><span class="nav-text">概率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E8%A7%92%E5%BA%A6%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E5%88%86%E7%B1%BB"><span class="nav-text">概率角度的机器学习方法分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%8A%80%E6%9C%AF%E6%96%B0%E5%8F%91%E5%B1%95"><span class="nav-text">机器学习技术新发展</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E4%B8%8E%E5%AD%A6%E4%B9%A0%EF%BC%9AKNN"><span class="nav-text">概率与学习：KNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="nav-text">分类问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98"><span class="nav-text">回归问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K%E8%BF%91%E9%82%BB%E5%88%86%E7%B1%BB%E5%99%A8"><span class="nav-text">K近邻分类器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E7%9A%84%E5%89%8D%E9%80%94"><span class="nav-text">K近邻算法的前途</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-text">无监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95"><span class="nav-text">聚类算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%BD%A2%E5%BC%8F%E5%8C%96"><span class="nav-text">数学形式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%9A%E7%B1%BB%E7%9A%84%E4%BE%9D%E6%8D%AE"><span class="nav-text">聚类的依据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9A%84%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="nav-text">一个好的聚类算法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E7%89%B9%E5%BE%81"><span class="nav-text">类的特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84%E6%98%AF%E5%AF%BB%E6%89%BE%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84"><span class="nav-text">目的是寻找数据中的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F%E5%AF%B9%E8%81%9A%E7%B1%BB%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-text">距离度量对聚类的影响</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E9%83%A8%E5%BD%A2%E5%BC%8F%E5%BD%B1%E5%93%8D%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E7%9A%84%E6%9C%89%E6%95%88%E6%80%A7"><span class="nav-text">数据分部形式影响聚类分析的有效性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F"><span class="nav-text">距离度量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%9A%E7%B1%BB%E5%87%86%E5%88%99"><span class="nav-text">聚类准则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%AF%95%E6%8E%A2%E7%9A%84%E8%81%9A%E7%B1%BB%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95"><span class="nav-text">基于试探的聚类搜索算法</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
