@@ -25,11 +25,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="服务端开发Spring boot 开发框架 可以创建独立的Spring应用程序，并且基于其Maven或Gradle插件，可以创建可执行的JARs和WARs（不需要其他依赖直接就能跑） 内嵌Tomcat或Jetty等Serverlet容器（Web容器） 提供自动配置的starter项目对象模型以简化Maven配置（依赖集成） 尽可能自动配置Spring容器 提供准备好的特性 绝对没有代码生成  Ob">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://files.lsmcloud.top/blogfd16269c704e3fd4b9c8b5ff32294864.png">
 <meta property="article:published_time" content="2023-09-07T10:41:06.000Z">
-<meta property="article:modified_time" content="2023-09-07T13:27:11.363Z">
+<meta property="article:modified_time" content="2023-09-14T13:32:33.783Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="需求与商业模式创新">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://files.lsmcloud.top/blogfd16269c704e3fd4b9c8b5ff32294864.png">
     
     
     <!--- Icon Part-->
@@ -396,8 +398,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-09-07 21:27:11</span>
-            <span class="mobile">2023-09-07 21:27:11</span>
+            <span class="desktop">2023-09-14 21:32:33</span>
+            <span class="mobile">2023-09-14 21:32:33</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -469,14 +471,63 @@
 <li>提供准备好的特性</li>
 <li>绝对没有代码生成</li>
 </ol>
-<h4 id="ObjectBeanComponent"><a href="#ObjectBeanComponent" class="headerlink" title="ObjectBeanComponent"></a>Object<del>Bean</del>Component</h4><h4 id="Jar-和-War-的区别"><a href="#Jar-和-War-的区别" class="headerlink" title="Jar 和 War 的区别"></a>Jar 和 War 的区别</h4><p>Jar比较大，因为它能直接跑，War里面没有Tomcat，不能直接跑</p>
+<h4 id="ObjectBeanComponent"><a href="#ObjectBeanComponent" class="headerlink" title="ObjectBeanComponent"></a>Object<del>Bean</del>Component</h4><p>Component更加面向业务</p>
+<p>Bean更加抽象一点，是spring管理的一个基本单元</p>
+<p>object面向对象语言中的对象</p>
+<h4 id="Jar-和-War-的区别"><a href="#Jar-和-War-的区别" class="headerlink" title="Jar 和 War 的区别"></a>Jar 和 War 的区别</h4><p>Jar比较大，因为它能直接跑，War里面没有Tomcat，不能直接跑</p>
 <p>Thymeleaf 模版解析器，用于生成动态的HTML页面</p>
 <p>没有特别指定的版本号都用parent里面对应的版本号</p>
 <h4 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h4><p>这个注解至少包括了三个注解类：</p>
 <p>@<strong>SpringBootConfiguration</strong></p>
 <p>@<strong>EnableAutoConfiguration</strong></p>
 <p>@<strong>ComponentScan</strong>：Spring boot按照参数中给出的路径，针对特定的type，扫描类定义，在看到@Component注解时进行示例化</p>
-<h3 id="开发框架的分层"><a href="#开发框架的分层" class="headerlink" title="开发框架的分层"></a>开发框架的分层</h3>
+<h3 id="开发框架的分层"><a href="#开发框架的分层" class="headerlink" title="开发框架的分层"></a>开发框架的分层</h3><h3 id="Spring的衍生"><a href="#Spring的衍生" class="headerlink" title="Spring的衍生"></a>Spring的衍生</h3><p>Springboot</p>
+<p>springcloud</p>
+<h3 id="Junit测试用例"><a href="#Junit测试用例" class="headerlink" title="Junit测试用例"></a>Junit测试用例</h3><ul>
+<li>使用@Test</li>
+<li>使用void进行修饰</li>
+<li>assert，对预期结果的断定</li>
+</ul>
+<h3 id="开发期工具：Spring-boot-DevTools"><a href="#开发期工具：Spring-boot-DevTools" class="headerlink" title="开发期工具：Spring boot DevTools"></a>开发期工具：Spring boot DevTools</h3><h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><h4 id="Bean的生命周期"><a href="#Bean的生命周期" class="headerlink" title="Bean的生命周期"></a>Bean的生命周期</h4><h4 id="应用上下文"><a href="#应用上下文" class="headerlink" title="应用上下文"></a>应用上下文</h4><ul>
+<li>AnnotationConfigApplicationContext</li>
+<li>AnnotationConfigWebApplicationContext</li>
+<li>ClassPathXmlApplicationContext（基于xml文件建立的应用上下文）</li>
+</ul>
+<h4 id="注解配置-Recommended"><a href="#注解配置-Recommended" class="headerlink" title="注解配置(Recommended)"></a>注解配置(Recommended)</h4><p>@Component但是有的类需要初始化属性，所以可以使用@Autowired(命令spring去上下文中寻找符合类型要求的对象，如果找到了并且只找到一个，那么直接注入，没找到直接失败，如果找到了多个对象也会报错 可以使用@Primary让Spring优先注入某类实例，也可以通过@Qualifier(cd【Bean的id】，这个id默认是当前类的名字，也可以通过@Component(Bean的id)来指定)来要求spring只寻找cd来注入) 这个注解可以加到属性上，也可以加到构造函数上</p>
+<p>配置类</p>
+<p>@Configuration 说明这是一个配置类</p>
+<p>@ComponentScan 命令Spring去扫描当前类所在的包及自报加了@Component注解的类并实例化，也可以使用@ComponentScan(basePackages &#x3D; {“soudsystem”,”abc”,…})指定想扫描的包路径（这是类型不安全的，因为都是字符串）或是@ComponentScan(basePackageClasses&#x3D;CDplayer.class)让spring去指定的类所在的包下去搜索（这是类型安全的，但是面对代码重构是error pone的，为了处理，我们可以干脆在要指定的包下建立一个空接口）</p>
+<p>通过注解配置建立上下文</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ApplicationContext</span> <span class="variable">ctx</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AnnotationConfigApplicationContent</span>(CDplayerConfig.class);</span><br><span class="line"><span class="type">MediaPlayer</span> <span class="variable">player</span> <span class="operator">=</span> ctx.getBean(Mediaplayer.class);</span><br><span class="line">player.play();</span><br></pre></td></tr></table></figure></div>
+
+<p>在测试中使用</p>
+<p>@ContextConfiguration(classes &#x3D; CDplayerConfig)</p>
+<p>System.getProperty(“line.separator”)可以获得当前系统的换行符</p>
+<h4 id="XML配置"><a href="#XML配置" class="headerlink" title="XML配置"></a>XML配置</h4><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xml:c</span>=<span class="string">&quot;spring/schema/c&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;compactDisc&quot;</span> <span class="attr">class</span> =<span class="string">&quot;SoundSystem.Compact&quot;</span> <span class="attr">c:_0</span>=<span class="string">&quot;使用c命名空间为第一个参数指定值&quot;</span> <span class="attr">c:_1-ref</span>=<span class="string">&quot;compactDisc&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;cdPlayer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;soundsystem.CDPlayer&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">ref</span>=<span class="string">&quot;compactDisc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">value</span>=<span class="string">&quot;use value to assgin args&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">consttuctor-arg</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>2<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">consttuctor-arg</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;compactDisc&quot;</span> <span class="attr">class</span> =<span class="string">&quot;SoundSystem.Compact&quot;</span> <span class="attr">p:compactDisc-ref</span>=<span class="string">&quot;通过p命名空间&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>@ContextCOnfiguration(locations&#x3D;)</p>
+<h4 id="javaconfig配置-实例化第三方库的时候用得到"><a href="#javaconfig配置-实例化第三方库的时候用得到" class="headerlink" title="javaconfig配置(实例化第三方库的时候用得到)"></a>javaconfig配置(实例化第三方库的时候用得到)</h4><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CDPlayerConfig</span>&#123;</span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="keyword">public</span> CompactDisc <span class="title function_">compactDisc</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">SgtPeppers</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="meta">@Bean(name = &quot;player1&quot;)</span> <span class="comment">//这玩意儿效果和@Autowired一样</span></span><br><span class="line">  <span class="comment">//当spring发现这里有一个参数时，它会像注解配置那样去找可能的实例</span></span><br><span class="line">  <span class="keyword">public</span> CDplayer <span class="title function_">cdPlayer</span><span class="params">(CompactDisc cd)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">CDPlayer</span>(cd);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="meta">@Bean</span> <span class="comment">// 不指定默认name为方法的名字</span></span><br><span class="line">  <span class="keyword">public</span> CDplayer <span class="title function_">cdPlayer2</span><span class="params">(CompactDisc cd)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">CDPlayer</span>(compactDisc());</span><br><span class="line">    <span class="comment">// spring并不会乖乖去调用compactDisc()，当它注意到上文的compactDisc()已经被@Bean实例化，它会拦截后面所有的的compactDisc()，并直接使用上下文中已有的compactDisc()实例填入</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="混合配制"><a href="#混合配制" class="headerlink" title="混合配制"></a>混合配制</h4><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@Import(CDPlayerConfig.class)</span><span class="comment">//这是configuration的根</span></span><br><span class="line"><span class="meta">@ImportResource(一个xml文件)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SoundSystemConfig</span>()&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="Bean的生命周期-1"><a href="#Bean的生命周期-1" class="headerlink" title="Bean的生命周期"></a>Bean的生命周期</h3><p>BeanNameAware要实现setBeanName</p>
+<p>类似的还有ApplicationContextAware，可以在它的set方法里面获得丰富的信息</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blogfd16269c704e3fd4b9c8b5ff32294864.png"
+                     
+                ></p>
+<h3 id="Java-Faker"><a href="#Java-Faker" class="headerlink" title="Java Faker"></a>Java Faker</h3><p>一个专门构建测试假信息的工具</p>
+<h3 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h3><h4 id="Profiles"><a href="#Profiles" class="headerlink" title="@Profiles"></a>@Profiles</h4><p>根据指定的profile选择性的创建</p>
+<h4 id="Conditional"><a href="#Conditional" class="headerlink" title="@Conditional"></a>@Conditional</h4><p>根据条件选择是否创建</p>
+<h4 id="ScopedBeans"><a href="#ScopedBeans" class="headerlink" title="@ScopedBeans"></a>@ScopedBeans</h4><p>@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)</p>
+<p>让spring不再拦截多实例创建</p>
+<h4 id="制定作用域"><a href="#制定作用域" class="headerlink" title="制定作用域"></a>制定作用域</h4><p>Session 会话 为每个会话创建一个实例</p>
+<p>Request 请求 为每个请求创建一个实例</p>
+
         </div>
 
         
@@ -490,7 +541,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2023-09-07 21:27:11
+                    :</strong> 2023-09-14 21:32:33
             </li>
         
         <li>
@@ -570,7 +621,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">服务端开发</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91"><span class="nav-text">服务端开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-boot-%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6"><span class="nav-text">Spring boot 开发框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E7%9A%84%E5%88%86%E5%B1%82"><span class="nav-text">开发框架的分层</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91"><span class="nav-text">服务端开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-boot-%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6"><span class="nav-text">Spring boot 开发框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E7%9A%84%E5%88%86%E5%B1%82"><span class="nav-text">开发框架的分层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E7%9A%84%E8%A1%8D%E7%94%9F"><span class="nav-text">Spring的衍生</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Junit%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="nav-text">Junit测试用例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E6%9C%9F%E5%B7%A5%E5%85%B7%EF%BC%9ASpring-boot-DevTools"><span class="nav-text">开发期工具：Spring boot DevTools</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="nav-text">依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-1"><span class="nav-text">Bean的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-Faker"><span class="nav-text">Java Faker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="nav-text">其他方法</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
