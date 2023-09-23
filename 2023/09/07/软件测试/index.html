@@ -26,9 +26,9 @@
 <meta property="og:description" content="软件测试 源代码 移动应用 智能软件  方向survey 20% 另一个方向实现工具 30% 期末考试 40% 课堂报告 5% 课堂小测试 5% 课后小测试 5% 自动化是软件测试的一个梦想 什么是bugFault：静态的，就是写错了 Error：跑的时候出错了，或者跑的时候产生的不正确状态 Failure：跑出来的结果是错的 测试用例 execution：运行到出错的代码 infection：触">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-07T06:02:55.000Z">
-<meta property="article:modified_time" content="2023-09-14T09:02:57.569Z">
+<meta property="article:modified_time" content="2023-09-21T08:52:42.214Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="软件测试">
+<meta property="article:tag" content="课程笔记">
 <meta name="twitter:card" content="summary">
     
     
@@ -97,7 +97,119 @@
     
     
     
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -396,8 +508,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-09-14 17:02:57</span>
-            <span class="mobile">2023-09-14 17:02:57</span>
+            <span class="desktop">2023-09-21 16:52:42</span>
+            <span class="mobile">2023-09-21 16:52:42</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -435,7 +547,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">软件测试</a>&nbsp;
+                        <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a>&nbsp;
                     </li>
                 
             </ul>
@@ -521,16 +633,16 @@
         基于互联网群体<br>智能的软件测试</pre>
 
 <h3 id="自动化测试发展路线"><a href="#自动化测试发展路线" class="headerlink" title="自动化测试发展路线"></a>自动化测试发展路线</h3><pre class="mermaid">stateDiagram
-    确定步骤的自动化 --> 非确定步骤的自动化 
-    非确定步骤的自动化 --> 具有学习能力的自动化</pre>
+    确定步骤的自动化 --&gt; 非确定步骤的自动化 
+    非确定步骤的自动化 --&gt; 具有学习能力的自动化</pre>
 
 <h2 id="发展热点之智能软件测试"><a href="#发展热点之智能软件测试" class="headerlink" title="发展热点之智能软件测试"></a>发展热点之智能软件测试</h2><p>有时候删除神经网络的一部分反而会提高了系统的准确度</p>
 <h2 id="常用测试方式"><a href="#常用测试方式" class="headerlink" title="常用测试方式"></a>常用测试方式</h2><h3 id="边界值测试"><a href="#边界值测试" class="headerlink" title="边界值测试"></a>边界值测试</h3><h3 id="训练数据的偏见会带来模型的偏见"><a href="#训练数据的偏见会带来模型的偏见" class="headerlink" title="训练数据的偏见会带来模型的偏见"></a>训练数据的偏见会带来模型的偏见</h3><h3 id="变异测试"><a href="#变异测试" class="headerlink" title="变异测试"></a>变异测试</h3><h4 id="变异测试背景"><a href="#变异测试背景" class="headerlink" title="变异测试背景"></a>变异测试背景</h4><p>正向使用：修复程序的错误，产生新的测试用例</p>
 <p>反向使用：产生错误的程序片段（变异测试的主要部分），生成恶意测试用例</p>
 <p>方向控制：引导&amp;反馈</p>
 <h5 id="关心的问题"><a href="#关心的问题" class="headerlink" title="关心的问题"></a>关心的问题</h5><ol>
-<li>如何编写能够暴露缺陷的测试用例$\Rightarrow$如何引导测试</li>
-<li>如何评估测试套件的质量$\Rightarrow$如何评估测试</li>
+<li>如何编写能够暴露缺陷的测试用例<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.054ex;" xmlns="http://www.w3.org/2000/svg" width="2.262ex" height="1.242ex" role="img" focusable="false" viewBox="0 -525 1000 549"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="21D2" d="M580 514Q580 525 596 525Q601 525 604 525T609 525T613 524T615 523T617 520T619 517T622 512Q659 438 720 381T831 300T927 263Q944 258 944 250T935 239T898 228T840 204Q696 134 622 -12Q618 -21 615 -22T600 -24Q580 -24 580 -17Q580 -13 585 0Q620 69 671 123L681 133H70Q56 140 56 153Q56 168 72 173H725L735 181Q774 211 852 250Q851 251 834 259T789 283T735 319L725 327H72Q56 332 56 347Q56 360 70 367H681L671 377Q638 412 609 458T580 514Z"></path></g></g></g></svg></mjx-container>如何引导测试</li>
+<li>如何评估测试套件的质量<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.054ex;" xmlns="http://www.w3.org/2000/svg" width="2.262ex" height="1.242ex" role="img" focusable="false" viewBox="0 -525 1000 549"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="21D2" d="M580 514Q580 525 596 525Q601 525 604 525T609 525T613 524T615 523T617 520T619 517T622 512Q659 438 720 381T831 300T927 263Q944 258 944 250T935 239T898 228T840 204Q696 134 622 -12Q618 -21 615 -22T600 -24Q580 -24 580 -17Q580 -13 585 0Q620 69 671 123L681 133H70Q56 140 56 153Q56 168 72 173H725L735 181Q774 211 852 250Q851 251 834 259T789 283T735 319L725 327H72Q56 332 56 347Q56 360 70 367H681L671 377Q638 412 609 458T580 514Z"></path></g></g></g></svg></mjx-container>如何评估测试</li>
 </ol>
 <h5 id="变异测试的产生"><a href="#变异测试的产生" class="headerlink" title="变异测试的产生"></a>变异测试的产生</h5><ol>
 <li>模拟缺陷，量化缺陷检测能力，扮演测试有效性的指示器<ul>
@@ -580,17 +692,17 @@
 <li>假设3：缺陷检测有效性</li>
 </ul>
 <h4 id="变异测试过程"><a href="#变异测试过程" class="headerlink" title="变异测试过程"></a>变异测试过程</h4><pre class="mermaid">stateDiagram
-    变异体筛选、创建 --> 去除重复和等价的变异体
-    去除重复和等价的变异体 --> 生成测试输入
-    生成测试输入 --> 执行变异体
-    执行变异体 --> 计算变异得分
-    计算变异得分 --> 优化、排序
-    优化、排序 --> 覆盖阈值是否达到
-    覆盖阈值是否达到 --> 测试套件是正确的吗: yes
-    覆盖阈值是否达到 --> 生成测试输入: no
-    测试套件是正确的吗 --> 结束: yes
-    测试套件是正确的吗 --> fix测试套件: no
-    fix测试套件 -->  变异体筛选、创建</pre>
+    变异体筛选、创建 --&gt; 去除重复和等价的变异体
+    去除重复和等价的变异体 --&gt; 生成测试输入
+    生成测试输入 --&gt; 执行变异体
+    执行变异体 --&gt; 计算变异得分
+    计算变异得分 --&gt; 优化、排序
+    优化、排序 --&gt; 覆盖阈值是否达到
+    覆盖阈值是否达到 --&gt; 测试套件是正确的吗: yes
+    覆盖阈值是否达到 --&gt; 生成测试输入: no
+    测试套件是正确的吗 --&gt; 结束: yes
+    测试套件是正确的吗 --&gt; fix测试套件: no
+    fix测试套件 --&gt;  变异体筛选、创建</pre>
 
 <h5 id="变异体筛选、约简"><a href="#变异体筛选、约简" class="headerlink" title="变异体筛选、约简"></a>变异体筛选、约简</h5><h5 id="变异算子定义"><a href="#变异算子定义" class="headerlink" title="变异算子定义"></a>变异算子定义</h5><p>设计原则：变异算子定义</p>
 <p>如何有效设计变异算子：</p>
@@ -612,11 +724,124 @@
 <li>基本方式：每个变体构建一个单独的源文件</li>
 <li>核心：程序模式</li>
 <li>研究方向：怎么把算子生成过程的开销减少</li>
-<li>基于中间表示的变异体生成</li>
+<li>元变异，基于中间表示的变异体生成，热替换（直接在运行时生成变异体）</li>
 </ul>
-<h4 id="变异测试应用"><a href="#变异测试应用" class="headerlink" title="变异测试应用"></a>变异测试应用</h4><p>abcabcaa</p>
-<p>0001234</p>
+<p>元变异</p>
+<ul>
+<li>核心：程序模式</li>
+<li>目的：减少生成变异体时所需的编译次数</li>
+</ul>
+<p>基于中间表示</p>
+<ul>
+<li>避免编译</li>
+<li>直接操作中间目标：比如操作java字节码，.NET和LLVM中间表示</li>
+</ul>
+<p>变异体优化</p>
+<p>基本形式：通过静态分析的形式，识别并移除有问题的变异体</p>
+<p>识别等价变异体，识别冗余变异体</p>
+<h4 id="变异体的执行"><a href="#变异体的执行" class="headerlink" title="变异体的执行"></a>变异体的执行</h4><p>变异测试中最昂贵的部分</p>
+<p>研究内容：</p>
+<ul>
+<li>计算变异得分：研究集中在变异杀死的条件（对于确定性系统，对于非确定性系统）、测试预言的条件（预言怎样搞出更好的的测试套件）</li>
+<li>计算变异体矩阵：注意如果测试套件中有一个测试用例把变异体杀了，就不用再往下走了，由此可以有一些优化策略比如：改变测试顺序、匹配测试用例与变异体、避免执行必定存活的变异体、限定变异体的执行时间</li>
+</ul>
+<h4 id="变异测试的应用"><a href="#变异测试的应用" class="headerlink" title="变异测试的应用"></a>变异测试的应用</h4><ul>
+<li>评估作用</li>
+<li>引导作用：利用变异测试</li>
+<li>传统应用:应用于确定性系统<ul>
+<li>测试生成</li>
+<li>预言生成</li>
+<li>测试优化</li>
+<li>Debug引导</li>
+</ul>
+</li>
+<li>变异&amp;AI：应用于非确定性系统</li>
+</ul>
+<h5 id="用例与预言生成"><a href="#用例与预言生成" class="headerlink" title="用例与预言生成"></a>用例与预言生成</h5><ul>
+<li>基于搜索的软件测试+变异分析</li>
+<li>SBST，将软件测试过程转化为搜索问题，利用启发式算法</li>
+<li>变异引导的单元测试及预言生成</li>
+</ul>
+<h5 id="变异辅助debug"><a href="#变异辅助debug" class="headerlink" title="变异辅助debug"></a>变异辅助debug</h5><ul>
+<li><p>利用变异自动为有缺陷程序推荐补丁</p>
+<ul>
+<li>缺陷定位技术：<ul>
+<li>抽象测试轨迹，计算可疑度</li>
+</ul>
+</li>
+<li>自动修复技术<ul>
+<li>根据一定的语法规则转换缺陷程序为正确版本</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>挑战：</p>
+</li>
+</ul>
+<h5 id="AI测试TCP"><a href="#AI测试TCP" class="headerlink" title="AI测试TCP"></a>AI测试TCP</h5><p>通过变异分析进行DNN测试输入排序</p>
+<ul>
+<li>变异分析+测试排序+AI测试</li>
+<li>TCP for DNN：谁应当最先被打标签</li>
+<li>MA for DNN：模型的变异、输入的变异</li>
+<li>核心思路：越能杀的测试优先级越高</li>
+</ul>
+<h3 id="模糊测试-1"><a href="#模糊测试-1" class="headerlink" title="模糊测试"></a>模糊测试</h3><h4 id="模糊测试架构"><a href="#模糊测试架构" class="headerlink" title="模糊测试架构"></a>模糊测试架构</h4><ul>
+<li>工具：模糊器</li>
+<li>目标：待测程序</li>
+<li>循环：执行程序<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="2.262ex" height="1.181ex" role="img" focusable="false" viewBox="0 -511 1000 522"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="2194" d="M263 479Q267 501 271 506T288 511Q308 511 308 500Q308 493 303 475Q293 438 278 406T246 352T215 315T185 287T165 270H835Q729 349 696 475Q691 493 691 500Q691 511 711 511Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H165Q167 228 182 216T211 189T244 152T277 96T303 25Q308 7 308 0Q308 -11 288 -11Q281 -11 278 -11T272 -7T267 2T263 21Q245 94 195 151T73 236Q58 242 55 247Q55 254 59 257T73 264Q144 292 194 349T263 479Z"></path></g></g></g></svg></mjx-container>崩溃分派</li>
+<li>三个组件</li>
+</ul>
+<pre class="mermaid">stateDiagram
+direction LR
+    Fuzzer --&gt; ExecuteProgram: Test inputs
+    ExecuteProgram --&gt; PUT
+    PUT --&gt; CrashTraige: Execution result
+    CrashTraige --&gt; Fuzzer
+    CrashTraige --&gt; Crashes</pre>
 
+<h4 id="黑话"><a href="#黑话" class="headerlink" title="黑话"></a>黑话</h4><ul>
+<li>模糊是指从输入空间采样得到的输入来执行待测工具的过程，代表着测试人员针对待测程序定义的预期输入</li>
+<li>模糊测试是一种应用模糊过程来检测</li>
+<li>模糊器：一组用于实现</li>
+<li>缺陷语言：确定一次给定执行是否违反正确性策略的程序</li>
+</ul>
+<h4 id="模糊测试家族"><a href="#模糊测试家族" class="headerlink" title="模糊测试家族"></a>模糊测试家族</h4><ul>
+<li>AFL（C/C++）</li>
+<li>LibFuzzer(C/C++)：一个基于LLVM的工具</li>
+<li>JQF(Java)：AFL搬到了java上</li>
+<li>其他(Rust（强化版c）,Python等)</li>
+</ul>
+<h4 id="模糊测试分类"><a href="#模糊测试分类" class="headerlink" title="模糊测试分类"></a>模糊测试分类</h4><p>根据组件核心或技术贡献进行分类</p>
+<ul>
+<li>按照采用的运行时信息：黑盒（很多嵌入式系统的设置）、灰盒（看一部分信息，比如覆盖率）、白盒（强力的程序分析手段融入到程序中）</li>
+<li>按照输入生成的策略：基于变异的，基于文法的</li>
+<li>按照引导过程：启发式算法、梯度下降</li>
+<li>按照测试目标：定向、非定向、某一类缺陷</li>
+<li>按照应用领域：网络协议、Compiler、DNN、IoT、内核</li>
+<li>按照优化角度：种子调度、变异策略、能量调度、过程建模</li>
+</ul>
+<h4 id="黑盒模糊测试"><a href="#黑盒模糊测试" class="headerlink" title="黑盒模糊测试"></a>黑盒模糊测试</h4><p>常用于IoT</p>
+<p>引导方式：利用输入格式或输出状态引导测试执行</p>
+<p>优点：不用插桩效率高，但是引导不好</p>
+<h4 id="白盒模糊测试"><a href="#白盒模糊测试" class="headerlink" title="白盒模糊测试"></a>白盒模糊测试</h4><p>使用混合执行、污点分析等比较昂贵的分析技术</p>
+<p>引导方式：利用详细的程序分析结果引导测试执行</p>
+<p>优点：反馈更加有效，但是效率不高、适配性差</p>
+<h4 id="灰盒模糊测试"><a href="#灰盒模糊测试" class="headerlink" title="灰盒模糊测试"></a>灰盒模糊测试</h4><p>最流行</p>
+<p>轻量级插桩进行监控</p>
+<p>利用得到的部分信息引导测试</p>
+<p>代表工作：AFL、AFLGo、EcoFuzz、Zest、BeDivFuzz</p>
+<h4 id="基于变异的"><a href="#基于变异的" class="headerlink" title="基于变异的"></a>基于变异的</h4><p>本质：将种子输入转换成bit串，对比特串进行变换</p>
+<p>优点：可拓展性强，易于泛化</p>
+<p>缺点：容易破坏输入的结构、产生无效输入；生成的大部分输入都无法通过语法检查</p>
+<p>AFL变异算子</p>
+<ul>
+<li>bitflip 翻转</li>
+<li>arith 加减小整数</li>
+<li>interest 翻转有趣的字节位</li>
+<li>havoc 总结上面的</li>
+<li>spilce 随机拼接两个种子输入</li>
+</ul>
+<h4 id="基于生成的"><a href="#基于生成的" class="headerlink" title="基于生成的"></a>基于生成的</h4>
         </div>
 
         
@@ -630,7 +855,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2023-09-14 17:02:57
+                    :</strong> 2023-09-21 16:52:42
             </li>
         
         <li>
@@ -655,7 +880,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">#软件测试</a>&nbsp;
+                        <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">#课程笔记</a>&nbsp;
                     </li>
                 
             </ul>
@@ -710,7 +935,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">软件测试</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="nav-text">软件测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFbug"><span class="nav-text">什么是bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-text">测试的局限性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E6%B5%8B%E8%AF%95"><span class="nav-text">随机测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81bug"><span class="nav-text">常见bug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="nav-text">模糊测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF"><span class="nav-text">经典测试技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="nav-text">自动化测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC%E4%BF%AE%E5%A4%8D"><span class="nav-text">自动化测试脚本修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E4%BF%AE%E5%A4%8D"><span class="nav-text">程序修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%8F%91%E5%B1%95%E8%B7%AF%E7%BA%BF"><span class="nav-text">自动化测试发展路线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E5%B1%95%E7%83%AD%E7%82%B9%E4%B9%8B%E6%99%BA%E8%83%BD%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="nav-text">发展热点之智能软件测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%B5%8B%E8%AF%95%E6%96%B9%E5%BC%8F"><span class="nav-text">常用测试方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%B9%E7%95%8C%E5%80%BC%E6%B5%8B%E8%AF%95"><span class="nav-text">边界值测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E7%9A%84%E5%81%8F%E8%A7%81%E4%BC%9A%E5%B8%A6%E6%9D%A5%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%81%8F%E8%A7%81"><span class="nav-text">训练数据的偏见会带来模型的偏见</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95"><span class="nav-text">变异测试</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="nav-text">软件测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFbug"><span class="nav-text">什么是bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-text">测试的局限性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E6%B5%8B%E8%AF%95"><span class="nav-text">随机测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81bug"><span class="nav-text">常见bug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="nav-text">模糊测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF"><span class="nav-text">经典测试技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="nav-text">自动化测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC%E4%BF%AE%E5%A4%8D"><span class="nav-text">自动化测试脚本修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E4%BF%AE%E5%A4%8D"><span class="nav-text">程序修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%8F%91%E5%B1%95%E8%B7%AF%E7%BA%BF"><span class="nav-text">自动化测试发展路线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E5%B1%95%E7%83%AD%E7%82%B9%E4%B9%8B%E6%99%BA%E8%83%BD%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="nav-text">发展热点之智能软件测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%B5%8B%E8%AF%95%E6%96%B9%E5%BC%8F"><span class="nav-text">常用测试方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%B9%E7%95%8C%E5%80%BC%E6%B5%8B%E8%AF%95"><span class="nav-text">边界值测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E7%9A%84%E5%81%8F%E8%A7%81%E4%BC%9A%E5%B8%A6%E6%9D%A5%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%81%8F%E8%A7%81"><span class="nav-text">训练数据的偏见会带来模型的偏见</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95"><span class="nav-text">变异测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95-1"><span class="nav-text">模糊测试</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>

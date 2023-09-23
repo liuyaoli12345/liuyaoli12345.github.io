@@ -26,7 +26,7 @@
 <meta property="og:description" content="大数据分析大数据分析-&gt;机器学习-&gt;计算机视觉 ML：数据用于计算 BDA：计算用于数据 大数据定义 datasets whose size is beyond the ability if typical database software tool to capture, store, manage, and analyze.  4VsVolume velocity veracit">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-06T02:20:24.000Z">
-<meta property="article:modified_time" content="2023-09-13T08:14:14.189Z">
+<meta property="article:modified_time" content="2023-09-20T06:00:09.152Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="大数据分析">
 <meta name="twitter:card" content="summary">
@@ -396,8 +396,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-09-13 16:14:14</span>
-            <span class="mobile">2023-09-13 16:14:14</span>
+            <span class="desktop">2023-09-20 14:09</span>
+            <span class="mobile">2023-09-20 14:09</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -604,6 +604,45 @@
 <h5 id="tiered"><a href="#tiered" class="headerlink" title="tiered"></a>tiered</h5><p>分层计费嘞</p>
 <h3 id="Scaling"><a href="#Scaling" class="headerlink" title="Scaling"></a>Scaling</h3><h4 id="Horizontal-增加节点"><a href="#Horizontal-增加节点" class="headerlink" title="Horizontal-增加节点"></a>Horizontal-增加节点</h4><p>P2P，Hadoop，spark</p>
 <h4 id="Vertical-提升单机的能力"><a href="#Vertical-提升单机的能力" class="headerlink" title="Vertical-提升单机的能力"></a>Vertical-提升单机的能力</h4><p>HPC，多核处理器，GPU</p>
+<h3 id="Data-Ingestion"><a href="#Data-Ingestion" class="headerlink" title="Data Ingestion"></a>Data Ingestion</h3><p>Tools:</p>
+<p>​	Hand coding</p>
+<p>​	Single-purpose tools</p>
+<p>​	Data Integration Platforms</p>
+<p>​	A DataOps Approach</p>
+<h3 id="Data-Destinations"><a href="#Data-Destinations" class="headerlink" title="Data Destinations"></a>Data Destinations</h3><h3 id="Cloud-data-migration"><a href="#Cloud-data-migration" class="headerlink" title="Cloud data migration"></a>Cloud data migration</h3><h3 id="Data-Ingestion-vs-Data-Integration"><a href="#Data-Ingestion-vs-Data-Integration" class="headerlink" title="Data Ingestion vs Data Integration"></a>Data Ingestion vs Data Integration</h3><p>前者简单，后者复杂</p>
+<p>前者主要在与将原始数据迅速集中转移到某处，后者是要将数据准备好，提高数据质量，包含一系列转换</p>
+<h3 id="Apache-NIFI"><a href="#Apache-NIFI" class="headerlink" title="Apache NIFI"></a>Apache NIFI</h3><h3 id="ETL-process"><a href="#ETL-process" class="headerlink" title="ETL process"></a>ETL process</h3><pre class="mermaid">stateDiagram
+    data --> ETL
+    ETL --> analytical_data
+    analytical_data --> presentation</pre>
+
+<h3 id="Dirty-data"><a href="#Dirty-data" class="headerlink" title="Dirty data"></a>Dirty data</h3><ul>
+<li>数据缺失</li>
+<li>被加密的数据</li>
+<li>矛盾的数据</li>
+<li>违反了数据规则</li>
+<li>复用了主键</li>
+<li>Unique特征不再Unique</li>
+<li>数据集成问题</li>
+</ul>
+<h4 id="Data-cleaning-数据清洗"><a href="#Data-cleaning-数据清洗" class="headerlink" title="Data cleaning 数据清洗"></a>Data cleaning 数据清洗</h4><h3 id="Data-Ingestion优点"><a href="#Data-Ingestion优点" class="headerlink" title="Data Ingestion优点"></a>Data Ingestion优点</h3><ol>
+<li>扩展性</li>
+<li>集成</li>
+<li>灵活性（Batch Streaming，多种处理方式，满足不同使用场景）</li>
+</ol>
+<h3 id="ETl-优点"><a href="#ETl-优点" class="headerlink" title="ETl 优点"></a>ETl 优点</h3><ol>
+<li>数据质量（数据清洗）</li>
+<li>insights（通过基本数据提取可以获得一致的数据格式）</li>
+<li>业务流程的改善（多个来源的数据集成到单一数据中心）</li>
+<li>cost（自动化处理任务减少人力成本）</li>
+</ol>
+<h3 id="存在的挑战"><a href="#存在的挑战" class="headerlink" title="存在的挑战"></a>存在的挑战</h3><ol>
+<li>数据质量</li>
+<li>数据集成</li>
+<li>数据安全与隐私</li>
+<li>性能与可扩展性</li>
+<li>数据血缘</li>
+</ol>
 
         </div>
 
@@ -618,7 +657,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2023-09-13 16:14:14
+                    :</strong> 2023-09-20 14:00:09
             </li>
         
         <li>
@@ -698,7 +737,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">大数据分析</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="nav-text">大数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89"><span class="nav-text">大数据定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4Vs"><span class="nav-text">4Vs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5G"><span class="nav-text">5G</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98"><span class="nav-text">数据挖掘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%B8%B8%E8%A7%81%E4%BB%BB%E5%8A%A1"><span class="nav-text">数据挖掘常见任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%9A%84%E9%A3%8E%E9%99%A9"><span class="nav-text">数据挖掘的风险</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%80%83%E8%99%91%E7%9A%84%E5%87%A0%E4%B8%AA%E6%96%B9%E5%90%91"><span class="nav-text">考虑的几个方向</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E4%B8%8E%E4%BA%91"><span class="nav-text">本地与云</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hadoop"><span class="nav-text">hadoop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDA-in-Education"><span class="nav-text">BDA in Education</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDA-in-Healthcare"><span class="nav-text">BDA in Healthcare</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDA-in-government"><span class="nav-text">BDA in government</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDA-in-Media-and-Entertain"><span class="nav-text">BDA in Media and Entertain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDA-in-transportation"><span class="nav-text">BDA in transportation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDA-in-banking-and-finance"><span class="nav-text">BDA in banking and finance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDA-in-retail"><span class="nav-text">BDA in retail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%91%E8%AE%A1%E7%AE%97%E5%88%86%E7%B1%BB"><span class="nav-text">云计算分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%91%E5%B9%B3%E5%8F%B0"><span class="nav-text">云平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%91%E8%AE%A1%E7%AE%97%E5%9B%9B%E5%A4%A7%E5%B1%82"><span class="nav-text">云计算四大层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-data-beyond-Hadoop"><span class="nav-text">Big data beyond Hadoop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Total-Cost-of-Ownership"><span class="nav-text">Total Cost of Ownership</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E5%95%A5%E8%A6%81%E5%9C%A8%E4%BA%91%E4%B8%8A%E9%83%A8%E7%BD%B2"><span class="nav-text">为啥要在云上部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#questions-to-consider"><span class="nav-text">questions to consider</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subscription-models-in-cloud"><span class="nav-text">Subscription models in cloud</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scaling"><span class="nav-text">Scaling</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="nav-text">大数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89"><span class="nav-text">大数据定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4Vs"><span class="nav-text">4Vs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5G"><span class="nav-text">5G</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98"><span class="nav-text">数据挖掘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%B8%B8%E8%A7%81%E4%BB%BB%E5%8A%A1"><span class="nav-text">数据挖掘常见任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%9A%84%E9%A3%8E%E9%99%A9"><span class="nav-text">数据挖掘的风险</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%80%83%E8%99%91%E7%9A%84%E5%87%A0%E4%B8%AA%E6%96%B9%E5%90%91"><span class="nav-text">考虑的几个方向</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E4%B8%8E%E4%BA%91"><span class="nav-text">本地与云</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hadoop"><span class="nav-text">hadoop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDA-in-Education"><span class="nav-text">BDA in Education</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDA-in-Healthcare"><span class="nav-text">BDA in Healthcare</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDA-in-government"><span class="nav-text">BDA in government</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDA-in-Media-and-Entertain"><span class="nav-text">BDA in Media and Entertain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDA-in-transportation"><span class="nav-text">BDA in transportation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDA-in-banking-and-finance"><span class="nav-text">BDA in banking and finance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDA-in-retail"><span class="nav-text">BDA in retail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%91%E8%AE%A1%E7%AE%97%E5%88%86%E7%B1%BB"><span class="nav-text">云计算分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%91%E5%B9%B3%E5%8F%B0"><span class="nav-text">云平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%91%E8%AE%A1%E7%AE%97%E5%9B%9B%E5%A4%A7%E5%B1%82"><span class="nav-text">云计算四大层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-data-beyond-Hadoop"><span class="nav-text">Big data beyond Hadoop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Total-Cost-of-Ownership"><span class="nav-text">Total Cost of Ownership</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E5%95%A5%E8%A6%81%E5%9C%A8%E4%BA%91%E4%B8%8A%E9%83%A8%E7%BD%B2"><span class="nav-text">为啥要在云上部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#questions-to-consider"><span class="nav-text">questions to consider</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subscription-models-in-cloud"><span class="nav-text">Subscription models in cloud</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scaling"><span class="nav-text">Scaling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Ingestion"><span class="nav-text">Data Ingestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Destinations"><span class="nav-text">Data Destinations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cloud-data-migration"><span class="nav-text">Cloud data migration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Ingestion-vs-Data-Integration"><span class="nav-text">Data Ingestion vs Data Integration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache-NIFI"><span class="nav-text">Apache NIFI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ETL-process"><span class="nav-text">ETL process</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dirty-data"><span class="nav-text">Dirty data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Ingestion%E4%BC%98%E7%82%B9"><span class="nav-text">Data Ingestion优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ETl-%E4%BC%98%E7%82%B9"><span class="nav-text">ETl 优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E7%9A%84%E6%8C%91%E6%88%98"><span class="nav-text">存在的挑战</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
