@@ -26,7 +26,7 @@
 <meta property="og:description" content="1.嵌入式系统概要计算机发展三大阶段  研究大型机 个人计算机PC 后PC时代（becoming an old fashion）  术语演化  泛在计算（任何时间任何地点都在算） 不可见计算机（计算机被集成到物件） 普适计算（计算设备进入日常生活）Bill Gates提出 环境智能（未来家庭、智能楼宇）  嵌入式系统定义IEEE：用于控制、监视或辅助操作机器和设备的装置 国内：以应用为中心，以计算">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-04T02:12:44.000Z">
-<meta property="article:modified_time" content="2023-09-20T07:46:43.620Z">
+<meta property="article:modified_time" content="2023-09-25T05:56:58.708Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="嵌入式系统">
 <meta name="twitter:card" content="summary">
@@ -396,8 +396,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-09-20 15:46:43</span>
-            <span class="mobile">2023-09-20 15:46:43</span>
+            <span class="desktop">2023-09-25 13:56:58</span>
+            <span class="mobile">2023-09-25 13:56:58</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -745,6 +745,136 @@
 </ul>
 </li>
 </ul>
+<h3 id="嵌入式微处理器的特点"><a href="#嵌入式微处理器的特点" class="headerlink" title="嵌入式微处理器的特点"></a>嵌入式微处理器的特点</h3><ul>
+<li>基础还是通用微处理器</li>
+<li>与通用相比<ul>
+<li>体积小重量轻可靠性高</li>
+<li>功耗低</li>
+<li>成本低</li>
+<li>工作温度、抗电磁干扰，可靠性增强</li>
+</ul>
+</li>
+</ul>
+<h3 id="ARM公司"><a href="#ARM公司" class="headerlink" title="ARM公司"></a>ARM公司</h3><ul>
+<li>成立于1990年11月</li>
+<li>设计了ARM系列的RISC处理器内核</li>
+<li>授权ARM核心设计的半导体合作伙伴制造和销售给他们的客户</li>
+<li>同时开发技术以协助ARM架构设计</li>
+</ul>
+<h3 id="ARM架构"><a href="#ARM架构" class="headerlink" title="ARM架构"></a>ARM架构</h3><ul>
+<li>典型的RISC架构<ul>
+<li>丰富的寄存器</li>
+<li>加载&#x2F;存储体系结构</li>
+<li>简单寻址模式</li>
+<li>统一和固定长度的指令字段</li>
+</ul>
+</li>
+</ul>
+<h3 id="Meltdown-amp-Spectre"><a href="#Meltdown-amp-Spectre" class="headerlink" title="Meltdown &amp; Spectre"></a>Meltdown &amp; Spectre</h3><p>与推测性执行和Cache有关的硬件级漏洞</p>
+<p>cpu进行分支预测推测操作时提前执行了代码，并且将结果存在了cache里，结果分支清空时只清空了寄存器，没有清空cache，黑客可以利用cache中的结果进行越权操作</p>
+<h3 id="选择微处理器"><a href="#选择微处理器" class="headerlink" title="选择微处理器"></a>选择微处理器</h3><ol>
+<li>列出所需的硬件接口</li>
+<li>检查软件架构</li>
+<li>选择体系结构</li>
+<li>确定内存需求</li>
+<li>开始搜索微控制器</li>
+<li>检查成本和功率限制</li>
+<li>检查零件可用性</li>
+<li>选择一个开发工具包</li>
+<li>研究编译器和工具</li>
+<li>开始尝试</li>
+</ol>
+<h3 id="存储器架构"><a href="#存储器架构" class="headerlink" title="存储器架构"></a>存储器架构</h3><ul>
+<li>对许多应用来说，存储系统对整个系统性能的影响比对数据流水线的影响更大</li>
+<li>复杂：<ul>
+<li>在同一个嵌入式系统中，通常需要组合各种存储技术<ul>
+<li>至少需要一些非易失和易失</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="易失性存储器"><a href="#易失性存储器" class="headerlink" title="易失性存储器"></a>易失性存储器</h4><p>SRAM DRAM</p>
+<h4 id="非易失性存储器"><a href="#非易失性存储器" class="headerlink" title="非易失性存储器"></a>非易失性存储器</h4><p>disk，ROM，Mash ROM，EROM，EEROM，Flash</p>
+<h4 id="固件firmware"><a href="#固件firmware" class="headerlink" title="固件firmware"></a>固件firmware</h4><p>一般存在EEPOM或Flash中，用户可以通过特定刷新程序来进行升级</p>
+<p>ROMable 可固化</p>
+<p>可以被编程到POM芯片中的机器语言</p>
+<p>固件其实也是一种程序，是软件，只不过被固化到了ROM上</p>
+<h4 id="Flash"><a href="#Flash" class="headerlink" title="Flash"></a>Flash</h4><p>比较快的读取时间，但是还是比RAM慢</p>
+<p>写入时间大大超过读取时间，而且写入次数是有限的</p>
+<h5 id="flash类型"><a href="#flash类型" class="headerlink" title="flash类型"></a>flash类型</h5><ul>
+<li><p>NOR</p>
+<ul>
+<li>按快擦除</li>
+<li>擦除和写入时间较长，但能够像RAM那样访问</li>
+</ul>
+</li>
+<li><p>NAND</p>
+<ul>
+<li>以块为单位，一个数据块是数百或数千比特</li>
+<li>擦除和写入速度比较快</li>
+<li>按页读取（512-4K字节）</li>
+</ul>
+</li>
+<li><p>主要应用对比</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>NAND</th>
+<th>NOR</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文件存储</td>
+<td>代码执行</td>
+</tr>
+<tr>
+<td>存储容量高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>成本低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>动态功耗低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>待机功耗高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>写入速度快</td>
+<td>慢</td>
+</tr>
+<tr>
+<td>读取速度慢</td>
+<td>快</td>
+</tr>
+<tr>
+<td>execute in Place（XIP）就地执行（芯片内执行，不用拷到RAM中）不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>可靠性低</td>
+<td>高</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="存储器层次结构"><a href="#存储器层次结构" class="headerlink" title="存储器层次结构"></a>存储器层次结构</h3><ol>
+<li>寄存器</li>
+<li>spm</li>
+<li>cache</li>
+<li>内存</li>
+<li>外存&#x2F;互联网存储器</li>
+</ol>
+<h4 id="Cache之于ES"><a href="#Cache之于ES" class="headerlink" title="Cache之于ES"></a>Cache之于ES</h4><p>cache的加入导致了访问时间的不可预测，对嵌入式系统的可靠性和实时性能产生负面影响</p>
+<h4 id="SPM暂存存储器"><a href="#SPM暂存存储器" class="headerlink" title="SPM暂存存储器"></a>SPM暂存存储器</h4><p>比cache功耗低，速度快，和处理器集成在一个芯片上</p>
+<h4 id="存储器访问时间难以预测"><a href="#存储器访问时间难以预测" class="headerlink" title="存储器访问时间难以预测"></a>存储器访问时间难以预测</h4><p>虚拟存储器MMU，使各种存储技术看起来是一个连续的地址空间</p>
+<p>地址转换TLB</p>
 
         </div>
 
@@ -759,7 +889,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2023-09-20 15:46:43
+                    :</strong> 2023-09-25 13:56:58
             </li>
         
         <li>
@@ -839,7 +969,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">嵌入式系统</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%A6%81"><span class="nav-text">1.嵌入式系统概要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%AE%9A%E4%B9%89"><span class="nav-text">嵌入式系统定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="nav-text">嵌入式系统三要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPS-%E4%BF%A1%E6%81%AF%E7%89%A9%E7%90%86%E7%B3%BB%E7%BB%9F-Cyber-Physical-System"><span class="nav-text">CPS 信息物理系统 Cyber-Physical System</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E4%BF%A1%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="nav-text">通信的重要性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%AF%BC%E8%AE%BA"><span class="nav-text">2.导论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%84%E6%88%90"><span class="nav-text">嵌入式系统的组成</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3"><span class="nav-text">3.</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%99%A8%E5%92%8C%E5%A4%84%E7%90%86%E5%99%A8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%A4%9A"><span class="nav-text">处理器和处理器体系结构类型多</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E6%B3%A8%E6%88%90%E6%9C%AC"><span class="nav-text">关注成本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%97%B6%E6%80%A7%E5%92%8C%E5%8F%AF%E9%9D%A0%E6%80%A7%E7%9A%84%E8%A6%81%E6%B1%82"><span class="nav-text">实时性和可靠性的要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%82%E5%BA%94%E5%A4%9A%E7%A7%8D%E5%A4%84%E7%90%86%E5%99%A8%E3%80%81%E5%8F%AF%E8%A3%81%E5%89%AA%E3%80%81%E8%BD%BB%E9%87%8F%E5%9E%8B%E3%80%81%E5%AE%9E%E6%97%B6%E5%8F%AF%E9%9D%A0%E3%80%81%E5%8F%AF%E5%9B%BA%E5%8C%96%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-text">适应多种处理器、可裁剪、轻量型、实时可靠、可固化的嵌入式操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A7%E7%9A%84%E4%BA%A4%E5%8F%89%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E5%B7%B2%E7%BB%8F%E4%B8%8D%E9%82%A3%E4%B9%88%E6%B5%81%E8%A1%8C%E4%BA%86"><span class="nav-text">旧的交叉开发工具已经不那么流行了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">嵌入式系统的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF"><span class="nav-text">发展趋势</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1"><span class="nav-text">4.嵌入式系统设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%98"><span class="nav-text">嵌入式系统面临的挑战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E8%80%85%E8%A6%81%E6%B1%82"><span class="nav-text">嵌入式系统设计者要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87"><span class="nav-text">设计目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">体系结构设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E7%A1%AC%E4%BB%B6%E5%88%92%E5%88%86"><span class="nav-text">软硬件划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF%E5%AF%B9%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-text">软硬件技术对系统结构的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E7%9A%84%E6%BC%94%E5%8F%98"><span class="nav-text">嵌入式系统设计方法的演变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B"><span class="nav-text">传统嵌入式系统的设计过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E7%A1%AC%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1HW-x2F-SW-Co-design"><span class="nav-text">软硬件协同设计HW&#x2F;SW Co-design</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E7%A1%AC%E4%BB%B6%E9%83%A8%E5%88%86"><span class="nav-text">4.硬件部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E6%80%BB%E8%A7%88"><span class="nav-text">硬件总览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8"><span class="nav-text">嵌入式微处理器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E8%A1%8C%E7%9A%84%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8%E6%8C%87%E4%BB%A4%E9%9B%86"><span class="nav-text">流行的微处理器指令集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RISC-vs-CISC"><span class="nav-text">RISC vs CISC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RISC-V"><span class="nav-text">RISC-V</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E8%8A%AF%E7%89%87%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E7%9A%84%E4%BA%94%E4%BB%B6%E4%BA%8B"><span class="nav-text">设计芯片需要考虑的五件事</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8-1"><span class="nav-text">嵌入式微处理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BE%AE%E5%A4%84%E7%90%86%E5%8D%95%E5%85%83%EF%BC%88MPU%EF%BC%89"><span class="nav-text">嵌入式微处理单元（MPU）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BE%AE%E6%8E%A7%E5%88%B6%E5%99%A8%EF%BC%88MCU%EF%BC%89"><span class="nav-text">嵌入式微控制器（MCU）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8FDSP"><span class="nav-text">嵌入式DSP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8FSoC"><span class="nav-text">嵌入式SoC</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%A6%81"><span class="nav-text">1.嵌入式系统概要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%AE%9A%E4%B9%89"><span class="nav-text">嵌入式系统定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="nav-text">嵌入式系统三要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPS-%E4%BF%A1%E6%81%AF%E7%89%A9%E7%90%86%E7%B3%BB%E7%BB%9F-Cyber-Physical-System"><span class="nav-text">CPS 信息物理系统 Cyber-Physical System</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E4%BF%A1%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="nav-text">通信的重要性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%AF%BC%E8%AE%BA"><span class="nav-text">2.导论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%84%E6%88%90"><span class="nav-text">嵌入式系统的组成</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3"><span class="nav-text">3.</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%99%A8%E5%92%8C%E5%A4%84%E7%90%86%E5%99%A8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%A4%9A"><span class="nav-text">处理器和处理器体系结构类型多</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E6%B3%A8%E6%88%90%E6%9C%AC"><span class="nav-text">关注成本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%97%B6%E6%80%A7%E5%92%8C%E5%8F%AF%E9%9D%A0%E6%80%A7%E7%9A%84%E8%A6%81%E6%B1%82"><span class="nav-text">实时性和可靠性的要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%82%E5%BA%94%E5%A4%9A%E7%A7%8D%E5%A4%84%E7%90%86%E5%99%A8%E3%80%81%E5%8F%AF%E8%A3%81%E5%89%AA%E3%80%81%E8%BD%BB%E9%87%8F%E5%9E%8B%E3%80%81%E5%AE%9E%E6%97%B6%E5%8F%AF%E9%9D%A0%E3%80%81%E5%8F%AF%E5%9B%BA%E5%8C%96%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-text">适应多种处理器、可裁剪、轻量型、实时可靠、可固化的嵌入式操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A7%E7%9A%84%E4%BA%A4%E5%8F%89%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E5%B7%B2%E7%BB%8F%E4%B8%8D%E9%82%A3%E4%B9%88%E6%B5%81%E8%A1%8C%E4%BA%86"><span class="nav-text">旧的交叉开发工具已经不那么流行了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">嵌入式系统的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF"><span class="nav-text">发展趋势</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1"><span class="nav-text">4.嵌入式系统设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%98"><span class="nav-text">嵌入式系统面临的挑战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E8%80%85%E8%A6%81%E6%B1%82"><span class="nav-text">嵌入式系统设计者要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87"><span class="nav-text">设计目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">体系结构设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E7%A1%AC%E4%BB%B6%E5%88%92%E5%88%86"><span class="nav-text">软硬件划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF%E5%AF%B9%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-text">软硬件技术对系统结构的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E7%9A%84%E6%BC%94%E5%8F%98"><span class="nav-text">嵌入式系统设计方法的演变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B"><span class="nav-text">传统嵌入式系统的设计过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E7%A1%AC%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1HW-x2F-SW-Co-design"><span class="nav-text">软硬件协同设计HW&#x2F;SW Co-design</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E7%A1%AC%E4%BB%B6%E9%83%A8%E5%88%86"><span class="nav-text">4.硬件部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E6%80%BB%E8%A7%88"><span class="nav-text">硬件总览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8"><span class="nav-text">嵌入式微处理器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E8%A1%8C%E7%9A%84%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8%E6%8C%87%E4%BB%A4%E9%9B%86"><span class="nav-text">流行的微处理器指令集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RISC-vs-CISC"><span class="nav-text">RISC vs CISC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RISC-V"><span class="nav-text">RISC-V</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E8%8A%AF%E7%89%87%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E7%9A%84%E4%BA%94%E4%BB%B6%E4%BA%8B"><span class="nav-text">设计芯片需要考虑的五件事</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8-1"><span class="nav-text">嵌入式微处理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BE%AE%E5%A4%84%E7%90%86%E5%8D%95%E5%85%83%EF%BC%88MPU%EF%BC%89"><span class="nav-text">嵌入式微处理单元（MPU）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BE%AE%E6%8E%A7%E5%88%B6%E5%99%A8%EF%BC%88MCU%EF%BC%89"><span class="nav-text">嵌入式微控制器（MCU）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8FDSP"><span class="nav-text">嵌入式DSP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8FSoC"><span class="nav-text">嵌入式SoC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">嵌入式微处理器的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARM%E5%85%AC%E5%8F%B8"><span class="nav-text">ARM公司</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARM%E6%9E%B6%E6%9E%84"><span class="nav-text">ARM架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Meltdown-amp-Spectre"><span class="nav-text">Meltdown &amp; Spectre</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8"><span class="nav-text">选择微处理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E6%9E%B6%E6%9E%84"><span class="nav-text">存储器架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-text">存储器层次结构</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
