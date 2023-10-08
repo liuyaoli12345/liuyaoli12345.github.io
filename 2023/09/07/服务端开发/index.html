@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://files.lsmcloud.top/blogfd16269c704e3fd4b9c8b5ff32294864.png">
 <meta property="article:published_time" content="2023-09-07T10:41:06.000Z">
-<meta property="article:modified_time" content="2023-09-28T12:55:01.179Z">
+<meta property="article:modified_time" content="2023-10-07T13:20:58.939Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="课程笔记">
 <meta name="twitter:card" content="summary">
@@ -398,8 +398,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-09-28 20:55:01</span>
-            <span class="mobile">2023-09-28 20:55:01</span>
+            <span class="desktop">2023-10-07 21:20:58</span>
+            <span class="mobile">2023-10-07 21:20:58</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -632,6 +632,96 @@
 </ol>
 <h4 id="WebConfig"><a href="#WebConfig" class="headerlink" title="WebConfig"></a>WebConfig</h4><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebConfig</span> <span class="keyword">implements</span> <span class="title class_">WebMvcConfigurer</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span> &#123;</span><br><span class="line">    registry.addViewController(<span class="string">&quot;/&quot;</span>).setViewName(<span class="string">&quot;home&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
+<h4 id="Spring-MVC获取参数的几种方式"><a href="#Spring-MVC获取参数的几种方式" class="headerlink" title="Spring MVC获取参数的几种方式"></a>Spring MVC获取参数的几种方式</h4><ul>
+<li>form参数转成model，成员类型可能会用到Converter进行类型转换</li>
+<li>路径参数</li>
+<li>请求参数（查询参数），@RequestParam</li>
+<li>json请求体，@RequestBody，会用到HttpMessageConverter消息转换器，RestAPI</li>
+</ul>
+<h4 id="Spring-MVC的请求映射注解"><a href="#Spring-MVC的请求映射注解" class="headerlink" title="Spring MVC的请求映射注解"></a>Spring MVC的请求映射注解</h4><p>可以放在类上，也可以放在方法上</p>
+<ul>
+<li><p>@RequestMapping 可以再这个注解后面详细解释，是通用的</p>
+</li>
+<li><p>@GetMapping</p>
+</li>
+<li><p>@PostMapping</p>
+</li>
+<li><p>@PutMapping</p>
+</li>
+<li><p>@DeleteMapping</p>
+</li>
+<li><p>@PatchMapping</p>
+</li>
+</ul>
+<h4 id="Model和View的关系"><a href="#Model和View的关系" class="headerlink" title="Model和View的关系"></a>Model和View的关系</h4><p>Model提供View的输入</p>
+<p>Model属性会复制到Servlet Request属性中，给视图用于渲染页面</p>
+<p>thymeleaf和spring mvc是解耦的</p>
+<p>Spring MVC发现了thymeleaf，会自己帮你创建支持thymeleaf的bean</p>
+<h4 id="处理表单提交"><a href="#处理表单提交" class="headerlink" title="处理表单提交"></a>处理表单提交</h4><h4 id="校验表单输入-1"><a href="#校验表单输入-1" class="headerlink" title="校验表单输入"></a>校验表单输入</h4><ul>
+<li><p>javaBean Validation API</p>
+</li>
+<li><p>spring-boot-starter-validation（Hibernate针对javaBean Validation API的实现）</p>
+</li>
+<li><p>领域类加校验规则</p>
+</li>
+<li><p>控制器中声明校验</p>
+</li>
+<li><p>修改表单视图展现校验错误</p>
+</li>
+</ul>
+<h4 id="WebMVConfigurer"><a href="#WebMVConfigurer" class="headerlink" title="WebMVConfigurer"></a>WebMVConfigurer</h4><p>可以做很多事</p>
+<h2 id="服务端数据库开发"><a href="#服务端数据库开发" class="headerlink" title="服务端数据库开发"></a>服务端数据库开发</h2><p>Spring为数据库访问提供了抽象的简化</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> JdbcTemplate jdbcTemplate;</span><br></pre></td></tr></table></figure></div>
+
+<p>这个类会被spring框架自动注入</p>
+<h3 id="SQLException"><a href="#SQLException" class="headerlink" title="SQLException"></a>SQLException</h3><ol>
+<li>数据库连接中断</li>
+<li>表不存在</li>
+<li>SQL语法错误</li>
+<li>…</li>
+</ol>
+<h3 id="JdbcTemplate"><a href="#JdbcTemplate" class="headerlink" title="JdbcTemplate"></a>JdbcTemplate</h3><ol>
+<li>xml中添加jdbc依赖</li>
+<li>在xml中指定数据库类型（MySQL、H2、Postgresql…）</li>
+<li>（H2）在resources里面写.sql文件</li>
+<li>写@Repository</li>
+</ol>
+<h4 id="在业务层访问Repository"><a href="#在业务层访问Repository" class="headerlink" title="在业务层访问Repository"></a>在业务层访问Repository</h4><h4 id="JdbcOperations是JdbcTemplate实现的接口"><a href="#JdbcOperations是JdbcTemplate实现的接口" class="headerlink" title="JdbcOperations是JdbcTemplate实现的接口"></a>JdbcOperations是JdbcTemplate实现的接口</h4><h4 id="访问H2控制台"><a href="#访问H2控制台" class="headerlink" title="访问H2控制台"></a>访问H2控制台</h4><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/h2-console</span><br></pre></td></tr></table></figure></div>
+
+<p>添加devtools访问</p>
+<h3 id="data-jdbc"><a href="#data-jdbc" class="headerlink" title="data-jdbc"></a>data-jdbc</h3><p>Spring Data项目</p>
+<ul>
+<li><p>只是定义而不需实现接口(spring 来实现)</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.data.repository.CurdRepository;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IngredientRepository</span> <span class="keyword">extends</span> <span class="title class_">CrudRepository</span>&lt;Ingredient, String&gt; &#123; <span class="comment">//指明操作的对象和ID的类型</span></span><br><span class="line">  <span class="comment">// 如果我想要添加一个新的查询方法,动作+By+字段，这是“领域特定语言”</span></span><br><span class="line">  <span class="comment">// 如果要更具体</span></span><br><span class="line">  <span class="meta">@Query(&quot;Order o where o.deliveryCity = &#x27;New York&#x27;&quot;)</span> <span class="comment">//方法名就叫叭叭叭ba~</span></span><br><span class="line">  List&lt;TacoOrder&gt; <span class="title function_">findByDeliveryZip</span><span class="params">(String DeliveryZip)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>定义数据类</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Table</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor(access=AccessLevel.PRIVATE,force=true)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Ingredient</span> <span class="keyword">implements</span> <span class="title class_">Persistable</span>&lt;String&gt; &#123;</span><br><span class="line">  <span class="meta">@Id</span></span><br><span class="line">  <span class="keyword">private</span> String id;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@NotNull</span></span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>  注意命名规范！java驼峰与建库脚本下划线对应</p>
+</li>
+<li><p>根路径下添加创建表的脚本</p>
+</li>
+<li><p>接口注入到业务层或控制器</p>
+</li>
+<li><p>如果你需要启动时插入数据…</p>
+<p>在Application入口类中建立一个内部类</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> CommandLineRunner <span class="title function_">dataLoader</span><span class="params">(BoyRepository repo)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> args -&gt; &#123;</span><br><span class="line">    repo.deleteAll();</span><br><span class="line">    repo.save(<span class="keyword">new</span> <span class="title class_">Boy</span>())</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>此方法调用的时机是所有Bean创建完成后，Application最后启动前</p>
+</li>
+</ul>
+<h3 id="Spring-Data-JPA"><a href="#Spring-Data-JPA" class="headerlink" title="Spring Data JPA"></a>Spring Data JPA</h3><ul>
+<li>JPA：Java Persistence API</li>
+<li>宗旨是为POJO提供持久化标准规范</li>
+<li>JPQL是一种面向对象的查询语言（类似SQL）</li>
+<li>依赖是data-jpa</li>
+</ul>
+<p>步骤</p>
+<ul>
+<li><p>接口和上面的是一模一样嘟</p>
+</li>
+<li><p>对应关系</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Entity</span> <span class="comment">//比table更厉害的注解，不要你写表结构，来自javax.persistense</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Ingredient</span>&#123;</span><br><span class="line">  <span class="meta">@Id</span></span><br><span class="line">  <span class="keyword">private</span> String id;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@Column(&quot;wow&quot;)</span></span><br><span class="line"> 	<span class="meta">@Size(min=5, message=&quot;lalala&quot;)</span></span><br><span class="line">  <span class="keyword">private</span> String cao;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@OneToMany(cascade=CascadeType.ALL)</span> <span class="comment">//告诉spring表之间有关联,cascade意味着一旦order被删除，对应的Taco一起删除</span></span><br><span class="line">  <span class="keyword">private</span> List&lt;Taco&gt; tacos = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
 
         </div>
 
@@ -646,7 +736,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2023-09-28 20:55:01
+                    :</strong> 2023-10-07 21:20:58
             </li>
         
         <li>
@@ -726,7 +816,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">服务端开发</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91"><span class="nav-text">服务端开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-boot-%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6"><span class="nav-text">Spring boot 开发框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E7%9A%84%E5%88%86%E5%B1%82"><span class="nav-text">开发框架的分层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E7%9A%84%E8%A1%8D%E7%94%9F"><span class="nav-text">Spring的衍生</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Junit%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="nav-text">Junit测试用例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E6%9C%9F%E5%B7%A5%E5%85%B7%EF%BC%9ASpring-boot-DevTools"><span class="nav-text">开发期工具：Spring boot DevTools</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="nav-text">依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-1"><span class="nav-text">Bean的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-Faker"><span class="nav-text">Java Faker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="nav-text">其他方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%9A%84%E7%BC%96%E7%A8%8B"><span class="nav-text">面向切面的编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E7%9F%A5%E7%B1%BB%E5%9E%8B"><span class="nav-text">通知类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E7%89%87%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="nav-text">切片是如何实现的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AspectJ-%E5%88%87%E7%82%B9%E6%8C%87%E7%A4%BA%E5%99%A8"><span class="nav-text">AspectJ 切点指示器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%88%87%E7%89%87%E6%89%A9%E5%B1%95%E7%B1%BB%E7%9A%84%E8%A1%8C%E4%B8%BA"><span class="nav-text">通过切片扩展类的行为</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%AA%E5%88%87%E5%85%B3%E6%B3%A8%E7%82%B9"><span class="nav-text">横切关注点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%B2%A1%E6%9C%89%E5%88%87%E7%89%87%E4%B9%8B%E5%89%8D%E2%80%A6"><span class="nav-text">在没有切片之前…</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%87%E5%85%A5%E6%97%B6%E6%9C%BA"><span class="nav-text">织入时机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC%E6%9E%B6%E6%9E%84"><span class="nav-text">MVC架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Data%E6%B3%A8%E8%A7%A3"><span class="nav-text">@Data注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller"><span class="nav-text">Controller</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91"><span class="nav-text">服务端开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-boot-%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6"><span class="nav-text">Spring boot 开发框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E7%9A%84%E5%88%86%E5%B1%82"><span class="nav-text">开发框架的分层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E7%9A%84%E8%A1%8D%E7%94%9F"><span class="nav-text">Spring的衍生</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Junit%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="nav-text">Junit测试用例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E6%9C%9F%E5%B7%A5%E5%85%B7%EF%BC%9ASpring-boot-DevTools"><span class="nav-text">开发期工具：Spring boot DevTools</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="nav-text">依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-1"><span class="nav-text">Bean的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-Faker"><span class="nav-text">Java Faker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="nav-text">其他方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%9A%84%E7%BC%96%E7%A8%8B"><span class="nav-text">面向切面的编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E7%9F%A5%E7%B1%BB%E5%9E%8B"><span class="nav-text">通知类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E7%89%87%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="nav-text">切片是如何实现的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AspectJ-%E5%88%87%E7%82%B9%E6%8C%87%E7%A4%BA%E5%99%A8"><span class="nav-text">AspectJ 切点指示器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%88%87%E7%89%87%E6%89%A9%E5%B1%95%E7%B1%BB%E7%9A%84%E8%A1%8C%E4%B8%BA"><span class="nav-text">通过切片扩展类的行为</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%AA%E5%88%87%E5%85%B3%E6%B3%A8%E7%82%B9"><span class="nav-text">横切关注点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%B2%A1%E6%9C%89%E5%88%87%E7%89%87%E4%B9%8B%E5%89%8D%E2%80%A6"><span class="nav-text">在没有切片之前…</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%87%E5%85%A5%E6%97%B6%E6%9C%BA"><span class="nav-text">织入时机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC%E6%9E%B6%E6%9E%84"><span class="nav-text">MVC架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Data%E6%B3%A8%E8%A7%A3"><span class="nav-text">@Data注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller"><span class="nav-text">Controller</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91"><span class="nav-text">服务端数据库开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQLException"><span class="nav-text">SQLException</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JdbcTemplate"><span class="nav-text">JdbcTemplate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#data-jdbc"><span class="nav-text">data-jdbc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Data-JPA"><span class="nav-text">Spring Data JPA</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
