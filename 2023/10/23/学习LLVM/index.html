@@ -13,17 +13,23 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://blog.lsmcloud.top/archives/2023/page/3/"/>
+    <link rel="canonical" href="http://blog.lsmcloud.top/2023/10/23/学习llvm/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://blog.lsmcloud.top/archives/2023/page/3/index.html">
+        <meta name="description" content="项目结构 llvm&#x2F;cmake 生成系统构建文件  llvm&#x2F;examples 一些例子  llvm&#x2F;include llvm项目使用的头文件  llvm&#x2F;include&#x2F;llvm:llvm特有的头文件 llvm&#x2F;include&#x2F;llvm&#x2F;Surpport:一些不是llvm特有的头文件 llvm&#x2F;includ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习LLVM">
+<meta property="og:url" content="http://blog.lsmcloud.top/2023/10/23/%E5%AD%A6%E4%B9%A0LLVM/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="项目结构 llvm&#x2F;cmake 生成系统构建文件  llvm&#x2F;examples 一些例子  llvm&#x2F;include llvm项目使用的头文件  llvm&#x2F;include&#x2F;llvm:llvm特有的头文件 llvm&#x2F;include&#x2F;llvm&#x2F;Surpport:一些不是llvm特有的头文件 llvm&#x2F;includ">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-10-23T08:25:35.000Z">
+<meta property="article:modified_time" content="2023-10-23T13:52:20.153Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="编译原理">
+<meta property="article:tag" content="LLVM">
 <meta name="twitter:card" content="summary">
     
     
@@ -36,7 +42,7 @@
     
     <title>
         
-            Archive: 2023 -
+            学习LLVM -
         
         力崽的blog
     </title>
@@ -152,7 +158,7 @@
                         
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active" 
+                                <a class="" 
                                     href="/archives"  >
                                     
                                         
@@ -265,7 +271,7 @@
             
                 
                     <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
-                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group active" 
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
                         href="/archives"  >
                              
                                 
@@ -353,161 +359,251 @@
             <div class="main-content">
 
                 
-                    <div class="archive-container ">
-    
-<div class="archive-list-container">
-    
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2023</span>
-                <span class="archive-year-post-count">[23]</span>
+                    <div class="post-page-container">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            
+                
+                
+                <img src="https://files.lsmcloud.top/blog4dc0d3cada9c74355281b3eb5538a098.png" alt="学习LLVM" class="max-w-none"/>
+                
+                <h1 class="article-title-cover">学习LLVM</h1>
+            
             </div>
-            <ul class="article-list">
-              
-              <li class="article-item" date-is='10-23'>
-                <a href="/2023/10/23/%E5%AD%A6%E4%B9%A0LLVM/">
-                  <span class="article-title">学习LLVM</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='09-21'>
-                <a href="/2023/09/21/nextjs%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E8%AE%BF%E9%97%AE/">
-                  <span class="article-title">nextjs前端开发环境解决跨域访问</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='09-11'>
-                <a href="/2023/09/11/leetcode%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95/">
-                  <span class="article-title">leetcode题目记录</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='09-08'>
-                <a href="/2023/09/08/%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">
-                  <span class="article-title">移动互联网软件工程</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='09-07'>
-                <a href="/2023/09/07/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
-                  <span class="article-title">服务端开发</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='09-07'>
-                <a href="/2023/09/07/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">
-                  <span class="article-title">软件测试</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='09-06'>
-                <a href="/2023/09/06/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                  <span class="article-title">大数据分析</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='09-05'>
-                <a href="/2023/09/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                  <span class="article-title">机器学习</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='09-05'>
-                <a href="/2023/09/05/%E9%9C%80%E6%B1%82%E4%B8%8E%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E5%88%9B%E6%96%B0/">
-                  <span class="article-title">需求与商业模式创新</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='09-05'>
-                <a href="/2023/09/05/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/">
-                  <span class="article-title">人机交互</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='09-04'>
-                <a href="/2023/09/04/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/">
-                  <span class="article-title">嵌入式系统</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='08-16'>
-                <a href="/2023/08/16/%E5%AD%A6%E4%B9%A0next-js/">
-                  <span class="article-title">学习next.js</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='08-16'>
-                <a href="/2023/08/16/%E8%AE%B0%E4%B8%80%E6%AC%A1azure%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E4%BA%92%E8%81%94%E7%BD%91/">
-                  <span class="article-title">记一次azure突然无法访问互联网</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='07-21'>
-                <a href="/2023/07/21/Android%E5%BC%80%E5%8F%91%E5%9D%91%E6%80%BB%E7%BB%93/">
-                  <span class="article-title">Android开发坑总结</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='07-15'>
-                <a href="/2023/07/15/windows7-0x0000004F%E4%B8%8E0xc00000e%E4%BF%AE%E5%A4%8D/">
-                  <span class="article-title">windows7 0x0000004F与0xc00000e修复</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='07-14'>
-                <a href="/2023/07/14/%E6%89%93%E5%8D%A1%E8%AF%BB%E5%8F%B2%E8%AE%B0/">
-                  <span class="article-title">读史记</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='07-09'>
-                <a href="/2023/07/09/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E8%80%83%E7%A7%91%E7%9B%AE%E4%BA%8C/">
-                  <span class="article-title">记录一次考科目二</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='07-07'>
-                <a href="/2023/07/07/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E6%A1%A9%E7%A8%8B%E5%BA%8F%E6%94%AF%E4%BB%98%E9%A1%B5%E9%9D%A2/">
-                  <span class="article-title">微信支付桩程序支付页面</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='07-03'>
-                <a href="/2023/07/03/%E4%BD%BF%E7%94%A8kubernetes%E9%83%A8%E7%BD%B2%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
-                  <span class="article-title">使用kubernetes部署云服务</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='07-01'>
-                <a href="/2023/07/01/%E4%BD%BF%E7%94%A8%E5%AE%B9%E5%99%A8%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/">
-                  <span class="article-title">使用容器部署服务</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='07-01'>
-                <a href="/2023/07/01/%E5%B0%86%E6%9C%AC%E5%9C%B0%E5%B7%B2%E6%9C%89%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96git%E5%B9%B6%E4%B8%8A%E4%BC%A0%E5%88%B0%E8%BF%9C%E7%AB%AF%E7%9A%84%E7%A9%BA%E4%BB%93%E5%BA%93/">
-                  <span class="article-title">将本地已有的项目初始化git并上传到远端的空仓库</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='06-29'>
-                <a href="/2023/06/29/git%E8%AE%B0%E5%BD%95%E8%BF%87%E5%A4%A7%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B/">
-                  <span class="article-title">git记录过大处理过程</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='06-27'>
-                <a href="/2023/06/27/hello-world/">
-                  <span class="article-title">Hello World</span>
-                </a>
-              </li>
-              
+            
+                    
+        
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">力崽！</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-10-23 16:25:35</span>
+        <span class="mobile">2023-10-23 16:25:35</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-10-23 21:52:20</span>
+            <span class="mobile">2023-10-23 21:52:20</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/LLVM/">LLVM</a>&nbsp;
+                        </li>
+                    
+                    
+                
             </ul>
-        </section>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/LLVM/">LLVM</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body">
+            <h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><ul>
+<li><p>llvm&#x2F;cmake</p>
+<p>生成系统构建文件</p>
+</li>
+<li><p>llvm&#x2F;examples</p>
+<p>一些例子</p>
+</li>
+<li><p>llvm&#x2F;include</p>
+<p>llvm项目使用的头文件</p>
+<ul>
+<li>llvm&#x2F;include&#x2F;llvm:llvm特有的头文件</li>
+<li>llvm&#x2F;include&#x2F;llvm&#x2F;Surpport:一些不是llvm特有的头文件</li>
+<li>llvm&#x2F;include&#x2F;llvm.Config:cmake配置的头文件</li>
+</ul>
+</li>
+<li><p>llvm&#x2F;lib</p>
+<ul>
+<li>llvm&#x2F;lib&#x2F;IR:核心的llvm文件，包括一些核心的类比如指令(Instruction)和基本块(Basicblock)</li>
+<li>AsmParser:asm代码处理库</li>
+<li>Bitcode:bitcode处理库</li>
+<li>Analysis:分析类，比如调用图、诱导变量（<em>什么东东？</em>），循环识别等</li>
+<li>Transforms:IR-2-IR级别的转换，是编译优化的主攻方向</li>
+<li>Target:描述代码生成目标架构</li>
+<li>Codegen:代码生成核心类，包括指令选取、指令调度和寄存器选取</li>
+<li>MC:在机器码层面操作的库</li>
+<li>ExecutionEngine:直接执行字节码的库</li>
+<li>Surpport:不是llvm特有的支持库</li>
+</ul>
+</li>
+<li><p>llvm&#x2F;binding</p>
+<ul>
+<li>为不是c&#x2F;c++编写的程序提供使用llvm的便利（LLVM官方提供了针对OCaml和Python的）</li>
+</ul>
+</li>
+<li><p>llvm&#x2F;projects</p>
+<ul>
+<li>随llvm一起发布的项目</li>
+</ul>
+</li>
+<li><p>llvm&#x2F;test</p>
+<ul>
+<li>项目测试</li>
+</ul>
+</li>
+<li><p>llvm&#x2F;tools</p>
+<ul>
+<li>由上述库构建的可执行文件，是用户接口的主要组成</li>
+</ul>
+</li>
+<li><p>llvm&#x2F;utils</p>
+<ul>
+<li>针对llvm源代码的实用程序</li>
+</ul>
+</li>
+</ul>
+<p><code>-5 -5 -4 0 0 3 3 4 5</code></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> 学习LLVM</li>
+        <li><strong>Author:</strong> 力崽！</li>
+        <li><strong>Created at
+                :</strong> 2023-10-23 16:25:35</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2023-10-23 21:52:20
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://blog.lsmcloud.top/2023/10/23/学习LLVM/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+            This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
+            
+
+        </li>
+    </ul>
 </div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">#编译原理</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/LLVM/">#LLVM</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                        rel="next"
+                        href="/2023/09/21/nextjs%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E8%AE%BF%E9%97%AE/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">nextjs前端开发环境解决跨域访问</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">学习LLVM</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="nav-text">项目结构</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
 
                 
 
@@ -582,6 +678,23 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-side-tools-container">
