@@ -27,8 +27,9 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://files.lsmcloud.top/blogd9d184e9430c116e1834104dd80a60b1.png">
 <meta property="og:image" content="https://files.lsmcloud.top/blog83a23a6df8d5778a46a5516a3761f0ea.png">
+<meta property="og:image" content="https://files.lsmcloud.top/blog1533cedc91fcbaef572eae4c88a96895.png">
 <meta property="article:published_time" content="2023-09-08T06:09:32.000Z">
-<meta property="article:modified_time" content="2023-10-20T07:41:33.850Z">
+<meta property="article:modified_time" content="2023-11-06T13:22:16.953Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="课程笔记">
 <meta name="twitter:card" content="summary">
@@ -399,8 +400,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-10-20 15:41:33</span>
-            <span class="mobile">2023-10-20 15:41:33</span>
+            <span class="desktop">2023-11-06 21:22:16</span>
+            <span class="mobile">2023-11-06 21:22:16</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -563,7 +564,118 @@
 <p>应用程序要被设计为能够容忍服务失效</p>
 </li>
 </ol>
-<h3 id="DevOps"><a href="#DevOps" class="headerlink" title="DevOps"></a>DevOps</h3>
+<h3 id="DevOps"><a href="#DevOps" class="headerlink" title="DevOps"></a>DevOps</h3><h2 id="设计模式讲解"><a href="#设计模式讲解" class="headerlink" title="设计模式讲解"></a>设计模式讲解</h2><h3 id="经典组合、实现与集成"><a href="#经典组合、实现与集成" class="headerlink" title="经典组合、实现与集成"></a>经典组合、实现与集成</h3><pre class="mermaid">classDiagram
+shop o-- taxCaculator
+pizzaShop --|> shop
+burgerShop --|> shop
+sameTax ..|> taxCaculator
+increaseTax ..|> taxCaculator</pre>
+
+<p>优点</p>
+<ul>
+<li>动态配置Caculator</li>
+<li>实现不同的shop</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>需要能抽象出taxCaculator</li>
+<li>caculator可能需要获得复杂的数据才能实现功能</li>
+</ul>
+<h3 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h3><p>核心思想：希望将对象的创建委托给工厂</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blog1533cedc91fcbaef572eae4c88a96895.png"
+                     
+                ></p>
+<p>优点：</p>
+<ul>
+<li><p>客户端不需要了解工厂，他只需要持有一个抽象工厂的引用，在启动时正确的初始化抽象工厂为具体的工厂，然后把创建都交给工厂就行了，而不是不停地去指定不同的工厂</p>
+</li>
+<li><p>如果想要新增一套产品，只需要增加一个新的具体工厂和一组新的具体产品</p>
+</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>如果想要增加产品，需要修改包括抽象工厂的所有工厂，非常痛苦</li>
+</ul>
+<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><p>可以将这个类和那个类的功能通过桥接联系起来，灵活实现</p>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><h3 id="应用架构"><a href="#应用架构" class="headerlink" title="应用架构"></a>应用架构</h3><ul>
+<li>稳定性原则<ul>
+<li>一切以稳定为中心</li>
+<li>架构尽可能简单清晰</li>
+<li>不过度设计</li>
+</ul>
+</li>
+<li>解耦&#x2F;拆分<ul>
+<li>稳定部分与易变部分分离</li>
+<li>核心业务与非核心业务分离</li>
+<li>主流层与辅流程分离</li>
+<li>应用与数据分离</li>
+<li>服务与实现细节分离</li>
+</ul>
+</li>
+<li>抽象化<ul>
+<li>应用只依赖服务的抽象</li>
+<li>数据库抽象化</li>
+<li>服务器抽象化</li>
+</ul>
+</li>
+<li>松耦合<ul>
+<li>跨域调用异步化</li>
+<li>非核心业务异步化</li>
+<li>必须同步调用时，需要设置超时时间和任务队列长度</li>
+</ul>
+</li>
+<li>容错设计<ul>
+<li>服务自治</li>
+<li>集群分布</li>
+<li>机房灾配</li>
+</ul>
+</li>
+</ul>
+<h3 id="服务设计"><a href="#服务设计" class="headerlink" title="服务设计"></a>服务设计</h3><ul>
+<li>无状态</li>
+<li>可复用</li>
+<li>松耦合</li>
+<li>可治理</li>
+</ul>
+<h3 id="远程访问服务"><a href="#远程访问服务" class="headerlink" title="远程访问服务"></a>远程访问服务</h3><h4 id="RPC远程方法调用"><a href="#RPC远程方法调用" class="headerlink" title="RPC远程方法调用"></a>RPC远程方法调用</h4><p>最初是希望就像调用本地方法一样调用远程服务器上的方法</p>
+<h5 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h5><ul>
+<li>管道</li>
+<li>消息队列</li>
+<li>socket</li>
+</ul>
+<h5 id="三个基本问题"><a href="#三个基本问题" class="headerlink" title="三个基本问题"></a>三个基本问题</h5><ul>
+<li>如何表示数据</li>
+<li>如何传递数据</li>
+<li>如何表示方法</li>
+</ul>
+<h3 id="数据架构"><a href="#数据架构" class="headerlink" title="数据架构"></a>数据架构</h3><ul>
+<li>统一数据视图</li>
+<li>数据、应用分离：应用不直接访问数据库，而是通过服务访问</li>
+<li>数据异构</li>
+<li>读写分离</li>
+<li>合理使用缓存</li>
+</ul>
+<h3 id="系统运行时原则"><a href="#系统运行时原则" class="headerlink" title="系统运行时原则"></a>系统运行时原则</h3><ul>
+<li>可监控</li>
+<li>应用可回滚，功能可降级</li>
+</ul>
+<h3 id="系统部署原则"><a href="#系统部署原则" class="headerlink" title="系统部署原则"></a>系统部署原则</h3><ul>
+<li>N+1：为确保故障多搭建一套系统</li>
+<li>D-I-D：设计20倍容量，实现3倍容量，部署1.5倍的容量</li>
+<li>支持灰度发布</li>
+<li>虚拟化部署</li>
+<li>业务子网</li>
+</ul>
+<h2 id="大型网站架构演化历程"><a href="#大型网站架构演化历程" class="headerlink" title="大型网站架构演化历程"></a>大型网站架构演化历程</h2><ol>
+<li>一个服务器</li>
+<li>服务器分离</li>
+<li>使用缓存改善网站性能</li>
+<li>CDN和反向代理</li>
+</ol>
+
         </div>
 
         
@@ -577,7 +689,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2023-10-20 15:41:33
+                    :</strong> 2023-11-06 21:22:16
             </li>
         
         <li>
@@ -657,7 +769,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">移动互联网软件工程</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B"><span class="nav-text">移动互联网软件工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android"><span class="nav-text">Android</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IOS"><span class="nav-text">IOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HarmonyOS"><span class="nav-text">HarmonyOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stage%E6%A8%A1%E5%9E%8B"><span class="nav-text">Stage模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UIAbility%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F"><span class="nav-text">UIAbility启动模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Want%E7%B1%BB%E5%9E%8B"><span class="nav-text">Want类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stage"><span class="nav-text">Stage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9AHAP%E6%9C%BA%E5%88%B6"><span class="nav-text">多HAP机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E6%B8%8A%E6%BA%90"><span class="nav-text">语言渊源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E6%94%B9%E9%80%A0"><span class="nav-text">测试用例改造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%EF%BC%9A%E6%A1%88%E4%BE%8B%E8%AE%B2%E8%A7%A3TO-DO-List"><span class="nav-text">鸿蒙开发：案例讲解TO-DO List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="nav-text">状态管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-text">需求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%89%E4%BC%97%E5%88%86%E6%9E%90"><span class="nav-text">涉众分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArkTs%E8%BF%90%E8%A1%8C%E6%97%B6"><span class="nav-text">ArkTs运行时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RN"><span class="nav-text">RN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flutter"><span class="nav-text">Flutter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E4%BB%A3UI%E6%A1%86%E6%9E%B6"><span class="nav-text">现代UI框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%91%E5%8E%9F%E7%94%9F"><span class="nav-text">云原生</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="nav-text">循环依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%8D%95%E4%BD%93%E5%88%B0%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="nav-text">从单体到微服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DevOps"><span class="nav-text">DevOps</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B"><span class="nav-text">移动互联网软件工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android"><span class="nav-text">Android</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IOS"><span class="nav-text">IOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HarmonyOS"><span class="nav-text">HarmonyOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stage%E6%A8%A1%E5%9E%8B"><span class="nav-text">Stage模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UIAbility%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F"><span class="nav-text">UIAbility启动模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Want%E7%B1%BB%E5%9E%8B"><span class="nav-text">Want类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stage"><span class="nav-text">Stage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9AHAP%E6%9C%BA%E5%88%B6"><span class="nav-text">多HAP机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E6%B8%8A%E6%BA%90"><span class="nav-text">语言渊源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E6%94%B9%E9%80%A0"><span class="nav-text">测试用例改造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%EF%BC%9A%E6%A1%88%E4%BE%8B%E8%AE%B2%E8%A7%A3TO-DO-List"><span class="nav-text">鸿蒙开发：案例讲解TO-DO List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="nav-text">状态管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-text">需求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%89%E4%BC%97%E5%88%86%E6%9E%90"><span class="nav-text">涉众分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArkTs%E8%BF%90%E8%A1%8C%E6%97%B6"><span class="nav-text">ArkTs运行时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RN"><span class="nav-text">RN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flutter"><span class="nav-text">Flutter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E4%BB%A3UI%E6%A1%86%E6%9E%B6"><span class="nav-text">现代UI框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%91%E5%8E%9F%E7%94%9F"><span class="nav-text">云原生</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="nav-text">循环依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%8D%95%E4%BD%93%E5%88%B0%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="nav-text">从单体到微服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DevOps"><span class="nav-text">DevOps</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E8%AE%B2%E8%A7%A3"><span class="nav-text">设计模式讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E7%BB%84%E5%90%88%E3%80%81%E5%AE%9E%E7%8E%B0%E4%B8%8E%E9%9B%86%E6%88%90"><span class="nav-text">经典组合、实现与集成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82"><span class="nav-text">抽象工厂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F"><span class="nav-text">桥接模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84"><span class="nav-text">架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84"><span class="nav-text">应用架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E8%AE%BE%E8%AE%A1"><span class="nav-text">服务设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1"><span class="nav-text">远程访问服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%9E%B6%E6%9E%84"><span class="nav-text">数据架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%BF%90%E8%A1%8C%E6%97%B6%E5%8E%9F%E5%88%99"><span class="nav-text">系统运行时原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2%E5%8E%9F%E5%88%99"><span class="nav-text">系统部署原则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E6%BC%94%E5%8C%96%E5%8E%86%E7%A8%8B"><span class="nav-text">大型网站架构演化历程</span></a></li></ol></li></ol>
 
     </div>
 </div>
