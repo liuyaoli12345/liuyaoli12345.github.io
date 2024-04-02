@@ -18,19 +18,23 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="用户程序系统级API操作系统指令集硬件系统工艺模型晶体管Notion Collection “如果哪天编译技术发展到程序员只要写串行程序， 计算机能够自动并行化并在成千上万个处理器中运行该程序，那这座桥的评分可以得 “特优”。”  并行化技术可能是一个研究方向  “RISC 指令系统的最本质特征是通过 load&#x2F;store 结构简化了指令间关系，即所有运算指令都是对 寄存器运算，所有访存">
+        <meta name="description" content="用户程序系统级API操作系统指令集硬件系统高速缓存 Cache原理wiki  cache可以被分为set和line，一个cache有多个set，每个set里有多个line，每个line对应一个内存block 直接相联 Direct-mapped cache可以看成每个set只有一个line的cache 每个内存块都注定要被映射到cache中一个确定的位置  一个地址被分为了tag，index，of">
 <meta property="og:type" content="article">
 <meta property="og:title" content="再习计算机组织结构">
 <meta property="og:url" content="http://blog.lsmcloud.top/2024/03/06/%E5%86%8D%E4%B9%A0%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="用户程序系统级API操作系统指令集硬件系统工艺模型晶体管Notion Collection “如果哪天编译技术发展到程序员只要写串行程序， 计算机能够自动并行化并在成千上万个处理器中运行该程序，那这座桥的评分可以得 “特优”。”  并行化技术可能是一个研究方向  “RISC 指令系统的最本质特征是通过 load&#x2F;store 结构简化了指令间关系，即所有运算指令都是对 寄存器运算，所有访存">
+<meta property="og:description" content="用户程序系统级API操作系统指令集硬件系统高速缓存 Cache原理wiki  cache可以被分为set和line，一个cache有多个set，每个set里有多个line，每个line对应一个内存block 直接相联 Direct-mapped cache可以看成每个set只有一个line的cache 每个内存块都注定要被映射到cache中一个确定的位置  一个地址被分为了tag，index，of">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://files.lsmcloud.top/blog55edfc9994375df1a285ccd6e5eb0f4c.png">
+<meta property="og:image" content="https://files.lsmcloud.top/blog35cb7cc457406ee9d5f0d50eabd34c61.png">
+<meta property="og:image" content="https://files.lsmcloud.top/blog5d5e409c744036974be919d0fcf67b6d.png">
 <meta property="og:image" content="https://files.lsmcloud.top/blog908ed9bbd93bdc6097d5cb77b3ca2a0b.png">
+<meta property="og:image" content="https://files.lsmcloud.top/blogbbb7854e50dbe9bb06d314cb224d4ebc.jpg">
 <meta property="article:published_time" content="2024-03-06T13:08:11.000Z">
-<meta property="article:modified_time" content="2024-03-06T13:51:15.986Z">
+<meta property="article:modified_time" content="2024-03-12T16:31:28.978Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://files.lsmcloud.top/blog908ed9bbd93bdc6097d5cb77b3ca2a0b.png">
+<meta name="twitter:image" content="https://files.lsmcloud.top/blog55edfc9994375df1a285ccd6e5eb0f4c.png">
     
     
     <!--- Icon Part-->
@@ -397,8 +401,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-03-06 21:51:15</span>
-            <span class="mobile">2024-03-06 21:51:15</span>
+            <span class="desktop">2024-03-13 00:31:28</span>
+            <span class="mobile">2024-03-13 00:31:28</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -441,13 +445,49 @@
 
 
         <div class="article-content markdown-body">
-            <h1 id="用户程序"><a href="#用户程序" class="headerlink" title="用户程序"></a>用户程序</h1><h1 id="系统级API"><a href="#系统级API" class="headerlink" title="系统级API"></a>系统级API</h1><h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h1 id="指令集"><a href="#指令集" class="headerlink" title="指令集"></a>指令集</h1><h1 id="硬件系统"><a href="#硬件系统" class="headerlink" title="硬件系统"></a>硬件系统</h1><h1 id="工艺模型"><a href="#工艺模型" class="headerlink" title="工艺模型"></a>工艺模型</h1><h1 id="晶体管"><a href="#晶体管" class="headerlink" title="晶体管"></a>晶体管</h1><h1 id="Notion-Collection"><a href="#Notion-Collection" class="headerlink" title="Notion Collection"></a>Notion Collection</h1><blockquote>
+            <h1 id="用户程序"><a href="#用户程序" class="headerlink" title="用户程序"></a>用户程序</h1><h1 id="系统级API"><a href="#系统级API" class="headerlink" title="系统级API"></a>系统级API</h1><h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h1 id="指令集"><a href="#指令集" class="headerlink" title="指令集"></a>指令集</h1><h1 id="硬件系统"><a href="#硬件系统" class="headerlink" title="硬件系统"></a>硬件系统</h1><h2 id="高速缓存-Cache"><a href="#高速缓存-Cache" class="headerlink" title="高速缓存 Cache"></a>高速缓存 Cache</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p><a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cache_placement_policies" >wiki <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>cache可以被分为set和line，一个cache有多个set，每个set里有多个line，每个line对应一个内存block</p>
+<h4 id="直接相联-Direct-mapped-cache"><a href="#直接相联-Direct-mapped-cache" class="headerlink" title="直接相联 Direct-mapped cache"></a>直接相联 Direct-mapped cache</h4><p><em>可以看成每个set只有一个line的cache</em></p>
+<p>每个内存块都注定要被映射到cache中一个确定的位置</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blog55edfc9994375df1a285ccd6e5eb0f4c.png"
+                     
+                ></p>
+<p>一个地址被分为了tag，index，offset三个部分，index就注定了这个字节会被分到哪一个cache line，但是有很多字节会被映射到同一个cache line，这个时候就可以通过tag来区分</p>
+<p>优点：查找速度很快，cache对应的index行上的tag是就命中，不是就没命中</p>
+<p>缺点：替换策略太直接，一些特定的代码可能连续疯狂替换cache反而导致速度变慢</p>
+<h4 id="全相联模型-Associative-mapping"><a href="#全相联模型-Associative-mapping" class="headerlink" title="全相联模型 Associative mapping"></a>全相联模型 Associative mapping</h4><p><em>可以看成只有一个set，这个set包含所有line的cache</em></p>
+<p>一个地址可能被分到任何一个line</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blog35cb7cc457406ee9d5f0d50eabd34c61.png"
+                     
+                ></p>
+<p>一个地址被分为tag和offset，要判断命不命中，就得整个cache搜一遍，挨个看tag是不是一样，如果cache塞满了要用一些算法替换，比如LRU</p>
+<p>优点：往往能比较好的捕捉时空局部性</p>
+<p>缺点：经常做全表搜索然后发现没命中，比较搞心态</p>
+<h4 id="组相连模型-Set-Associative-mapping"><a href="#组相连模型-Set-Associative-mapping" class="headerlink" title="组相连模型 Set Associative mapping"></a>组相连模型 Set Associative mapping</h4><p><em>每个block都注定会映射到一个特定的set，但在set当中可以随机的放，如果一个set被塞满了，那么就根据一些策略替换某行</em></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blog5d5e409c744036974be919d0fcf67b6d.png"
+                     
+                ></p>
+<p>中庸之道，中和了二者的优点，也中和了缺点</p>
+<h4 id="倾斜相连cache-Skewed-associative-caches"><a href="#倾斜相连cache-Skewed-associative-caches" class="headerlink" title="倾斜相连cache Skewed-associative caches"></a>倾斜相连cache Skewed-associative caches</h4><p>这种cache 的设计利用了哈希散列，比如二路组关联的cache，它的每个组的第一line被用来注定映射内存，即每一个内存都能有自己注定要映射到的line，但是它的第二line，被交给的一个hash函数，hash函数对内存地址进行散列，这样如果一个内存地址注定的地方发生冲突，它可以不着急，而是再进行一次散列，看看能不能找着位置</p>
+<p><strong>这里得挖个坑以后来填了，cache，光是wiki上的内容就超级多了，现代架构cache、读写控制、多级控制、与TLB结合…</strong></p>
+<h1 id="工艺模型"><a href="#工艺模型" class="headerlink" title="工艺模型"></a>工艺模型</h1><h1 id="晶体管"><a href="#晶体管" class="headerlink" title="晶体管"></a>晶体管</h1><h1 id="Notion-Collection"><a href="#Notion-Collection" class="headerlink" title="Notion Collection"></a>Notion Collection</h1><blockquote>
 <p>“如果哪天编译技术发展到程序员只要写串行程序， 计算机能够自动并行化并在成千上万个处理器中运行该程序，那这座桥的评分可以得 “特优”。”</p>
 </blockquote>
 <p>并行化技术可能是一个研究方向</p>
+<hr>
 <blockquote>
 <p>“RISC 指令系统的最本质特征是通过 load&#x2F;store 结构简化了指令间关系，即所有运算指令都是对 寄存器运算，所有访存都通过专用的访存指令（load&#x2F;store）进行。”</p>
 </blockquote>
+<hr>
 <blockquote>
 <p>“页式虚拟存储管理将各进程的虚拟内存空间划分成若干长度相同的页，将虚拟地址和物理地 址的对应关系组织为页表，并通过硬件来实现快速的地址转换。现代通用处理器的存储管理单元 都基于页式虚拟管理，并通过 TLB 进行地址转换加速。”</p>
 </blockquote>
@@ -464,6 +504,14 @@
                      
                 ></p>
 <p>这样我们既可以通过操作系统分配合适大小的段来控制程序分配到的内存，控制的页表的大小，同时还能利用段表的大小与偏移量的检查机制来避免各个区之间相互访问，达到保护程序的目的（比如实现可读可写则不可执行的保护限制）</p>
+<p>i386 采用二级页表结构，寻址如下图（图片没有体现权限控制的部分）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blogbbb7854e50dbe9bb06d314cb224d4ebc.jpg"
+                     
+                ></p>
+<hr>
 
         </div>
 
@@ -478,7 +526,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-03-06 21:51:15
+                    :</strong> 2024-03-13 00:31:28
             </li>
         
         <li>
@@ -535,7 +583,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">再习计算机组织结构</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%A8%8B%E5%BA%8F"><span class="nav-text">用户程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%BA%A7API"><span class="nav-text">系统级API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-text">操作系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E9%9B%86"><span class="nav-text">指令集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-text">硬件系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E8%89%BA%E6%A8%A1%E5%9E%8B"><span class="nav-text">工艺模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%99%B6%E4%BD%93%E7%AE%A1"><span class="nav-text">晶体管</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Notion-Collection"><span class="nav-text">Notion Collection</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%A8%8B%E5%BA%8F"><span class="nav-text">用户程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%BA%A7API"><span class="nav-text">系统级API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-text">操作系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E9%9B%86"><span class="nav-text">指令集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-text">硬件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98-Cache"><span class="nav-text">高速缓存 Cache</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-text">原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E8%89%BA%E6%A8%A1%E5%9E%8B"><span class="nav-text">工艺模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%99%B6%E4%BD%93%E7%AE%A1"><span class="nav-text">晶体管</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Notion-Collection"><span class="nav-text">Notion Collection</span></a></li></ol>
 
     </div>
 </div>
