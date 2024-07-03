@@ -58,8 +58,9 @@
 <meta property="og:image" content="https://files.lsmcloud.top/blogf2573a4682c75e9919fc365700467765.png">
 <meta property="og:image" content="https://files.lsmcloud.top/blog479b3c7215166f00f00bfd1100c58976.png">
 <meta property="og:image" content="https://files.lsmcloud.top/bloge38fccd4324b0215f46b20b15294ce19.png">
+<meta property="og:image" content="https://files.lsmcloud.top/blog3e7a6b6c5289374968fb1841f7af786f.png">
 <meta property="article:published_time" content="2024-03-07T12:56:34.000Z">
-<meta property="article:modified_time" content="2024-05-27T15:29:03.397Z">
+<meta property="article:modified_time" content="2024-07-03T00:15:30.340Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="ML">
 <meta name="twitter:card" content="summary">
@@ -528,7 +529,7 @@ mjx-container[display="true"] + br {
                     <div class="author">
                         <span class="name">力崽！</span>
                         
-                            <span class="author-label">Lv3</span>
+                            <span class="author-label">Lv4</span>
                         
                     </div>
                     <div class="meta-info">
@@ -542,8 +543,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-05-27 23:29:03</span>
-            <span class="mobile">2024-05-27 23:29:03</span>
+            <span class="desktop">2024-07-03 08:15:30</span>
+            <span class="mobile">2024-07-03 08:15:30</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -1039,6 +1040,184 @@ mjx-container[display="true"] + br {
 <h2 id="关于文本监督引入图像重建的可能性"><a href="#关于文本监督引入图像重建的可能性" class="headerlink" title="关于文本监督引入图像重建的可能性"></a>关于文本监督引入图像重建的可能性</h2><p>调研上我目前还没有看到关于文本和图像作为联合输入进行重建的文章</p>
 <p>学长说这可能是一个应用点，但是最大的问题在于数据集上，很多时候可能需要使用CLIP来标注图片，这样数据的质量就堪忧了</p>
 <h2 id="MAMBA的引入"><a href="#MAMBA的引入" class="headerlink" title="MAMBA的引入"></a>MAMBA的引入</h2><p>和学长进行了交流，学长说他已经就mamba替换transformer做过尝试，发现训练效率有比较大的下降，风险比较大</p>
+<h1 id="Week-13"><a href="#Week-13" class="headerlink" title="Week 13"></a>Week 13</h1><p>按照身体部位来给人体重建的文章分类未免也太蠢了，我打算试试按照技术分类，这样显得更聪明，但也有风险，作为一个菜鸟，我很担心我对这些技术的理解有偏差呢</p>
+<table>
+<thead>
+<tr>
+<th>Research</th>
+<th>pose-dependent deformation</th>
+<th>novel pose animation</th>
+<th>fast training</th>
+<th>real-time rendering</th>
+<th>monocular input</th>
+<th>Super-resolution</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HuGS</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Coarse to fine</td>
+</tr>
+<tr>
+<td>*GPS-Gaussian</td>
+<td>- (No need)</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Depth information estimated &amp; guided</td>
+</tr>
+<tr>
+<td>HUGS</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Triplane decoding</td>
+</tr>
+<tr>
+<td>GaussianAvatar</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes *0.5-6h single 3090</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>UV map feature tensor</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>*GPS-Gaussian等不使用SMPL模型的方法或许不能在此之列，因为他们行事不必受到SMPL模型的限制</p>
+<p>未来可能的方向：</p>
+<p>引入关于服装的物理先验知识来辅助完成服装被动画化时的变形</p>
+<h1 id="Week-14"><a href="#Week-14" class="headerlink" title="Week 14"></a>Week 14</h1><h2 id="泛化性生成"><a href="#泛化性生成" class="headerlink" title="泛化性生成"></a>泛化性生成</h2><p>泛化性网络 2d视频-&gt;6d xyz+t</p>
+<p>聚焦泛化性 （gaussian，带有生成性质的不是重点）</p>
+<p>同时用服务器复现代码，形成统一认识</p>
+<p>泛化性方向gaussian可能没有效果好，泛化性下大家不看时间看精度</p>
+<p>dynamic 先不用看，先看泛化性</p>
+<p>nerf 4d泛化复现</p>
+<p>泛化性高斯+综述 ppt记录 新文章 复现开源文章</p>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>进展</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>泛化性的复现</td>
+<td>复现MVSplat</td>
+</tr>
+<tr>
+<td>动画化的学习</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="目前主要的任务"><a href="#目前主要的任务" class="headerlink" title="目前主要的任务"></a>目前主要的任务</h2><p>我目前聚焦泛化性，主要对MVSplat和pixelSplat进行复现</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://files.lsmcloud.top/blog3e7a6b6c5289374968fb1841f7af786f.png"></p>
+<p>而这整体的pipeline是相似的，MVSplat使用Multi-view transformer获得基于单目视频上下文相关的feature，通过cost volume存储监督信息，并查询，最后通过Unet获得高斯元的具体参数，这里方法的最大特点是十分依赖初始化，由于gaussian splatting 中的clone和purne过程不是直接可微的，所以往往初始化后点的数量是固定的，实际上很难出现巨大的改变。</p>
+<p>+放出来结果</p>
+<h1 id="Week-18"><a href="#Week-18" class="headerlink" title="Week 18"></a>Week 18</h1><h2 id="MonoNerf"><a href="#MonoNerf" class="headerlink" title="MonoNerf"></a>MonoNerf</h2><table>
+<thead>
+<tr>
+<th>论文</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Attention is all you need</td>
+<td>了解transformer架构</td>
+</tr>
+<tr>
+<td>Self-Calibrating 4D Novel View Synthesis from Monocular Videos Using Gaussian Splatting</td>
+<td>与目标工作相近</td>
+</tr>
+<tr>
+<td>Diffusion4D: Fast Spatial-temporal Consistent 4D Generation via Video Diffusion Models</td>
+<td>4d生成</td>
+</tr>
+<tr>
+<td>3DGS-Avatar: Animatable Avatars via Deformable 3D Gaussian Splatting</td>
+<td>这里面Non-rigid Module有些没看懂，得问一问</td>
+</tr>
+<tr>
+<td>A taxonomy and evaluation of dense two-frame stereo correspondence algorithms</td>
+<td>了解cost volume流程</td>
+</tr>
+</tbody></table>
+<p>复现结果</p>
+<p><video src="/Users/lyl/Desktop/1gpusBalloon2_novelviewtime_080000_rgbs_00.mp4"></video></p>
+<p><video src="/Users/lyl/Desktop/1gpusBalloon2_novelviewtime_080000_rgbs_d_00.mp4"></video></p>
+<p>明确量化结果</p>
+<h2 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline"></a>pipeline</h2><p>![Screenshot 2024-06-30 at 17.29.33](/Users/lyl/Library/Application Support/typora-user-images/Screenshot 2024-06-30 at 17.29.33.png)</p>
+<h2 id="迁移计划"><a href="#迁移计划" class="headerlink" title="迁移计划"></a>迁移计划</h2><p>如何使用光流对高斯进行监督</p>
+<p>泛化性（学长的意思是不再按照mvsplat的流程来做，主要原因是使用的人太多，并且渲染速度（训练速度？）比较慢）</p>
+<p>![Screenshot 2024-06-30 at 17.41.18](/Users/lyl/Library/Application Support/typora-user-images/Screenshot 2024-06-30 at 17.41.18.png)</p>
+<h2 id="目前此领域相近的文章"><a href="#目前此领域相近的文章" class="headerlink" title="目前此领域相近的文章"></a>目前此领域相近的文章</h2><p><a class="link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2406.01042">Self-Calibrating 4D Novel View Synthesis from Monocular Videos Using Gaussian Splatting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>![Screenshot 2024-06-30 at 20.38.46](/Users/lyl/Library/Application Support/typora-user-images/Screenshot 2024-06-30 at 20.38.46.png)</p>
+<p>代码</p>
 
         </div>
 
@@ -1053,7 +1232,7 @@ mjx-container[display="true"] + br {
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-05-27 23:29:03
+                    :</strong> 2024-07-03 08:15:30
             </li>
         
         <li>
@@ -1133,7 +1312,7 @@ mjx-container[display="true"] + br {
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">ML2024:weekly report</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gaussion-Process-Regression"><span class="nav-text">Gaussion Process Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gaussion-Process"><span class="nav-text">Gaussion Process</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Few-shot-learning"><span class="nav-text">Few-shot learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Data"><span class="nav-text">Data</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-text">Week 2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thesis-Research"><span class="nav-text">Thesis Research</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E6%8D%A2"><span class="nav-text">图形学中的基本变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP%E5%8F%98%E6%8D%A2"><span class="nav-text">MVP变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rasterazation-%E5%85%89%E6%A0%85%E5%8C%96"><span class="nav-text">Rasterazation 光栅化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="nav-text">算法流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-3"><span class="nav-text">Week 3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3D-Gaussian-Splatting-for-Real-Time-Radiance-Field-Rendering"><span class="nav-text">3D Gaussian Splatting for Real-Time Radiance Field Rendering</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Naive-Thoughts"><span class="nav-text">Naive Thoughts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method"><span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Gaussian%E6%A8%A1%E5%9E%8B%E8%A1%A8%E7%A4%BA%E4%B8%96%E7%95%8C"><span class="nav-text">使用Gaussian模型表示世界</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E5%BE%AE%E6%B8%B2%E6%9F%93-Differentiable-rendering-%E9%87%8D%E8%A6%81%E6%80%A7%E4%B8%8E%E9%9A%BE%E7%82%B9%EF%BC%8C%E4%BB%A5%E5%8F%8A%E4%B8%BA%E4%BB%80%E4%B9%883%E7%BB%B4%E9%AB%98%E6%96%AF%E6%98%AF%E4%B8%80%E4%B8%AA%E5%BE%88%E6%A3%92%E7%9A%84%E5%8F%AF%E5%BE%AE%E6%B8%B2%E6%9F%93%E5%9F%BA%E7%A1%80"><span class="nav-text">可微渲染 Differentiable rendering: 重要性与难点，以及为什么3维高斯是一个很棒的可微渲染基础</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-5"><span class="nav-text">Week 5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VAE"><span class="nav-text">VAE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#autoencoder"><span class="nav-text">autoencoder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#variational-autoencoder"><span class="nav-text">variational autoencoder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vector-Quantised-variational-autoencoder"><span class="nav-text">vector Quantised-variational autoencoder</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GAN"><span class="nav-text">GAN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Arch"><span class="nav-text">Arch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cross-Entropy"><span class="nav-text">Cross Entropy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conditional-Gan"><span class="nav-text">Conditional Gan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gan-%E9%97%AE%E9%A2%98"><span class="nav-text">Gan 问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Improving-GANs"><span class="nav-text">Improving GANs</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-6"><span class="nav-text">Week 6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HUGS-Human-Gaussian-Splats"><span class="nav-text">HUGS: Human Gaussian Splats</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gaussian-Shell-Maps-for-Efficient-3D-Human-Generation"><span class="nav-text">Gaussian Shell Maps for Efficient 3D Human Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GauHuman-Articulated-Gaussian-Splatting-from-Monocular-Human-Videos"><span class="nav-text">GauHuman: Articulated Gaussian Splatting from Monocular Human Videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GaussianAvatar-Towards-Realistic-Human-Avatar-Modeling-from-a-Single-Video-via-Animatable-3D-Gaussians"><span class="nav-text">GaussianAvatar: Towards Realistic Human Avatar Modeling from a Single Video via Animatable 3D Gaussians</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-7"><span class="nav-text">Week 7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3DGS%E7%9B%AE%E5%89%8D%E4%B8%BB%E8%A6%81%E7%9A%84%E5%BA%94%E7%94%A8%E5%88%86%E7%B1%BB"><span class="nav-text">3DGS目前主要的应用分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Simultaneous-Localization-and-Mapping-SLAM"><span class="nav-text">Simultaneous Localization and Mapping (SLAM)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-Scene-Modeling"><span class="nav-text">Dynamic Scene Modeling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AI-Generated-Content-AIGC"><span class="nav-text">AI-Generated Content (AIGC)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%BA%E4%BD%93"><span class="nav-text">人体</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-8"><span class="nav-text">Week 8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week9"><span class="nav-text">Week9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%AF%8D%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4"><span class="nav-text">单词向量空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#word-embedding"><span class="nav-text">word embedding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#position-embedding"><span class="nav-text">position embedding</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sparse-reconstruction-Few-shot-amp-3DGS"><span class="nav-text">Sparse reconstruction (Few-shot) &amp; 3DGS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encoder-Decoder-style"><span class="nav-text">Encoder-Decoder style</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Predicting-Supervise-Information"><span class="nav-text">Predicting Supervise Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generative-amp-GAN-style"><span class="nav-text">Generative &amp; GAN style</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-10"><span class="nav-text">Week 10</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gaussian-Shadow-Casting-for-Neural-Characters"><span class="nav-text">Gaussian Shadow Casting for Neural Characters</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cvpr-2020-best-paper%EF%BC%9AUnsupervised-Learning-of-Probably-Symmetric-Deformable-3D-Objects-from-Images-in-the-Wild"><span class="nav-text">cvpr 2020 best paper：Unsupervised Learning of Probably Symmetric Deformable 3D Objects from Images in the Wild</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-11"><span class="nav-text">Week 11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-12"><span class="nav-text">Week 12</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%96%87%E6%9C%AC%E7%9B%91%E7%9D%A3%E5%BC%95%E5%85%A5%E5%9B%BE%E5%83%8F%E9%87%8D%E5%BB%BA%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7"><span class="nav-text">关于文本监督引入图像重建的可能性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MAMBA%E7%9A%84%E5%BC%95%E5%85%A5"><span class="nav-text">MAMBA的引入</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gaussion-Process-Regression"><span class="nav-text">Gaussion Process Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gaussion-Process"><span class="nav-text">Gaussion Process</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Few-shot-learning"><span class="nav-text">Few-shot learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Data"><span class="nav-text">Data</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-text">Week 2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thesis-Research"><span class="nav-text">Thesis Research</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E6%8D%A2"><span class="nav-text">图形学中的基本变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP%E5%8F%98%E6%8D%A2"><span class="nav-text">MVP变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rasterazation-%E5%85%89%E6%A0%85%E5%8C%96"><span class="nav-text">Rasterazation 光栅化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="nav-text">算法流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-3"><span class="nav-text">Week 3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3D-Gaussian-Splatting-for-Real-Time-Radiance-Field-Rendering"><span class="nav-text">3D Gaussian Splatting for Real-Time Radiance Field Rendering</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Naive-Thoughts"><span class="nav-text">Naive Thoughts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method"><span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Gaussian%E6%A8%A1%E5%9E%8B%E8%A1%A8%E7%A4%BA%E4%B8%96%E7%95%8C"><span class="nav-text">使用Gaussian模型表示世界</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E5%BE%AE%E6%B8%B2%E6%9F%93-Differentiable-rendering-%E9%87%8D%E8%A6%81%E6%80%A7%E4%B8%8E%E9%9A%BE%E7%82%B9%EF%BC%8C%E4%BB%A5%E5%8F%8A%E4%B8%BA%E4%BB%80%E4%B9%883%E7%BB%B4%E9%AB%98%E6%96%AF%E6%98%AF%E4%B8%80%E4%B8%AA%E5%BE%88%E6%A3%92%E7%9A%84%E5%8F%AF%E5%BE%AE%E6%B8%B2%E6%9F%93%E5%9F%BA%E7%A1%80"><span class="nav-text">可微渲染 Differentiable rendering: 重要性与难点，以及为什么3维高斯是一个很棒的可微渲染基础</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-5"><span class="nav-text">Week 5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VAE"><span class="nav-text">VAE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#autoencoder"><span class="nav-text">autoencoder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#variational-autoencoder"><span class="nav-text">variational autoencoder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vector-Quantised-variational-autoencoder"><span class="nav-text">vector Quantised-variational autoencoder</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GAN"><span class="nav-text">GAN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Arch"><span class="nav-text">Arch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cross-Entropy"><span class="nav-text">Cross Entropy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conditional-Gan"><span class="nav-text">Conditional Gan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gan-%E9%97%AE%E9%A2%98"><span class="nav-text">Gan 问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Improving-GANs"><span class="nav-text">Improving GANs</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-6"><span class="nav-text">Week 6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HUGS-Human-Gaussian-Splats"><span class="nav-text">HUGS: Human Gaussian Splats</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gaussian-Shell-Maps-for-Efficient-3D-Human-Generation"><span class="nav-text">Gaussian Shell Maps for Efficient 3D Human Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GauHuman-Articulated-Gaussian-Splatting-from-Monocular-Human-Videos"><span class="nav-text">GauHuman: Articulated Gaussian Splatting from Monocular Human Videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GaussianAvatar-Towards-Realistic-Human-Avatar-Modeling-from-a-Single-Video-via-Animatable-3D-Gaussians"><span class="nav-text">GaussianAvatar: Towards Realistic Human Avatar Modeling from a Single Video via Animatable 3D Gaussians</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-7"><span class="nav-text">Week 7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3DGS%E7%9B%AE%E5%89%8D%E4%B8%BB%E8%A6%81%E7%9A%84%E5%BA%94%E7%94%A8%E5%88%86%E7%B1%BB"><span class="nav-text">3DGS目前主要的应用分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Simultaneous-Localization-and-Mapping-SLAM"><span class="nav-text">Simultaneous Localization and Mapping (SLAM)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-Scene-Modeling"><span class="nav-text">Dynamic Scene Modeling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AI-Generated-Content-AIGC"><span class="nav-text">AI-Generated Content (AIGC)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%BA%E4%BD%93"><span class="nav-text">人体</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-8"><span class="nav-text">Week 8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week9"><span class="nav-text">Week9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%AF%8D%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4"><span class="nav-text">单词向量空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#word-embedding"><span class="nav-text">word embedding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#position-embedding"><span class="nav-text">position embedding</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sparse-reconstruction-Few-shot-amp-3DGS"><span class="nav-text">Sparse reconstruction (Few-shot) &amp; 3DGS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encoder-Decoder-style"><span class="nav-text">Encoder-Decoder style</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Predicting-Supervise-Information"><span class="nav-text">Predicting Supervise Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generative-amp-GAN-style"><span class="nav-text">Generative &amp; GAN style</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-10"><span class="nav-text">Week 10</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gaussian-Shadow-Casting-for-Neural-Characters"><span class="nav-text">Gaussian Shadow Casting for Neural Characters</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cvpr-2020-best-paper%EF%BC%9AUnsupervised-Learning-of-Probably-Symmetric-Deformable-3D-Objects-from-Images-in-the-Wild"><span class="nav-text">cvpr 2020 best paper：Unsupervised Learning of Probably Symmetric Deformable 3D Objects from Images in the Wild</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-11"><span class="nav-text">Week 11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-12"><span class="nav-text">Week 12</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%96%87%E6%9C%AC%E7%9B%91%E7%9D%A3%E5%BC%95%E5%85%A5%E5%9B%BE%E5%83%8F%E9%87%8D%E5%BB%BA%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7"><span class="nav-text">关于文本监督引入图像重建的可能性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MAMBA%E7%9A%84%E5%BC%95%E5%85%A5"><span class="nav-text">MAMBA的引入</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-13"><span class="nav-text">Week 13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-14"><span class="nav-text">Week 14</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%9B%E5%8C%96%E6%80%A7%E7%94%9F%E6%88%90"><span class="nav-text">泛化性生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E4%B8%BB%E8%A6%81%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-text">目前主要的任务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-18"><span class="nav-text">Week 18</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MonoNerf"><span class="nav-text">MonoNerf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pipeline"><span class="nav-text">pipeline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%81%E7%A7%BB%E8%AE%A1%E5%88%92"><span class="nav-text">迁移计划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E6%AD%A4%E9%A2%86%E5%9F%9F%E7%9B%B8%E8%BF%91%E7%9A%84%E6%96%87%E7%AB%A0"><span class="nav-text">目前此领域相近的文章</span></a></li></ol></li></ol>
 
     </div>
 </div>
