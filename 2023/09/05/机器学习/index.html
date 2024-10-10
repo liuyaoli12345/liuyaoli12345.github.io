@@ -1,57 +1,89 @@
-
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en,zh-CN,default">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1" theme-name="Stellar" theme-version="1.29.1">
-  
-  <meta name="generator" content="Hexo 6.3.0">
-  <meta http-equiv='x-dns-prefetch-control' content='on' />
-  
-  <meta name="renderer" content="webkit">
-  <meta name="force-rendering" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="HandheldFriendly" content="True" >
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
-  <meta name="theme-color" content="#f9fafb">
-  
-  <title>机器学习 - Yaoli's Blog</title>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  
-    <meta name="description" content="机器学习人工智能的三大基石技术之一 推理 知识 学习  利用经验改善系统的性能 经典机器学习学习是一个蕴含特定目的的知识获取过程，其内部表现为新知识的不断建立和修正，而外部表现则为性能改善 现代机器学习任何通过数据训练的学习算法都属于机器学习  线性回归 K-均值聚类 主成分分析 决策树和随机森林 支持向量机 人工神经网络  学习系统stateDiagram  模型空间 --&gt; 学习算法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="机器学习">
-<meta property="og:url" content="http://blog.lsmcloud.top/2023/09/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.html">
-<meta property="og:site_name" content="Yaoli&#39;s Blog">
-<meta property="og:description" content="机器学习人工智能的三大基石技术之一 推理 知识 学习  利用经验改善系统的性能 经典机器学习学习是一个蕴含特定目的的知识获取过程，其内部表现为新知识的不断建立和修正，而外部表现则为性能改善 现代机器学习任何通过数据训练的学习算法都属于机器学习  线性回归 K-均值聚类 主成分分析 决策树和随机森林 支持向量机 人工神经网络  学习系统stateDiagram  模型空间 --&gt; 学习算法">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://files.lsmcloud.top/blog093de08c2df6afe6b589419000dbc494.png">
-<meta property="article:published_time" content="2023-09-05T10:31:20.000Z">
-<meta property="article:modified_time" content="2024-03-07T12:57:26.506Z">
-<meta property="article:author" content="Liu Yaoli">
-<meta property="article:tag" content="课程笔记">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://files.lsmcloud.top/blog093de08c2df6afe6b589419000dbc494.png">
-  
-  
-  
-  <meta name="keywords" content="课程笔记">
+    <meta name="author" content="Liu Yaoli">
 
-  <!-- feed -->
-  
 
-  <link rel="stylesheet" href="/css/main.css?v=1.29.1">
 
-  
-    <link rel="shortcut icon" href="/li.png">
-  
 
-  
 
-  
-<style>mjx-container[jax="SVG"] {
+<title>机器学习 | Yaoli&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/li.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
 
@@ -164,47 +196,185 @@ mjx-container[display="true"] + br {
   display: none;
 }
 </style></head>
+
 <body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
 
-<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Yaoli&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
 
-
-<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="me1.jpeg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Yaoli's Blog</div></a></div></header>
-
-<div class="nav-area">
-<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="Search"></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div>
-
-
-<nav class="menu dis-select"></nav>
-</div>
-<div class="widgets">
-
-
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">Recent Update</span></div><div class="widget-body fs14"><a class="item title" href="/2024/10/10/%E6%B5%81%E9%87%8F%E4%BC%AA%E8%A3%85%E5%AD%A6%E4%B9%A0/"><span class="title">流量伪装学习</span></a><a class="item title" href="/2024/03/07/ML2024-weekly-report/"><span class="title">ML2024:weekly report</span></a><a class="item title" href="/2024/09/17/%E5%9C%A8%E5%A4%A7%E9%99%86%E5%9C%B0%E5%8C%BA%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%BC%80%E5%8F%91/"><span class="title">在大陆地区如何进行最基本的开发?</span></a><a class="item title" href="/2024/04/25/%E5%9B%9B%E5%85%83%E6%95%B0%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"><span class="title">四元数与计算机图形学</span></a><a class="item title" href="/2024/09/11/%E5%BE%AE%E5%88%86%E4%B8%8E%E5%AF%BC%E6%95%B0/"><span class="title">微分与导数</span></a><a class="item title" href="/2024/04/27/Transformer%E6%9E%B6%E6%9E%84%E5%AD%A6%E4%B9%A0/"><span class="title">Transformer架构学习</span></a><a class="item title" href="/2024/07/03/%E4%BF%A1%E5%8F%B7%E9%87%8F-%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%E4%B8%8E%E7%AE%A1%E7%A8%8B/"><span class="title">信号量,条件变量与管程</span></a><a class="item title" href="/2024/07/03/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1-cookmanual/"><span class="title">概率统计-cookmanual</span></a><a class="item title" href="/2024/07/01/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-cookmanual/"><span class="title">离散数学_cookmanual</span></a><a class="item title" href="/2024/07/01/%E5%88%A9%E7%8E%87%E9%A3%8E%E9%99%A9/"><span class="title">利率风险</span></a></div></widget>
-</div>
-
-</div></aside><div class="l_main" id="main">
-
-
-
-
-
-<div class="article banner top">
-  <div class="content">
-    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
-<span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/ML/">ML</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2023-09-05T10:31:20.000Z">2023-09-05</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2024-03-07T12:57:26.506Z">2024-03-07</time></span></div></div></div>
     
-    <div class="bottom only-title">
-      
-      <div class="text-area">
-        <h1 class="text title"><span>机器学习</span></h1>
-        
-      </div>
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Yaoli&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
     </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
     
-  </div>
-  </div><article class="md-text content"><h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h2 id="人工智能的三大基石技术之一"><a href="#人工智能的三大基石技术之一" class="headerlink" title="人工智能的三大基石技术之一"></a>人工智能的三大基石技术之一</h2><ol>
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">机器学习</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Liu Yaoli</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">September 5, 2023&nbsp;&nbsp;18:31:20</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a>
+                            
+                                <a href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/ML/">ML</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h2 id="人工智能的三大基石技术之一"><a href="#人工智能的三大基石技术之一" class="headerlink" title="人工智能的三大基石技术之一"></a>人工智能的三大基石技术之一</h2><ol>
 <li>推理</li>
 <li>知识</li>
 <li>学习</li>
@@ -1047,7 +1217,7 @@ mjx-container[display="true"] + br {
 <h4 id="RReLU"><a href="#RReLU" class="headerlink" title="RReLU"></a>RReLU</h4><p>在训练时a从一个均匀分布中采样</p>
 <h3 id="最早的神经网络"><a href="#最早的神经网络" class="headerlink" title="最早的神经网络"></a>最早的神经网络</h3><p>ALVINN</p>
 <h3 id="感知机与感知机学习"><a href="#感知机与感知机学习" class="headerlink" title="感知机与感知机学习"></a>感知机与感知机学习</h3><p>最简单形式的前馈式神经网络</p>
-<p><img class="lazy" lazyload="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/images/loading.svg" data-src="https://files.lsmcloud.top/blog093de08c2df6afe6b589419000dbc494.png"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://files.lsmcloud.top/blog093de08c2df6afe6b589419000dbc494.png"></p>
 <p>input是输入，hiden是隐藏层，是神经元的主体，边上有权重，最后输出前走一次激活函数</p>
 <p><strong>非线性前馈网络</strong></p>
 <ul>
@@ -1404,514 +1574,55 @@ mjx-container[display="true"] + br {
 <li>Q学习、TD、回退</li>
 </ul>
 
-<div class="article-footer fs14">
-    <section id="license">
-      <div class="header"><span>License</span></div>
-      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
-</div>
-    </section>
-    </div>
-</article>
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2023/09/06/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">大数据分析</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2023/09/05/%E9%9C%80%E6%B1%82%E4%B8%8E%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E5%88%9B%E6%96%B0/">需求与商业模式创新</a></div></section></div>
+        </div>
 
-
-
-
-
-
-<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Liu Yaoli</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
-</div></footer>
-<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-<div class="widgets">
-
-
-
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">On This Page</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="toc-text">机器学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E4%B8%89%E5%A4%A7%E5%9F%BA%E7%9F%B3%E6%8A%80%E6%9C%AF%E4%B9%8B%E4%B8%80"><span class="toc-text">人工智能的三大基石技术之一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="toc-text">经典机器学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%B0%E4%BB%A3%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="toc-text">现代机器学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F"><span class="toc-text">学习系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E5%85%B3%E7%B3%BB%E5%9B%BE"><span class="toc-text">学习方法关系图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B"><span class="toc-text">学习过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E5%92%8C%E5%9B%9E%E5%BD%92"><span class="toc-text">分类和回归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E6%9C%AF%E8%AF%AD%E5%8F%8A%E5%85%B6%E6%A0%87%E8%AE%B0"><span class="toc-text">常规术语及其标记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%B4%E6%95%B0%E7%81%BE%E9%9A%BE"><span class="toc-text">维数灾难</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E5%88%92%E5%88%86"><span class="toc-text">数据集的划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E6%A8%A1%E6%9C%89%E5%85%B3%E7%9A%84%E8%A6%81%E7%B4%A0"><span class="toc-text">建模有关的要素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%EF%BC%88Over-fitting%EF%BC%89"><span class="toc-text">过拟合（Over-fitting）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="toc-text">欠拟合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-text">机器学习的共性问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9"><span class="toc-text">模型选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96%E5%8F%AF%E7%94%A8"><span class="toc-text">正则化可用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">评价指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROC%E6%9B%B2%E7%BA%BF"><span class="toc-text">ROC曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%B9%B3%E8%A1%A1%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">不平衡数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E9%87%8F%E7%B2%BE%E5%BA%A6"><span class="toc-text">测量精度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%88%E9%AA%8C%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-text">先验的重要性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%91%E5%B0%8F%E9%B8%AD%E5%AE%9A%E7%90%86"><span class="toc-text">丑小鸭定理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">统计学基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E7%BB%9F%E8%AE%A1%E9%87%8F"><span class="toc-text">数据集的统计量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F%E5%87%BD%E6%95%B0"><span class="toc-text">距离度量函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83"><span class="toc-text">数据分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E7%8E%87"><span class="toc-text">概率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E8%A7%92%E5%BA%A6%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E5%88%86%E7%B1%BB"><span class="toc-text">概率角度的机器学习方法分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%8A%80%E6%9C%AF%E6%96%B0%E5%8F%91%E5%B1%95"><span class="toc-text">机器学习技术新发展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E4%B8%8E%E5%AD%A6%E4%B9%A0%EF%BC%9AKNN"><span class="toc-text">概率与学习：KNN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="toc-text">分类问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98"><span class="toc-text">回归问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#K%E8%BF%91%E9%82%BB%E5%88%86%E7%B1%BB%E5%99%A8"><span class="toc-text">K近邻分类器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E8%BF%91%E9%82%BB%E5%88%86%E7%B1%BB%E5%99%A8"><span class="toc-text">最近邻分类器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#k-%E8%BF%91%E9%82%BB%E5%9B%9E%E5%BD%92"><span class="toc-text">k-近邻回归</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%91%E9%82%BB%E5%B9%B3%E6%BB%91"><span class="toc-text">近邻平滑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B8%E5%B9%B3%E6%BB%91%E6%B3%95"><span class="toc-text">核平滑法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#KNN%EF%BC%8C%E8%AF%84%E4%BB%B7"><span class="toc-text">KNN，评价</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%8D%E4%BD%8E%E8%AE%A1%E7%AE%97%E9%9A%BE%E5%BA%A6"><span class="toc-text">降低计算难度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E5%8C%96KNN"><span class="toc-text">概率化KNN</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#K%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E7%9A%84%E5%89%8D%E9%80%94"><span class="toc-text">K近邻算法的前途</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-text">无监督学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95"><span class="toc-text">聚类算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%BD%A2%E5%BC%8F%E5%8C%96"><span class="toc-text">数学形式化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E7%9A%84%E4%BE%9D%E6%8D%AE"><span class="toc-text">聚类的依据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9A%84%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="toc-text">一个好的聚类算法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E7%89%B9%E5%BE%81"><span class="toc-text">类的特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84%E6%98%AF%E5%AF%BB%E6%89%BE%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84"><span class="toc-text">目的是寻找数据中的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F%E5%AF%B9%E8%81%9A%E7%B1%BB%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">距离度量对聚类的影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E9%83%A8%E5%BD%A2%E5%BC%8F%E5%BD%B1%E5%93%8D%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E7%9A%84%E6%9C%89%E6%95%88%E6%80%A7"><span class="toc-text">数据分部形式影响聚类分析的有效性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F"><span class="toc-text">距离度量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%A6%E9%87%8F%E7%A9%BA%E9%97%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%87%BD%E6%95%B0"><span class="toc-text">度量空间与度量函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E5%87%86%E5%88%99"><span class="toc-text">聚类准则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E8%AF%95%E6%8E%A2%E7%9A%84%E8%81%9A%E7%B1%BB%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95"><span class="toc-text">基于试探的聚类搜索算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E6%9C%80%E8%BF%91%E9%82%BB%E8%A7%84%E5%88%99%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%95%E6%8E%A2%E6%B3%95"><span class="toc-text">按最近邻规则的简单试探法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="toc-text">问题：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E8%B7%9D%E7%A6%BB%E7%AE%97%E6%B3%95"><span class="toc-text">最大最小距离算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%81%9A%E7%B1%BB%E6%B3%95"><span class="toc-text">系统聚类法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%9D%E7%A6%BB%E5%87%86%E5%88%99%E5%87%BD%E6%95%B0"><span class="toc-text">距离准则函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%81%9A%E7%B1%BB%E6%B3%95"><span class="toc-text">动态聚类法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#K-means%E7%AE%97%E6%B3%95"><span class="toc-text">K-means算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#K-means%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%93%E6%9E%84%E5%8F%97%E5%88%B0%E5%A6%82%E4%B8%8B%E9%80%89%E6%8B%A9%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">K-means算法的结构受到如下选择的影响</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#K-means-%E7%AE%97%E6%B3%95"><span class="toc-text">K-means++算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ISODATA%E7%AE%97%E6%B3%95"><span class="toc-text">ISODATA算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8EK-means%E7%AE%97%E6%B3%95%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-text">与K-means算法的比较</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E7%9A%84%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">聚类的评价指标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87%EF%BC%88%E6%A0%87%E7%AD%BE%E6%9C%AA%E7%9F%A5%EF%BC%89"><span class="toc-text">常用评价指标（标签未知）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B4%A7%E5%AF%86%E5%BA%A6CP"><span class="toc-text">紧密度CP</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%97%B4%E9%9A%94%E5%BA%A6SP"><span class="toc-text">间隔度SP</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%88%B4%E7%BB%B4%E6%A3%AE%E5%A0%A1%E4%B8%81%E6%8C%87%E6%95%B0DBI"><span class="toc-text">戴维森堡丁指数DBI</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%82%93%E6%81%A9%E6%8C%87%E6%95%B0DVI"><span class="toc-text">邓恩指数DVI</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E8%AF%84%E4%BB%B7%EF%BC%88%E6%A0%87%E7%AD%BE%E5%B7%B2%E7%9F%A5%EF%BC%89"><span class="toc-text">聚类评价（标签已知）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-text">监督学习与无监督学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-text">自监督学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0"><span class="toc-text">前置任务学习</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%EF%BC%9A%E7%94%9F%E6%88%90%E5%BC%8F%E6%96%B9%E6%B3%95-%E5%9B%BE%E5%83%8F%E7%9D%80%E8%89%B2"><span class="toc-text">典型：生成式方法-图像着色</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%EF%BC%9A%E5%9B%BE%E5%83%8F%E4%BF%AE%E5%A4%8D"><span class="toc-text">典型：图像修复</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%EF%BC%9A%E5%9B%BE%E5%83%8F%E6%8B%BC%E5%9B%BE"><span class="toc-text">典型：图像拼图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0"><span class="toc-text">对比学习</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E5%AD%A6%E4%B9%A0"><span class="toc-text">树学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E5%AD%A6%E4%B9%A0"><span class="toc-text">符号学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A8%E7%90%86"><span class="toc-text">推理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8E%A8%E7%90%86%E7%9A%84%E8%A7%92%E5%BA%A6"><span class="toc-text">推理的角度</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%E5%AD%A6%E4%B9%A0"><span class="toc-text">概念学习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%E5%AD%A6%E4%B9%A0%E4%BB%BB%E5%8A%A1"><span class="toc-text">概念学习任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E4%B8%BA%E6%90%9C%E7%B4%A2%E7%9A%84%E6%A6%82%E5%BF%B5%E5%AD%A6%E4%B9%A0"><span class="toc-text">作为搜索的概念学习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%87%E8%AE%BE%E7%9A%84%E4%B8%80%E8%88%AC%E5%88%B0%E7%89%B9%E6%AE%8A%E5%BA%8F"><span class="toc-text">假设的一般到特殊序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%BB%E6%89%BE%E6%9E%81%E5%A4%A7%E7%89%B9%E6%AE%8A%E5%81%87%E8%AE%BEfind-s"><span class="toc-text">寻找极大特殊假设find-s</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E6%B6%88%E9%99%A4%E7%AE%97%E6%B3%95"><span class="toc-text">列表消除算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E5%BD%A2%E7%A9%BA%E9%97%B4"><span class="toc-text">变形空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E5%9E%8B%E7%A9%BA%E9%97%B4%E8%A1%A8%E7%A4%BA%E5%AE%9A%E7%90%86"><span class="toc-text">变型空间表示定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%80%99%E9%80%89%E6%B6%88%E9%99%A4%E7%AE%97%E6%B3%95"><span class="toc-text">候选消除算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E7%BA%B3%E5%81%8F%E7%BD%AE%E9%97%AE%E9%A2%98"><span class="toc-text">归纳偏置问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E6%97%A0%E5%81%8F%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%99%A8"><span class="toc-text">构造无偏的学习器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E7%9A%84%E5%BD%92%E7%BA%B3%E5%81%8F%E7%BD%AE"><span class="toc-text">不同的归纳偏置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E5%AD%A6%E4%B9%A0"><span class="toc-text">决策树学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E5%AD%A6%E4%B9%A0-1"><span class="toc-text">决策树学习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-text">算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%92%E7%BA%B3%E5%81%8F%E7%BD%AE"><span class="toc-text">归纳偏置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%AE%BE%E7%BD%AE"><span class="toc-text">问题设置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%AE%BE%E7%BD%AE-1"><span class="toc-text">问题设置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4%E6%90%9C%E7%B4%A2"><span class="toc-text">决策树学习的假设空间搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ID3%E7%AE%97%E6%B3%95"><span class="toc-text">ID3算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ID%E7%AE%97%E6%B3%95%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">ID算法的特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E5%BD%92%E7%BA%B3%E5%81%8F%E7%BD%AE"><span class="toc-text">决策树学习中的归纳偏置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A5%A5%E5%8D%A1%E5%A7%86%E5%89%83%E5%88%80%E5%8E%9F%E7%90%86"><span class="toc-text">奥卡姆剃刀原理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C4-5%E7%AE%97%E6%B3%95"><span class="toc-text">C4.5算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CART%E7%AE%97%E6%B3%95"><span class="toc-text">CART算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0-VS-%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A"><span class="toc-text">基尼系数 VS 信息增益</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%AA%E6%9E%9D%E5%A4%84%E7%90%86%EF%BC%9A%E5%A2%9E%E5%BC%BA%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%B3%9B%E5%8C%96%E8%83%BD%E5%8A%9B"><span class="toc-text">剪枝处理：增强模型的泛化能力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">决策树的优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E5%BB%B6%E4%BC%B8"><span class="toc-text">决策树的延伸</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="toc-text">集成学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9%EF%BC%88%E5%88%86%E7%B1%BB%EF%BC%89"><span class="toc-text">特点（分类）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E4%BF%9D%E8%AF%81"><span class="toc-text">数学保证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bias-Variance-tradeoff%E9%97%AE%E9%A2%98"><span class="toc-text">Bias-Variance tradeoff问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E9%97%AE%E9%A2%98"><span class="toc-text">核心问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E9%9B%86%E6%88%90"><span class="toc-text">序列集成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E9%9B%86%E6%88%90"><span class="toc-text">并行集成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Core-Problem"><span class="toc-text">Core Problem</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E5%90%88%E7%AD%96%E7%95%A5"><span class="toc-text">结合策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98-1"><span class="toc-text">回归问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98-1"><span class="toc-text">分类问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E6%B3%95"><span class="toc-text">学习法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%A0%B7%E6%80%A7%E7%AD%96%E7%95%A5"><span class="toc-text">多样性策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%B1%82%E9%9D%A2"><span class="toc-text">数据层面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E5%B1%82%E9%9D%A2"><span class="toc-text">属性层面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E5%B1%82%E9%9D%A2"><span class="toc-text">参数层面</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bagging%E5%8E%9F%E7%90%86"><span class="toc-text">Bagging原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Bootstrap-aggregating%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-text">Bootstrap aggregating基本原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-text">流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Bagging%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">Bagging的优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-1"><span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E8%A1%A8%E7%AE%97%E6%B3%95%EF%BC%9A%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97"><span class="toc-text">代表算法：随机森林</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">随机森林的特点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boosting%E4%B8%8EAdaBoost"><span class="toc-text">Boosting与AdaBoost</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E8%BF%91%E4%BC%BC%E6%AD%A3%E7%A1%AE%E7%90%86%E8%AE%BA%EF%BC%88Probably-approximately-correct%EF%BC%89"><span class="toc-text">概率近似正确理论（Probably approximately correct）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6"><span class="toc-text">框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Adaptive-Boost"><span class="toc-text">Adaptive Boost</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3%EF%BC%9A"><span class="toc-text">核心思想：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AD%96%E7%95%A5%EF%BC%9A"><span class="toc-text">策略：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AdaBoost"><span class="toc-text">AdaBoost</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E5%88%86%E7%B1%BB%E5%99%A8"><span class="toc-text">评估分类器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E6%A0%B7%E6%9C%AC"><span class="toc-text">评估样本</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Adaboost%E7%90%86%E8%A7%A3"><span class="toc-text">Adaboost理解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boosting-Tree"><span class="toc-text">Boosting Tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E6%A0%91GBDT"><span class="toc-text">梯度提升树GBDT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Extream-Gradient-Boosting%EF%BC%88XGBoost%EF%BC%89"><span class="toc-text">Extream Gradient Boosting（XGBoost）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stacking%E7%AE%97%E6%B3%95%EF%BC%88%E5%AD%A6%E4%B9%A0%E6%B3%95%EF%BC%89"><span class="toc-text">Stacking算法（学习法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83"><span class="toc-text">比较</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E4%B8%8E%E5%AD%A6%E4%B9%A0"><span class="toc-text">概率与学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%91%E8%AF%9D"><span class="toc-text">黑话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B-GMM"><span class="toc-text">高斯混合模型 GMM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%82%A3%E4%B9%88%E6%97%A2%E7%84%B6z%E5%92%8Cx%E4%B8%80%E4%B8%80%E5%AF%B9%E5%BA%94%EF%BC%8C%E9%82%A3%E4%B9%88%E6%80%8E%E4%B9%88%E4%BC%B0%E8%AE%A1%E5%8F%82%E6%95%B0-theta"><span class="toc-text">那么既然z和x一一对应，那么怎么估计参数?</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1-MLE-Maximum-likehood-estimation"><span class="toc-text">最大似然估计 MLE Maximum likehood estimation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1"><span class="toc-text">高斯混合模型最大似然估计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%9F%E6%9C%9B%E6%9C%80%E5%A4%A7%E5%8C%96%E7%AE%97%E6%B3%95-EM-Expectation-Maximization-algorithm"><span class="toc-text">期望最大化算法 EM Expectation-Maximization algorithm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-text">支持向量机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%EF%BC%9A%E7%BA%BF%E6%80%A7%E8%B6%85%E5%B9%B3%E9%9D%A2"><span class="toc-text">感知机：线性超平面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="toc-text">二分类问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-text">线性支持向量机</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F"><span class="toc-text">支持向量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B7%E6%9C%AC%E7%82%B9%E5%88%B0%E8%B6%85%E5%B9%B3%E9%9D%A2%E7%9A%84%E8%B7%9D%E7%A6%BB"><span class="toc-text">样本点到超平面的距离</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SVM%E9%97%AE%E9%A2%98%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">SVM问题是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%AE%80%E5%8C%96%E8%AE%A1%E7%AE%97%EF%BC%9F"><span class="toc-text">如何简化计算？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E6%88%91%E4%BB%AC%E5%B0%86%E5%B8%A6%E7%BA%A6%E6%9D%9F%E7%9A%84%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98%E8%BD%AC%E4%B8%BA%E4%B8%8D%E5%B8%A6%E7%BA%A6%E6%9D%9F%E7%9A%84%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98"><span class="toc-text">接下来我们将带约束的优化问题转为不带约束的优化问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SVM%E5%AF%B9%E5%81%B6%E5%BD%A2%E5%BC%8F"><span class="toc-text">SVM对偶形式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E5%87%BA%E4%BA%86w-%EF%BC%8C%E6%80%8E%E4%B9%88%E6%B1%82b-%E5%91%A2"><span class="toc-text">求出了w*，怎么求b*呢</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E4%B8%8E%E6%94%B9%E8%BF%9B"><span class="toc-text">优化与改进</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E8%83%BD%E7%BB%99%E4%BA%88%E8%BF%87%E5%BC%BA%E7%9A%84%E5%81%87%E8%AE%BE%EF%BC%8C%E6%88%91%E4%BB%AC%E5%BA%94%E8%AF%A5%E5%85%81%E8%AE%B8%E5%B0%91%E6%95%B0%E7%82%B9%E4%B8%8D%E6%BB%A1%E8%B6%B3-y-if-x-i-ge1"><span class="toc-text">不能给予过强的假设，我们应该允许少数点不满足</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%88%E5%A4%9A%E6%A0%B7%E6%9C%AC%E6%98%AF%E4%B8%8D%E5%8F%AF%E4%BB%A5%E9%80%9A%E8%BF%87%E7%BA%BF%E6%80%A7%E8%B6%85%E5%B9%B3%E9%9D%A2%E5%88%86%E7%B1%BB%E7%9A%84%EF%BC%8C%E5%BE%88%E5%8F%AF%E8%83%BD%E6%98%AF%E9%9D%9E%E7%BA%BF%E6%80%A7"><span class="toc-text">很多样本是不可以通过线性超平面分类的，很可能是非线性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B8%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BAkernel-SVM"><span class="toc-text">核支持向量机kernel SVM</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84kernel-function"><span class="toc-text">常用的kernel function</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%B0%E5%AE%9E%E4%B8%AD%E7%9A%84%E5%88%86%E7%B1%BB%E5%BE%80%E5%BE%80%E4%B9%9F%E4%B8%8D%E6%98%AF%E4%BA%8C%E5%88%86%E7%B1%BB%EF%BC%8C%E5%AF%B9%E4%BA%8E%E5%A4%9A%E5%88%86%E7%B1%BB%E6%88%91%E4%BB%AC%E8%AF%A5%E6%80%8E%E4%B9%88%E5%81%9A%E5%91%A2"><span class="toc-text">现实中的分类往往也不是二分类，对于多分类我们该怎么做呢</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E8%B6%85%E5%8F%82%E6%95%B0%E5%91%A2"><span class="toc-text">如何选择超参数呢</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E5%A4%9A%E7%B1%BB%E9%97%AE%E9%A2%98%E5%91%A2%EF%BC%9F"><span class="toc-text">如何解决多类问题呢？</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9D%A5%E4%BA%86%EF%BC%81"><span class="toc-text">神经网络来了！</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E5%85%83%E5%92%8C%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="toc-text">神经元和感知机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="toc-text">发展历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MP%E7%A5%9E%E7%BB%8F%E5%85%83%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-text">MP神经元基本结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MP%E7%A5%9E%E7%BB%8F%E5%85%83%E7%9A%84%E5%B1%80%E9%99%90"><span class="toc-text">MP神经元的局限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="toc-text">激活函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0"><span class="toc-text">阶跃函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sigmoid%E5%87%BD%E6%95%B0"><span class="toc-text">sigmoid函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ReLU"><span class="toc-text">ReLU</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Leaky-ReLU-a-x3D-0-01-x2F-PReLu"><span class="toc-text">Leaky ReLU(a&#x3D;0.01)&#x2F;PReLu</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RReLU"><span class="toc-text">RReLU</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E6%97%A9%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-text">最早的神经网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E4%B8%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0"><span class="toc-text">感知机与感知机学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E6%9C%BA%E5%88%B6"><span class="toc-text">有监督学习机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95"><span class="toc-text">感知机学习算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%8F%AF%E5%88%86"><span class="toc-text">线性可分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E8%BE%B9%E7%95%8C"><span class="toc-text">决策边界</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%94%B6%E6%95%9B%E7%90%86%E8%AE%BA"><span class="toc-text">感知机收敛理论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%BC%BA%E7%82%B9"><span class="toc-text">感知机学习缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B0%E5%90%91%E8%BF%9C%E5%A4%84"><span class="toc-text">走向远处</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BAMLP"><span class="toc-text">多层感知机MLP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E9%9A%90%E8%97%8F%E5%B1%82%EF%BC%9F"><span class="toc-text">为什么要有隐藏层？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E9%9A%90%E8%97%8F%E5%B1%82%E7%9A%84%E6%9D%83%E5%80%BC%EF%BC%9F"><span class="toc-text">如何计算隐藏层的权值？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E5%90%91%E4%B8%8E%E5%90%8E%E5%90%91"><span class="toc-text">前向与后向</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD"><span class="toc-text">反向传播</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AF%E5%B7%AE%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">误差的计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Delta%E8%A7%84%E5%88%99"><span class="toc-text">Delta规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95"><span class="toc-text">反向传播算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%9A"><span class="toc-text">BP神经网络：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D"><span class="toc-text">随机梯度下降</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E6%9D%83%E5%80%BC"><span class="toc-text">初始权值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E8%AE%AD%E7%BB%83"><span class="toc-text">批量训练</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E6%9E%81%E5%B0%8F%E5%92%8C%E5%86%B2%E9%87%8F"><span class="toc-text">局部极小和冲量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2%E6%9C%BA%E5%88%B6"><span class="toc-text">停止机制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E7%BC%96%E7%A0%81%E5%99%A8-AutoEncoder"><span class="toc-text">自动编码器 AutoEncoder</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%84%E5%90%91%E5%9F%BA%E7%BD%91%E7%BB%9CRBF"><span class="toc-text">径向基网络RBF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82%E8%A7%A3%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-text">求解的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%84%E5%90%91%E5%9F%BA%E5%87%BD%E6%95%B0%E7%AE%97%E6%B3%95"><span class="toc-text">径向基函数算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="toc-text">深度学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%B7%E6%9C%89%E8%89%AF%E5%A5%BD%E7%9A%84%E9%9D%9E%E7%BA%BF%E5%BD%A2%E7%BB%93%E6%9E%84"><span class="toc-text">深度学习具有良好的非线形结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%B7%A5%E7%89%B9%E5%BE%81"><span class="toc-text">手工特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E7%89%B9%E5%BE%81"><span class="toc-text">深度特征</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-text">卷积神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E6%A0%B8"><span class="toc-text">卷积核</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%A0%E5%8C%96Pooling-x2F-%E4%B8%8B%E9%87%87%E6%A0%B7Subsampling"><span class="toc-text">池化Pooling&#x2F;下采样Subsampling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E5%A6%82%E4%BD%95%E5%AF%B9%E5%BA%94%E5%88%B0%E8%BE%93%E5%87%BA%E5%91%A2%EF%BC%9F"><span class="toc-text">最后如何对应到输出呢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dropout"><span class="toc-text">Dropout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Batch-Normalization"><span class="toc-text">Batch Normalization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-text">交叉熵损失函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-text">回归损失函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E5%85%83%E7%BB%84%E6%8D%9F%E5%A4%B1"><span class="toc-text">三元组损失</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%8A%80%E5%B7%A7"><span class="toc-text">机器学习技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%B9%BF"><span class="toc-text">数据增广</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-text">预处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%A0%E5%8C%96%E5%A4%A7%E5%B0%8F"><span class="toc-text">池化大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%8E%87%E7%9A%84%E8%AE%BE%E5%AE%9A%EF%BC%88%E9%87%8D%E4%B8%AD%E4%B9%8B%E9%87%8D%EF%BC%89"><span class="toc-text">学习率的设定（重中之重）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83"><span class="toc-text">预训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-text">激活函数的选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%88%86%E6%9E%90"><span class="toc-text">图像分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="toc-text">注意力机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84"><span class="toc-text">经典神经网络架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LeNet"><span class="toc-text">LeNet</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AlexNet"><span class="toc-text">AlexNet</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VGG"><span class="toc-text">VGG</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ResNet%EF%BC%9A%E7%9B%AE%E5%89%8D%E6%9C%80%E6%88%90%E5%8A%9F%E7%9A%84%E7%BD%91%E7%BB%9C"><span class="toc-text">ResNet：目前最成功的网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vision-Transformer"><span class="toc-text">Vision Transformer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RNN"><span class="toc-text">RNN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LSTM%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C"><span class="toc-text">LSTM长短期记忆网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Self-Attenton"><span class="toc-text">Self-Attenton</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%94%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-text">演化学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95-genetic-algorithms%EF%BC%88GA%EF%BC%89"><span class="toc-text">遗传算法 genetic algorithms（GA）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E5%BD%A2%E5%BC%8F"><span class="toc-text">一般形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A1%A8%E7%A4%BA%E6%9F%93%E8%89%B2%E4%BD%93%EF%BC%9F"><span class="toc-text">如何表示染色体？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E5%B1%9E%E6%80%A7"><span class="toc-text">单属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E5%B1%9E%E6%80%A7%E5%90%88%E5%8F%96"><span class="toc-text">多属性合取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#if-then%E8%A7%84%E5%88%99"><span class="toc-text">if then规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E5%B1%9E%E6%80%A7"><span class="toc-text">决策属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%80%82%E5%BA%94%E5%BA%A6%E5%87%BD%E6%95%B0%EF%BC%9F"><span class="toc-text">什么是适应度函数？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%9F%93%E8%89%B2%E4%BD%93%EF%BC%9F"><span class="toc-text">如何选择染色体？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BA%A7%E7%94%9F%E5%90%8E%E4%BB%A3%EF%BC%9F"><span class="toc-text">如何产生后代？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E4%BB%A3%E7%A7%8D%E7%BE%A4%E6%BC%94%E5%8C%96"><span class="toc-text">后代种群演化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GA%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-text">GA的优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AA%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">未解决的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F"><span class="toc-text">模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E7%84%B6%E8%AE%A1%E7%AE%97"><span class="toc-text">自然计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E5%88%86%E7%B1%BB%E5%99%A8%E7%B3%BB%E7%BB%9F"><span class="toc-text">学习分类器系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%B4%E5%BA%A6%E7%BA%A6%E7%AE%80"><span class="toc-text">维度约简</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9"><span class="toc-text">特征选择</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E6%96%B9%E5%90%91"><span class="toc-text">搜索方向</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E7%AD%96%E7%95%A5"><span class="toc-text">搜索策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E8%AF%84%E4%BC%B0%E5%87%BD%E6%95%B0%EF%BC%88%E7%94%A8%E4%BA%8E%E5%88%A4%E6%96%AD%E7%89%B9%E5%BE%81%E6%98%AF%E5%90%A6%E9%87%8D%E8%A6%81%EF%BC%89"><span class="toc-text">特征评估函数（用于判断特征是否重要）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%BC%8F"><span class="toc-text">过滤式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B0%81%E8%A3%85%E5%BC%8F"><span class="toc-text">封装式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F"><span class="toc-text">嵌入式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90LDA"><span class="toc-text">线性判别分析LDA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90PCA"><span class="toc-text">主成分分析PCA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E6%88%90%E5%88%86%E5%88%86%E6%9E%90"><span class="toc-text">独立成分分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90FA"><span class="toc-text">因素分析FA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-1"><span class="toc-text">独立成分分析</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%9F%E6%9C%AB"><span class="toc-text">期末</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%A6%82%E8%AE%BA"><span class="toc-text">第一章-概论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%81%9A%E7%B1%BB"><span class="toc-text">第二章-聚类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-text">第三章-无监督学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%A0%91%E5%AD%A6%E4%B9%A0"><span class="toc-text">第四章-树学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="toc-text">第五章-集成学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%A6%82%E7%8E%87%E4%B8%8E%E5%AD%A6%E4%B9%A0"><span class="toc-text">第六章-概率与学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E5%BC%A0-%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-text">第七张-支持向量机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E7%A5%9E%E7%BB%8F%E5%85%83%E4%B8%8E%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="toc-text">第八章-神经元与感知机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-text">第九章-神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0-%E5%8D%B7%E7%A7%AF%E7%BD%91%E7%BB%9C"><span class="toc-text">第十章-卷积网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0-%E6%BC%94%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-text">第十一章-演化学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E7%BB%B4%E5%BA%A6%E7%BA%A6%E5%87%8F"><span class="toc-text">第十二章-维度约减</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-text">第十三章-强化学习</span></a></li></ol></li></ol></div><div class="widget-footer">
-
-<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>Scroll to Top</span></a></div></widget>
-</div></aside><div class='float-panel blur'>
-  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
-  </button>
-  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
-  </button>
-</div>
-</div><div class="scripts">
-<script type="text/javascript">
-  const ctx = {
-    date_suffix: {
-      just: `Just`,
-      min: `minutes ago`,
-      hour: `hours ago`,
-      day: `days ago`,
-    },
-    root : `/`,
-  };
-
-  // required plugins (only load if needs)
-  if (`local_search`) {
-    ctx.search = {};
-    ctx.search.service = `local_search`;
-    if (ctx.search.service == 'local_search') {
-      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
-      ctx.search[ctx.search.service] = service_obj;
-    }
-  }
-  const def = {
-    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
-    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
-  };
-  const deps = {
-    jquery: `https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js`,
-    marked: `https://cdn.jsdelivr.net/npm/marked@13.0.1/lib/marked.umd.min.js`
-  }
-  
-
-</script>
-
-<script type="text/javascript">
-  const utils = {
-    // 懒加载 css https://github.com/filamentgroup/loadCSS
-    css: (href, before, media, attributes) => {
-      var doc = window.document;
-      var ss = doc.createElement("link");
-      var ref;
-      if (before) {
-        ref = before;
-      } else {
-        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
-        ref = refs[refs.length - 1];
-      }
-      var sheets = doc.styleSheets;
-      if (attributes) {
-        for (var attributeName in attributes) {
-          if (attributes.hasOwnProperty(attributeName)) {
-            ss.setAttribute(attributeName, attributes[attributeName]);
-          }
-        }
-      }
-      ss.rel = "stylesheet";
-      ss.href = href;
-      ss.media = "only x";
-      function ready(cb) {
-        if (doc.body) {
-          return cb();
-        }
-        setTimeout(function () {
-          ready(cb);
-        });
-      }
-      ready(function () {
-        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
-      });
-      var onloadcssdefined = function (cb) {
-        var resolvedHref = ss.href;
-        var i = sheets.length;
-        while (i--) {
-          if (sheets[i].href === resolvedHref) {
-            return cb();
-          }
-        }
-        setTimeout(function () {
-          onloadcssdefined(cb);
-        });
-      };
-      function loadCB() {
-        if (ss.addEventListener) {
-          ss.removeEventListener("load", loadCB);
-        }
-        ss.media = media || "all";
-      }
-      if (ss.addEventListener) {
-        ss.addEventListener("load", loadCB);
-      }
-      ss.onloadcssdefined = onloadcssdefined;
-      onloadcssdefined(loadCB);
-      return ss;
-    },
-
-    js: (src, opt) => new Promise((resolve, reject) => {
-      var script = document.createElement('script');
-      if (src.startsWith('/')){
-        src = ctx.root + src.substring(1);
-      }
-      script.src = src;
-      if (opt) {
-        for (let key of Object.keys(opt)) {
-          script[key] = opt[key]
-        }
-      } else {
-        // 默认异步，如果需要同步，第二个参数传入 {} 即可
-        script.async = true
-      }
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    }),
-
-    jq: (fn) => {
-      if (typeof jQuery === 'undefined') {
-        utils.js(deps.jquery).then(fn)
-      } else {
-        fn()
-      }
-    },
-    
-    onLoading: (el) => {
-      if (el) {
-        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
-      }
-    },
-    onLoadSuccess: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap').remove();
-      }
-    },
-    onLoadFailure: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap svg').remove();
-        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
-        $(el).find('.loading-wrap').addClass('error');
-      }
-    },
-    request: (el, url, callback, onFailure) => {
-      let retryTimes = 3;
-      utils.onLoading(el);
-      function req() {
-        return new Promise((resolve, reject) => {
-          let status = 0; // 0 等待 1 完成 2 超时
-          let timer = setTimeout(() => {
-            if (status === 0) {
-              status = 2;
-              timer = null;
-              reject('请求超时');
-              if (retryTimes == 0) {
-                onFailure();
-              }
-            }
-          }, 5000);
-          fetch(url).then(function(response) {
-            if (status !== 2) {
-              clearTimeout(timer);
-              resolve(response);
-              timer = null;
-              status = 1;
-            }
-            if (response.ok) {
-              return response.json();
-            }
-            throw new Error('Network response was not ok.');
-          }).then(function(data) {
-            retryTimes = 0;
-            utils.onLoadSuccess(el);
-            callback(data);
-          }).catch(function(error) {
-            if (retryTimes > 0) {
-              retryTimes -= 1;
-              setTimeout(() => {
-                req();
-              }, 5000);
-            } else {
-              utils.onLoadFailure(el);
-              onFailure();
-            }
-          });
-        });
-      }
-      req();
-    },
-  };
-</script>
-
-<script>
-  const sidebar = {
-    leftbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    rightbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('rightbar');
-        l_body.removeAttribute('leftbar');
-      }
-    },
-    dismiss: () => {
-      if (l_body) {
-        l_body.removeAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    toggleTOC: () => {
-      document.querySelector('#data-toc').classList.toggle('collapse');
-    }
-  }
-</script>
-<script type="text/javascript">
-  (() => {
-    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
-    for (const tagSwitcher of tagSwitchers) {
-      tagSwitcher.addEventListener('click', (e) => {
-        const parent = e.target.closest('.tag-subtree.parent-tag')
-        parent.classList.toggle('expanded')
-        e.preventDefault()
-      })
-    }
-
-    // Get active tag from query string, then activate it.
-    const urlParams = new URLSearchParams(window.location.search)
-    const activeTag = urlParams.get('tag')
-    if (activeTag) {
-      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
-      if (tag) {
-        tag.querySelector('a').classList.add('active')
         
-        while (tag) {
-          tag.classList.add('expanded')
-          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
-        }
-      }
-    }
-  })()
-</script>
+            <section class="post-copyright">
+                
+                
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"># 课程笔记</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/09/06/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">大数据分析</a>
+            
+            
+            <a class="next" rel="next" href="/2023/09/05/%E9%9C%80%E6%B1%82%E4%B8%8E%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E5%88%9B%E6%96%B0/">需求与商业模式创新</a>
+            
+        </section>
 
 
-<!-- required -->
-<script src="/js/main.js?v=1.29.1" defer></script>
+    </article>
+</div>
 
-<script type="text/javascript">
-  const applyTheme = (theme) => {
-    if (theme === 'auto') {
-      document.documentElement.removeAttribute('data-theme')
-    } else {
-      document.documentElement.setAttribute('data-theme', theme)
-    }
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Liu Yaoli | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
 
-    applyThemeToGiscus(theme)
-  }
+    </div>
+</body>
 
-  const applyThemeToGiscus = (theme) => {
-    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
-
-    const cmt = document.getElementById('giscus')
-    if (cmt) {
-      // This works before giscus load.
-      cmt.setAttribute('data-theme', theme)
-    }
-
-    const iframe = document.querySelector('#comments > section.giscus > iframe')
-    if (iframe) {
-      // This works after giscus loaded.
-      const src = iframe.src
-      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
-      iframe.src = newSrc
-    }
-  }
-
-  const switchTheme = () => {
-    // light -> dark -> auto -> light -> ...
-    const currentTheme = document.documentElement.getAttribute('data-theme')
-    let newTheme;
-    switch (currentTheme) {
-      case 'light':
-        newTheme = 'dark'
-        break
-      case 'dark':
-        newTheme = 'auto'
-        break
-      default:
-        newTheme = 'light'
-    }
-    applyTheme(newTheme)
-    window.localStorage.setItem('Stellar.theme', newTheme)
-
-    const messages = {
-      light: `Switched to Light Mode`,
-      dark: `Switched to Dark Mode`,
-      auto: `Switched to Auto Mode`,
-    }
-    hud?.toast?.(messages[newTheme])
-  }
-
-  (() => {
-    // Apply user's preferred theme, if any.
-    const theme = window.localStorage.getItem('Stellar.theme')
-    if (theme !== null) {
-      applyTheme(theme)
-    }
-  })()
-</script>
-
-
-<!-- optional -->
-
-
-
-<script defer>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
-    for (let id of Object.keys(ctx.services)) {
-      const js = ctx.services[id].js;
-      if (id == 'siteinfo') {
-        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
-        if (ctx.cardlinks?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            setCardLink(ctx.cardlinks);
-          });
-        }
-      } else {
-        const els = document.getElementsByClassName(`ds-${id}`);
-        if (els?.length > 0) {
-          utils.jq(() => {
-            if (id == 'timeline' || 'memos' || 'marked') {
-              utils.js(deps.marked).then(function () {
-                utils.js(js, { defer: true });
-              });
-            } else {
-              utils.js(js, { defer: true });
-            }
-          });
-        }
-      }
-    }
-  });
-</script>
-
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.search = {
-      path: `/search.json`,
-    }
-    utils.js('/js/search/local-search.js', { defer: true });
-  });
-</script><script>
-  window.FPConfig = {
-    delay: 0,
-    ignoreKeywords: [],
-    maxRPS: 5,
-    hoverDelay: 25
-  };
-</script>
-<script defer src="https://cdn.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
-<script>
-  // https://www.npmjs.com/package/vanilla-lazyload
-  // Set the options globally
-  // to make LazyLoad self-initialize
-  window.lazyLoadOptions = {
-    elements_selector: ".lazy",
-  };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
-  window.addEventListener(
-    "LazyLoad::Initialized",
-    function (event) {
-      window.lazyLoadInstance = event.detail.instance;
-    },
-    false
-  );
-  document.addEventListener('DOMContentLoaded', function () {
-    window.lazyLoadInstance?.update();
-  });
-</script><script>
-  ctx.fancybox = {
-    selector: `.timenode p>img`,
-    css: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
-    js: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
-  };
-  var selector = '[data-fancybox]:not(.error)';
-  if (ctx.fancybox.selector) {
-    selector += `, ${ctx.fancybox.selector}`
-  }
-  var needFancybox = document.querySelectorAll(selector).length !== 0;
-  if (!needFancybox) {
-    const els = document.getElementsByClassName('ds-memos');
-    if (els != undefined && els.length > 0) {
-      needFancybox = true;
-    }
-  }
-  if (needFancybox) {
-    utils.css(ctx.fancybox.css);
-    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
-      Fancybox.bind(selector, {
-        hideScrollbar: false,
-        Thumbs: {
-          autoStart: false,
-        },
-        caption: (fancybox, slide) => {
-          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
-        }
-      });
-    })
-  }
-</script>
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    const swiper_api = document.getElementById('swiper-api');
-    if (swiper_api != undefined) {
-      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
-      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
-        const effect = swiper_api.getAttribute('effect') || '';
-        var swiper = new Swiper('.swiper#swiper-api', {
-          slidesPerView: 'auto',
-          spaceBetween: 8,
-          centeredSlides: true,
-          effect: effect,
-          rewind: true,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
-        });
-      })
-    }
-  });
-</script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-    processEscapes: true
-  }
-});
-MathJax.Hub.Config({
-  tex2jax: {
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  }
-});
-MathJax.Hub.Queue(function() {
-  var all = MathJax.Hub.getAllJax(), i;
-  for(i=0; i < all.length; i += 1) {
-    all[i].SourceElement().parentNode.className += ' has-jax';
-  }
-});
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    window.codeElements = document.querySelectorAll('.code');
-    if (window.codeElements.length > 0) {
-      ctx.copycode = {
-        default_text: `Copy`,
-        success_text: `Copied`,
-        toast: `复制成功`,
-      };
-      utils.js('/js/plugins/copycode.js');
-    }
-  });
-</script>
-
-
-<!-- inject -->
-
-</div></body></html>
+</html>
