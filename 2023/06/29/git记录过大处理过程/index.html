@@ -163,19 +163,19 @@
 </blockquote>
 <ol>
 <li><p>查看大文件</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rev-list --objects --all | grep &quot;$(git verify-pack -v .git/objects/pack/*.idx | sort -k 3 -n | tail -5 | awk &#x27;&#123;print$1&#125;&#x27;)&quot;</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rev-list --objects --all | grep &quot;$(git verify-pack -v .git/objects/pack/*.idx | sort -k 3 -n | tail -5 | awk &#x27;&#123;print$1&#125;&#x27;)&quot;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>删除要删除的文件（把big-file.jar换成要删除的即可）</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git filter-branch --force --index-filter &#x27;git rm -rf --cached --ignore-unmatch big-file.jar&#x27; --prune-empty --tag-name-filter cat -- --all</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git filter-branch --force --index-filter &#x27;git rm -rf --cached --ignore-unmatch big-file.jar&#x27; --prune-empty --tag-name-filter cat -- --all</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>出现这样的输出就是成功了</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rewrite 6cdbb293d453ced07e6a07e0aa6e580e6a5538f4 (266/266)</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rewrite 6cdbb293d453ced07e6a07e0aa6e580e6a5538f4 (266/266)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果要推送到远端需要用force</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>通过垃圾回收GC彻底删除文件</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -rf .git/refs/original/</span><br><span class="line">git reflog expire --expire=now --all</span><br><span class="line">git gc --prune=now</span><br></pre></td></tr></table></figure></div></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -rf .git/refs/original/</span><br><span class="line">git reflog expire --expire=now --all</span><br><span class="line">git gc --prune=now</span><br></pre></td></tr></table></figure></li>
 </ol>
 <p>这样终于是解决了，幸好是最后一次算分的实验了，不然后患无穷啊，据助教说git记录是不准改的…标准的方法是从lab0 remake…</p>
 

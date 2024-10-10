@@ -267,7 +267,7 @@
 <h3 id="柔性事务"><a href="#柔性事务" class="headerlink" title="柔性事务"></a>柔性事务</h3><p>满足ACID的事务被称作刚性事务，而追求最终一致性的事务被称作柔性事务</p>
 <h3 id="QUIC与0rtt（zero-roundtrip-time）"><a href="#QUIC与0rtt（zero-roundtrip-time）" class="headerlink" title="QUIC与0rtt（zero roundtrip time）"></a>QUIC与0rtt（zero roundtrip time）</h3><h4 id="0rtt的tls1-3"><a href="#0rtt的tls1-3" class="headerlink" title="0rtt的tls1.3"></a>0rtt的tls1.3</h4><p>tls1.3的核心思想是，如果客户端和服务端曾经有过tls通讯，那么下一次tls通讯时，两端之间就不用煞费苦心去沟通参数，客户端可以使用pre_shared_key来在第一下clientHello就开始发送加密的数据</p>
 <p>我看不懂…</p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://halfrost.com/https_tls1-3_handshake/" >tls1.3 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a target="_blank" rel="noopener" href="https://halfrost.com/https_tls1-3_handshake/">tls1.3</a></p>
 <h1 id="透明多级分流系统"><a href="#透明多级分流系统" class="headerlink" title="透明多级分流系统"></a>透明多级分流系统</h1><h2 id="客户端缓存"><a href="#客户端缓存" class="headerlink" title="客户端缓存"></a>客户端缓存</h2><h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><h2 id="传输链路"><a href="#传输链路" class="headerlink" title="传输链路"></a>传输链路</h2><h2 id="CDN-content-distribution-network"><a href="#CDN-content-distribution-network" class="headerlink" title="CDN content distribution network"></a>CDN content distribution network</h2><h4 id="CDN与路由解析"><a href="#CDN与路由解析" class="headerlink" title="CDN与路由解析"></a>CDN与路由解析</h4><p>加入cdn后，当客户端请求一个域名时，将不再得到源站的ip，而是得到cdn服务器的cname，本地得到cname后，向提供该cname的权威dns查询dns，权威dns根据各种策略选择一个最合适的ip给客户端，这个ip将有能力中转客户端的请求到源站</p>
 <h4 id="CDN与内容分发"><a href="#CDN与内容分发" class="headerlink" title="CDN与内容分发"></a>CDN与内容分发</h4><p>cdn获取源站资源的过程被称为内容分发</p>
 <ul>
@@ -295,12 +295,7 @@
 <h3 id="数据链路层负载均衡"><a href="#数据链路层负载均衡" class="headerlink" title="数据链路层负载均衡"></a>数据链路层负载均衡</h3><p>这一层的负载均衡的核心原理是修改数据帧中的MAC目标地址，首先所有的数据帧都指向负载均衡器，负载均衡器将请求帧的MAC地址指向真实地址</p>
 <h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>由于只修改了二层数据帧的MAC目标地址，因此IP等内容全部没有改变，这就要求负载均衡器和真实服务器的ip地址是一致的，这里一般采用让真实服务器集群的虚拟ip地址与负载均衡器的虚拟ip相同。</p>
 <h4 id="pros"><a href="#pros" class="headerlink" title="pros"></a>pros</h4><p>这种实现的一大好处是返回的数据不用再经过负载均衡器改为负载均衡器的ip，而是可以由真实服务器直接返回结果给客户端，一定程度上缓解负载均衡器带宽造成的性能瓶颈。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://files.lsmcloud.top/blog5480a6b96ea559bd085c0834c0befc7f.png"
-                     
-                ></p>
+<p><img src="https://files.lsmcloud.top/blog5480a6b96ea559bd085c0834c0befc7f.png"></p>
 <h4 id="cons"><a href="#cons" class="headerlink" title="cons"></a>cons</h4><ul>
 <li>需要感知应用层协议的负载均衡场景无法胜任</li>
 <li>由于是在数据链路层工作，所以必须二层可达，要求负载均衡器必须和真实服务器在同一子网内，不能跨VLAN，不能跨子网</li>
