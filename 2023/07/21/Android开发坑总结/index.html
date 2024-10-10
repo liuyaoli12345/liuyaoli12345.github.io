@@ -1,0 +1,645 @@
+
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1" theme-name="Stellar" theme-version="1.29.1">
+  
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>Android开发坑总结 - Yaoli's Blog</title>
+
+  
+    <meta name="description" content="暑期课程，感觉作业量相当大，不过想到隔壁cloudwego还要手搓网关，心里就平衡了:-)   使用.addTextChangedListener无效 这个问题到现在也没解决，这个代码就是不触发监听事件，搞了一下午也想不通，论坛里大家都是这么用的，但是我就是不行？ 1234567891011121314151617181920newsTitleElement.addTextChangedList">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android开发坑总结">
+<meta property="og:url" content="http://blog.lsmcloud.top/2023/07/21/Android%E5%BC%80%E5%8F%91%E5%9D%91%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Yaoli&#39;s Blog">
+<meta property="og:description" content="暑期课程，感觉作业量相当大，不过想到隔壁cloudwego还要手搓网关，心里就平衡了:-)   使用.addTextChangedListener无效 这个问题到现在也没解决，这个代码就是不触发监听事件，搞了一下午也想不通，论坛里大家都是这么用的，但是我就是不行？ 1234567891011121314151617181920newsTitleElement.addTextChangedList">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-07-21T09:53:47.000Z">
+<meta property="article:modified_time" content="2023-07-31T11:37:29.813Z">
+<meta property="article:author" content="Liu Yaoli">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="kotlin">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  <meta name="keywords" content="Android,kotlin">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.1">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Yaoli's Blog</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="Search"></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">Recent Update</span></div><div class="widget-body fs14"><a class="item title" href="/2024/10/10/%E6%B5%81%E9%87%8F%E4%BC%AA%E8%A3%85%E5%AD%A6%E4%B9%A0/"><span class="title">流量伪装学习</span></a><a class="item title" href="/2024/03/07/ML2024-weekly-report/"><span class="title">ML2024:weekly report</span></a><a class="item title" href="/2024/09/17/%E5%9C%A8%E5%A4%A7%E9%99%86%E5%9C%B0%E5%8C%BA%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%BC%80%E5%8F%91/"><span class="title">在大陆地区如何进行最基本的开发?</span></a><a class="item title" href="/2024/04/25/%E5%9B%9B%E5%85%83%E6%95%B0%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"><span class="title">四元数与计算机图形学</span></a><a class="item title" href="/2024/09/11/%E5%BE%AE%E5%88%86%E4%B8%8E%E5%AF%BC%E6%95%B0/"><span class="title">微分与导数</span></a><a class="item title" href="/2024/04/27/Transformer%E6%9E%B6%E6%9E%84%E5%AD%A6%E4%B9%A0/"><span class="title">Transformer架构学习</span></a><a class="item title" href="/2024/07/03/%E4%BF%A1%E5%8F%B7%E9%87%8F-%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%E4%B8%8E%E7%AE%A1%E7%A8%8B/"><span class="title">信号量,条件变量与管程</span></a><a class="item title" href="/2024/07/03/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1-cookmanual/"><span class="title">概率统计-cookmanual</span></a><a class="item title" href="/2024/07/01/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-cookmanual/"><span class="title">离散数学_cookmanual</span></a><a class="item title" href="/2024/07/01/%E5%88%A9%E7%8E%87%E9%A3%8E%E9%99%A9/"><span class="title">利率风险</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Android%E5%BC%80%E5%8F%91/">Android开发</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2023-07-21T09:53:47.000Z">2023-07-21</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2023-07-31T11:37:29.813Z">2023-07-31</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>Android开发坑总结</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><blockquote>
+<p>暑期课程，感觉作业量相当大，不过想到隔壁cloudwego还要手搓网关，心里就平衡了:-)</p>
+</blockquote>
+<ol>
+<li><p>使用.addTextChangedListener无效</p>
+<p>这个问题到现在也没解决，这个代码就是不触发监听事件，搞了一下午也想不通，论坛里大家都是这么用的，但是我就是不行？</p>
+<div class="highlight-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">newsTitleElement.addTextChangedListener &#123;</span><br><span class="line">           <span class="keyword">object</span> : TextWatcher &#123;</span><br><span class="line">               <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">beforeTextChanged</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">                   s: <span class="type">CharSequence</span>?, start: <span class="type">Int</span>, count: <span class="type">Int</span>, after: <span class="type">Int</span></span></span></span><br><span class="line"><span class="params"><span class="function">               )</span></span> &#123;</span><br><span class="line">                   <span class="comment">// 这里不需要处理</span></span><br><span class="line">               &#125;</span><br><span class="line">   </span><br><span class="line">               <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onTextChanged</span><span class="params">(s: <span class="type">CharSequence</span>?, start: <span class="type">Int</span>, before: <span class="type">Int</span>, count: <span class="type">Int</span>)</span></span> &#123;</span><br><span class="line">                   <span class="comment">// 这里不需要处理</span></span><br><span class="line">                   Log.i(<span class="string">&quot;abcdefg&quot;</span>, <span class="string">&quot;text change了&quot;</span>)</span><br><span class="line">               &#125;</span><br><span class="line">   </span><br><span class="line">               <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">afterTextChanged</span><span class="params">(s: <span class="type">Editable</span>?)</span></span> &#123;</span><br><span class="line">                   <span class="comment">// 在文本更改后保存EditText中的文本到contentText</span></span><br><span class="line">                   newsTitle = s.toString()</span><br><span class="line">                   Log.i(<span class="string">&quot;abcdefg&quot;</span>,<span class="string">&quot;标题赋值&quot;</span>)</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>换成kotlin提供的api就可以…</p>
+<div class="highlight-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">newsContextElement.doAfterTextChanged &#123;</span><br><span class="line">            Log.i(<span class="string">&quot;abcdefg&quot;</span>, <span class="string">&quot;changee text!!!&quot;</span>)</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>这说不通，因为本质上来说这个api无非就是将java里的写法封装了下…</p>
+</li>
+<li><p>在主线程使用数据库被系统拒绝</p>
+<p>本来我想用户一点击提交按钮就直接将实体往数据库存</p>
+<div class="highlight-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">setUpOkButton</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="keyword">val</span> okButton: ImageButton = findViewById(R.id.post_news_ok_button)</span><br><span class="line">       okButton.setOnClickListener &#123;</span><br><span class="line">           <span class="keyword">if</span> (newsTitle.isEmpty() || newsAbstract.isEmpty() || newsContext.isEmpty())&#123;</span><br><span class="line">               Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;标题、摘要、正文不能为空&quot;</span>, Toast.LENGTH_SHORT).show()</span><br><span class="line">               <span class="keyword">return</span><span class="symbol">@setOnClickListener</span></span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">val</span> newsId: <span class="built_in">Long</span> = db.newsBriefDao.insert(NewsBriefEntity(<span class="literal">null</span>,newsTitle,<span class="string">&quot;&quot;</span>,<span class="string">&quot;《史记》&quot;</span>,<span class="string">&quot;火爆&quot;</span>))</span><br><span class="line">           db.newsContentDao.insert(NewsContentEntity(newsId,<span class="string">&quot;&quot;</span>,newsAbstract,newsContext))</span><br><span class="line">           Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;发布啦&quot;</span>, Toast.LENGTH_SHORT).show()</span><br><span class="line">           finish()</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>但是这样是在Ui 线程里进行数据库操作，会把ui界面阻塞，所以被系统拒绝了</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalStateException: Cannot access database on the main thread since it may potentially lock the UI for a long period of time.</span><br><span class="line">   </span><br></pre></td></tr></table></figure></div>
+
+<p>解决方案是启动kotlin协程</p>
+<div class="highlight-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">setUpOkButton</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">val</span> okButton: ImageButton = findViewById(R.id.post_news_ok_button)</span><br><span class="line">      okButton.setOnClickListener &#123;</span><br><span class="line">          <span class="keyword">if</span> (newsTitle.isEmpty() || newsAbstract.isEmpty() || newsContext.isEmpty())&#123;</span><br><span class="line">              Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;标题、摘要、正文不能为空&quot;</span>, Toast.LENGTH_SHORT).show()</span><br><span class="line">              <span class="keyword">return</span><span class="symbol">@setOnClickListener</span></span><br><span class="line">          &#125;</span><br><span class="line">          <span class="comment">// 在子线程中执行数据库操作</span></span><br><span class="line">          GlobalScope.launch(Dispatchers.IO) &#123;</span><br><span class="line">   </span><br><span class="line">              <span class="keyword">val</span> newsId = db.newsBriefDao.insert(NewsBriefEntity(<span class="literal">null</span>,newsTitle,<span class="string">&quot;&quot;</span>,<span class="string">&quot;&quot;</span>,<span class="string">&quot;&quot;</span>))</span><br><span class="line">              db.newsContentDao.insert(NewsContentEntity(newsId,<span class="string">&quot;&quot;</span>,newsAbstract,newsContext))</span><br><span class="line">   </span><br><span class="line">              <span class="comment">// UI操作需要回到主线程</span></span><br><span class="line">              withContext(Dispatchers.Main) &#123;</span><br><span class="line">                  Toast.makeText(<span class="keyword">this</span><span class="symbol">@PostNewsActivity</span>, <span class="string">&quot;发布成功&quot;</span>, Toast.LENGTH_SHORT).show()</span><br><span class="line">                  finish()</span><br><span class="line">              &#125;</span><br><span class="line">   </span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>协程我还没有弄明白，这部分代码是claude给我写的</p>
+</li>
+<li><p>kotlin的用于解析Room注解的依赖声明方式与java不同</p>
+<p>这个问题也是相当炸裂</p>
+<p>java引入room注解的方式是</p>
+<div class="highlight-container" data-rel="Groovy"><figure class="iseeu highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">annotationProcessor <span class="string">&quot;androidx.room:room-compiler:$room_version&quot;</span> </span><br></pre></td></tr></table></figure></div>
+
+<p>而kotlin是</p>
+<div class="highlight-container" data-rel="Groovy"><figure class="iseeu highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kapt <span class="string">&quot;androidx.room:room-compiler:$room_version&quot;</span> </span><br></pre></td></tr></table></figure></div>
+
+<p>最让我恼火的是如果使用了第一种写法，根本没有任何显式的机制来提醒我，所有的room注解都不会引起IDE的报错或提示，程序会正常通过编译，APK甚至可以在真机上运行直到首次尝试实例化数据库时，APK直接崩溃并提示不存在database_impl，也就是说room实际上没有对注解做任何事情，我想现在我明白为什么这么多人要选择用react_native来开发APP了</p>
+</li>
+<li><p>一个比较好的全局主题</p>
+<p>默认的主题button背景强制是紫色的，所以需要自己覆盖默认主题里的设置，同时把丑陋的导航栏也禁用了，状态栏也换成了更好看的透明式</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;Base.Theme.MyApplication&quot;</span> <span class="attr">parent</span>=<span class="string">&quot;Theme.Material3.DynamicColors.DayNight&quot;</span>&gt;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="comment">&lt;!-- Customize your light theme here. --&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="comment">&lt;!-- &lt;item name=&quot;colorPrimary&quot;&gt;@color/my_light_primary&lt;/item&gt; --&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;windowActionBar&quot;</span>&gt;</span>false<span class="tag">&lt;/<span class="name">item</span>&gt;</span>//无ActionBar</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;windowNoTitle&quot;</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span> //无标题</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:buttonStyle&quot;</span>&gt;</span>@style/AppButtonStyle<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:windowTranslucentStatus&quot;</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:fitsSystemWindows&quot;</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>content provider提供的地址在其他activity中失效</p>
+<p>这个问题让我深刻体会到了什么是“维护的结束就是软件死刑的宣告”，仅仅在三年间，Android对于一个最简单的获取一张照片地址的鉴权方式来去变化了好几次，我在解决问题时遇到了包括但不限于以下报错：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WRITE_EXTERNAL_STORAGE is deprecated (and is not granted) when targeting Android 13+. If you need to write to shared storage, use the MediaStore.createWriteRequest intent</span><br></pre></td></tr></table></figure></div>
+
+<p>这是因为Android从13+开始不再允许这种一次申请到处读取的鉴权方式，并且从10+开始，即使开发者声明了这个权限，app也不会得到任何鉴权</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Process: com.liuyaoli.myapplication, PID: 14712</span><br><span class="line">                                                                                                    java.lang.RuntimeException: Unable to start activity ComponentInfo&#123;com.liuyaoli.myapplication/com.liuyaoli.myapplication.PostNewsActivity&#125;: java.lang.SecurityException: UID 10451 does not have permission to content://com.android.providers.media.documents [user 0]; you could obtain access using ACTION_OPEN_DOCUMENT or related APIs</span><br></pre></td></tr></table></figure></div>
+
+<p>这里是我想用</p>
+<div class="highlight-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.grantUriPermission(targetPackageName, contentUri, permissionFlags)</span><br></pre></td></tr></table></figure></div>
+
+<p>来为相关activity鉴权，但是提供照片选取器的content provider是被保护起来的，不允许这样鉴权</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.SecurityException: Permission Denial: reading com.android.providers.media.MediaDocumentsProvider uri content://com.android.providers.media.documents/document/image%3A255293 from pid=10706, uid=10450 requires that you obtain access using ACTION_OPEN_DOCUMENT or related APIs</span><br></pre></td></tr></table></figure></div>
+
+<p>这里是我开始用系统提供的照片选择器来避免去申请存取权限的问题</p>
+<div class="highlight-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">            headImgPickImage.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))</span><br><span class="line"></span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">val</span> headImgPickImage =</span><br><span class="line">        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) &#123; uri -&gt;</span><br><span class="line"><span class="keyword">if</span> (uri != <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="comment">// 在这里展示选择的图片，可以将 URI 传递给相应的 ImageView 或其他展示图片的组件</span></span><br><span class="line">                uploadHeadImgButton.setImageURI(uri)</span><br><span class="line"><span class="comment">//                    thumbnailUri = Uri.fromFile(File(getRealPathFromURI(this,uri)!!)).toString()</span></span><br><span class="line">                headImgUri = uri.toString()</span><br><span class="line">                Log.i(<span class="string">&quot;ttttt&quot;</span>, headImgUri)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>但是即使是这样，即便申请获取图片的activity有了权限，同一app下的其他activity也无法获得权限</p>
+<p>接下来我又不知道从哪里弄了个鉴权方法，又换成报这个错</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Request threw uncaught throwable</span><br><span class="line">                                                                                                    java.lang.SecurityException: Permission Denial: opening provider com.android.providers.media.MediaDocumentsProvider from ProcessRecord&#123;1f9acfc 13239:com.liuyaoli.myapplication/u0a450&#125; (pid=13239, uid=10450) requires that you obtain access using ACTION_OPEN_DOCUMENT or related APIs</span><br></pre></td></tr></table></figure></div>
+
+<p>最后chatgpt告诉我</p>
+<blockquote>
+<p>“你应该使用 <code>takePersistableUriPermission</code> 来授予长期持久的权限。下面是使用 <code>takePersistableUriPermission</code> 的方法：”</p>
+</blockquote>
+<p>原来加上这几行获取持久权限就行了：</p>
+<div class="highlight-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">private</span> <span class="keyword">val</span> thumbnailsPickImage =</span><br><span class="line">        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) &#123; uri -&gt;</span><br><span class="line">                <span class="keyword">if</span> (uri != <span class="literal">null</span>) &#123;</span><br><span class="line">                    contentResolver.takePersistableUriPermission(</span><br><span class="line">                        uri,</span><br><span class="line">                        Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION</span><br><span class="line">                    )</span><br><span class="line">                    <span class="comment">// 在这里展示选择的图片，可以将 URI 传递给相应的 ImageView 或其他展示图片的组件</span></span><br><span class="line">                    uploadThumbnailsButton.setImageURI(uri)</span><br><span class="line"><span class="comment">//                    thumbnailUri = Uri.fromFile(File(getRealPathFromURI(this,uri)!!)).toString()</span></span><br><span class="line">                    thumbnailUri = uri.toString()</span><br><span class="line">                    Log.i(<span class="string">&quot;ttttt&quot;</span>, thumbnailUri)</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>回过头来看，我debug的过程正好是Android发展的过程，从以前的程序申请一次权限就可以到处访问数据，到要用grantUriPermission来分content provider来鉴权，再到又套一层takePersistableUriPermission来要求申请持久权限，权限的管理越来越精细了</p>
+</li>
+</ol>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>License</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2023/08/16/%E8%AE%B0%E4%B8%80%E6%AC%A1azure%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E4%BA%92%E8%81%94%E7%BD%91/">记一次azure突然无法访问互联网</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2023/07/15/windows7-0x0000004F%E4%B8%8E0xc00000e%E4%BF%AE%E5%A4%8D/">windows7 0x0000004F与0xc00000e修复</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Liu Yaoli</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+</aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `Just`,
+      min: `minutes ago`,
+      hour: `hours ago`,
+      day: `days ago`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js`,
+    marked: `https://cdn.jsdelivr.net/npm/marked@13.0.1/lib/marked.umd.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `Switched to Light Mode`,
+      dark: `Switched to Dark Mode`,
+      auto: `Switched to Auto Mode`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

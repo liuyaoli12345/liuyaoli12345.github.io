@@ -1,0 +1,1149 @@
+
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1" theme-name="Stellar" theme-version="1.29.1">
+  
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>人机交互 - Yaoli's Blog</title>
+
+  
+    <meta name="description" content="人机交互HCI human computer interaction 凡是与人交互的计算系统都有人机交互，包括手机、电脑、微波炉  HCI is a discipline concerned with the design, evaluation and implementation of interactive computing systems for human use and with t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="人机交互">
+<meta property="og:url" content="http://blog.lsmcloud.top/2023/09/05/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/index.html">
+<meta property="og:site_name" content="Yaoli&#39;s Blog">
+<meta property="og:description" content="人机交互HCI human computer interaction 凡是与人交互的计算系统都有人机交互，包括手机、电脑、微波炉  HCI is a discipline concerned with the design, evaluation and implementation of interactive computing systems for human use and with t">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-09-05T02:07:49.000Z">
+<meta property="article:modified_time" content="2023-12-14T00:44:44.748Z">
+<meta property="article:author" content="Liu Yaoli">
+<meta property="article:tag" content="人机交互">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  <meta name="keywords" content="人机交互">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.1">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Yaoli's Blog</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="Search"></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">Recent Update</span></div><div class="widget-body fs14"><a class="item title" href="/2024/10/10/%E6%B5%81%E9%87%8F%E4%BC%AA%E8%A3%85%E5%AD%A6%E4%B9%A0/"><span class="title">流量伪装学习</span></a><a class="item title" href="/2024/03/07/ML2024-weekly-report/"><span class="title">ML2024:weekly report</span></a><a class="item title" href="/2024/09/17/%E5%9C%A8%E5%A4%A7%E9%99%86%E5%9C%B0%E5%8C%BA%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%BC%80%E5%8F%91/"><span class="title">在大陆地区如何进行最基本的开发?</span></a><a class="item title" href="/2024/04/25/%E5%9B%9B%E5%85%83%E6%95%B0%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"><span class="title">四元数与计算机图形学</span></a><a class="item title" href="/2024/09/11/%E5%BE%AE%E5%88%86%E4%B8%8E%E5%AF%BC%E6%95%B0/"><span class="title">微分与导数</span></a><a class="item title" href="/2024/04/27/Transformer%E6%9E%B6%E6%9E%84%E5%AD%A6%E4%B9%A0/"><span class="title">Transformer架构学习</span></a><a class="item title" href="/2024/07/03/%E4%BF%A1%E5%8F%B7%E9%87%8F-%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%E4%B8%8E%E7%AE%A1%E7%A8%8B/"><span class="title">信号量,条件变量与管程</span></a><a class="item title" href="/2024/07/03/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1-cookmanual/"><span class="title">概率统计-cookmanual</span></a><a class="item title" href="/2024/07/01/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-cookmanual/"><span class="title">离散数学_cookmanual</span></a><a class="item title" href="/2024/07/01/%E5%88%A9%E7%8E%87%E9%A3%8E%E9%99%A9/"><span class="title">利率风险</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/">人机交互</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2023-09-05T02:07:49.000Z">2023-09-05</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2023-12-14T00:44:44.748Z">2023-12-14</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>人机交互</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="人机交互"><a href="#人机交互" class="headerlink" title="人机交互"></a>人机交互</h1><p>HCI human computer interaction</p>
+<p>凡是与人交互的计算系统都有人机交互，包括手机、电脑、微波炉</p>
+<blockquote>
+<p>HCI is a discipline concerned with the design, evaluation and implementation of interactive computing systems for human use and with the study of major phenomena surrounding them.</p>
+<p>–ACM</p>
+</blockquote>
+<p>中国人机交互圈</p>
+<ol>
+<li>CCF 学界</li>
+<li>UXPA 工业界</li>
+</ol>
+<h2 id="用户体验"><a href="#用户体验" class="headerlink" title="用户体验"></a>用户体验</h2><p>user Friendly –&gt; usability –&gt; user exprience</p>
+<p><strong>不能够设计用户体验，只能为用户体验而设计</strong></p>
+<h2 id="设计和开发人员易犯的错误"><a href="#设计和开发人员易犯的错误" class="headerlink" title="设计和开发人员易犯的错误"></a>设计和开发人员易犯的错误</h2><ol>
+<li>假设对于技术的使用方式的理解可以通过他们的自主思考实现，即想象这个技术是如何被使用的</li>
+<li>认为每个人都是相同的</li>
+</ol>
+<h2 id="以用户为中心的设计方法"><a href="#以用户为中心的设计方法" class="headerlink" title="以用户为中心的设计方法"></a>以用户为中心的设计方法</h2><h2 id="本科人机交互研究的内容"><a href="#本科人机交互研究的内容" class="headerlink" title="本科人机交互研究的内容"></a>本科人机交互研究的内容</h2><p>交互设计方法</p>
+<ol>
+<li>评估技术</li>
+<li>示例系统和案例学习</li>
+<li>设计方法</li>
+<li>实现技术和工具</li>
+</ol>
+<p>命令行交互–基于记忆的交互</p>
+<p>图形界面–基于识别能力</p>
+<h2 id="人机交互的发展历史"><a href="#人机交互的发展历史" class="headerlink" title="人机交互的发展历史"></a>人机交互的发展历史</h2><p>一大特点：新的交互方式出现后，旧的交互方式往往并不会消失</p>
+<p>1945 Vannervar Bush “As we may think” Memex</p>
+<p>1960 人机共生</p>
+<p>1970 施乐公司 Palo Alto研究中心</p>
+<p>1980s Interface -&gt; Interaction</p>
+<p>1990s 智能化交互、多通道交互…</p>
+<p>四个阶段</p>
+<ol>
+<li>批处理阶段（打纸袋，插硬件）</li>
+<li>联机终端时代</li>
+<li>图形用户界面时代</li>
+</ol>
+<h2 id="人机交互中常见的问题"><a href="#人机交互中常见的问题" class="headerlink" title="人机交互中常见的问题"></a>人机交互中常见的问题</h2><ul>
+<li>不要隐藏关键的信息</li>
+<li>将操作放在正确的地方</li>
+<li>正确的命名</li>
+</ul>
+<h2 id="EEC模型"><a href="#EEC模型" class="headerlink" title="EEC模型"></a>EEC模型</h2><pre class="mermaid">stateDiagram
+    形成目标 --> 形成意图
+    形成意图 --> 明确动作
+    明确动作 --> 执行动作
+    执行动作 --> 外部世界: 执行阶段
+    外部世界 --> 感知系统状态: 评估阶段
+    感知系统状态 --> 解释系统状态
+    解释系统状态 --> 评估输出
+    评估输出 --> 形成目标</pre>
+
+<p>执行隔阂： 我想这么做，但是系统没有提供我想要的（e.g 找不到确认按钮）</p>
+<p>评估隔阂：系统给了这个操作并且我执行了，但是我不能确定事务的状态（e.g 支付完成后既没有支付成功也没有支付失败）</p>
+<h2 id="扩展EEC模型"><a href="#扩展EEC模型" class="headerlink" title="扩展EEC模型"></a>扩展EEC模型</h2><p>可用是用户使用的基础</p>
+<p>可用性目标：目的是为交互设计人员提供一个评估交互式产品和用户体验各方面的具体方法</p>
+<ul>
+<li>易学性：“十分钟法则”</li>
+<li>易记性：学会以后能够迅速回想起使用方法</li>
+<li>效率高：使用这个系统后应该比不用这个系统好</li>
+<li>效用高：提供了正确的功能，能让用户做他们需要做的事</li>
+<li>安全性：避免用户陷入危险（e.g 减少危险功能被直接启动的风险）</li>
+</ul>
+<p>用户体验目标：多样性的用户体验目标，涵盖一系列主观感受</p>
+<h3 id="体验和可用性的关系"><a href="#体验和可用性的关系" class="headerlink" title="体验和可用性的关系"></a>体验和可用性的关系</h3><p>主观vs客观</p>
+<p>矛盾性</p>
+<ul>
+<li>大家喜欢玩有挑战性的游戏</li>
+<li>用锤子砸地鼠比用鼠标点更累但是更有趣</li>
+</ul>
+<p>有些可用性和用户体验目标是不兼容的</p>
+<ul>
+<li>设计一个安全又有趣的过程控制系统是不可能或不可取的</li>
+</ul>
+<p>认识和理解可用性和其他用户体验目标之间的关系是交互设计的核心！</p>
+<h2 id="四种主要技术"><a href="#四种主要技术" class="headerlink" title="四种主要技术"></a>四种主要技术</h2><ul>
+<li>完整的可用性工程过程<ul>
+<li>了解用户</li>
+<li>竞争性分析</li>
+<li>设定可用性目标</li>
+<li>用户参数的设计</li>
+<li>迭代设计</li>
+<li>产品发布后的工作</li>
+</ul>
+</li>
+<li>简化<ul>
+<li>用户和任务观察<ul>
+<li>了解产品的目标用户是可用性工程的第一个步骤</li>
+<li>注意<ul>
+<li>直接与潜在用户进行接触</li>
+<li>不要满足于间接的接触和道听途说</li>
+<li>“你”不是用户！</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>场景</li>
+<li>简化的边做边说<ul>
+<li>让真实用户在使用系统执行一组特定任务的时候，讲出他们的所思所想</li>
+<li>最有价值的单个可用性工程方法</li>
+<li>可了解用户为什么这样做，并确定其可能对系统产生的误解</li>
+<li>实验人员需要不断地提示用户，或请他们事先观摩</li>
+</ul>
+</li>
+<li>启发式评估<ul>
+<li>专家以角色扮演的方式模拟目标用户</li>
+<li>5名专家大致能发现80%的问题，被认为是最恰当的可用性测试用户数量</li>
+<li>启发式原则</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="设计规则"><a href="#设计规则" class="headerlink" title="设计规则"></a>设计规则</h2><ul>
+<li>说明<ul>
+<li>不是完美的，有的还相互矛盾</li>
+<li>基本来自经验</li>
+<li>必须和实际情况相结合</li>
+</ul>
+</li>
+<li>基本规则<ul>
+<li>可学习性</li>
+<li>灵活性</li>
+<li>健壮性</li>
+</ul>
+</li>
+<li>黄金规则<ul>
+<li>尽可能保持一致</li>
+<li>…</li>
+</ul>
+</li>
+<li>十条启发式规则<ul>
+<li>系统状态的可见度</li>
+<li>系统和现实世界的吻合<ul>
+<li>让用户听得懂</li>
+</ul>
+</li>
+<li>用户享有控制权和自主权</li>
+<li>一致性和标准化<ul>
+<li>不要搞得像是好多设计师设计的</li>
+</ul>
+</li>
+<li>避免出错(预防并处理错误)</li>
+<li>依赖识别而非记忆</li>
+<li>使用的灵活性和高效性</li>
+<li>帮助文档</li>
+<li>简单&#x2F;最小化设计</li>
+<li>帮助用户及时识别诊断恢复错误</li>
+</ul>
+</li>
+</ul>
+<h2 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h2><ul>
+<li>评估应该依赖于产品的用户</li>
+<li>评估与设计应结合进行</li>
+<li>评估应在用户的实际工作任务和操作环境下进行</li>
+<li>要选择有广泛代表性的用户</li>
+</ul>
+<h3 id="快速评估：找到用户就问"><a href="#快速评估：找到用户就问" class="headerlink" title="快速评估：找到用户就问"></a>快速评估：找到用户就问</h3><h3 id="可用性测试"><a href="#可用性测试" class="headerlink" title="可用性测试"></a>可用性测试</h3><ul>
+<li>20c80s主导方法</li>
+<li>评测典型用户执行典型任务时的情况</li>
+<li>问题：测试用户数量通常较少（最佳用户数5-12，一般研究得有20+）。不适合进行细致的统计分析</li>
+</ul>
+<h3 id="实地研究（feild-research）"><a href="#实地研究（feild-research）" class="headerlink" title="实地研究（feild research）"></a>实地研究（feild research）</h3><p>基本特征：在自然环境中工作</p>
+<p>目的：理解用户实际工作庆幸以及技术对他们的影响</p>
+<p>作用：</p>
+<ul>
+<li>探索新技术的应用契机</li>
+<li>确定产品的需求</li>
+<li>促进技术的引入</li>
+<li>评估技术的应用</li>
+</ul>
+<p>重难点</p>
+<ul>
+<li>如何不对受试者造成影响</li>
+<li>控制权在用户，很难预测即将发生和出现的情况</li>
+</ul>
+<h3 id="预测性评估"><a href="#预测性评估" class="headerlink" title="预测性评估"></a>预测性评估</h3><ul>
+<li>研究人员通过想象或对界面的使用过程进行建模</li>
+<li>基本目标：<ul>
+<li>用户可以不在场</li>
+<li>整个过程快速、成本较低</li>
+</ul>
+</li>
+</ul>
+<h3 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h3><ul>
+<li>提供的信息</li>
+<li>相应的及时性</li>
+<li>干扰程度</li>
+<li>所需资源</li>
+</ul>
+<h2 id="实验假设"><a href="#实验假设" class="headerlink" title="实验假设"></a>实验假设</h2><h3 id="零假设"><a href="#零假设" class="headerlink" title="零假设"></a>零假设</h3><p>假设不同条件下没有差异</p>
+<h3 id="备择假设"><a href="#备择假设" class="headerlink" title="备择假设"></a>备择假设</h3><p>一般和零假设相反</p>
+<h3 id="因变量自变量"><a href="#因变量自变量" class="headerlink" title="因变量自变量"></a>因变量自变量</h3><p>自变量是研究人员感兴趣的因素</p>
+<p>因变量随着自变量改变发生变化</p>
+<p>寻找自变量的变化是否会引起因变量的变化，以及如何引起因变量的变化</p>
+<p>研究必须可以复现</p>
+<p>实验条件：我们需要比较的不同技术、设备或程序</p>
+<p>试验单位：我们应用实验条件的对象</p>
+<p>分配方式：将实验单位分配到不用实验条件的方式，可以掷骰子，可以用随机数表</p>
+<h3 id="实验设计"><a href="#实验设计" class="headerlink" title="实验设计"></a>实验设计</h3><p>真正的实验</p>
+<ul>
+<li>以至少一个可检验的研究假设为基础，并旨在验证它</li>
+<li>通常至少有两种条件（实验条件和对照条件）或组（实验组和对照组）</li>
+<li>因变量通常使用定量测量</li>
+<li>通过各种显著性检验对结果进行分析</li>
+<li>具备不同的参与者样本</li>
+</ul>
+<p>如果没有使用随机分配但是有对照组，只能算准实验，如果对照组都没有，那么就不是实验了</p>
+<p>绿野仙踪法：在控制条件时，如果实在是达不成某种条件，比如不出错的语音识别器，那么就搞个活人来扮演机器</p>
+<h3 id="实验结构"><a href="#实验结构" class="headerlink" title="实验结构"></a>实验结构</h3><ul>
+<li>实验中我们要研究多少自变量<ul>
+<li>基本设计 or 析因设计</li>
+</ul>
+</li>
+<li>每个自变量有多少个不同的值<ul>
+<li>条件数 &#x3D;&gt; 组件设计、组间设计、裂间设计</li>
+</ul>
+</li>
+</ul>
+<h4 id="组件设计：每个参与者只暴露在一种实验条件下"><a href="#组件设计：每个参与者只暴露在一种实验条件下" class="headerlink" title="组件设计：每个参与者只暴露在一种实验条件下"></a>组件设计：每个参与者只暴露在一种实验条件下</h4><p>优点：设计简洁、避免学习效应</p>
+<p>缺点：结果受个体影响大、样本量大</p>
+<h4 id="组内设计：一组用户要参加多种实验条件"><a href="#组内设计：一组用户要参加多种实验条件" class="headerlink" title="组内设计：一组用户要参加多种实验条件"></a>组内设计：一组用户要参加多种实验条件</h4><h4 id="减缓学习效果和疲劳"><a href="#减缓学习效果和疲劳" class="headerlink" title="减缓学习效果和疲劳"></a>减缓学习效果和疲劳</h4><ul>
+<li>使用拉丁方设计进行平衡（专门的工具生成）</li>
+</ul>
+<h3 id="多个自变量的实验"><a href="#多个自变量的实验" class="headerlink" title="多个自变量的实验"></a>多个自变量的实验</h3><h4 id="析因设计"><a href="#析因设计" class="headerlink" title="析因设计"></a>析因设计</h4><ul>
+<li>分析数据时，比较同一行可以检查不同键盘的影响，任务效果可以通过比较同一列的数据来检验</li>
+<li>组内设计or组间设计</li>
+</ul>
+<h4 id="裂区设计"><a href="#裂区设计" class="headerlink" title="裂区设计"></a>裂区设计</h4><ul>
+<li>析因研究中的一种设计，既有组间成分，又有组内成分</li>
+<li>举例<ul>
+<li>研究问题：年龄和GPS的使用情况对驾驶效果的影响</li>
+<li>自变量：年龄（组间设计）、有无GPS（组内设计）</li>
+</ul>
+</li>
+</ul>
+<p>优点：允许在一个实验中研究两个或两个以上自变量之间相互作用的影响</p>
+<p>相互作用可以被描述为“一个自变量对因变量的不同影响，取决于另一个自变量的特定取值”</p>
+<h3 id="DECIDE评估框架"><a href="#DECIDE评估框架" class="headerlink" title="DECIDE评估框架"></a>DECIDE评估框架</h3><p>六步</p>
+<ol>
+<li>决定评估需要完成的总体目标<ul>
+<li>评估目标决定了评估过程，影响评估范型的选择</li>
+<li>问什么要评估<ul>
+<li>产品设计是否理解了用户需要</li>
+<li>为概念设计选择最佳隐喻</li>
+<li>界面是否满足一致性需要</li>
+<li>探讨新产品应做的改进</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>发觉需要回答的具体问题<ul>
+<li>找出为什么用户更喜欢买纸质机票而不是互联网电子机票</li>
+<li>问题<ul>
+<li>用户对新票据的态度如何</li>
+<li>用户是否能够通过互联网订票</li>
+<li>是否担心交易的安全性</li>
+<li>订票系统界面是否友好</li>
+</ul>
+</li>
+<li>问题可以逐层分解</li>
+</ul>
+</li>
+<li>选择评估范型和技术<ul>
+<li>范型决定了技术类型</li>
+<li>必须权衡实际问题和道德问题<ul>
+<li>最适合的技术可能成本过高</li>
+<li>或所需时间过长</li>
+<li>或不具备必要设备或技能</li>
+</ul>
+</li>
+<li>可结合使用多种技术<ul>
+<li>不同技术有助于了解设计的不同方面</li>
+<li>不同类型数据可从不同角度看待问题</li>
+<li>组合有助于全面了解设计的情况</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>明确实际问题<ul>
+<li>应选择恰当的用户参与评估<ul>
+<li>能代表产品的目标用户群体</li>
+<li>可以先做测试，确定用户技能所属的用户群</li>
+</ul>
+</li>
+<li>任务时间多长<ul>
+<li>20分钟休息一次</li>
+</ul>
+</li>
+<li>可在任务执行前，安排用户熟悉系统</li>
+<li>设施及设备</li>
+<li>期限及预算是否允许</li>
+<li>是否需要专门技能</li>
+</ul>
+</li>
+<li>处理道德问题<ul>
+<li>保护个人隐私<ul>
+<li>除非获得批准，否则书面报告不应提及个人姓名，或把姓名与搜集到的数据相联系</li>
+</ul>
+</li>
+<li>可以申请IRB许可证</li>
+</ul>
+</li>
+<li>评估、解释并表示数据<ul>
+<li>搜集什么类型的数据，如何分析，如何表示<ul>
+<li>通常用评估技术决定</li>
+</ul>
+</li>
+<li>可靠性<ul>
+<li>给定相同时间，不同时间应用同一技术能否带到相同结果</li>
+<li>非正式访谈的可靠性较低</li>
+</ul>
+</li>
+<li>有效性<ul>
+<li>能否得到想要的测量数据</li>
+</ul>
+</li>
+<li>偏见<ul>
+<li>评估人员可能有选择地搜集自己认为重要的数据</li>
+</ul>
+</li>
+<li>范围<ul>
+<li>研究发现是否具有普遍性</li>
+</ul>
+</li>
+<li>环境影响<ul>
+<li>霍桑效应</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="小规模测试-Pilot-Study"><a href="#小规模测试-Pilot-Study" class="headerlink" title="小规模测试 Pilot Study"></a>小规模测试 Pilot Study</h3><p>先试试水</p>
+<p>对评估计划进行小范围测试</p>
+<ul>
+<li>以确保评估计划的可行性</li>
+<li>如检查设备及使用说明</li>
+<li>练习访谈技巧</li>
+<li>检查问卷中的问题是否明确</li>
+</ul>
+<p>小规模试验可以进行多次</p>
+<ul>
+<li>类似迭代</li>
+</ul>
+<h3 id="可用性问题分级"><a href="#可用性问题分级" class="headerlink" title="可用性问题分级"></a>可用性问题分级</h3><p>对问题进行分级</p>
+<p>方法一：基于量化数据的分级</p>
+<p>方法二：问题严重性的主观打分，取平均值</p>
+<p>方法三：可用性分级的两个因素</p>
+<ul>
+<li>有多少用户会遇到这个问题</li>
+<li>用户受到该问题困扰的程度</li>
+</ul>
+<h3 id="用户测试"><a href="#用户测试" class="headerlink" title="用户测试"></a>用户测试</h3><ul>
+<li>在受控环境下测量典型用户执行典型任务的情况</li>
+<li>目的是获得客观的性能数据，从而评价产品或系统的可用性，如易用性、易学性</li>
+<li>最适合对原型和能够运行的</li>
+</ul>
+<h3 id="测试设计"><a href="#测试设计" class="headerlink" title="测试设计"></a>测试设计</h3><ul>
+<li>用户测试须考虑实际限制并做出适当的折衷<ul>
+<li>确保不同参与者的测试条件相同</li>
+<li>应确保评估目标特征具有代表性</li>
+<li>实验可重复，但通常不能得到完全相同的结果</li>
+<li>以DECIDE框架为基础</li>
+</ul>
+</li>
+<li>定义目标和问题<ul>
+<li>目标描述了开展一个测试的原因，定义了测试在整个项目中的价值</li>
+<li>目标对关注点的说明和检查</li>
+</ul>
+</li>
+<li>设计测试任务</li>
+</ul>
+<h2 id="观察用户"><a href="#观察用户" class="headerlink" title="观察用户"></a>观察用户</h2><h4 id="两种方式"><a href="#两种方式" class="headerlink" title="两种方式"></a>两种方式</h4><ul>
+<li><p>真实环境中的观察</p>
+<p>观察者既可以观察，也可以参与实验</p>
+</li>
+<li><p>实验室观察</p>
+<p>测试区，观察区</p>
+</li>
+<li><p>用户坐在家中测试</p>
+</li>
+<li><p>优点</p>
+<p>提供了可控且一致的评估环境</p>
+</li>
+<li><p>缺点</p>
+<p>人为环境，不自然</p>
+</li>
+</ul>
+<h3 id="实验室观察"><a href="#实验室观察" class="headerlink" title="实验室观察"></a>实验室观察</h3><h4 id="生理反应监控"><a href="#生理反应监控" class="headerlink" title="生理反应监控"></a>生理反应监控</h4><p>选择难以伪造的生理指标监控</p>
+<h4 id="观察中的问题"><a href="#观察中的问题" class="headerlink" title="观察中的问题"></a>观察中的问题</h4><ul>
+<li><p>不知道用户在想什么</p>
+<p>边做边说</p>
+<p>两位用户共同合作，以便互相讨论、相互帮助</p>
+</li>
+</ul>
+<h3 id="实际场景观察"><a href="#实际场景观察" class="headerlink" title="实际场景观察"></a>实际场景观察</h3><p>可以发现很多实验室观察不到的问题</p>
+<h4 id="几个难题"><a href="#几个难题" class="headerlink" title="几个难题"></a>几个难题</h4><ul>
+<li><p>要观察结果</p>
+</li>
+<li><p>如何根据紧凑的开发期限和开发人员的技能相应修改现场研究技术</p>
+</li>
+<li><p>如何降低噪音，测试中断及其他易使注意力分散的外界干扰</p>
+<p>方案一：健壮的评估设计</p>
+<p>方案二：将测试协议设计成包含“有计划的干扰”</p>
+</li>
+</ul>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
+<li>观察人员自始至终应尽量保持安静</li>
+<li>不要在实验初期提供帮助</li>
+<li>观察人员看不懂用户在干嘛时要问一问</li>
+</ul>
+<h3 id="数据记录"><a href="#数据记录" class="headerlink" title="数据记录"></a>数据记录</h3><ul>
+<li>纸笔记录（现场记录）</li>
+<li>音频记录</li>
+<li>…</li>
+</ul>
+<h4 id="日志与交互记录"><a href="#日志与交互记录" class="headerlink" title="日志与交互记录"></a>日志与交互记录</h4><p>举例：命令行操作系统超过30%的错误是拼写错误</p>
+<h4 id="定性分析"><a href="#定性分析" class="headerlink" title="定性分析"></a>定性分析</h4><h4 id="分析方法"><a href="#分析方法" class="headerlink" title="分析方法"></a>分析方法</h4><p>详细分析一般都不用，只用粗略分析</p>
+<h4 id="定量分析"><a href="#定量分析" class="headerlink" title="定量分析"></a>定量分析</h4><p>平均值、标准差、t检验</p>
+<h2 id="访谈"><a href="#访谈" class="headerlink" title="访谈"></a>访谈</h2><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
+<li><p>开始</p>
+<p>访问人先介绍自己</p>
+<p>解释访谈的原因</p>
+</li>
+<li><p>热身</p>
+<p>先提出简单的问题</p>
+</li>
+<li><p>正式</p>
+</li>
+</ul>
+<h4 id="访谈类型"><a href="#访谈类型" class="headerlink" title="访谈类型"></a>访谈类型</h4><ul>
+<li>非结构化访谈</li>
+<li>结构化访谈</li>
+<li>半结构化访谈</li>
+<li>集体访谈</li>
+</ul>
+<h2 id="问卷"><a href="#问卷" class="headerlink" title="问卷"></a>问卷</h2><ul>
+<li>常规问题：<ul>
+<li>年龄、性别、职业、居住地、应用计算机的经验</li>
+</ul>
+</li>
+<li>自由回答问题：<ul>
+<li>你能对这个界面提出改进意见吗</li>
+<li>能够提出设计人员没有考虑到的建议</li>
+</ul>
+</li>
+<li>其实5分满意度，至少要3.6以上才算基本满意</li>
+</ul>
+<h3 id="用户满意度调查表QUIS"><a href="#用户满意度调查表QUIS" class="headerlink" title="用户满意度调查表QUIS"></a>用户满意度调查表QUIS</h3><h3 id="认知走查"><a href="#认知走查" class="headerlink" title="认知走查"></a>认知走查</h3><ul>
+<li>逐步检查使用系统执行任务的过程，从中找出可用性问题</li>
+<li>专家来做，无需用户参与</li>
+<li>认知走查的主要目标是让系统易于学习</li>
+<li>…</li>
+</ul>
+<h3 id="协作走查"><a href="#协作走查" class="headerlink" title="协作走查"></a>协作走查</h3><ul>
+<li>由用户、开发、专家一起合作</li>
+</ul>
+<h3 id="启发式"><a href="#启发式" class="headerlink" title="启发式"></a>启发式</h3><p>启发式评估基于启发式原则，不过这也只是一个参考，你可以有自己的评估原则</p>
+<p>问题的严重性分类</p>
+<p>严重性等级：</p>
+<ul>
+<li>表面问题</li>
+<li>次要问题</li>
+<li>主要问题</li>
+<li>灾难性问题</li>
+</ul>
+<h2 id="交互需求设计"><a href="#交互需求设计" class="headerlink" title="交互需求设计"></a>交互需求设计</h2><ul>
+<li>需求<ul>
+<li>关于目标产品的一种陈述，它指定了产品应该做什么，或者应如何工作</li>
+<li>应该是具体的、明确和无歧义的<ul>
+<li>完整下载任何网页的时间应少于5秒</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="用户特性"><a href="#用户特性" class="headerlink" title="用户特性"></a>用户特性</h3><h3 id="体验水平差异"><a href="#体验水平差异" class="headerlink" title="体验水平差异"></a>体验水平差异</h3><ul>
+<li>程序员总是想创造适合专家的界面</li>
+<li>市场人员想创造适合新手用户</li>
+<li>数目最多的是中间用户</li>
+<li>中间用户往往被忽略</li>
+</ul>
+<h4 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h4><ul>
+<li>让新手无痛成为中间用户</li>
+<li>别阻碍用户成为专家</li>
+<li>让中间用户感到愉快</li>
+</ul>
+<p>开发人员总是喜欢自参考设计</p>
+<h3 id="新手用户"><a href="#新手用户" class="headerlink" title="新手用户"></a>新手用户</h3><ul>
+<li>特点<ul>
+<li>敏感，很容易有挫折感</li>
+</ul>
+</li>
+<li>设计要求<ul>
+<li>不能将新手状态视为目标</li>
+<li>让学习过程快速且具有针对性</li>
+</ul>
+</li>
+</ul>
+<h3 id="专家用户"><a href="#专家用户" class="headerlink" title="专家用户"></a>专家用户</h3><ul>
+<li>特点<ul>
+<li>对缺少经验的用户有很大的影响</li>
+<li>喜欢快捷键</li>
+</ul>
+</li>
+</ul>
+<h3 id="中间用户"><a href="#中间用户" class="headerlink" title="中间用户"></a>中间用户</h3><ul>
+<li>特点<ul>
+<li>需要工具</li>
+<li>直到如何使用参考资料</li>
+<li>能够区分经常使用和很少使用的功能</li>
+<li>希望还是要有高级功能</li>
+</ul>
+</li>
+<li>设计要求<ul>
+<li>工具提示</li>
+</ul>
+</li>
+</ul>
+<p>找到你的用户</p>
+<h2 id="人物角色"><a href="#人物角色" class="headerlink" title="人物角色"></a>人物角色</h2><p>是与系统有关的用户假定的一组公共需要、兴趣、期望、行为模式和责任</p>
+<p>这些属性可能是若干用户共有</p>
+<p>同一个用户也可以扮演系统的任意个不同角色</p>
+<blockquote>
+<p>注意用户要被细分，同样是来高考咨询的学生，拿着985分数的学生和拿着普通本科的学生是不一样的，中产家庭的学生和低产家庭的学生和富裕家庭的学生和红三代也是完全不同的，我们最主要关注的还是核心用户和广大用户</p>
+</blockquote>
+<p>建模过程</p>
+<ul>
+<li>拼凑</li>
+<li>组织</li>
+<li>细节</li>
+<li>求精</li>
+</ul>
+<ol>
+<li>确定需求</li>
+<li>需求验证<ul>
+<li>可以直接展示原型</li>
+<li>原型分为低保真和高保真（比如用visual basic）</li>
+<li>鼓励多用低保真模型(高保真模型限制你的想象)</li>
+</ul>
+</li>
+<li></li>
+</ol>
+<h2 id="实验分析"><a href="#实验分析" class="headerlink" title="实验分析"></a>实验分析</h2><p>通过方差分析进行</p>
+<p>误差</p>
+<ul>
+<li>第一类误差：零假设为真，却拒绝了原假设（轻信错误，造成的后果更严重，因为会比目前的状况更糟糕）</li>
+<li>第二类误差：零假设为假，但是却没有推翻零假设（无知错误，会导致失去改变现状的机会）</li>
+</ul>
+<p>p值：如果零假设成立，获得观测数据的概率，表述为自变量对因变量的影响有统计学意义</p>
+<p>设计简单原型</p>
+<p>通过验证性的场景剧来检查设计</p>
+<ul>
+<li>关键线路变种场景剧本：用户不想打电话了，想发电子邮件</li>
+<li>必须使用的场景剧本：手机被卖了，要删除原有信息</li>
+<li>边缘场景使用剧本：用户添加联系人，但是两个联系人同名了</li>
+</ul>
+<h2 id="卡片分类"><a href="#卡片分类" class="headerlink" title="卡片分类"></a>卡片分类</h2><h2 id="格式塔心理学"><a href="#格式塔心理学" class="headerlink" title="格式塔心理学"></a>格式塔心理学</h2><ul>
+<li>相近性原则：空间上靠近的物体容易被视为一组</li>
+<li>相似性原则：长得相似的东西容易被分为一组</li>
+<li>连续性原则：共线或者具有相同方向的物体容易被划为一组</li>
+<li>对称性原则：对称且能够组合为有意义单元的物体会被组合在一起</li>
+<li>完整和闭合性原则：人们倾向于忽视轮廓而将其视作一个完整的整体（页面上的空白可以帮助实现分组）</li>
+<li>前景与背景：前景和背景在某些情况下可以互换</li>
+</ul>
+<p>任务培训可能考</p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>License</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2023/09/05/%E9%9C%80%E6%B1%82%E4%B8%8E%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E5%88%9B%E6%96%B0/">需求与商业模式创新</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2023/09/04/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/">嵌入式系统</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Liu Yaoli</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">On This Page</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92"><span class="toc-text">人机交互</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C"><span class="toc-text">用户体验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E6%98%93%E7%8A%AF%E7%9A%84%E9%94%99%E8%AF%AF"><span class="toc-text">设计和开发人员易犯的错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E7%94%A8%E6%88%B7%E4%B8%BA%E4%B8%AD%E5%BF%83%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95"><span class="toc-text">以用户为中心的设计方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E7%A7%91%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E7%A0%94%E7%A9%B6%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">本科人机交互研究的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="toc-text">人机交互的发展历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">人机交互中常见的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EEC%E6%A8%A1%E5%9E%8B"><span class="toc-text">EEC模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95EEC%E6%A8%A1%E5%9E%8B"><span class="toc-text">扩展EEC模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%93%E9%AA%8C%E5%92%8C%E5%8F%AF%E7%94%A8%E6%80%A7%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">体验和可用性的关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E7%A7%8D%E4%B8%BB%E8%A6%81%E6%8A%80%E6%9C%AF"><span class="toc-text">四种主要技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E8%A7%84%E5%88%99"><span class="toc-text">设计规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0"><span class="toc-text">评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E8%AF%84%E4%BC%B0%EF%BC%9A%E6%89%BE%E5%88%B0%E7%94%A8%E6%88%B7%E5%B0%B1%E9%97%AE"><span class="toc-text">快速评估：找到用户就问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E7%94%A8%E6%80%A7%E6%B5%8B%E8%AF%95"><span class="toc-text">可用性测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E5%9C%B0%E7%A0%94%E7%A9%B6%EF%BC%88feild-research%EF%BC%89"><span class="toc-text">实地研究（feild research）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E6%80%A7%E8%AF%84%E4%BC%B0"><span class="toc-text">预测性评估</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">评价指标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%81%87%E8%AE%BE"><span class="toc-text">实验假设</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%B6%E5%81%87%E8%AE%BE"><span class="toc-text">零假设</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%87%E6%8B%A9%E5%81%87%E8%AE%BE"><span class="toc-text">备择假设</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%A0%E5%8F%98%E9%87%8F%E8%87%AA%E5%8F%98%E9%87%8F"><span class="toc-text">因变量自变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1"><span class="toc-text">实验设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%84"><span class="toc-text">实验结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1%EF%BC%9A%E6%AF%8F%E4%B8%AA%E5%8F%82%E4%B8%8E%E8%80%85%E5%8F%AA%E6%9A%B4%E9%9C%B2%E5%9C%A8%E4%B8%80%E7%A7%8D%E5%AE%9E%E9%AA%8C%E6%9D%A1%E4%BB%B6%E4%B8%8B"><span class="toc-text">组件设计：每个参与者只暴露在一种实验条件下</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E5%86%85%E8%AE%BE%E8%AE%A1%EF%BC%9A%E4%B8%80%E7%BB%84%E7%94%A8%E6%88%B7%E8%A6%81%E5%8F%82%E5%8A%A0%E5%A4%9A%E7%A7%8D%E5%AE%9E%E9%AA%8C%E6%9D%A1%E4%BB%B6"><span class="toc-text">组内设计：一组用户要参加多种实验条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%8F%E7%BC%93%E5%AD%A6%E4%B9%A0%E6%95%88%E6%9E%9C%E5%92%8C%E7%96%B2%E5%8A%B3"><span class="toc-text">减缓学习效果和疲劳</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%B8%AA%E8%87%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9E%E9%AA%8C"><span class="toc-text">多个自变量的实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%90%E5%9B%A0%E8%AE%BE%E8%AE%A1"><span class="toc-text">析因设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A3%82%E5%8C%BA%E8%AE%BE%E8%AE%A1"><span class="toc-text">裂区设计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DECIDE%E8%AF%84%E4%BC%B0%E6%A1%86%E6%9E%B6"><span class="toc-text">DECIDE评估框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E8%A7%84%E6%A8%A1%E6%B5%8B%E8%AF%95-Pilot-Study"><span class="toc-text">小规模测试 Pilot Study</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E7%94%A8%E6%80%A7%E9%97%AE%E9%A2%98%E5%88%86%E7%BA%A7"><span class="toc-text">可用性问题分级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%B5%8B%E8%AF%95"><span class="toc-text">用户测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1"><span class="toc-text">测试设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%82%E5%AF%9F%E7%94%A8%E6%88%B7"><span class="toc-text">观察用户</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-text">两种方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%AE%A4%E8%A7%82%E5%AF%9F"><span class="toc-text">实验室观察</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E7%90%86%E5%8F%8D%E5%BA%94%E7%9B%91%E6%8E%A7"><span class="toc-text">生理反应监控</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%82%E5%AF%9F%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">观察中的问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%9C%BA%E6%99%AF%E8%A7%82%E5%AF%9F"><span class="toc-text">实际场景观察</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%A0%E4%B8%AA%E9%9A%BE%E9%A2%98"><span class="toc-text">几个难题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%AE%B0%E5%BD%95"><span class="toc-text">数据记录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E4%B8%8E%E4%BA%A4%E4%BA%92%E8%AE%B0%E5%BD%95"><span class="toc-text">日志与交互记录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E6%80%A7%E5%88%86%E6%9E%90"><span class="toc-text">定性分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-text">分析方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E9%87%8F%E5%88%86%E6%9E%90"><span class="toc-text">定量分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E8%B0%88"><span class="toc-text">访谈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BF%E8%B0%88%E7%B1%BB%E5%9E%8B"><span class="toc-text">访谈类型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E5%8D%B7"><span class="toc-text">问卷</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%BB%A1%E6%84%8F%E5%BA%A6%E8%B0%83%E6%9F%A5%E8%A1%A8QUIS"><span class="toc-text">用户满意度调查表QUIS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A4%E7%9F%A5%E8%B5%B0%E6%9F%A5"><span class="toc-text">认知走查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E4%BD%9C%E8%B5%B0%E6%9F%A5"><span class="toc-text">协作走查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8F%91%E5%BC%8F"><span class="toc-text">启发式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92%E9%9C%80%E6%B1%82%E8%AE%BE%E8%AE%A1"><span class="toc-text">交互需求设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%89%B9%E6%80%A7"><span class="toc-text">用户特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%93%E9%AA%8C%E6%B0%B4%E5%B9%B3%E5%B7%AE%E5%BC%82"><span class="toc-text">体验水平差异</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87"><span class="toc-text">设计目标</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E6%89%8B%E7%94%A8%E6%88%B7"><span class="toc-text">新手用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%93%E5%AE%B6%E7%94%A8%E6%88%B7"><span class="toc-text">专家用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E9%97%B4%E7%94%A8%E6%88%B7"><span class="toc-text">中间用户</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E7%89%A9%E8%A7%92%E8%89%B2"><span class="toc-text">人物角色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%88%86%E6%9E%90"><span class="toc-text">实验分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%A1%E7%89%87%E5%88%86%E7%B1%BB"><span class="toc-text">卡片分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%A1%94%E5%BF%83%E7%90%86%E5%AD%A6"><span class="toc-text">格式塔心理学</span></a></li></ol></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>Scroll to Top</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `Just`,
+      min: `minutes ago`,
+      hour: `hours ago`,
+      day: `days ago`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js`,
+    marked: `https://cdn.jsdelivr.net/npm/marked@13.0.1/lib/marked.umd.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `Switched to Light Mode`,
+      dark: `Switched to Dark Mode`,
+      auto: `Switched to Auto Mode`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

@@ -1,0 +1,796 @@
+
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1" theme-name="Stellar" theme-version="1.29.1">
+  
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>移动互联网软件工程 - Yaoli's Blog</title>
+
+  
+    <meta name="description" content="移动互联网软件工程Android开源 IOS闭源 HarmonyOSOpen Harmony Harmony 鸿蒙提供了Stage，其中WindowStage类似Activity，AbilityStage类似Service还提供了分布式软总线，相当于将不同的终端连接起来 系统采用分布式数据管理 一次开发多端部署，方舟编译器 Stage模型 UI ability 生命周期  UIAbility启动模">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动互联网软件工程">
+<meta property="og:url" content="http://blog.lsmcloud.top/2023/09/08/%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Yaoli&#39;s Blog">
+<meta property="og:description" content="移动互联网软件工程Android开源 IOS闭源 HarmonyOSOpen Harmony Harmony 鸿蒙提供了Stage，其中WindowStage类似Activity，AbilityStage类似Service还提供了分布式软总线，相当于将不同的终端连接起来 系统采用分布式数据管理 一次开发多端部署，方舟编译器 Stage模型 UI ability 生命周期  UIAbility启动模">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://files.lsmcloud.top/blogd9d184e9430c116e1834104dd80a60b1.png">
+<meta property="og:image" content="https://files.lsmcloud.top/blog83a23a6df8d5778a46a5516a3761f0ea.png">
+<meta property="og:image" content="https://files.lsmcloud.top/blog1533cedc91fcbaef572eae4c88a96895.png">
+<meta property="article:published_time" content="2023-09-08T06:09:32.000Z">
+<meta property="article:modified_time" content="2023-11-06T13:22:16.953Z">
+<meta property="article:author" content="Liu Yaoli">
+<meta property="article:tag" content="课程笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://files.lsmcloud.top/blogd9d184e9430c116e1834104dd80a60b1.png">
+  
+  
+  
+  <meta name="keywords" content="课程笔记">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.1">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Yaoli's Blog</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="Search"></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">Recent Update</span></div><div class="widget-body fs14"><a class="item title" href="/2024/10/10/%E6%B5%81%E9%87%8F%E4%BC%AA%E8%A3%85%E5%AD%A6%E4%B9%A0/"><span class="title">流量伪装学习</span></a><a class="item title" href="/2024/03/07/ML2024-weekly-report/"><span class="title">ML2024:weekly report</span></a><a class="item title" href="/2024/09/17/%E5%9C%A8%E5%A4%A7%E9%99%86%E5%9C%B0%E5%8C%BA%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%BC%80%E5%8F%91/"><span class="title">在大陆地区如何进行最基本的开发?</span></a><a class="item title" href="/2024/04/25/%E5%9B%9B%E5%85%83%E6%95%B0%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"><span class="title">四元数与计算机图形学</span></a><a class="item title" href="/2024/09/11/%E5%BE%AE%E5%88%86%E4%B8%8E%E5%AF%BC%E6%95%B0/"><span class="title">微分与导数</span></a><a class="item title" href="/2024/04/27/Transformer%E6%9E%B6%E6%9E%84%E5%AD%A6%E4%B9%A0/"><span class="title">Transformer架构学习</span></a><a class="item title" href="/2024/07/03/%E4%BF%A1%E5%8F%B7%E9%87%8F-%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%E4%B8%8E%E7%AE%A1%E7%A8%8B/"><span class="title">信号量,条件变量与管程</span></a><a class="item title" href="/2024/07/03/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1-cookmanual/"><span class="title">概率统计-cookmanual</span></a><a class="item title" href="/2024/07/01/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-cookmanual/"><span class="title">离散数学_cookmanual</span></a><a class="item title" href="/2024/07/01/%E5%88%A9%E7%8E%87%E9%A3%8E%E9%99%A9/"><span class="title">利率风险</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">移动互联网软件工程</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2023-09-08T06:09:32.000Z">2023-09-08</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2023-11-06T13:22:16.953Z">2023-11-06</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>移动互联网软件工程</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="移动互联网软件工程"><a href="#移动互联网软件工程" class="headerlink" title="移动互联网软件工程"></a>移动互联网软件工程</h1><h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><p>开源</p>
+<h2 id="IOS"><a href="#IOS" class="headerlink" title="IOS"></a>IOS</h2><p>闭源</p>
+<h2 id="HarmonyOS"><a href="#HarmonyOS" class="headerlink" title="HarmonyOS"></a>HarmonyOS</h2><p>Open Harmony</p>
+<p>Harmony</p>
+<h4 id="鸿蒙提供了Stage，其中WindowStage类似Activity，AbilityStage类似Service"><a href="#鸿蒙提供了Stage，其中WindowStage类似Activity，AbilityStage类似Service" class="headerlink" title="鸿蒙提供了Stage，其中WindowStage类似Activity，AbilityStage类似Service"></a>鸿蒙提供了Stage，其中WindowStage类似Activity，AbilityStage类似Service</h4><p><strong>还提供了分布式软总线，相当于将不同的终端连接起来</strong></p>
+<p><strong>系统采用分布式数据管理</strong></p>
+<p><strong>一次开发多端部署，方舟编译器</strong></p>
+<h2 id="Stage模型"><a href="#Stage模型" class="headerlink" title="Stage模型"></a>Stage模型</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blogd9d184e9430c116e1834104dd80a60b1.png"
+                     
+                ></p>
+<p>UI ability 生命周期</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blog83a23a6df8d5778a46a5516a3761f0ea.png"
+                     
+                ></p>
+<h3 id="UIAbility启动模式"><a href="#UIAbility启动模式" class="headerlink" title="UIAbility启动模式"></a>UIAbility启动模式</h3><ul>
+<li>单实例模式</li>
+<li>标准实例模式</li>
+<li>指定实例模式</li>
+</ul>
+<h3 id="Want类型"><a href="#Want类型" class="headerlink" title="Want类型"></a>Want类型</h3><ul>
+<li>显示Want</li>
+<li>隐式Want</li>
+</ul>
+<h3 id="Stage"><a href="#Stage" class="headerlink" title="Stage"></a>Stage</h3><p>多应用组件在运行时共享同一个虚拟机引擎</p>
+<h3 id="多HAP机制"><a href="#多HAP机制" class="headerlink" title="多HAP机制"></a>多HAP机制</h3><p>拆分成不同的HAP，供不同型号的设备下载</p>
+<h4 id="静态共享包-HAR-动态共享包-HSP"><a href="#静态共享包-HAR-动态共享包-HSP" class="headerlink" title="静态共享包 HAR 动态共享包 HSP"></a>静态共享包 HAR 动态共享包 HSP</h4><h3 id="语言渊源"><a href="#语言渊源" class="headerlink" title="语言渊源"></a>语言渊源</h3><p>Js 由Mozilla创造</p>
+<p>前端框架： React Vue</p>
+<p>Ts 由微软创造</p>
+<p>ArkTs 由华为创造，增加了</p>
+<ul>
+<li>基本UI描述</li>
+<li>状态管理</li>
+<li>动态构建UI元素</li>
+<li>渲染控制</li>
+<li>使用限制与扩展</li>
+</ul>
+<h3 id="测试用例改造"><a href="#测试用例改造" class="headerlink" title="测试用例改造"></a>测试用例改造</h3><pre class="mermaid">stateDiagram
+    用例编写 --> 用例评审
+    用例评审 --> 用例执行
+    用例执行 --> 用例编写
+    用例执行 --> 人工测试
+    用例执行 --> 自动化测试</pre>
+
+<h3 id="鸿蒙开发：案例讲解TO-DO-List"><a href="#鸿蒙开发：案例讲解TO-DO-List" class="headerlink" title="鸿蒙开发：案例讲解TO-DO List"></a>鸿蒙开发：案例讲解TO-DO List</h3><h3 id="状态管理"><a href="#状态管理" class="headerlink" title="状态管理"></a>状态管理</h3><ul>
+<li>ViewUI: UI渲染，一般指自定义组件的build方法和@Builder装饰的方法</li>
+</ul>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><ul>
+<li>理想汽车：贴近场景的设计</li>
+<li>Apple：一致性体验</li>
+<li>符合战略的需求</li>
+</ul>
+<h3 id="涉众分析"><a href="#涉众分析" class="headerlink" title="涉众分析"></a>涉众分析</h3><p>常见的问题</p>
+<ol>
+<li>没有选定用户</li>
+<li>选中所有用户</li>
+</ol>
+<p>优先级评估</p>
+<p>power</p>
+<p>interest</p>
+<p>如果已经有人在领域做了，那就找垂直领域，找小的切入点</p>
+<p>在领域内还可以细分市场</p>
+<h2 id="ArkTs运行时"><a href="#ArkTs运行时" class="headerlink" title="ArkTs运行时"></a>ArkTs运行时</h2><h2 id="RN"><a href="#RN" class="headerlink" title="RN"></a>RN</h2><ul>
+<li>前端javascrip</li>
+<li>Android bridge&#x2F;ios bridge</li>
+<li>抛弃浏览器渲染，通过自己的DSL生成中间格式</li>
+</ul>
+<h2 id="Flutter"><a href="#Flutter" class="headerlink" title="Flutter"></a>Flutter</h2><p>自渲染，前面的都是对原生组件做映射</p>
+<h2 id="现代UI框架"><a href="#现代UI框架" class="headerlink" title="现代UI框架"></a>现代UI框架</h2><ul>
+<li>widgets</li>
+<li>Render tree</li>
+<li>Layer tree</li>
+<li>Bitmap</li>
+</ul>
+<h2 id="云原生"><a href="#云原生" class="headerlink" title="云原生"></a>云原生</h2><h3 id="循环依赖"><a href="#循环依赖" class="headerlink" title="循环依赖"></a>循环依赖</h3><p>循环依赖引发的核心问题在于一旦依赖环中的一个包对外宣告进行了修改，依赖它的包也得修改，这种修改通知会在依赖环上持续的传递</p>
+<h3 id="从单体到微服务"><a href="#从单体到微服务" class="headerlink" title="从单体到微服务"></a>从单体到微服务</h3><ol>
+<li><p>通过服务组件化</p>
+<p>组件是一个独立可替换和独立升级的软件单元</p>
+</li>
+<li><p>。</p>
+</li>
+<li><p>You build it, you run it</p>
+</li>
+<li><p>去中心化治理</p>
+</li>
+<li><p>去中心化数据管理</p>
+<p>每个服务可以基于自己的数据库</p>
+</li>
+<li><p>基础构建管道</p>
+</li>
+<li><p>为失效设计</p>
+<p>应用程序要被设计为能够容忍服务失效</p>
+</li>
+</ol>
+<h3 id="DevOps"><a href="#DevOps" class="headerlink" title="DevOps"></a>DevOps</h3><h2 id="设计模式讲解"><a href="#设计模式讲解" class="headerlink" title="设计模式讲解"></a>设计模式讲解</h2><h3 id="经典组合、实现与集成"><a href="#经典组合、实现与集成" class="headerlink" title="经典组合、实现与集成"></a>经典组合、实现与集成</h3><pre class="mermaid">classDiagram
+shop o-- taxCaculator
+pizzaShop --|> shop
+burgerShop --|> shop
+sameTax ..|> taxCaculator
+increaseTax ..|> taxCaculator</pre>
+
+<p>优点</p>
+<ul>
+<li>动态配置Caculator</li>
+<li>实现不同的shop</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>需要能抽象出taxCaculator</li>
+<li>caculator可能需要获得复杂的数据才能实现功能</li>
+</ul>
+<h3 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h3><p>核心思想：希望将对象的创建委托给工厂</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blog1533cedc91fcbaef572eae4c88a96895.png"
+                     
+                ></p>
+<p>优点：</p>
+<ul>
+<li><p>客户端不需要了解工厂，他只需要持有一个抽象工厂的引用，在启动时正确的初始化抽象工厂为具体的工厂，然后把创建都交给工厂就行了，而不是不停地去指定不同的工厂</p>
+</li>
+<li><p>如果想要新增一套产品，只需要增加一个新的具体工厂和一组新的具体产品</p>
+</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>如果想要增加产品，需要修改包括抽象工厂的所有工厂，非常痛苦</li>
+</ul>
+<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><p>可以将这个类和那个类的功能通过桥接联系起来，灵活实现</p>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><h3 id="应用架构"><a href="#应用架构" class="headerlink" title="应用架构"></a>应用架构</h3><ul>
+<li>稳定性原则<ul>
+<li>一切以稳定为中心</li>
+<li>架构尽可能简单清晰</li>
+<li>不过度设计</li>
+</ul>
+</li>
+<li>解耦&#x2F;拆分<ul>
+<li>稳定部分与易变部分分离</li>
+<li>核心业务与非核心业务分离</li>
+<li>主流层与辅流程分离</li>
+<li>应用与数据分离</li>
+<li>服务与实现细节分离</li>
+</ul>
+</li>
+<li>抽象化<ul>
+<li>应用只依赖服务的抽象</li>
+<li>数据库抽象化</li>
+<li>服务器抽象化</li>
+</ul>
+</li>
+<li>松耦合<ul>
+<li>跨域调用异步化</li>
+<li>非核心业务异步化</li>
+<li>必须同步调用时，需要设置超时时间和任务队列长度</li>
+</ul>
+</li>
+<li>容错设计<ul>
+<li>服务自治</li>
+<li>集群分布</li>
+<li>机房灾配</li>
+</ul>
+</li>
+</ul>
+<h3 id="服务设计"><a href="#服务设计" class="headerlink" title="服务设计"></a>服务设计</h3><ul>
+<li>无状态</li>
+<li>可复用</li>
+<li>松耦合</li>
+<li>可治理</li>
+</ul>
+<h3 id="远程访问服务"><a href="#远程访问服务" class="headerlink" title="远程访问服务"></a>远程访问服务</h3><h4 id="RPC远程方法调用"><a href="#RPC远程方法调用" class="headerlink" title="RPC远程方法调用"></a>RPC远程方法调用</h4><p>最初是希望就像调用本地方法一样调用远程服务器上的方法</p>
+<h5 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h5><ul>
+<li>管道</li>
+<li>消息队列</li>
+<li>socket</li>
+</ul>
+<h5 id="三个基本问题"><a href="#三个基本问题" class="headerlink" title="三个基本问题"></a>三个基本问题</h5><ul>
+<li>如何表示数据</li>
+<li>如何传递数据</li>
+<li>如何表示方法</li>
+</ul>
+<h3 id="数据架构"><a href="#数据架构" class="headerlink" title="数据架构"></a>数据架构</h3><ul>
+<li>统一数据视图</li>
+<li>数据、应用分离：应用不直接访问数据库，而是通过服务访问</li>
+<li>数据异构</li>
+<li>读写分离</li>
+<li>合理使用缓存</li>
+</ul>
+<h3 id="系统运行时原则"><a href="#系统运行时原则" class="headerlink" title="系统运行时原则"></a>系统运行时原则</h3><ul>
+<li>可监控</li>
+<li>应用可回滚，功能可降级</li>
+</ul>
+<h3 id="系统部署原则"><a href="#系统部署原则" class="headerlink" title="系统部署原则"></a>系统部署原则</h3><ul>
+<li>N+1：为确保故障多搭建一套系统</li>
+<li>D-I-D：设计20倍容量，实现3倍容量，部署1.5倍的容量</li>
+<li>支持灰度发布</li>
+<li>虚拟化部署</li>
+<li>业务子网</li>
+</ul>
+<h2 id="大型网站架构演化历程"><a href="#大型网站架构演化历程" class="headerlink" title="大型网站架构演化历程"></a>大型网站架构演化历程</h2><ol>
+<li>一个服务器</li>
+<li>服务器分离</li>
+<li>使用缓存改善网站性能</li>
+<li>CDN和反向代理</li>
+</ol>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>License</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2023/09/11/leetcode%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95/">leetcode题目记录</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2023/09/07/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">服务端开发</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Liu Yaoli</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">On This Page</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B"><span class="toc-text">移动互联网软件工程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Android"><span class="toc-text">Android</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IOS"><span class="toc-text">IOS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HarmonyOS"><span class="toc-text">HarmonyOS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%B8%BF%E8%92%99%E6%8F%90%E4%BE%9B%E4%BA%86Stage%EF%BC%8C%E5%85%B6%E4%B8%ADWindowStage%E7%B1%BB%E4%BC%BCActivity%EF%BC%8CAbilityStage%E7%B1%BB%E4%BC%BCService"><span class="toc-text">鸿蒙提供了Stage，其中WindowStage类似Activity，AbilityStage类似Service</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stage%E6%A8%A1%E5%9E%8B"><span class="toc-text">Stage模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UIAbility%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F"><span class="toc-text">UIAbility启动模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Want%E7%B1%BB%E5%9E%8B"><span class="toc-text">Want类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stage"><span class="toc-text">Stage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9AHAP%E6%9C%BA%E5%88%B6"><span class="toc-text">多HAP机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%85%B1%E4%BA%AB%E5%8C%85-HAR-%E5%8A%A8%E6%80%81%E5%85%B1%E4%BA%AB%E5%8C%85-HSP"><span class="toc-text">静态共享包 HAR 动态共享包 HSP</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80%E6%B8%8A%E6%BA%90"><span class="toc-text">语言渊源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E6%94%B9%E9%80%A0"><span class="toc-text">测试用例改造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%EF%BC%9A%E6%A1%88%E4%BE%8B%E8%AE%B2%E8%A7%A3TO-DO-List"><span class="toc-text">鸿蒙开发：案例讲解TO-DO List</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-text">状态管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E6%B1%82"><span class="toc-text">需求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%89%E4%BC%97%E5%88%86%E6%9E%90"><span class="toc-text">涉众分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ArkTs%E8%BF%90%E8%A1%8C%E6%97%B6"><span class="toc-text">ArkTs运行时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RN"><span class="toc-text">RN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter"><span class="toc-text">Flutter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%B0%E4%BB%A3UI%E6%A1%86%E6%9E%B6"><span class="toc-text">现代UI框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%91%E5%8E%9F%E7%94%9F"><span class="toc-text">云原生</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="toc-text">循环依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E5%8D%95%E4%BD%93%E5%88%B0%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="toc-text">从单体到微服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DevOps"><span class="toc-text">DevOps</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E8%AE%B2%E8%A7%A3"><span class="toc-text">设计模式讲解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E7%BB%84%E5%90%88%E3%80%81%E5%AE%9E%E7%8E%B0%E4%B8%8E%E9%9B%86%E6%88%90"><span class="toc-text">经典组合、实现与集成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82"><span class="toc-text">抽象工厂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F"><span class="toc-text">桥接模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84"><span class="toc-text">架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84"><span class="toc-text">应用架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E8%AE%BE%E8%AE%A1"><span class="toc-text">服务设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1"><span class="toc-text">远程访问服务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RPC%E8%BF%9C%E7%A8%8B%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8"><span class="toc-text">RPC远程方法调用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-text">进程间通信</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98"><span class="toc-text">三个基本问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%9E%B6%E6%9E%84"><span class="toc-text">数据架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%BF%90%E8%A1%8C%E6%97%B6%E5%8E%9F%E5%88%99"><span class="toc-text">系统运行时原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2%E5%8E%9F%E5%88%99"><span class="toc-text">系统部署原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E6%BC%94%E5%8C%96%E5%8E%86%E7%A8%8B"><span class="toc-text">大型网站架构演化历程</span></a></li></ol></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>Scroll to Top</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `Just`,
+      min: `minutes ago`,
+      hour: `hours ago`,
+      day: `days ago`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js`,
+    marked: `https://cdn.jsdelivr.net/npm/marked@13.0.1/lib/marked.umd.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `Switched to Light Mode`,
+      dark: `Switched to Dark Mode`,
+      auto: `Switched to Auto Mode`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

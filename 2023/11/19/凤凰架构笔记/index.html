@@ -1,0 +1,668 @@
+
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1" theme-name="Stellar" theme-version="1.29.1">
+  
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>凤凰架构笔记 - Yaoli's Blog</title>
+
+  
+    <meta name="description" content="远程调用 RPC REST  事务处理 事务处理的意义是为了保证系统中所有的数据都是符合期望的  本地事务隔离级别（这个部分看到了太多不同的说法） 写锁：持有写锁的才能写入，其他事务不能再加锁 读锁：不允许其他事务加写锁 范围锁：对于某个范围加锁，这个范围内不能再更改、删除和更新  可串行化：每次读写都加上读锁、写锁和范围锁 可重复读：不加范围锁，所以别的事务虽然不能更改已有的数据，但是可以插入新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="凤凰架构笔记">
+<meta property="og:url" content="http://blog.lsmcloud.top/2023/11/19/%E5%87%A4%E5%87%B0%E6%9E%B6%E6%9E%84%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Yaoli&#39;s Blog">
+<meta property="og:description" content="远程调用 RPC REST  事务处理 事务处理的意义是为了保证系统中所有的数据都是符合期望的  本地事务隔离级别（这个部分看到了太多不同的说法） 写锁：持有写锁的才能写入，其他事务不能再加锁 读锁：不允许其他事务加写锁 范围锁：对于某个范围加锁，这个范围内不能再更改、删除和更新  可串行化：每次读写都加上读锁、写锁和范围锁 可重复读：不加范围锁，所以别的事务虽然不能更改已有的数据，但是可以插入新">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://files.lsmcloud.top/blog5480a6b96ea559bd085c0834c0befc7f.png">
+<meta property="article:published_time" content="2023-11-19T11:40:17.000Z">
+<meta property="article:modified_time" content="2023-12-22T09:06:43.023Z">
+<meta property="article:author" content="Liu Yaoli">
+<meta property="article:tag" content="架构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://files.lsmcloud.top/blog5480a6b96ea559bd085c0834c0befc7f.png">
+  
+  
+  
+  <meta name="keywords" content="架构">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.1">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Yaoli's Blog</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="Search"></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">Recent Update</span></div><div class="widget-body fs14"><a class="item title" href="/2024/10/10/%E6%B5%81%E9%87%8F%E4%BC%AA%E8%A3%85%E5%AD%A6%E4%B9%A0/"><span class="title">流量伪装学习</span></a><a class="item title" href="/2024/03/07/ML2024-weekly-report/"><span class="title">ML2024:weekly report</span></a><a class="item title" href="/2024/09/17/%E5%9C%A8%E5%A4%A7%E9%99%86%E5%9C%B0%E5%8C%BA%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%BC%80%E5%8F%91/"><span class="title">在大陆地区如何进行最基本的开发?</span></a><a class="item title" href="/2024/04/25/%E5%9B%9B%E5%85%83%E6%95%B0%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"><span class="title">四元数与计算机图形学</span></a><a class="item title" href="/2024/09/11/%E5%BE%AE%E5%88%86%E4%B8%8E%E5%AF%BC%E6%95%B0/"><span class="title">微分与导数</span></a><a class="item title" href="/2024/04/27/Transformer%E6%9E%B6%E6%9E%84%E5%AD%A6%E4%B9%A0/"><span class="title">Transformer架构学习</span></a><a class="item title" href="/2024/07/03/%E4%BF%A1%E5%8F%B7%E9%87%8F-%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%E4%B8%8E%E7%AE%A1%E7%A8%8B/"><span class="title">信号量,条件变量与管程</span></a><a class="item title" href="/2024/07/03/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1-cookmanual/"><span class="title">概率统计-cookmanual</span></a><a class="item title" href="/2024/07/01/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-cookmanual/"><span class="title">离散数学_cookmanual</span></a><a class="item title" href="/2024/07/01/%E5%88%A9%E7%8E%87%E9%A3%8E%E9%99%A9/"><span class="title">利率风险</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%9E%B6%E6%9E%84/">架构</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2023-11-19T11:40:17.000Z">2023-11-19</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2023-12-22T09:06:43.023Z">2023-12-22</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>凤凰架构笔记</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="远程调用"><a href="#远程调用" class="headerlink" title="远程调用"></a>远程调用</h1><ul>
+<li>RPC</li>
+<li>REST</li>
+</ul>
+<h1 id="事务处理"><a href="#事务处理" class="headerlink" title="事务处理"></a>事务处理</h1><blockquote>
+<p>事务处理的意义是为了保证系统中所有的数据都是符合期望的</p>
+</blockquote>
+<h2 id="本地事务"><a href="#本地事务" class="headerlink" title="本地事务"></a>本地事务</h2><h3 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h3><p>（这个部分看到了太多不同的说法）</p>
+<p>写锁：持有写锁的才能写入，其他事务不能再加锁</p>
+<p>读锁：不允许其他事务加写锁</p>
+<p>范围锁：对于某个范围加锁，这个范围内不能再更改、删除和更新</p>
+<ol>
+<li>可串行化：每次读写都加上读锁、写锁和范围锁</li>
+<li>可重复读：不加范围锁，所以别的事务虽然不能更改已有的数据，但是可以插入新的数据，导致幻读</li>
+<li>读已提交：一旦读操作结束就释放读锁，于是其他事务可以加写锁修改数据，这时候再去读就会发现数据变咯，也就是不可重复读</li>
+<li>读未提交：</li>
+</ol>
+<h2 id="追求一致性的全局事务"><a href="#追求一致性的全局事务" class="headerlink" title="追求一致性的全局事务"></a>追求一致性的全局事务</h2><p>单个服务使用多个数据源</p>
+<h3 id="XA"><a href="#XA" class="headerlink" title="XA"></a>XA</h3><ul>
+<li>准备阶段：协调者询问事务所有参与者（比如不同的数据库）是否准备好提交，准备好的回复一条Prepared</li>
+<li>提交阶段：如果所有参与者都准备好了，协调者自己先commit一次，然后向参与者发送commit指令，如果出现了问题，自己先Abort然后发送Abort指令</li>
+</ul>
+<p>问题：</p>
+<p>协调者寄了，整个就寄了</p>
+<p>性能问题，整个过程要持续到参与集群最慢的那个做完</p>
+<p>一致性风险：宕机如果不可恢复，那么无法实现一致性，同时在提交阶段，如果协调者已经在日志里写了commit记录，但是网络却断了，指令没有发出去，就会产生不一致的情况</p>
+<p>三段式：添加一个让参与者们自检完成事务的可能性，如果自检都通过那么成功的概率大大提高，大家也就不用在准备阶段瞎忙活了</p>
+<h2 id="共享事务"><a href="#共享事务" class="headerlink" title="共享事务"></a>共享事务</h2><p>多个服务使用单个数据源</p>
+<p>这往往是一个伪需求</p>
+<blockquote>
+<p>之所以强调理论可行，是因为该方案是与实际生产系统中的压力方向相悖的，一个服务集 群里数据库才是压力最大而又最不容易伸缩拓展的重灾区，所以现实中只有类似ProxySQL 、MaxScale 这样用于对多个数据库实例做负载均衡的数据库代理，而几乎没有反过来代理一个数据库为多个应用提供事务协调的交易服务代理。 这也是说它更有可能是个伪需求的原因，如果你有充足理由让多个微服务去共享数据库， 就必须找到更加站得住脚的理由来向团队解释拆分微服务的目的是什么才行。</p>
+</blockquote>
+<p>除了使用一个代理服务器，还可以用消息队列，多个服务向一个消息队列里添加消息，由消费者来统一处理，但是这仍然与系统抗压设计向悖</p>
+<h2 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h2><p>多个服务同时访问多个数据源</p>
+<h3 id="CAP原理"><a href="#CAP原理" class="headerlink" title="CAP原理"></a>CAP原理</h3><p>在涉及共享数据问题时，Consistency、Availability和Partition Tolerance只能最多满足其二</p>
+<p>首先，Patition Tolerance是不可能放弃的，你不能保证系统的任何一部分都是永远可靠的</p>
+<p>于是就只剩下两种选择：</p>
+<ul>
+<li>AP-放弃一致性保可用性：这是目前大多数分布式系统的选择，A 通常是建设分布式的目 的，如果可用性随着节点数量增加反而降低的话，很多分布式系统可能就失去了存在的 价值</li>
+<li>CP-放弃可用性保一致性：银行、证券等宁愿中断也不愿意出现不一致的系统，这类系统对一致性的要求很高</li>
+</ul>
+<p>既然强一致性已经被AP放弃了，接下来就该讨论如何做到尽可能获得正确的结果，也就是追求弱一致性了</p>
+<h3 id="最终一致性"><a href="#最终一致性" class="headerlink" title="最终一致性"></a>最终一致性</h3><p>如果数据一段时间没有被其他操作所修改，那么它最终会达到与强一致性过程相同的结果，面向最终一致性的算法常常被称作“乐观复制算法”</p>
+<h3 id="柔性事务"><a href="#柔性事务" class="headerlink" title="柔性事务"></a>柔性事务</h3><p>满足ACID的事务被称作刚性事务，而追求最终一致性的事务被称作柔性事务</p>
+<h3 id="QUIC与0rtt（zero-roundtrip-time）"><a href="#QUIC与0rtt（zero-roundtrip-time）" class="headerlink" title="QUIC与0rtt（zero roundtrip time）"></a>QUIC与0rtt（zero roundtrip time）</h3><h4 id="0rtt的tls1-3"><a href="#0rtt的tls1-3" class="headerlink" title="0rtt的tls1.3"></a>0rtt的tls1.3</h4><p>tls1.3的核心思想是，如果客户端和服务端曾经有过tls通讯，那么下一次tls通讯时，两端之间就不用煞费苦心去沟通参数，客户端可以使用pre_shared_key来在第一下clientHello就开始发送加密的数据</p>
+<p>我看不懂…</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://halfrost.com/https_tls1-3_handshake/" >tls1.3 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h1 id="透明多级分流系统"><a href="#透明多级分流系统" class="headerlink" title="透明多级分流系统"></a>透明多级分流系统</h1><h2 id="客户端缓存"><a href="#客户端缓存" class="headerlink" title="客户端缓存"></a>客户端缓存</h2><h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><h2 id="传输链路"><a href="#传输链路" class="headerlink" title="传输链路"></a>传输链路</h2><h2 id="CDN-content-distribution-network"><a href="#CDN-content-distribution-network" class="headerlink" title="CDN content distribution network"></a>CDN content distribution network</h2><h4 id="CDN与路由解析"><a href="#CDN与路由解析" class="headerlink" title="CDN与路由解析"></a>CDN与路由解析</h4><p>加入cdn后，当客户端请求一个域名时，将不再得到源站的ip，而是得到cdn服务器的cname，本地得到cname后，向提供该cname的权威dns查询dns，权威dns根据各种策略选择一个最合适的ip给客户端，这个ip将有能力中转客户端的请求到源站</p>
+<h4 id="CDN与内容分发"><a href="#CDN与内容分发" class="headerlink" title="CDN与内容分发"></a>CDN与内容分发</h4><p>cdn获取源站资源的过程被称为内容分发</p>
+<ul>
+<li>主动分发Push：分发由源站主动发起，将内容从源站或者其他资源库推送到用户边 缘的各个 CDN 缓存节点上，这个过程对于源站并不是透明的。</li>
+<li>被动回源Pull：当用户访问cdn的边缘服务器并且边缘服务器发现自己没有缓存源站的资源时，会实时从源站中获取</li>
+</ul>
+<p>内容更新</p>
+<blockquote>
+<p>对于“CDN 如何管理（更新）资源”这个问题，同样没有统一的标准可言，尽管在 HTTP 协 议中，关于缓存的 Header 定义中确实是有对 CDN 这类共享缓存的一些指引性参数，譬如 Cache-Control的 s-maxage，但是否要遵循，完全取决于 CDN 本身的实现策略。更令人 感到无奈的是，由于大多数网站的开发和运维人员并不十分了解 HTTP 缓存机制，所以导 致如果 CDN 完全照着 HTTP Headers 来控制缓存失效和更新，效果反而会相当的差，还可 能引发其他问题。因此，CDN 缓存的管理就不存在通用的准则。 现在，最常见的做法是超时被动失效与手工主动失效相结合。超时失效是指给予缓存资源 一定的生存期，超过了生存期就在下次请求时重新被动回源一次。而手工失效是指 CDN 服 务商一般会提供给程序调用来失效缓存的接口，在网站更新时，由持续集成的流水线自动 调用该接口来实现缓存更新，譬如“ icyfenix.cn ”就是依靠Travis-CI 的持续集成服务来 触发 CDN 失效和重新预热的。</p>
+</blockquote>
+<h4 id="CDN的作用"><a href="#CDN的作用" class="headerlink" title="CDN的作用"></a>CDN的作用</h4><ul>
+<li>加速静态资源的访问：本职工作</li>
+<li>安全防御：（在源站的ip没有泄露的基础上）CDN可以防御譬如DDoS攻击（很多针对静态资源的攻击都会打到cdn上）</li>
+<li>协议升级：可以实现源站是http协议，对外开放强制https访问，类似的还有http1升级到3，IPv4升级到IPv6</li>
+<li>状态缓存</li>
+<li>修改资源：可以压缩一些静态资源加速访问，也可以修改CORS头提供跨域共享</li>
+<li>访问控制：可以实现IP黑&#x2F;白名单功能</li>
+<li>注入功能：可以在不修改源代码的前提下为源站注入各种功能</li>
+<li>绕过长城防火墙：CDN隐藏VPS的真实ip，让防火墙只能封CDN ip，CDN监测到异常后，马上为用户换一个可以用的ip</li>
+</ul>
+<h2 id="负载均衡-load-balancing"><a href="#负载均衡-load-balancing" class="headerlink" title="负载均衡 load balancing"></a>负载均衡 load balancing</h2><blockquote>
+<p>如何构建 和调度服务集群这事情，又必须对用户一侧保持足够的透明，即使请求背后是由一千台、 一万台机器来共同响应的，也绝非用户所关心的事情，用户需记住的只有一个域名地址而 已。调度后方的多台机器，以统一的接口对外提供服务，承担此职责的技术组件被称为“负 载均衡”（Load Balancing）</p>
+</blockquote>
+<p>我们这里讨论负载均衡已不再包含CDN和DNS解析等的负载均衡</p>
+<h3 id="数据链路层负载均衡"><a href="#数据链路层负载均衡" class="headerlink" title="数据链路层负载均衡"></a>数据链路层负载均衡</h3><p>这一层的负载均衡的核心原理是修改数据帧中的MAC目标地址，首先所有的数据帧都指向负载均衡器，负载均衡器将请求帧的MAC地址指向真实地址</p>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>由于只修改了二层数据帧的MAC目标地址，因此IP等内容全部没有改变，这就要求负载均衡器和真实服务器的ip地址是一致的，这里一般采用让真实服务器集群的虚拟ip地址与负载均衡器的虚拟ip相同。</p>
+<h4 id="pros"><a href="#pros" class="headerlink" title="pros"></a>pros</h4><p>这种实现的一大好处是返回的数据不用再经过负载均衡器改为负载均衡器的ip，而是可以由真实服务器直接返回结果给客户端，一定程度上缓解负载均衡器带宽造成的性能瓶颈。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blog5480a6b96ea559bd085c0834c0befc7f.png"
+                     
+                ></p>
+<h4 id="cons"><a href="#cons" class="headerlink" title="cons"></a>cons</h4><ul>
+<li>需要感知应用层协议的负载均衡场景无法胜任</li>
+<li>由于是在数据链路层工作，所以必须二层可达，要求负载均衡器必须和真实服务器在同一子网内，不能跨VLAN，不能跨子网</li>
+</ul>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>License</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2024/03/06/%E5%86%8D%E4%B9%A0%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84/">再习计算机组织结构</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2023/11/19/interview-for-Baidu/">interview for Baidu</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Liu Yaoli</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">On This Page</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8"><span class="toc-text">远程调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86"><span class="toc-text">事务处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1"><span class="toc-text">本地事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-text">隔离级别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%BD%E6%B1%82%E4%B8%80%E8%87%B4%E6%80%A7%E7%9A%84%E5%85%A8%E5%B1%80%E4%BA%8B%E5%8A%A1"><span class="toc-text">追求一致性的全局事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XA"><span class="toc-text">XA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B1%E4%BA%AB%E4%BA%8B%E5%8A%A1"><span class="toc-text">共享事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1"><span class="toc-text">分布式事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CAP%E5%8E%9F%E7%90%86"><span class="toc-text">CAP原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-text">最终一致性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%94%E6%80%A7%E4%BA%8B%E5%8A%A1"><span class="toc-text">柔性事务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QUIC%E4%B8%8E0rtt%EF%BC%88zero-roundtrip-time%EF%BC%89"><span class="toc-text">QUIC与0rtt（zero roundtrip time）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0rtt%E7%9A%84tls1-3"><span class="toc-text">0rtt的tls1.3</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%8F%E6%98%8E%E5%A4%9A%E7%BA%A7%E5%88%86%E6%B5%81%E7%B3%BB%E7%BB%9F"><span class="toc-text">透明多级分流系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%BC%93%E5%AD%98"><span class="toc-text">客户端缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="toc-text">域名解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E9%93%BE%E8%B7%AF"><span class="toc-text">传输链路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CDN-content-distribution-network"><span class="toc-text">CDN content distribution network</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CDN%E4%B8%8E%E8%B7%AF%E7%94%B1%E8%A7%A3%E6%9E%90"><span class="toc-text">CDN与路由解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CDN%E4%B8%8E%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91"><span class="toc-text">CDN与内容分发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CDN%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">CDN的作用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1-load-balancing"><span class="toc-text">负载均衡 load balancing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-text">数据链路层负载均衡</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pros"><span class="toc-text">pros</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cons"><span class="toc-text">cons</span></a></li></ol></li></ol></li></ol></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>Scroll to Top</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `Just`,
+      min: `minutes ago`,
+      hour: `hours ago`,
+      day: `days ago`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js`,
+    marked: `https://cdn.jsdelivr.net/npm/marked@13.0.1/lib/marked.umd.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `Switched to Light Mode`,
+      dark: `Switched to Dark Mode`,
+      auto: `Switched to Auto Mode`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

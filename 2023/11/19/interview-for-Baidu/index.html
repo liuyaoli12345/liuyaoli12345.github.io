@@ -1,0 +1,1673 @@
+
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1" theme-name="Stellar" theme-version="1.29.1">
+  
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>interview for Baidu - Yaoli's Blog</title>
+
+  
+    <meta name="description" content="准备Android 八股初级 什么是ANR，如何避免ANR ANR是Application NotResponding，ANR出现可能的原因包括：  主线程被IO操作阻塞 主线程中存在耗时操作 主线程存在错误操作，比如Thread.sleep() 应用5s内为响应用户的输入事件（按键或触摸） BroadcastReceiver未在10秒内完成相关的处理 Service在特定的时间内无法处理完成 2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="interview for Baidu">
+<meta property="og:url" content="http://blog.lsmcloud.top/2023/11/19/interview-for-Baidu/index.html">
+<meta property="og:site_name" content="Yaoli&#39;s Blog">
+<meta property="og:description" content="准备Android 八股初级 什么是ANR，如何避免ANR ANR是Application NotResponding，ANR出现可能的原因包括：  主线程被IO操作阻塞 主线程中存在耗时操作 主线程存在错误操作，比如Thread.sleep() 应用5s内为响应用户的输入事件（按键或触摸） BroadcastReceiver未在10秒内完成相关的处理 Service在特定的时间内无法处理完成 2">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/guoxiaoxing/android-open-source-project-analysis/raw/master/art/native/process/android_handler_structure.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ea99a7862602461692922f2396807af1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBASk1XMTQwNw==,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/6-%E4%BA%94%E5%A4%A7%E7%B1%BBHTTP%E7%8A%B6%E6%80%81%E7%A0%81.png">
+<meta property="og:image" content="https://cdn.xiaolincoding.com/gh/xiaolincoder/network/http/http%E7%BC%93%E5%AD%98.png">
+<meta property="og:image" content="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/18-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E.png">
+<meta property="og:image" content="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/22-%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/23-HTTPS%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/https/%E8%AF%81%E4%B9%A6%E7%9A%84%E6%A0%A1%E9%AA%8C.png">
+<meta property="og:image" content="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/https/%E7%94%A8%E6%88%B7%E4%BF%A1%E4%BB%BB.png">
+<meta property="og:image" content="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/%E8%AE%B0%E5%BD%95%E5%8D%8F%E8%AE%AE.png">
+<meta property="og:image" content="https://files.lsmcloud.top/blogb50cdc7570cce03d43f37a0622767e39.png">
+<meta property="og:image" content="https://www.ruanyifeng.com/blogimg/asset/2015/bg2015020105.png">
+<meta property="og:image" content="https://files.lsmcloud.top/blog21005d274cba9f3f35cfcdbc158617e0.png">
+<meta property="og:image" content="https://files.lsmcloud.top/blogc97bc35d0d211b7a4f6f16a9e3c109f3.png">
+<meta property="og:image" content="https://www.ruanyifeng.com/blogimg/asset/2015/bg2015020108.png">
+<meta property="og:image" content="https://www.ruanyifeng.com/blogimg/asset/2015/bg2015020109.png">
+<meta property="og:image" content="https://www.ruanyifeng.com/blogimg/asset/2015/bg2015020110.png">
+<meta property="og:image" content="https://files.lsmcloud.top/blog378477697ef2557f3f7663fecf106707.png">
+<meta property="article:published_time" content="2023-11-19T11:36:38.000Z">
+<meta property="article:modified_time" content="2023-11-19T11:38:58.680Z">
+<meta property="article:author" content="Liu Yaoli">
+<meta property="article:tag" content="又失业了">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/guoxiaoxing/android-open-source-project-analysis/raw/master/art/native/process/android_handler_structure.png">
+  
+  
+  
+  <meta name="keywords" content="又失业了">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.1">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Yaoli's Blog</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="Search"></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">Recent Update</span></div><div class="widget-body fs14"><a class="item title" href="/2024/10/10/%E6%B5%81%E9%87%8F%E4%BC%AA%E8%A3%85%E5%AD%A6%E4%B9%A0/"><span class="title">流量伪装学习</span></a><a class="item title" href="/2024/03/07/ML2024-weekly-report/"><span class="title">ML2024:weekly report</span></a><a class="item title" href="/2024/09/17/%E5%9C%A8%E5%A4%A7%E9%99%86%E5%9C%B0%E5%8C%BA%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%BC%80%E5%8F%91/"><span class="title">在大陆地区如何进行最基本的开发?</span></a><a class="item title" href="/2024/04/25/%E5%9B%9B%E5%85%83%E6%95%B0%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"><span class="title">四元数与计算机图形学</span></a><a class="item title" href="/2024/09/11/%E5%BE%AE%E5%88%86%E4%B8%8E%E5%AF%BC%E6%95%B0/"><span class="title">微分与导数</span></a><a class="item title" href="/2024/04/27/Transformer%E6%9E%B6%E6%9E%84%E5%AD%A6%E4%B9%A0/"><span class="title">Transformer架构学习</span></a><a class="item title" href="/2024/07/03/%E4%BF%A1%E5%8F%B7%E9%87%8F-%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%E4%B8%8E%E7%AE%A1%E7%A8%8B/"><span class="title">信号量,条件变量与管程</span></a><a class="item title" href="/2024/07/03/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1-cookmanual/"><span class="title">概率统计-cookmanual</span></a><a class="item title" href="/2024/07/01/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-cookmanual/"><span class="title">离散数学_cookmanual</span></a><a class="item title" href="/2024/07/01/%E5%88%A9%E7%8E%87%E9%A3%8E%E9%99%A9/"><span class="title">利率风险</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%A4%B1%E4%B8%9A/">失业</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2023-11-19T11:36:38.000Z">2023-11-19</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2023-11-19T11:38:58.680Z">2023-11-19</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>interview for Baidu</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="Android-八股"><a href="#Android-八股" class="headerlink" title="Android 八股"></a>Android 八股</h2><h3 id="初级"><a href="#初级" class="headerlink" title="初级"></a>初级</h3><ol>
+<li><p>什么是ANR，如何避免ANR</p>
+<p>ANR是Application NotResponding，ANR出现可能的原因包括：</p>
+<ol>
+<li>主线程被IO操作阻塞</li>
+<li>主线程中存在耗时操作</li>
+<li>主线程存在错误操作，比如Thread.sleep()</li>
+<li>应用5s内为响应用户的输入事件（按键或触摸）</li>
+<li>BroadcastReceiver未在10秒内完成相关的处理</li>
+<li>Service在特定的时间内无法处理完成 20秒</li>
+</ol>
+<p>解决方式</p>
+<ol>
+<li>不要把IO塞进主线程，使用AsyncTask</li>
+<li>主线程中的耗时操作如访问网络、Socket通信、大量SQL查询、复杂计算放入子线程中</li>
+<li>正确设置线程的优先级</li>
+<li>使用Handler处理线程工作结果，而不是使用wait和sleep</li>
+<li>Activity的onCreate和onResume回调中尽量避免耗时的代码。 BroadcastReceiver中onReceive代码也要尽量减少耗时，建议使用IntentService处理。</li>
+</ol>
+</li>
+<li><p>Activity和Fragment的生命周期</p>
+<pre class="mermaid">   stateDiagram
+    Activity_onCreate() --> Fragment_onAttach()
+    Fragment_onAttach() --> Fragment_onCreateView()
+    Fragment_onCreateView() --> Fragment_onActivityCreate()
+    
+    Activity_onStart() --> Fragment_onStart()
+    
+    
+    Activity_onResume() --> Fragment_onResume()
+    
+    Fragment_onPause() --> Activity_onPause()
+    
+    Fragment_onDestroyView() --> Fragment_onDestroy() 
+    Fragment_onDestroy() --> Fragment_onDetach()
+    Fragment_onDetach() --> Activity_onDestroy()</pre>
+
+
+</li>
+<li><p>手机切换横竖屏时生命周期的变化</p>
+<p>如果没有设置configChanges，那么切屏会把各个生命周期全走一次（从onPause()开始到新Activity的onResume()）</p>
+</li>
+<li><p>为什么Android APP出现延迟？</p>
+<ol>
+<li>APP 经常运行GC，而GC运行时APP无法运行android UI 往往16ms刷新一次，如果GC占用了时间，APP 只能跳过一些UI 帧，看起来就像UI出现了卡顿</li>
+<li>主线程中运行耗时的任务</li>
+</ol>
+<p>解决</p>
+<ol>
+<li>在需要时再实例化对象，不要提前实例化对象，使用懒加载</li>
+<li>减少使用封装类如Integer</li>
+<li>使用ArrayMap和SparseArray</li>
+<li>使用对象池避免内存</li>
+<li>将主线程中的耗时任务移到子线程中</li>
+</ol>
+</li>
+<li><p>什么是Context？</p>
+<p>Context提供了关于应用环境全局信息的接口。它允许获取以应用为特征的资源和类型，是一个统领一些资源（应用程序环境变量等）的上下文。就是说，它描述一个应用程序环境的信息（即上下文）；</p>
+<p>主要的Context有两种：</p>
+<ul>
+<li><p>Application Context 一般建议使用Application Context，不要让生命周期比Activity长的组件持有Activity Context</p>
+</li>
+<li><p>Activity Context</p>
+</li>
+</ul>
+</li>
+<li><p>AOP技术方案</p>
+<ol>
+<li><p>AspectJ-我们在Spring课程上学到的方法</p>
+<p>@Aspect</p>
+<p>@EnableApsectJProxy</p>
+<p>@PointCut(“exectution(* …方法)”)</p>
+<p>@Before&#x2F;After&#x2F;AfterReturned&#x2F;AfterThrow&#x2F;Around</p>
+<p>真正意义的AOP，无需硬编码切面，可能存在重复织入、不织入的问题</p>
+</li>
+<li><p>APT</p>
+<p>通过注解减少模板代码，对原工程具有侵入性</p>
+</li>
+<li><p>ASM</p>
+<p>面向字节码编程的切面，一些场景需要硬编码</p>
+</li>
+<li><p>Javassit</p>
+<p>有动态切片能力，上手快</p>
+</li>
+<li><p>动态代理</p>
+<p>运行时扩展代理接口功能</p>
+</li>
+</ol>
+</li>
+<li><p>APK打包过程</p>
+<ol>
+<li>编译器将您的源代码转换成 DEX（Dalvik Executable) 文件（其中包括运行在 Android 设备上的字节码），将所有其他内容转换成已编译资源。</li>
+<li>APK 打包器将 DEX 文件和已编译资源合并成单个 APK。不过，必须先签署 APK，才能将应用安装并部署到 Android 设备上。</li>
+<li>APK 打包器使用调试或发布密钥库签署您的 APK：                <ol>
+<li>如果您构建的是调试版本的应用（即专用于测试和分析的应用），打包器会使用调试密钥库签署您的应用。Android Studio 自动使用调试密钥库配置新项目。</li>
+<li>如果您构建的是打算向外发布的发布版本应用，打包器会使用发布密钥库签署您的应用。要创建发布密钥库，请阅读在 Android Studio 中签署您的应用</li>
+</ol>
+</li>
+<li>在生成最终 APK 之前，打包器会使用 <a class="link"   href="https://link.juejin.cn/?target=https://developer.android.com/studio/command-line/zipalign.html?hl=zh-cn" >zipalign <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 工具对应用进行优化，减少其在设备上运行时的内存占用。</li>
+</ol>
+</li>
+<li><p>AsyncTask</p>
+<p>轻量级的异步任务类，在线程池中执行后台任务，将执行进度和结果传递给主线程</p>
+<ol>
+<li><p>生命周期</p>
+<p>即使创建它的Actvity销毁，AsyncTask也会继续执行知道doInBackground执行完毕，如果没有调用cancel方法，他会调用onPostExecute，这时程序很可能会崩溃，因为它想回传结果的Actvity已经不存在了</p>
+<p>同时由于AsyncTask作为一个非静态内部类持有了Activity的引用，如果AsyncTask还在执行，Activity就无法被释放，引起内存泄漏</p>
+</li>
+<li><p>结果丢失</p>
+<p>如果Activity自己挂了，比如没有设置onChange的屏幕旋转，会导致AsyncTask将结果传给一个死掉的Activity从而丢失结果</p>
+</li>
+<li><p>并行与串行</p>
+<p>随版本不同，最早直接并行，但是容易爆掉，后改成线程池，还是有问题，于是默认串行，可以用executeOnExecutor()来并行执行</p>
+</li>
+<li><p>AsyncTask原理</p>
+<ul>
+<li>AsyncTask中有两个线程池（SerialExecutor和THREAD_POOL_EXECUTOR）和一个Handler（InternalHandler），其中线程池SerialExecutor用于任务的排队，而线程池THREAD_POOL_EXECUTOR用于真正地执行任务，InternalHandler用于将执行环境从线程池切换到主线程。</li>
+<li>sHandler是一个静态的Handler对象，为了能够将执行环境切换到主线程，这就要求sHandler这个对象必须在主线程创建。由于静态成员会在加载类的时候进行初始化，因此这就变相要求AsyncTask的类必须在主线程中加载，否则同一个进程中的AsyncTask都将无法正常工作。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>onSaveInstanceState()与onRestoreInstanceState()</p>
+<p>首先他们都不属于生命周期方法，当应用遇到意外情况（内存不足、用户按Home时被调用）系统销毁Activity时调用，用户主动销毁时（如按返回键）不会调用</p>
+<p>onSaveInstanceState适合保存临时性的状态，而持久性的状态应当放在onPause中保存</p>
+</li>
+<li><p>Android中进程的优先级</p>
+<ol>
+<li>前台进程：正在与用户交互的Activity或是相应的Service，在内存不足时最晚被杀死</li>
+<li>可见进程：处于onPause状态的Activity或者绑定在其上的Service，用户可以见，但是失去焦点用户不能交互</li>
+<li>服务进程：使用startService方法启动的Service，用户不可见但是用户关心，比如浏览器下载进程，音乐播放器播放的音乐</li>
+<li>后台进程：onStop的程序，比如后台的QQ</li>
+<li>空进程：系统不会允许你的存在</li>
+</ol>
+</li>
+<li><p>Bundle传递的对象为什么要序列化？Serializable和Parcelable的区别？</p>
+<p>Bundle传递数据时只支持基本数据类型，所以传递对象时需要序列化转换为可存储可传输的字节流，序列化后的对象可以在网络、IPC之间进行传输，也可以存到本地</p>
+<ol>
+<li>Serializable java提供</li>
+<li>Parcelabel Android提供：将一个完整的对象进行分解，而分解后的每一部分都是Intent所支持的数据类型</li>
+</ol>
+</li>
+<li><p>动画</p>
+<ol>
+<li><p>View动画：作用对象是View，可用xml定义，建议xml实现，支持平移缩放旋转透明度四种变化</p>
+</li>
+<li><p>帧动画：通过AnimationDrawable实现，容易OOM</p>
+</li>
+<li><p>属性动画：</p>
+<ol>
+<li>可作用于任何对象、可用xml定义</li>
+<li>包括ObjectAnimator、ValueAnimator、AnimatorSet</li>
+<li>时间插值器：根据时间的流逝决定属性的改变，预制匀速、加速、减速等插值器</li>
+<li>类型估值器：根据当前属改变的百分比计算改变后的属性值，系统预置整型、浮点、色值等类型估值器</li>
+<li>尽量避免使用帧动画，界面销毁时停止动画，开启硬件加速（将CPU的一部分工作分摊给GPU，使用GPU完成绘制工作）</li>
+</ol>
+</li>
+<li><p>补间动画：通过指定View的初末状态和变化方式，对View的内筒完成一系列的图形变换来实现动画效果。Alpha、Scale、Translate、Rotate，补间动画并没有真正改变View的位置，触摸区域并没有真的变化</p>
+</li>
+<li><p>属性动画原理</p>
+<ol>
+<li>计算属性值<ol>
+<li>计算已完成动画分数：根据选用的Animator得到计算一个0-1的分数</li>
+<li>计算插值（动画变化率）：当Animator计算得到动画分数后，它会调用当前设置的TimeInterpolator，去计算得到一个interpolated分数，在计算过程中，已完成动画百分比会被加入到新的插值计算中</li>
+<li>计算属性值：当插值分数计算完成后，Animator会根据插值分数调用合适的TypeEvaluator去计算运动中的属性值</li>
+</ol>
+</li>
+<li>为目标对象的属性设置属性值，应用和刷新动画</li>
+</ol>
+<p>插值器：根据时间流逝百分比来计算属性变化百分比</p>
+<p>估值器：根据插值器的结果计算出属性到底变化了多少数值</p>
+<p>属性动画如果设置为无限循环，必须在界面销毁时停止动画，否则引发内存泄漏</p>
+</li>
+</ol>
+</li>
+<li><p>Context</p>
+<ol>
+<li>Activity和Service的Context和Application的Context是不一样的，Activity继承自ContextThemeWraper，其他的继承自ContextWrapper</li>
+<li>每一个Context都是一个新的ContextImpl对象</li>
+<li>getApplication只能在Activity和Service中用，如果要在别的地方用那么调用getApplicationContext()</li>
+<li>创建对话框时不可以用ApplicationContext，应当用ActivityContext</li>
+<li>Context的数量等于Activity的个数+Service个数+1（Application）</li>
+<li>不要给生命周期长于Activity的对象传Activity的Context，否则Activity无法被GC回收引发内存泄漏</li>
+</ol>
+</li>
+<li><p>Android各版本特性</p>
+</li>
+<li><p>Android处理Json</p>
+<p>使用GSON包进行解析</p>
+<p>解析成实体类</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Gson</span> <span class="variable">gson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Gson</span>();</span><br><span class="line"><span class="type">Student</span> <span class="variable">student</span> <span class="operator">=</span> gson.fromJson(json1, Student.class);</span><br></pre></td></tr></table></figure></div>
+
+<p>解析成数组</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Gson</span> <span class="variable">gson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Gson</span>();</span><br><span class="line"><span class="type">int</span>[] ages = gson.fromJson(json2, <span class="type">int</span>[].class);</span><br></pre></td></tr></table></figure></div>
+
+<p>解析成List</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Gson</span> <span class="variable">gson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Gson</span>();</span><br><span class="line">List&lt;Student&gt; students = gson.fromJson(json3, newTypeToke&lt;List&lt;Student&gt;&gt;()&#123;&#125;.getType);</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>Android解析Xml</p>
+<ol>
+<li><p>DOM解析</p>
+<p>优点:</p>
+<p>1.XML树在内存中完整存储,因此可以直接修改其数据结构.</p>
+<p>2.可以通过该解析器随时访问XML树中的任何一个节点.</p>
+<p>3.DOM解析器的API在使用上也相对比较简单.</p>
+<p>缺点:</p>
+<p>如果XML文档体积比较大时,将文档读入内存是非消耗系统资源的.</p>
+</li>
+<li><p>SAX解析</p>
+<p>优点:</p>
+<p>SAX 对内存的要求比较低,因为它让开发人员自己来决定所要处理的标签.特别是当开发人员只需要处理文档中包含的部分数据时,SAX 这种扩展能力得到了更好的体现.</p>
+<p>缺点:</p>
+<p>用SAX方式进行XML解析时,需要顺序执行,所以很难访问同一文档中的不同数据.此外,在基于该方式的解析编码程序也相对复杂.</p>
+<p>使用场景:</p>
+<p>对于含有数据量十分巨大,而又不用对文档的所有数据行遍历或者分析的时候,使用该方法十分有效.该方法不将整个文档读入内存,而只需读取到程序所需的文档标记处即可.</p>
+</li>
+<li><p>Xmlpull解析</p>
+<p>android SDK提供了xmlpullapi,xmlpull和sax类似,是基于流（stream）操作文件,后者根据节点事件回调开发者编写的处理程序.因为是基于流的处理,因此xmlpull和sax都比较节约内存资源,不会像dom那样要把所有节点以对象树的形式展现在内存中.xmpull比sax更简明,而且不需要扫描完整个流.</p>
+</li>
+</ol>
+</li>
+<li><p>Jar和aar的区别</p>
+<p>Jar包里面只有代码，aar里面不光有代码还包括资源文件，比如 drawable 文件，xml资源文件。对于一些不常变动的 Android Library，我们可以直接引用 aar，加快编译速度。</p>
+</li>
+<li><p>Android为每个应用程序分配的内存大小是多少</p>
+<p>老版一开始是16M，后面是24M，现在一般能给100-200M，可以用largeHeap申请更多内存</p>
+</li>
+<li><p>更新UI的方式</p>
+<ol>
+<li>Activity.runOnUiThread(Runnable)</li>
+<li>View.post(Runnable),View.postDelay(Runnable,long)（在当前操作视图UI线程添加队列）</li>
+<li>Handler</li>
+<li>AsyncTask</li>
+<li>Rxjava（这是什么？）</li>
+<li>LiveData</li>
+</ol>
+</li>
+<li><p>ContentProvider使用方法</p>
+<p>进行跨进程通信，实现进程间的数据交互和共享。通过Context 中 getContentResolver() 获得实例，通过 Uri匹配进行数据的增删改查。ContentProvider使用表的形式来组织数据，无论数据的来源是什么，ConentProvider 都会认为是一种表，然后把数据组织成表格。</p>
+</li>
+<li><p>Thread、AsyncTask、IntentService的使用场景与特点</p>
+<ol>
+<li>Thread独立于Activity，当Activity finish后，如果没有主动停止Thread或者run方法没有执行完，其回一直执行下去</li>
+<li>AsyncTask封装了两个线程池和一个Handler，其必须在UI线程中创建，一个任务实例只允许执行一次，执行多次会抛出异常，一般用于网络请求或简单数据处理</li>
+<li>IntentService处理异步请求，实现多线程，在onHandleIntent中处理耗时操作，多个耗时任务会依次执行，执行完毕自动结束</li>
+</ol>
+</li>
+<li><p>Merge和ViewStub的作用</p>
+<p>Merge: 减少视图层级，可以删除多余的层级。</p>
+<ol>
+<li><code>merge</code>：<br><code>merge</code>是一个特殊的标签，用于在布局文件中优化视图层次结构。通常，在编写布局文件时，我们需要使用一些容器布局（如<code>LinearLayout</code>、<code>RelativeLayout</code>等）来组织和嵌套视图。然而，这些容器布局本身不会渲染任何视图，仅用于组织和定位子视图。这样一来，在视图层次结构中添加了额外的布局容器，会导致层次结构变得复杂，影响性能。</li>
+</ol>
+<p>为了解决这个问题，可以使用<code>merge</code>标签，它会告诉布局解析器将其子视图直接添加到父视图中，而不会创建额外的布局容器。这样可以减少视图层次结构的深度，提高布局文件的加载和渲染效率。</p>
+<p>ViewStub: 按需加载，减少内存使用量、加快渲染速度、不支持 merge 标签。</p>
+<ol>
+<li><code>ViewStub</code>：<br><code>ViewStub</code>是一个轻量级的视图占位符，用于在布局中延迟加载视图。它允许我们在布局文件中定义一个占位符视图，实际的视图内容可以在需要时进行延迟加载。</li>
+</ol>
+<p>使用<code>ViewStub</code>可以在布局中预留一个位置，当需要显示相应的视图时，可以通过调用<code>ViewStub.inflate()</code>方法来动态加载视图并替换占位符。</p>
+</li>
+<li><p>Activity的startActivity和其他context的startActivity区别是什么？</p>
+<p>(1)、从Activity中启动新的Activity时可以直接mContext.startActivity(intent)就好</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">Activity</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">startNewActivity</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(MainActivity.<span class="built_in">this</span>, NewActivity.class);</span><br><span class="line">        startActivity(intent);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>(2)、如果从其他Context（Service，BroadCastReceiver）中启动Activity则必须给intent设置Flag:</p>
+<ul>
+<li><code>Intent.FLAG_ACTIVITY_NEW_TASK</code>：将新Activity放入一个新的任务栈中。</li>
+<li><code>Intent.FLAG_ACTIVITY_CLEAR_TASK</code>：在启动新Activity之前清除任务栈中的所有Activity。</li>
+<li><code>Intent.FLAG_ACTIVITY_CLEAR_TOP</code>：如果目标Activity已经在任务栈中存在，则将其上方的Activity全部移除。</li>
+<li><code>Intent.FLAG_ACTIVITY_SINGLE_TOP</code>：如果目标Activity已经在栈顶，不会重新创建实例，而是调用其<code>onNewIntent()</code>方法。</li>
+</ul>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyService</span> <span class="keyword">extends</span> <span class="title class_">Service</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">startNewActivity</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(getApplicationContext(), NewActivity.class);</span><br><span class="line">        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">        startActivity(intent);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>怎么在Service中创建Dialog对话框</p>
+<p>1.在我们取得Dialog对象后，需给它设置类型，即：</p>
+<pre><code>dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT)
+</code></pre>
+<p>2.在Manifest中加上权限:</p>
+<pre><code>&lt;uses-permission android:name=&quot;android.permission.SYSTEM_ALERT_WINOW&quot; /&gt;
+</code></pre>
+</li>
+<li><p>Asset目录与res目录的区别</p>
+<p>assets：不会在 R 文件中生成相应标记，存放到这里的资源在打包时会打包到程序安装包中。（通过 AssetManager 类访问这些文件）</p>
+<p>res：会在 R 文件中生成 id 标记，资源在打包时如果使用到则打包到安装包中，未用到不会打入安装包中。</p>
+<p>res&#x2F;anim：存放动画资源。</p>
+<p>res&#x2F;raw：和 asset 下文件一样，打包时直接打入程序安装包中（会映射到 R 文件中）     </p>
+</li>
+<li><p>如何提升Activity启动速度？</p>
+<ol>
+<li>避免在OnCreate中执行耗时操作</li>
+<li>渲染页面时，将View细分，放在AsyncTask中逐步显示，用Handler更好，这样用户可以看到界面的逐步渲染，而不是黑屏到界面突然出现，如果有动画更好</li>
+<li>合理使用多线程</li>
+<li>提高Adapter和AdapterView的效率</li>
+<li>优化布局文件</li>
+</ol>
+</li>
+<li><p>Handler机制</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://github.com/guoxiaoxing/android-open-source-project-analysis/raw/master/art/native/process/android_handler_structure.png"
+                      alt="image"
+                ></p>
+<ol>
+<li>message：消息</li>
+<li>MessageQueue：消息队列，looper有一个消息队列，物理结构上是一个单链表，消息不断被加入和读取</li>
+<li>Looper：消息循环器，负责关联线程以及消息的分发，在该线城下从MessageQueue获取Message获取Message，分发给Handler，调用Looper.loop()即启动Looper，并且不断执行next()方法，直到调用Looper.quit()</li>
+</ol>
+<p>整个消息的循环流程还是比较清晰的，具体说来：</p>
+<ul>
+<li>1、Handler通过sendMessage()发送消息Message到消息队列MessageQueue。</li>
+<li>2、Looper通过loop()不断提取触发条件的Message，并将Message交给对应的target handler来处理。</li>
+<li>3、target handler调用自身的handleMessage()方法来处理Message。</li>
+</ul>
+<p>有很多事情都是通过C++完成的，MessageQueue是Java层和C++层沟通的桥梁，MessageQueue的核心功能实际上是使用Native C++完成的</p>
+<p><strong>Handler可能引发内存泄漏</strong></p>
+<p>Handler允许发送延时消息，在延时期间如果用户关闭了Activity，那么该Activity将会泄露，因为这个延迟消息持有Handler，而Handler又持有Activity</p>
+<p>解决：将 Handler 定义成静态的内部类，在内部持有 Activity 的弱引用，并在Acitivity的onDestroy()中调用handler.removeCallbacksAndMessages(null)及时移除所有消息。</p>
+<p><strong>为什么我们可以直接在主线程里面使用Handler，而不需要创建Looper？</strong></p>
+<p>在Android中，主线程（也称为UI线程）已经预先创建了一个Looper对象，并在应用启动时自动初始化了消息循环。因此，在主线程中可以直接使用Handler对象，而无需显式地创建Looper。</p>
+<p>当应用启动时，Android系统会在主线程上自动调用<code>Looper.prepareMainLooper()</code>方法创建主线程的Looper对象，并将其存储在ThreadLocal中。随后，调用<code>Looper.loop()</code>方法启动主线程的消息循环。</p>
+<p>（主线程的Looper不允许退出，如果退出，那么App就要挂）</p>
+<h5 id="Handler-里藏着的-Callback-能干什么？"><a href="#Handler-里藏着的-Callback-能干什么？" class="headerlink" title="Handler 里藏着的 Callback 能干什么？"></a>Handler 里藏着的 Callback 能干什么？</h5><p>Handler.Callback 有优先处理消息的权利 ，当一条消息被 Callback 处理并拦截（返回 true），那么 Handler 的 handleMessage(msg) 方法就不会被调用了；如果 Callback 处理了消息，但是并没有拦截，那么就意味着一个消息可以同时被 Callback 以及 Handler 处理。</p>
+<h5 id="创建-Message-实例的最佳方式"><a href="#创建-Message-实例的最佳方式" class="headerlink" title="创建 Message 实例的最佳方式"></a>创建 Message 实例的最佳方式</h5><p>为了节省开销，Android 给 Message 设计了回收机制，所以我们在使用的时候尽量复用 Message ，减少内存消耗：</p>
+<ul>
+<li>通过 Message 的静态方法 Message.obtain()；</li>
+<li>通过 Handler 的公有方法 handler.obtainMessage()。（本质上还是调用的Message.obtain()）</li>
+</ul>
+<p><strong>子线程里弹 Toast 的正确姿势</strong></p>
+<ol>
+<li>创建一个Runnable对象，通过主线程的Handler发送到主线程，由主线程来显示Toast</li>
+<li>在子线程中先preperLoop并且启动，并且创建Handler，直接在子线程中显示</li>
+</ol>
+<p><strong>妙用Looper</strong></p>
+<ol>
+<li><p>子线程做耗时的操作，最后更新UI则通过主线程的Handler Post到主线程</p>
+</li>
+<li><p>利用 Looper 判断当前线程是否是主线程：有时候我们需要根据当前线程是主线程还是子线程来做一些不同的处理。通过 Looper 的 <code>getMainLooper()</code> 方法可以获取到主线程的 Looper 对象。我们可以利用这个特性来判断当前线程是否是主线程。</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Looper.myLooper() == Looper.getMainLooper()) &#123;</span><br><span class="line">    <span class="comment">// 当前线程是主线程</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 当前线程是子线程</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<h5 id="主线程的死循环一直运行是不是特别消耗CPU资源呢？"><a href="#主线程的死循环一直运行是不是特别消耗CPU资源呢？" class="headerlink" title="主线程的死循环一直运行是不是特别消耗CPU资源呢？"></a>主线程的死循环一直运行是不是特别消耗CPU资源呢？</h5><p>并不是，这里就涉及到Linux pipe&#x2F;epoll机制，简单说就是在主线程的MessageQueue没有消息时，便阻塞在loop的queue.next()中的nativePollOnce()方法里，此时主线程会释放CPU资源进入休眠状态，直到下个消息到达或者有事务发生，通过往pipe管道写端写入数据来唤醒主线程工作。这里采用的epoll机制，是一种IO多路复用机制，可以同时监控多个描述符，当某个描述符就绪(读或写就绪)，则立刻通知相应程序进行读或写操作，本质是同步I&#x2F;O，即读写是阻塞的。所以说，主线程大多数时候都是处于休眠状态，并不会消耗大量CPU资源。</p>
+<p><strong>Handler postDelay这个延迟是怎么实现的？</strong></p>
+<p>Handler并不是等到延迟时间结束再将消息发送给Queue，而是直接发送，只不过附带了一个时间戳，MessageQueue会根据时间戳将消息进行排序，顺序唤醒</p>
+</li>
+<li><p>程序A能否接受到程序B的广播？</p>
+<p>能，使用全局的BroadCastRecevier能进行跨进程通信，但是注意它只能被动接收广播。此外，LocalBroadCastRecevier只限于本进程的广播间通信。</p>
+</li>
+<li><p>分页加载数据</p>
+<p>分页加载就是一页一页加载数据，当滑动到底部、没有更多数据加载的时候，我们可以手动调用接口，重新刷新RecyclerView。</p>
+</li>
+<li><p>Gson解析json时javabean的定义规则</p>
+<ol>
+<li><p>类的字段名需要与JSON中的键名保持一致。Gson通过反射来匹配字段名和键名进行数据绑定。如果字段名和键名不一致，可以使用注解<code>@SerializedName(&quot;json_key&quot;)</code>来显式指定JSON中的键名。</p>
+</li>
+<li><p>类需要提供一个无参构造函数。Gson在解析JSON时会使用无参构造函数来创建JavaBean对象，并通过反射设置字段的值。如果没有提供无参构造函数，可以自定义带参数的构造函数，但同时也需要提供无参构造函数。</p>
+</li>
+<li><p>类的字段需要为私有（private）访问权限，并提供公共的 getter 和 setter 方法。Gson通过调用getter和setter方法来获取和设置字段的值。</p>
+</li>
+<li><p>类可以使用注解<code>@Expose</code>来标记需要进行JSON序列化和反序列化的字段。如果没有使用<code>@Expose</code>注解，Gson默认会处理所有的字段。</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.google.gson.Gson;</span><br><span class="line"><span class="keyword">import</span> com.google.gson.annotations.SerializedName;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="meta">@SerializedName(&quot;name&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SerializedName(&quot;age&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 无参构造函数</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(<span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">json</span> <span class="operator">=</span> <span class="string">&quot;&#123;\&quot;name\&quot;:\&quot;John Doe\&quot;,\&quot;age\&quot;:30,\&quot;email\&quot;:\&quot;johndoe@example.com\&quot;&#125;&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">Gson</span> <span class="variable">gson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Gson</span>();</span><br><span class="line">        <span class="type">Person</span> <span class="variable">person</span> <span class="operator">=</span> gson.fromJson(json, Person.class);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;Name: &quot;</span> + person.getName());</span><br><span class="line">        System.out.println(<span class="string">&quot;Age: &quot;</span> + person.getAge());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+</li>
+<li><p>json解析方式的两种区别？</p>
+<ol>
+<li>SDK提供JsonObject和JsonArray的解析方式</li>
+<li>Gson通过fromJson()实现对象的反序列化（即将json串转换为对象类型）通过toJson()实现对象的序列化</li>
+<li>Gson提供通过javaBean的方式进行解析，总体上更加灵活多样</li>
+</ol>
+</li>
+<li><p>线程池</p>
+<p>Android中线程池是通过配置ThreadPoolExecutor来实现的，最常见的四类线程池是FixedThreadPool、CacheThreadPool、SingleThreadPool和ScheduledThreadPool</p>
+<ol>
+<li>FixedThreadPool：固定线程池，线程数是固定的，所有线程都处于活动状态，也不会被回收，相应较快</li>
+<li>CacheThreadPool：有很大的最大线程数，有空闲线程的概念，空闲时间过长会被线程池回收，适合处理大量执行时间短的任务</li>
+<li>ScheduledThreadPool：核心线程数固定，非核心线程空闲时会被回收，适合于执行有固定周期的重复任务</li>
+<li>SingleThreadPool：只有一个核心线程，不用考虑多线程的问题，适合需要顺序执行的任务</li>
+</ol>
+</li>
+<li><p>什么是内存泄漏？内存泄漏是如何产生的？如何查找和分析内存泄漏？</p>
+<p>内存泄漏（Memory Leak）指的是在程序中分配的内存空间无法被回收和释放，导致内存资源的浪费和耗尽。当内存泄漏发生时，程序会持续占用内存，导致系统性能下降，甚至可能导致应用崩溃。</p>
+<p><strong>内存泄漏发生的原因</strong>：</p>
+<ol>
+<li>资源对象没有关闭或者没有正确关闭：资源型对象往往使用了一些缓冲，这种缓冲不仅存在JVM之内，还存在于JVM之外，因此简单的将他们的引用置为null并不能正确的释放资源，当资源对象不再使用时，应当调用它们提供的销毁接口</li>
+<li>构造Adapter时，没有使用缓存的convertView：这个没有看懂</li>
+<li>Bitmap对象不再使用时调用recycle()释放内存</li>
+<li>Activity无法释放导致内存泄漏：如果一个对象的生命周期长于一个Activity，那么就不要将Activity的Context，改传Application的Context</li>
+<li>注册没有取消造成内存泄漏：一些Android程序可能引用我们的Android程序，即使我们的Android程序已经结束，但是别的引用程序仍然还对我们的Android程序的某个对象的引用，这将导致无法进行垃圾回收，比如调用RegisterReceiver后未调用UnregisterReceiver</li>
+<li>集合中对象没清理造成内存泄露：我们通常把一些对象的引用加入到了集合中，当我们不需要该对象时，并没有把它的引用从集合中清理掉，这样这个集合就会越来越大。如果这个集合是static的话，那情况就更严重了。</li>
+</ol>
+<p><strong>查找内存泄漏</strong></p>
+<ol>
+<li>使用MemoryProfiler，运行程序后如果收到内存泄漏报警则点击查看HeapDump</li>
+<li>MemoryAnalyzer Tool（MAT），运行程序然后退出，手动触发GC，然后使用adb shell dumpsys meminfo packagename -d命令查看退出界面后Objects下的Views和Activities数目是否为0，如果不是则通过Leakcanary检查可能存在内存泄露的地方，最后通过MAT分析，如此反复，改善满意为止。</li>
+<li>对比hprof文件，检测出复杂情况下的内存泄露</li>
+</ol>
+</li>
+<li><p>类初始化的顺序</p>
+<ol>
+<li>静态成员变量初始化</li>
+<li>静态代码块</li>
+<li>实例成员变量初始化</li>
+<li>构造代码块</li>
+<li>构造函数</li>
+</ol>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">InitializationExample</span> &#123;</span><br><span class="line">    <span class="comment">// 静态成员变量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">staticVariable</span> <span class="operator">=</span> initializeStaticVariable();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 静态代码块</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;静态代码块被执行了&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 实例成员变量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="variable">instanceVariable</span> <span class="operator">=</span> initializeInstanceVariable();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 构造代码块</span></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;构造代码块被执行了&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">InitializationExample</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;构造函数被执行了&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 静态成员变量初始化方法</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">initializeStaticVariable</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;静态成员变量初始化&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 实例成员变量初始化方法</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">initializeInstanceVariable</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;实例成员变量初始化&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">20</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">InitializationExample</span> <span class="variable">example</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InitializationExample</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>JSON的结构？</p>
+<p>json是一种轻量级的数据交换格式， json简单说就是对象和数组，所以这两种结构就是对象和数组两种结构，通过这两种结构可以表示各种复杂的结构</p>
+<p>1、对象：对象表示为“{}”扩起来的内容，数据结构为 {key：value,key：value,…}的键值对的结构，在面向对象的语言中，key为对象的属性，value为对应的属性值，所以很容易理解，取值方法为 对象.key 获取属性值，这个属性值的类型可以是 数字、字符串、数组、对象几种。</p>
+<p>2、数组：数组在json中是中括号“[]”扩起来的内容，数据结构为 [“java”,”javascript”,”vb”,…]，取值方式和所有语言中一样，使用索引获取，字段值的类型可以是 数字、字符串、数组、对象几种。 经过对象、数组2种结构就可以组合成复杂的数据结构了。</p>
+</li>
+<li><p>Android为什么引入parcelabel？</p>
+<p>在Android开发中，我们经常需要在不同组件（如Activity、Fragment、Service）之间传递数据对象。最常见的方式是使用Intent来传递数据，但是Intent使用Java的序列化（Serializable）机制来实现对象的传递。虽然Serializable是一种简单易用的方式，但是在性能方面存在一些问题：</p>
+<ol>
+<li>序列化和反序列化的过程需要大量的I&#x2F;O操作，会对性能产生负面影响。</li>
+<li>序列化的结果是一个字节数组，会占用较大的内存空间。</li>
+<li>序列化和反序列化过程中会产生大量的临时对象，增加了垃圾回收的压力。</li>
+</ol>
+<p>为了解决这些问题，Android引入了Parcelable接口。Parcelable接口提供了一种高效的序列化机制，能够更快速地将对象序列化为字节流，并在需要时进行反序列化。相对于Serializable，Parcelable具有以下优势：</p>
+<ol>
+<li>性能更好：Parcelable使用了更高效的序列化和反序列化机制，避免了大量的I&#x2F;O操作和临时对象的创建，因此比Serializable更快速和高效。</li>
+<li>内存占用更少：Parcelable序列化的结果是一个较小的字节数组，相比Serializable占用的内存更少，减轻了内存压力。</li>
+<li>更精确地控制序列化过程：Parcelable允许开发人员对序列化的过程进行更精确地控制，可以选择序列化和反序列化对象的哪些部分，从而提高效率。</li>
+</ol>
+</li>
+<li><p>ViewPager使用细节，如何设置成每次只初始化当前的Fragment，其他的不初始化（提示：Fragment懒加载）？</p>
+<p>自定义一个 LazyLoadFragment 基类，利用 setUserVisibleHint 和 生命周期方法，通过对 Fragment 状态判断，进行数据加载，并将数据加载的接口提供开放出去，供子类使用。然后在子类 Fragment 中实现 requestData 方法即可。这里添加了一个 isDataLoaded 变量，目的是避免重复加载数据。考虑到有时候需要刷新数据的问题，便提供了一个用于强制刷新的参数判断。（<strong>这个方法已经过时了</strong>）</p>
+<p>在使用ViewPager时，可以通过使用FragmentPagerAdapter或是FragmentStatePagerAdapter来控制Fragment的初始化行为。以下是一种设置ViewPager每次只初始化当前Fragment的方法：</p>
+<ol>
+<li>创建一个自定义的PagerAdapter类，继承自FragmentPagerAdapter或是FragmentStatePagerAdapter。</li>
+</ol>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CustomPagerAdapter</span> <span class="keyword">extends</span> <span class="title class_">FragmentPagerAdapter</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Fragment&gt; fragments;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">CustomPagerAdapter</span><span class="params">(FragmentManager fragmentManager, List&lt;Fragment&gt; fragments)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(fragmentManager);</span><br><span class="line">        <span class="built_in">this</span>.fragments = fragments;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Fragment <span class="title function_">getItem</span><span class="params">(<span class="type">int</span> position)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> fragments.get(position);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getCount</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> fragments.size();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> CharSequence <span class="title function_">getPageTitle</span><span class="params">(<span class="type">int</span> position)</span> &#123;</span><br><span class="line">        <span class="comment">// 返回每个Fragment对应的标题（可选）</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Fragment &quot;</span> + (position + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">instantiateItem</span><span class="params">(ViewGroup container, <span class="type">int</span> position)</span> &#123;</span><br><span class="line">        <span class="comment">// 在这里通过position判断当前显示的Fragment，只初始化当前Fragment</span></span><br><span class="line">        <span class="keyword">if</span> (position == getCurrentFragmentPosition()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">super</span>.instantiateItem(container, position);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 返回一个空的Fragment作为占位符</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Fragment</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">getCurrentFragmentPosition</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 根据自己的逻辑获取当前显示的Fragment的位置</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>在创建ViewPager时，使用自定义的PagerAdapter。</li>
+</ol>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ViewPager</span> <span class="variable">viewPager</span> <span class="operator">=</span> findViewById(R.id.viewPager);</span><br><span class="line">List&lt;Fragment&gt; fragments = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">fragments.add(<span class="keyword">new</span> <span class="title class_">Fragment1</span>());</span><br><span class="line">fragments.add(<span class="keyword">new</span> <span class="title class_">Fragment2</span>());</span><br><span class="line">fragments.add(<span class="keyword">new</span> <span class="title class_">Fragment3</span>());</span><br><span class="line"></span><br><span class="line"><span class="type">CustomPagerAdapter</span> <span class="variable">pagerAdapter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CustomPagerAdapter</span>(getSupportFragmentManager(), fragments);</span><br><span class="line">viewPager.setAdapter(pagerAdapter);</span><br></pre></td></tr></table></figure></div>
+
+<p>上述代码中，自定义的PagerAdapter类重写了<code>instantiateItem()</code>方法。在该方法中，通过判断当前显示的Fragment的位置，只对当前Fragment进行初始化，而对其他Fragment返回一个空的Fragment作为占位符。你可以根据自己的逻辑来确定当前显示的Fragment的位置。</p>
+<p>这样设置后，ViewPager每次只会初始化当前显示的Fragment，其他的Fragment将不会被初始化，从而提高了性能和效率。</p>
+<p>注意：使用FragmentStatePagerAdapter时，系统会销毁不再需要的Fragment，因此在<code>instantiateItem()</code>方法中，可以返回一个空的Fragment作为占位符。而对于FragmentPagerAdapter，可以通过重写<code>destroyItem()</code>方法来实现类似的效果。</p>
+<p>希望这个答案对你有所帮助！如果你有其他问题，请随时提问。</p>
+</li>
+<li><p>如何简化Parcelabel的使用？</p>
+<p> kotlin可以使用Parcelize注解简化Parcelable的书写</p>
+<p>Android扩展插件现在包含一个实现了Parcelable的自动生成器。在主构造函数中声明序列化的属性并添加一个@Parcelize注解，生成器就会自动创建writeToParcel（）&#x2F; createFromParcel（）方法</p>
+<div class="highlight-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Parcelize</span></span><br><span class="line"><span class="keyword">data</span> <span class="keyword">class</span> <span class="title class_">Student</span>(<span class="keyword">val</span> id: String, <span class="keyword">val</span> name: String, <span class="keyword">val</span> grade: String) : Parcelable</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>使用bitmap时应当注意什么？</p>
+<ol>
+<li><p>选择合适的图片规格</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img-blog.csdnimg.cn/ea99a7862602461692922f2396807af1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBASk1XMTQwNw==,size_20,color_FFFFFF,t_70,g_se,x_16"
+                     
+                ></p>
+</li>
+<li><p>降低采样率</p>
+<p>可以通过比较要显示的大小和图片的实际大小选择一个合适的采样率，降低图片的内存占用</p>
+</li>
+<li><p>复用内存</p>
+<p>即，通过软引用(内存不够的时候才会回收掉)，复用内存块，不需要再重新给这个bitmap申请一块新的内存，避免了一次内存的分配和回收，从而改善了运行效率。</p>
+</li>
+<li><p>使用recycle()方法回收内存</p>
+</li>
+<li><p>压缩图片：Jpeg,Png,Webp</p>
+</li>
+</ol>
+</li>
+<li><p>OOM是否可以Try Catch？</p>
+<p>有一种情况可以：</p>
+<p>Try语句块中声明了巨大的对象，比如位图，导致OOM，在catch语句中，可以尝试释放这些大的对象，解决OOM</p>
+<p>但是我们推荐使用软引用、弱引用、硬盘缓存来处理这种问题</p>
+<p>如果OOM的原因不是这些大对象，那么Catch语句将继续抛出OOM</p>
+</li>
+<li><p>多进程</p>
+<p>一般来说，Android应用多进程有三个好处。<br>   1）我们知道Android系统对每个应用进程的内存占用是有限制的，而且占用内存越大的进程，通常被系统杀死的可能性越大。让一个组件运行在单独的进程中，可以减少主进程所占用的内存，降低被系统杀死的概率.<br>   2）如果子进程因为某种原因崩溃了，不会直接导致主程序的崩溃，可以降低我们程序的崩溃率。<br>   3）即使主进程退出了，我们的子进程仍然可以继续工作，假设子进程是推送服务，在主进程退出的情况下，仍然能够保证用户可以收到推送消息。</p>
+<p>使用：在配置文件中设置process，但是注意一旦使用多进程会有多种问题，比如Application重复创建的问题、静态变量失效的问题、多个进程资源共享困难的问题</p>
+</li>
+<li><p>Canvas.save()与Canvas.restore()的调用时机</p>
+<p>save：用来保存Canvas的状态。save之后，可以调用Canvas的平移、放缩、旋转、错切、裁剪等操作。</p>
+<p>restore：用来恢复Canvas之前保存的状态。防止save后对Canvas执行的操作对后续的绘制有影响。</p>
+<p>save和restore要配对使用（restore可以比save少，但不能多），如果restore调用次数比save多，会引发Error。save和restore操作执行的时机不同，就能造成绘制的图形不同。</p>
+</li>
+<li><p>android数据库迁移（修改表，增加表和删除表不用改version）</p>
+<ol>
+<li><p>SQLite</p>
+<p>SQLiteHelper中有一个onCreate()和onUpgrade()函数，当用户尝试访问数据库时，如果数据库版本更新了，就会跑去调用onUpgrade()</p>
+<p>在onUpgrade中，判断老版本，然后升级到新版本，升级的过程是</p>
+<ol>
+<li>将现在的表重命名位临时表</li>
+<li>创建新的表</li>
+<li>临时表的数据导入到新表</li>
+<li>删除临时表</li>
+</ol>
+<p>升级过程应该包裹在 db.beginTransaction();  和 db.setTransactionSuccessful();  之间，这样过程中出错数据库可以自动回滚</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onUpgrade</span><span class="params">(SQLiteDatabase db, <span class="type">int</span> oldVersion, <span class="type">int</span> newVersion)</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (newVersion) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            db.beginTransaction();</span><br><span class="line"></span><br><span class="line">            db.execSQL(CREATE_TEMP_BOOK);</span><br><span class="line">            db.execSQL(CREATE_BOOK);</span><br><span class="line">            db.execSQL(INSERT_DATA);</span><br><span class="line">            db.execSQL(DROP_BOOK);</span><br><span class="line"></span><br><span class="line">            db.setTransactionSuccessful();</span><br><span class="line">            db.endTransaction();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>跨版本升级既可以给每种版本之间的升级写逻辑（要写死），也可以直接链式升级（如果用户版本比较低会让用户等比较久）</p>
+</li>
+<li><p>Room的数据库迁移</p>
+<p>较高版本的Room支持自动迁移，但是比较复杂的情况仍然需要手动迁移</p>
+<div class="highlight-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Database class before the version update.</span></span><br><span class="line"><span class="meta">@Database(</span></span><br><span class="line"><span class="meta">  version = 1,</span></span><br><span class="line"><span class="meta">  entities = [User::class]</span></span><br><span class="line"><span class="meta">)</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">AppDatabase</span> : <span class="type">RoomDatabase</span>() &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Database class after the version update.</span></span><br><span class="line"><span class="meta">@Database(</span></span><br><span class="line"><span class="meta">  version = 2,</span></span><br><span class="line"><span class="meta">  entities = [User::class],</span></span><br><span class="line"><span class="meta">  autoMigrations = [</span></span><br><span class="line"><span class="meta">    AutoMigration (from = 1, to = 2)</span></span><br><span class="line"><span class="meta">  ]</span></span><br><span class="line"><span class="meta">)</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">AppDatabase</span> : <span class="type">RoomDatabase</span>() &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>删除或重命名表等架构更改不明确的操作需要通过AutoMigrationSpec为Room指出数据库迁移时的配置</p>
+<p>Spec有四种注解：</p>
+<ul>
+<li><code>@DeleteTable(tableName)</code></li>
+<li><code>@RenameTable(fromTableName, toTableName)</code></li>
+<li><code>@DeleteColumn(tableName, columnName)</code></li>
+<li><code>@RenameColumn(tableName, fromColumnName, toColumnName)</code></li>
+</ul>
+<div class="highlight-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Copyright 2020 Google LLC.  </span></span><br><span class="line"><span class="comment">   SPDX-License-Identifier: Apache-2.0 */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Database(</span></span><br><span class="line"><span class="meta">-   version = 2,</span></span><br><span class="line"><span class="meta">+   version = 3,</span></span><br><span class="line"><span class="meta">    entities = [ Doggos.class ],</span></span><br><span class="line"><span class="meta">    autoMigrations = [</span></span><br><span class="line"><span class="meta">       AutoMigration (from = 1, to = 2),</span></span><br><span class="line"><span class="meta">+      AutoMigration (from = 2, to = 3)</span></span><br><span class="line"><span class="meta">     ]</span></span><br><span class="line"><span class="meta">  )</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">DoggosDatabase</span> : <span class="type">RoomDatabase</span> &#123; &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>注意exportSchema一定要是true</p>
+<div class="highlight-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Database(</span></span><br><span class="line"><span class="meta">   version = 3,</span></span><br><span class="line"><span class="meta">   entities = [GoodDoggos::class],</span></span><br><span class="line"><span class="meta">   autoMigrations = [</span></span><br><span class="line"><span class="meta">     AutoMigration (</span></span><br><span class="line"><span class="meta">            from = 1, </span></span><br><span class="line"><span class="meta">            to = 2,</span></span><br><span class="line"><span class="meta">            spec = DoggosDatabase.DoggosAutoMigration1::class</span></span><br><span class="line"><span class="meta">       ),</span></span><br><span class="line"><span class="meta">        AutoMigration(</span></span><br><span class="line"><span class="meta">            from = 2,</span></span><br><span class="line"><span class="meta">            to = 3,</span></span><br><span class="line"><span class="meta">            spec = DoggosDatabase.DoggosAutoMigration2::class</span></span><br><span class="line"><span class="meta">        )</span></span><br><span class="line"><span class="meta">    ]</span></span><br><span class="line"><span class="meta">)</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">DoggosDatabase</span> : <span class="type">RoomDatabase</span>() &#123;</span><br><span class="line">    <span class="meta">@RenameTable(fromTableName = <span class="string">&quot;Doggos&quot;</span>, toTableName = <span class="string">&quot;GoodDoggos&quot;</span>)</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">DoggosAutoMigration1</span>: <span class="type">AutoMigrationSpec</span> &#123;   &#125;</span><br><span class="line">    <span class="meta">@RenameTable(fromTableName = <span class="string">&quot;GoodDoggos&quot;</span>, toTableName = <span class="string">&quot;SuperDoggos&quot;</span>)</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">DoggosAutoMigration2</span> : <span class="type">AutoMigrationSpec</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>手动迁移：如果怎么搞都搞不好，就用手动迁移</p>
+<div class="highlight-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> MIGRATION_1_2 = <span class="keyword">object</span> : Migration(<span class="number">1</span>, <span class="number">2</span>) &#123;</span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">migrate</span><span class="params">(database: <span class="type">SupportSQLiteDatabase</span>)</span></span> &#123;</span><br><span class="line">    database.execSQL(<span class="string">&quot;CREATE TABLE `Fruit` (`id` INTEGER, `name` TEXT, &quot;</span> +</span><br><span class="line">      <span class="string">&quot;PRIMARY KEY(`id`))&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> MIGRATION_2_3 = <span class="keyword">object</span> : Migration(<span class="number">2</span>, <span class="number">3</span>) &#123;</span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">migrate</span><span class="params">(database: <span class="type">SupportSQLiteDatabase</span>)</span></span> &#123;</span><br><span class="line">    database.execSQL(<span class="string">&quot;ALTER TABLE Book ADD COLUMN pub_year INTEGER&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Room.databaseBuilder(applicationContext, MyDb::<span class="keyword">class</span>.java, <span class="string">&quot;database-name&quot;</span>)</span><br><span class="line">  .addMigrations(MIGRATION_1_2, MIGRATION_2_3).build()</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+</li>
+<li><p>编译期注解与运行期注解（<strong>这个好难</strong>）</p>
+<p>运行期注解利用反射获取信息，比较消耗性能，对应@Retention（RetentionPolicy.RUNTIME）这个反射是一个循环类型的，时间开销很大，所以一般都喜欢写编译期注解</p>
+<p>编译期注解使用APT和Javapoet实现，对应@Retention(RetentionPolicy.CLASS)</p>
+</li>
+<li><p>bitmap和recycler()</p>
+<p>2.3.3即以下应该在不使用位图时调用recycle方法，释放位图占用的内存，避免OOM，这个时代，bitmap本身放在栈中，引用放在堆中，因此需要手动调用recycle()，在3.0以上后整个bitmap都被放到了堆里面，于是整个创建和回收都被交给了GC，并且引入了inbitmap，位图删除后还会持有一个软引用，后面要用如果位图还没有被释放就能直接用位图了</p>
+<p><strong>Android官方推荐使用Glide库加载和处理位图，Glide提供许多复杂操作的抽象</strong></p>
+</li>
+<li><p>强引用置为null会不会立刻被回收？</p>
+<p>不会，GC试运行在后台线程中的，只有当用户线程运行到安全点或是安全区域时才会启动对象引用关系的扫描，扫描完成也不会立刻释放，因为有一些对象的引用是可以恢复的，只有确定对象的引用无法恢复后才会正式回收对象</p>
+</li>
+<li><p>Bundle传递对象为什么要序列化</p>
+<p>序列化表示将一个对象转换成可存储或可传输的状态，序列化的原因基本都是三种情况：</p>
+<ol>
+<li>永久性保存对象，保存对象的字节序列到本地文件中</li>
+<li>对象在网络中传递</li>
+<li>对象在IPC（不同进程间）传递</li>
+</ol>
+</li>
+<li><p>广播传递数据是否有限制</p>
+<p>Intent在传递数据时是有大小限制的，大约限制在1MB之内，你用Intent传递数据，实际上走的是跨进程通信（IPC），跨进程通信需要把数据从内核copy到进程中，每一个进程有一个接收内核数据的缓冲区，默认是1M；如果一次传递的数据超过限制，就会出现异常。</p>
+<p>不同厂商表现不一样有可能是厂商修改了此限制的大小，也可能同样的对象在不同的机器上大小不一样。</p>
+<p>传递大数据，不应该用Intent；考虑使用ContentProvider或者直接匿名共享内存。简单情况下可以考虑分段传输。</p>
+</li>
+<li><p>硬件加速</p>
+<p>硬件加速就是运用GPU优秀的运算能力来加快渲染的速度，而通常的基于软件的绘制渲染模式是完全利用CPU来完成渲染。</p>
+<ol>
+<li><p>android api 11开始支持硬件加速，14开始默认开启硬件加速</p>
+</li>
+<li><p>对于自定义View可能会出现硬件加速不兼容的情况，这是需要手动关闭硬件加速</p>
+</li>
+<li><p>关闭或开启硬件加速可以在应用、Activity、窗口、视图四个层面进行控制</p>
+<p>应用级别</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">application</span> <span class="attr">android:hardwareAccelerated</span>=<span class="string">&quot;true&quot;</span> <span class="attr">...</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>Activity级别</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">application</span> <span class="attr">android:hardwareAccelerated</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">activity</span> <span class="attr">...</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:hardwareAccelerated</span>=<span class="string">&quot;false&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">application</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>窗口级别 启用（官方文档说现在不行了）</p>
+<div class="highlight-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">window.setFlags(</span><br><span class="line">        WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,</span><br><span class="line">        WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>视图级别 SOFTWARE停用加速 HARDWARE启用加速</p>
+<div class="highlight-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">myView.setLayerType(View.LAYER_TYPE_SOFTWARE, <span class="literal">null</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>硬件加速也有内存开销：硬件加速的消耗问题，因为是使用OpenGL，需要把系统中OpenGL加载到内存中，OpenGL API调用就会占用8MB，而实际上会占用更多内存，并且使用了硬件必然增加耗电量了</p>
+</li>
+<li><p>硬件加速的优势还有display list的设计，使用这个我们不需要每次重绘都执行大量的代码，基于软件的绘制模式会重绘脏区域内的所有控件，而display只会更新列表，然后绘制列表内的控件。</p>
+</li>
+<li><p>CPU更擅长复杂逻辑控制，而GPU得益于大量ALU和并行结构设计，更擅长数学运算。</p>
+</li>
+</ol>
+</li>
+<li><p>ContentProvider权限管理，似懂非懂</p>
+</li>
+<li><p>Fragment状态保存</p>
+<p>1、Activity的状态保存, 在Activity的onSaveInstanceState()里, 调用了FragmentManger的saveAllState()方法, 其中会对mActive中各个Fragment的实例状态和View状态分别进行保存.</p>
+<p>2、FragmentManager还提供了public方法: saveFragmentInstanceState(), 可以对单个Fragment进行状态保存, 这是提供给我们用的。</p>
+<p>3、FragmentManager的moveToState()方法中, 当状态回退到ACTIVITY_CREATED, 会调用saveFragmentViewState()方法, 保存View的状态.</p>
+</li>
+<li><p>在Activity中创建一个Thread和在Service中创建一个Thread的区别</p>
+<p>在Activity中被创建：该Thread的就是为这个Activity服务的，完成这个特定的Activity交代的任务，主动通知该Activity一些消息和事件，Activity销毁后，该Thread也没有存活的意义了。</p>
+<p>在Service中被创建：这是保证最长生命周期的Thread的唯一方式，只要整个Service不退出，Thread就可以一直在后台执行，一般在Service的onCreate()中创建，在onDestroy()中销毁。所以，在Service中创建的Thread，适合长期执行一些独立于APP的后台任务，比较常见的就是：在Service中保持与服务器端的长连接</p>
+</li>
+<li><p>计算bitmap内存大小，如何避免bitmap产生内存溢出</p>
+<p>Bitamp 占用内存大小 &#x3D; 宽度像素 x （inTargetDensity &#x2F; inDensity） x 高度像素 x （inTargetDensity &#x2F; inDensity）x 一个像素所占的内存</p>
+<p>注：这里inDensity表示目标图片的dpi（放在哪个资源文件夹下），inTargetDensity表示目标屏幕的dpi，所以你可以发现inDensity和inTargetDensity会对Bitmap的宽高进行拉伸，进而改变Bitmap占用内存的大小。</p>
+<p>在Bitmap里有两个获取内存占用大小的方法。</p>
+<p>getByteCount()：API12 加入，代表存储 Bitmap 的像素需要的最少内存。 getAllocationByteCount()：API19 加入，代表在内存中为 Bitmap 分配的内存大小，代替了 getByteCount() 方法。 在不复用 Bitmap 时，getByteCount() 和 getAllocationByteCount 返回的结果是一样的。在通过复用 Bitmap 来解码图片时，那么 getByteCount() 表示新解码图片占用内存的大 小，getAllocationByteCount() 表示被复用 Bitmap 真实占用的内存大小（即 mBuffer 的长度）。</p>
+<p>避免内存溢出：</p>
+<ol>
+<li>bitmapFactory 图片压缩</li>
+<li>改变像素类型</li>
+<li>inPurgeable 让系统可以回收bitmap的内存</li>
+</ol>
+</li>
+<li><p>如何向用户推送应用更新？</p>
+<ol>
+<li>通过接口获取最新版本号</li>
+<li>和本地版本比较</li>
+<li>显示更新提示</li>
+<li>下载APK并安装</li>
+</ol>
+<p>全量发布：直接把新版本推给全部用户，有bug测试组切腹自尽</p>
+<p>灰度发布：发一点点，有bug打补丁（AB test策略）</p>
+</li>
+<li><p>为什么Android要引入签名机制？</p>
+<ol>
+<li>验证身份：开放商可能用相同的package name来混淆替换已经安装的程序，签名机制可以保证签名不同的包不会被替换</li>
+<li>避免被替换：签名利用摘要算法避免应用程序包被修改</li>
+<li>系统权限控制：Android的权限模型依赖于应用的签名。系统会根据应用的签名来确定应用所具有的权限。如果应用的签名与系统中预先分发的权限声明相匹配，应用将被授予相应的权限。这样可以防止未经授权的应用获取敏感权限。</li>
+<li>应用更新验证：当应用程序更新时，系统会验证新版本的应用是否使用相同的签名。只有相同签名的应用才能被视为同一个应用的更新版本。这样可以防止恶意开发者发布伪装成合法应用的恶意更新。</li>
+</ol>
+</li>
+<li><p>通过Gradle配置多渠道包</p>
+<div class="highlight-container" data-rel="Properties"><figure class="iseeu highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">android</span> <span class="string">&#123;  </span></span><br><span class="line">    <span class="attr">productFlavors</span> <span class="string">&#123;</span></span><br><span class="line">        <span class="attr">xiaomi</span> <span class="string">&#123;&#125;</span></span><br><span class="line">        <span class="attr">baidu</span> <span class="string">&#123;&#125;</span></span><br><span class="line">        <span class="attr">wandoujia</span> <span class="string">&#123;&#125;</span></span><br><span class="line">        <span class="attr">_360</span> <span class="string">&#123;&#125;        // 或“&quot;360&quot;&#123;&#125;”，数字需下划线开头或加上双引号</span></span><br><span class="line">    <span class="attr">&#125;</span></span><br><span class="line"><span class="attr">&#125;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>执行.&#x2F;gradlew assembleRelease ，将会打出所有渠道的release包；</p>
+<p>执行.&#x2F;gradlew assembleWandoujia，将会打出豌豆荚渠道的release和debug版的包；</p>
+<p>执行.&#x2F;gradlew assembleWandoujiaRelease将生成豌豆荚的release包。</p>
+<p>因此，可以结合buildType和productFlavor生成不同的Build Variants，即类型与渠道不同的组合。</p>
+</li>
+<li><p>activity和Fragment之间怎么通信，Fragment和Fragment怎么通信？</p>
+<ol>
+<li>Handler</li>
+<li>广播</li>
+<li>事件总线</li>
+<li>接口回调</li>
+<li>bundle和setArguments(bundle)</li>
+</ol>
+</li>
+<li><p>Kotlin协程</p>
+</li>
+<li><p>MotionLayout</p>
+<div class="highlight-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isOnSearch = <span class="literal">false</span></span><br><span class="line">        <span class="comment">// 监听搜索按钮点击事件</span></span><br><span class="line">        searchBar.setOnClickListener &#123;</span><br><span class="line">            <span class="comment">// 当搜索按钮被点击时，触发上升动画</span></span><br><span class="line">            homeMotion.transitionToState(R.id.end)</span><br><span class="line">            isOnSearch = <span class="literal">true</span></span><br><span class="line"><span class="comment">//            Log.i(&quot;gggg&quot;, &quot;搜索框被点击&quot;)</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3><ol>
+<li><p>什么是HTTP协议？</p>
+<p>从三个方面理解：协议、传输、超文本</p>
+<p>HTTP 是一个用在计算机世界里的<strong>协议</strong>。它使用计算机能够理解的语言确立了一种计算机之间交流通信的规范（<strong>两个以上的参与者</strong>），以及相关的各种控制和错误处理方式（<strong>行为约定和规范</strong>）。</p>
+<p>HTTP 协议是一个<strong>双向协议</strong>。数据虽然是在 A 和 B 之间传输，但允许中间有<strong>中转或接力</strong>。中间人遵从 HTTP 协议，只要不打扰基本的数据传输，就可以添加任意额外的东西。</p>
+<p>「超文本」，它就是<strong>超越了普通文本的文本</strong>，它是文字、图片、视频等的混合体，最关键有超链接，能从一个超文本跳转到另外一个超文本。HTML 就是最常见的超文本了，它本身只是纯文字文件，但内部用很多标签定义了图片、视频等的链接，再经过浏览器的解释，呈现给我们的就是一个文字、有画面的网页了。</p>
+<p><strong>HTTP 是一个在计算机世界里专门在「两点」之间「传输」文字、图片、音频、视频等「超文本」数据的「约定和规范」。</strong></p>
+</li>
+<li><p>HTTP常见的状态码</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/6-%E4%BA%94%E5%A4%A7%E7%B1%BBHTTP%E7%8A%B6%E6%80%81%E7%A0%81.png"
+                     
+                ></p>
+<ol>
+<li>1xx：中间状态</li>
+<li>2xx：OK<ol>
+<li>200 OK</li>
+<li>204 OK，只是没有返回的Body</li>
+<li>206 OK，返回了一部分数据</li>
+</ol>
+</li>
+<li>3xx：重定向<ol>
+<li>301 永久重定向，会将浏览器重定向</li>
+<li>302 临时重定向，同上</li>
+<li>304 重定向到缓存</li>
+</ol>
+</li>
+<li>4xx：存在错误<ol>
+<li>400 笼统的错误码</li>
+<li>403 禁止访问</li>
+<li>404 资源未找到</li>
+</ol>
+</li>
+<li>5xx：服务器出错<ol>
+<li>500 笼统的错误码</li>
+<li>501 尚未实现的功能</li>
+<li>502 网关错误，访问后端异常</li>
+<li>503 服务器太忙无法响应请求</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Http缓存原理</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.xiaolincoding.com/gh/xiaolincoder/network/http/http%E7%BC%93%E5%AD%98.png"
+                     
+                ></p>
+<ol>
+<li>双方约定什么时候要重新请求：强制缓存<ol>
+<li>Cache-Control 通过请求时间和服务器给出的时间，为资源计算一个过期时间</li>
+<li>Expire 服务器直接规定什么时候过期</li>
+</ol>
+</li>
+<li>如果需要重新请求，但是服务器觉得还可依据需用缓存：协商缓存<ol>
+<li>Etag：服务器为资源文件生成一个唯一标识，提供给客户端，客户端请求时加上if-none-match，如果资源文件的etag没变，那么直接304</li>
+<li>Label-Modified：服务器告诉客户端资源文件请求时的最近一次修改时间，重新请求时带上if-modified-since，如果资源文件更新时间没有发生变化，那么304</li>
+<li>Etag比Label-Modified好用，因为<ol>
+<li>没修改文件，修改时间也会变，客户端就莫名其妙的重新请求了</li>
+<li>label-modified只能精确到秒级，一些文件的修改可能发生在秒内，导致无法被检测到</li>
+<li>一些服务器不能很好地获取文件最后修改时间</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Get与Post</p>
+<p>按照Http标准设置的Get请求是安全且幂等的（不会修改服务器本身并且多次操作获得的结果一样），POST请求则不是</p>
+</li>
+<li><p>Http&#x2F;1.1的特性</p>
+<ol>
+<li>简单：报文header+body，header也是key-value形式，结构很简单</li>
+<li>灵活且易于扩展：各种请求方法、URI&#x2F;URL、状态码、头字段都可以由开发者自定义和扩充，http作为应用层协议，允许下层协议进行变化，比如添加TLS&#x2F;SSL层、TCP改UDP</li>
+<li>应用广泛和跨平台</li>
+</ol>
+</li>
+<li><p>Http&#x2F;1.1的缺点</p>
+<ol>
+<li>Http本身无状态：这意味着Http协议本身不能持续识别用户，也无法识别相互关联的请求，一种可能的解决方案是使用cookie</li>
+<li>数据裸奔：Http本身没有加密，所有信息都在互联网上裸奔</li>
+<li>不安全：信息不加密、不验证对方的身份、不检查数据是否被中间人修改</li>
+</ol>
+</li>
+<li><p>Http&#x2F;1.1性能及解决方案</p>
+<p>关键：TCP&#x2F;IP协议的耗时</p>
+<ol>
+<li><p>长连接避免反复建立连接的时间开销</p>
+</li>
+<li><p>管道网络传输，客户端没收到回应就接着发请求，解决请求队头阻塞的问题（但是这个功能几乎没有被使用过）</p>
+</li>
+<li><p>队头阻塞：即使用了管道网络传输解决请求对头阻塞，响应对头阻塞也是无法解决的</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/18-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E.png"
+                     
+                ></p>
+</li>
+</ol>
+</li>
+<li><p>HTTP与HTTPS的区别</p>
+<ol>
+<li>HTTP TCP连接建立后直接开始传输，HTTPS在TCP请求建立后还要经历SSL&#x2F;TLS握手过程，才会正式开始传输</li>
+<li>HTTP信息裸奔，HTTPS采用混合加密技术，保证数据安全</li>
+<li>HTTP默认端口为80，HTTPS默认端口443</li>
+<li>HTTPS协议要想CA请求证书，验证对方的身份</li>
+</ol>
+</li>
+<li><p>HTTPS如何保证安全</p>
+<ol>
+<li><p>信息加密：采用混合加密技术保证信息安全</p>
+<p><strong>混合加密</strong></p>
+<ol>
+<li>在通信建立前采用非对称加密方式传递生成一个会话密钥</li>
+<li>通信过程中使用会话密钥进行对称加密</li>
+</ol>
+</li>
+<li><p>身份校验：摘要算法+数字签名</p>
+<p><strong>摘要算法</strong></p>
+<p>发送方通过摘要算法（一种hash算法）计算出一个通信数据的指纹，一起发送给对方，对方收到后，也算出通信数据的一个指纹，然后与发过来的比较，如果不一样那就说明信息被篡改了</p>
+<p><strong>数字证书</strong></p>
+<p>为了避免hash值也被篡改，服务器向客户端颁发公钥，然后用自己的私钥给hash值加密，客户端收到后如果能用自己的密钥解开，就能证明是服务端发送的，然后再验证指纹，如果指纹也是一样的，就能证明内容没有被篡改</p>
+<p>但是客户端得到的公钥也可能是中间人伪造的，因此我们需要一个CA来帮助我们验证</p>
+<p>服务器会将自己的公钥注册到CA，而CA会颁发一个数字证书给服务器，这个数字证书中有一个CA计算得到并且通过CA私钥加密的hash值，可以被CA的公钥解密，而CA的公钥已经提前内置到浏览器或操作系统里（所以不要用来路不明的浏览器，里面可能有来路不明的CA公钥），当建立HTTPS连接时，服务器将自己的数字证书发给客户端，客户端使用内置的公钥解密，<strong>如果能解密得到的hash值与获得的证书算出的hash值相同·，说明数字证书没被篡改</strong>，<strong>从而获得服务器的公钥</strong>，然后客户端可以使用这个公钥加密并发送数据到服务端</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/22-%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png"
+                     
+                ></p>
+</li>
+<li><p><strong>完整的基于RSA算法的TLS握手与HTTPS建立过程</strong></p>
+<ol>
+<li>客户端索要服务器数字证书，验证后获得的公钥</li>
+<li>双方协商生产会话密钥</li>
+<li>双方采用会话秘钥加密通信</li>
+</ol>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/23-HTTPS%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png"
+                     
+                ></p>
+<p>完整过程：</p>
+<ol>
+<li><p>ClientHello</p>
+<p>客户端向服务器发起加密请求，发送的信息包括：</p>
+<ol>
+<li>客户端支持的TLS版本（如果服务器不支持直接拜拜）</li>
+<li><strong>客户端生产的随机数</strong></li>
+<li>客户端支持的密码套件列表，如RSA加密算法（如果加密算法不支持也拜拜）</li>
+</ol>
+</li>
+<li><p>ServerHello</p>
+<p>服务器收到请求后发出响应</p>
+<ol>
+<li>确认TLS协议版本</li>
+<li><strong>服务器生产的随机数</strong></li>
+<li>确认密码套件列表</li>
+<li><strong>服务器的数字证书</strong></li>
+</ol>
+</li>
+<li><p>客户端回应</p>
+<p>首先客户端会验证服务器发来的数字证书，没问题就取出解密后的公钥</p>
+<ol>
+<li><strong>一个被服务器公钥加密的随机数</strong></li>
+<li>加密算法改变通知：接下来所有的通信都将使用会话密钥</li>
+<li>握手结束通知：将之前所有通信的数据做一个摘要，供服务端检验</li>
+</ol>
+</li>
+<li><p><strong>服务器和客户端有了这三个随机数（Client Random、Server Random、pre-master key），接着就用双方协商的加密算法，各自生成本次通信的「会话秘钥」</strong>。</p>
+</li>
+<li><p>服务器最后的回应</p>
+<ol>
+<li>加密算法改变通知</li>
+<li>前面所有通信的摘要，供客户端校验</li>
+</ol>
+</li>
+</ol>
+<p>缺点：RSA算法的HTTPS存在“前向安全问题”，即一旦服务端的私钥泄露，客户端通过公钥加密的随机数就会泄露，从而导致会话秘钥泄露，最终导致整个通讯裸奔</p>
+<p>为了解决这一问题，便有了ECDHE密钥协商算法</p>
+</li>
+</ol>
+</li>
+<li><p>CA颁发证书的过程</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/https/%E8%AF%81%E4%B9%A6%E7%9A%84%E6%A0%A1%E9%AA%8C.png"
+                     
+                ></p>
+<p>CA 签发证书的过程，如上图左边部分：</p>
+<ul>
+<li>首先 CA 会把持有者的公钥、用途、颁发者、有效时间等信息打成一个包，然后对这些信息进行 Hash 计算，得到一个 Hash 值；</li>
+<li>然后 CA 会使用自己的私钥将该 Hash 值加密，生成 Certificate Signature，也就是 CA 对证书做了签名；</li>
+<li>最后将 Certificate Signature 添加在文件证书上，形成数字证书；</li>
+</ul>
+<p>客户端校验服务端的数字证书的过程，如上图右边部分：</p>
+<ul>
+<li>首先客户端会使用同样的 Hash 算法获取该证书的 Hash 值 H1；</li>
+<li>通常浏览器和操作系统中集成了 CA 的公钥信息，浏览器收到证书后可以使用 CA 的公钥解密 Certificate Signature 内容，得到一个 Hash 值 H2 ；</li>
+<li>最后比较 H1 和 H2，如果值相同，则为可信赖的证书，否则则认为证书不可信。</li>
+</ul>
+<p>证书信任链问题：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/https/%E7%94%A8%E6%88%B7%E4%BF%A1%E4%BB%BB.png"
+                     
+                ></p>
+<p>总括来说，由于用户信任 GlobalSign，所以由 GlobalSign 所担保的 baidu.com 可以被信任，另外由于用户信任操作系统或浏览器的软件商，所以由软件商预载了根证书的 GlobalSign 都可被信任。</p>
+<p>为什么需要这么多层证书？为什么不直接都由root颁发？</p>
+<p>这是为了安全问题，如果直接由root颁发，一旦root失守，整个CA机制都会瘫痪，边缘CA失守则不会那么严重</p>
+</li>
+<li><p>TLS记录协议</p>
+<p>TLS 记录协议主要负责消息（HTTP 数据）的压缩，加密及数据的认证，过程如下图</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/%E8%AE%B0%E5%BD%95%E5%8D%8F%E8%AE%AE.png"
+                     
+                ></p>
+<ol>
+<li>将消息分割为短片段，每个片段分别压缩</li>
+<li>为每个压缩后的片段添加MAC值，可以通过MAC识别篡改和重放攻击（TLS记录维持了一个递增的序号，可以发现重传和重排，同时有一个不重数Nonce，可以防止重放整个TCP传输）</li>
+<li>经过压缩的消息片段会和消息认证码一起通过对称密码进行加密</li>
+<li>最后加上数据类型、版本、压缩后长度组成报头</li>
+</ol>
+</li>
+<li><p>HTTP&#x2F;2的进步</p>
+<ol>
+<li>头部压缩：一样或相似的头会被HTTP2干掉，通过一个HPACK算法，客户端和浏览器一起维护一张头部信息表，生成一个索引号，以后就不用发同样字段了，只发索引号</li>
+<li>二进制格式，HTTP2的头和数据体都是二进制，并且统称为头信息帧和数据帧</li>
+<li>并发传输：HTTP2可以复用一个TCP连接，每个TCP连接拥有多个Stream，Stream里面可以包含一个或多个Message，Message对应HTTP&#x2F;1中的请求或响应，不同的HTTP请求用独一无二的Stream ID来区分，接受端可以通过Stream ID组装信息</li>
+<li>服务器推送：服务端不再被动的响应，还可以主动地推送信息，客户端发出的Stream必须是奇数，服务器发出的stream必须是偶数</li>
+</ol>
+<p>Http2的瓶颈：因为TCP协议</p>
+<p>一旦丢包，就会触发TCP的重传机制，而后续的报文，即使已经缓存到了内核中，也只能等待丢失的包重传，因为TCP要求字节数据完整且连续</p>
+</li>
+<li><p>HTTP&#x2F;3的进步</p>
+<p>既然HTTP&#x2F;2在TCP层性能有瓶颈，那就扔了TCP！用UDP！</p>
+<p>但是传输又得是可靠的，于是使用了基于UDP的QUIC协议，实现类似TCP的可靠性传输</p>
+<p>QUIC没有队头阻塞、连接建立更快、连接迁移</p>
+<p>连接迁移：QUIC协议通过连接ID来标记通信的两个端点，客户端和服务器可以各自选择一组ID标记自己，这样即使网络发生变化，比如wifi换5G，只要上下文信息不变，就可以直接复用连接，不用像TCP那样还要重连，避免了卡顿</p>
+<p>HTTP3普及速度非常缓慢，很多设备不知道什么是QUIC，会把它当做UDP，有的看到UDP包就直接丢</p>
+</li>
+</ol>
+<h3 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h3><ol>
+<li><p>为什么需要TCP协议？TCP协议工作在那一层？</p>
+<p><code>IP</code> 层是「不可靠」的，它不保证网络包的交付、不保证网络包的按序交付、也不保证网络包中的数据的完整性。</p>
+<p>TCP工作在传输层</p>
+</li>
+</ol>
+<h2 id="数据库基础·SQLite·Room"><a href="#数据库基础·SQLite·Room" class="headerlink" title="数据库基础·SQLite·Room"></a>数据库基础·SQLite·Room</h2><ol>
+<li><p>MySQL有哪些数据类型</p>
+<ol>
+<li>整数（Int，还有大中小）</li>
+<li>浮点数（Float，Double，Decimal）</li>
+<li>字符串（Char，Varchat，Text（不区分大小写），Blob（区分大小写），Binary，也有大中小）</li>
+<li>日期（Date，Year…）</li>
+<li>Enum（映射到数字，最多65536，MySQL留了一个0来表示错误）（多个选项选一个，如果出错写空值）</li>
+<li>Set（最多64个项，多个选项选多个，如果有错，把错的扔了只留有效的）</li>
+</ol>
+</li>
+<li><p>数据库范式</p>
+<ol>
+<li><p>1NF</p>
+<p>现在的数据库写不出来的</p>
+</li>
+<li><p>2NF</p>
+<p>所有的非主属性都要完全依赖于码</p>
+<p>ABCD，如果AB是码，那么CD都应该由AB联合推出，而不是A或B单独就能推出</p>
+</li>
+<li><p>3NF，在2NF的基础上不允许传递依赖</p>
+<p>ABCD，如果A$\Rightarrow$B,B$\Rightarrow$CD,就不行，(学号) → (所在学院) → (学院地点, 学院电话)</p>
+</li>
+<li><p>BCNF,2NF和3NF都只针对非主属性，BCNF进一步将限制推广到所有属性：且每个属性都不传递依赖于R的候选键</p>
+<p>比如AB$\Rightarrow$D,BC$\Rightarrow$D，那么AB，BC都是码，从而ABC都是主属性，而这时如果A$\Rightarrow$C，就会让D有传递依赖，3NF是不会拒绝这种设计的，但是BCNF会拒绝</p>
+</li>
+</ol>
+</li>
+<li><p>事务隔离级别</p>
+<p>事务遵循ACID（要么不做，要么全做、事务执行前后，数据库都保持一致性状态、隔离性保证事务并发、事务结束后对数据库的修改是持久的）</p>
+<ol>
+<li>读未提交：读了一个未提交事务修改过的数据，又叫脏读</li>
+<li>不可重复读（Oracle默认的事务隔离级别）：事务执行过程中如果多次读取数据，可能出现读到的结果不一样的情况，因为其他事务可能在事务处理过程中操纵了数据</li>
+<li>可重复读（MySQL默认的事务隔离级别）：事务多次读取得到的数据是一样的，但是仍然可能出现幻读</li>
+<li>可串行化：事务可以被理解成一个个执行的，效率最低</li>
+</ol>
+</li>
+<li><p>幻读与不可重复度的区别</p>
+<p>(1) 不可重复读是读取了其他事务更改的数据，<strong>针对update操作</strong></p>
+<p>解决：使用行级锁，锁定该行，事务A多次读取操作完成后才释放该锁，这个时候才允许其他事务更改刚才的数据。</p>
+<p>(2) 幻读是读取了其他事务新增的数据，<strong>针对insert和delete操作</strong></p>
+<p>解决：使用表级锁，锁定整张表，事务A多次读取数据总量之后才释放该锁，这个时候才允许其他事务新增数据。</p>
+<p>这时候再理解事务隔离级别就简单多了呢。</p>
+</li>
+<li><p>索引</p>
+<p>按照数据结构分，有B+索引，Hash索引，Full-Text索引</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blogb50cdc7570cce03d43f37a0622767e39.png"
+                     
+                ></p>
+</li>
+</ol>
+<h2 id="设计模式与软件架构"><a href="#设计模式与软件架构" class="headerlink" title="设计模式与软件架构"></a>设计模式与软件架构</h2><ol>
+<li><p>设计模式原则</p>
+<ol>
+<li>单一职责原则：一个类只应当有一个引起它发生变化的原因</li>
+<li>开放封闭原则：一个实体应该对外扩展开放，对内修改关闭，即每次发生变化应当是添加代码，而不是修改代码</li>
+<li>李氏替换原则：凡是父类出现的地方，子类应当都可以使用</li>
+<li>依赖倒置原则：实现应当依赖于抽象，抽象不应当依赖于实现</li>
+<li>接口隔离原则：一个接口不应当承担过多职责</li>
+<li>合成复用原则：尽量采用聚合&#x2F;组合，而不是继承，新的类可以委托已经实现的类来完成某些功能来实现复用</li>
+<li>最少知识原则（迪米特法则）：之和你最好的朋友通信，减少和其他人交互</li>
+</ol>
+</li>
+<li><p>MVC Model-View-Controller</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://www.ruanyifeng.com/blogimg/asset/2015/bg2015020105.png"
+                     
+                ></p>
+<p>View传指令到Controller，Controller在业务逻辑完成后通知Model发生变更，Model变更后将数据发送到View，完成视图的更新</p>
+<p><strong>交互</strong></p>
+<ol>
+<li><p>用户与View交互，比如操纵DOM，View接受指令，并传递给controller</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blog21005d274cba9f3f35cfcdbc158617e0.png"
+                     
+                ></p>
+</li>
+<li><p>用户直接将指令给Controller，比如直接更改URL</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blogc97bc35d0d211b7a4f6f16a9e3c109f3.png"
+                     
+                ></p>
+</li>
+</ol>
+</li>
+<li><p>BackBone：MVC改进</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://www.ruanyifeng.com/blogimg/asset/2015/bg2015020108.png"
+                     
+                ></p>
+<p>Controller几乎只保留的Router的作用，而View则变得很厚</p>
+</li>
+<li><p>MVP Model-View-Presenter</p>
+<ol>
+<li><p>将Controller改为Presenter，View不再与Model交互，而是改为Presenter与View双向交互，这种设计下View变得很薄，各种事情都交给Presenter来做</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://www.ruanyifeng.com/blogimg/asset/2015/bg2015020109.png"
+                     
+                ></p>
+</li>
+</ol>
+</li>
+<li><p>MVVM Model-View-ViewModel</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://www.ruanyifeng.com/blogimg/asset/2015/bg2015020110.png"
+                     
+                ></p>
+<p>和MVP很像，但是将Presenter改为ViewModel，ViewModel和View之间采用双向绑定</p>
+</li>
+<li><p>Android中的MVVM</p>
+<p>MVVM的本质是数据驱动，将解耦做得更加彻底</p>
+<p>在Android中，Activity和Fragment扮演View的角色，ViewModel是VM，Repository类则集成Model的功能，提供对于外存、内存、网络数据的访问</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.lsmcloud.top/blog378477697ef2557f3f7663fecf106707.png"
+                     
+                ></p>
+<p>实现：</p>
+<ol>
+<li><p>首先我们需要一个MyViewModel类继承自ViewModel</p>
+<p>这个VM持有View需要的Data，它们被MutableLiveData（可以被更改的LiveData）包裹，同时VM应当开发接口让View获取这些MutableLiveData，但是注意提供的类型应当是LiveData，避免View直接将LiveData修改，不过有时候View就是需要修改Data，这时我们应该单独建立专门的Setter接口，而不是直接将MutableLiveData交给View，这将造成数据修改的不可控</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserListViewModel</span> <span class="keyword">extends</span> <span class="title class_">ViewModel</span> &#123;</span><br><span class="line">    <span class="comment">//用户信息</span></span><br><span class="line">    <span class="keyword">private</span> MutableLiveData&lt;List&lt;User&gt;&gt; userListLiveData;</span><br><span class="line">    <span class="comment">//进条度的显示</span></span><br><span class="line">    <span class="keyword">private</span> MutableLiveData&lt;Boolean&gt; loadingLiveData;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UserListViewModel</span><span class="params">()</span> &#123;</span><br><span class="line">        userListLiveData = <span class="keyword">new</span> <span class="title class_">MutableLiveData</span>&lt;&gt;();</span><br><span class="line">        loadingLiveData = <span class="keyword">new</span> <span class="title class_">MutableLiveData</span>&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> LiveData&lt;List&lt;User&gt;&gt; <span class="title function_">getUserListLiveData</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> userListLiveData;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> LiveData&lt;Boolean&gt; <span class="title function_">getLoadingLiveData</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> loadingLiveData;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>在Activity中获取LiveData并通过Observe方法监听LiveData的更改，这样View和ViewModel就被绑定起来了</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//UserListActivity.java</span></span><br><span class="line">...</span><br><span class="line"><span class="comment">//观察ViewModel的数据，且此数据 是 View 直接需要的，不需要再做逻辑处理</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">observeLivaData</span><span class="params">()</span> &#123;</span><br><span class="line">    mUserListViewModel.getUserListLiveData().observe(<span class="built_in">this</span>, <span class="keyword">new</span> <span class="title class_">Observer</span>&lt;List&lt;User&gt;&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onChanged</span><span class="params">(List&lt;User&gt; users)</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (users == <span class="literal">null</span>) &#123;</span><br><span class="line">                Toast.makeText(UserListActivity.<span class="built_in">this</span>, <span class="string">&quot;获取user失败！&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//刷新列表</span></span><br><span class="line">            mUserAdapter.setNewInstance(users);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    mUserListViewModel.getLoadingLiveData().observe(<span class="built_in">this</span>, <span class="keyword">new</span> <span class="title class_">Observer</span>&lt;Boolean&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onChanged</span><span class="params">(Boolean aBoolean)</span> &#123;</span><br><span class="line">         <span class="comment">//显示/隐藏加载进度条</span></span><br><span class="line">            mProgressBar.setVisibility(aBoolean? View.VISIBLE:View.GONE);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>为了让App获取数据，我们单独创建一个Repository，这个类将代理所有数据获取过程，并开放简单一致的接口让ViewModel获取数据，这样ViewModel无需关系数据具体的获取</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserRepository</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> UserRepository mUserRepository;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> UserRepository <span class="title function_">getUserRepository</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (mUserRepository == <span class="literal">null</span>) &#123;</span><br><span class="line">        mUserRepository = <span class="keyword">new</span> <span class="title class_">UserRepository</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mUserRepository;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//(假装)从服务端获取</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getUsersFromServer</span><span class="params">(Callback&lt;List&lt;User&gt;&gt; callback)</span>&#123;</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">AsyncTask</span>&lt;Void, Void, List&lt;User&gt;&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onPostExecute</span><span class="params">(List&lt;User&gt; users)</span> &#123;</span><br><span class="line">            callback.onSuccess(users);</span><br><span class="line">            <span class="comment">//存本地数据库</span></span><br><span class="line">            saveUsersToLocal(users);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">protected</span> List&lt;User&gt; <span class="title function_">doInBackground</span><span class="params">(Void... voids)</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//假装从服务端获取的</span></span><br><span class="line">            List&lt;User&gt; users = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line">                <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">&quot;user&quot;</span>+i, i);</span><br><span class="line">                users.add(user);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> users;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;.execute();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>将ViewModel和Repository连接起来</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserListViewModel</span> <span class="keyword">extends</span> <span class="title class_">ViewModel</span> &#123;</span><br><span class="line">    <span class="comment">//用户信息</span></span><br><span class="line">    <span class="keyword">private</span> MutableLiveData&lt;List&lt;User&gt;&gt; userListLiveData;</span><br><span class="line">    <span class="comment">//进条度的显示</span></span><br><span class="line">    <span class="keyword">private</span> MutableLiveData&lt;Boolean&gt; loadingLiveData;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UserListViewModel</span><span class="params">()</span> &#123;</span><br><span class="line">        userListLiveData = <span class="keyword">new</span> <span class="title class_">MutableLiveData</span>&lt;&gt;();</span><br><span class="line">        loadingLiveData = <span class="keyword">new</span> <span class="title class_">MutableLiveData</span>&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取用户列表信息</span></span><br><span class="line"><span class="comment">     * 假装网络请求 2s后 返回用户信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getUserInfo</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">        loadingLiveData.setValue(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">        UserRepository.getUserRepository().getUsersFromServer(<span class="keyword">new</span> <span class="title class_">Callback</span>&lt;List&lt;User&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onSuccess</span><span class="params">(List&lt;User&gt; users)</span> &#123;</span><br><span class="line">                loadingLiveData.setValue(<span class="literal">false</span>);</span><br><span class="line">                userListLiveData.setValue(users);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onFailed</span><span class="params">(String msg)</span> &#123;</span><br><span class="line">                loadingLiveData.setValue(<span class="literal">false</span>);</span><br><span class="line">                userListLiveData.setValue(<span class="literal">null</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//返回LiveData类型</span></span><br><span class="line">    <span class="keyword">public</span> LiveData&lt;List&lt;User&gt;&gt; <span class="title function_">getUserListLiveData</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> userListLiveData;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> LiveData&lt;Boolean&gt; <span class="title function_">getLoadingLiveData</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> loadingLiveData;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>在View中初始化时调用getData()方法，让ViewModel获取数据</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//UserListActivity.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserListActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line"><span class="keyword">private</span> UserListViewModel mUserListViewModel;</span><br><span class="line"><span class="keyword">private</span> ProgressBar mProgressBar;</span><br><span class="line"><span class="keyword">private</span> RecyclerView mRvUserList;</span><br><span class="line"><span class="keyword">private</span> UserAdapter mUserAdapter;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_user_list);</span><br><span class="line"></span><br><span class="line">    initView();</span><br><span class="line">    initViewModel();</span><br><span class="line">    getData();</span><br><span class="line">    observeLivaData();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">initView</span><span class="params">()</span> &#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">initViewModel</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">ViewModelProvider</span> <span class="variable">viewModelProvider</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ViewModelProvider</span>(<span class="built_in">this</span>);</span><br><span class="line">    mUserListViewModel = viewModelProvider.get(UserListViewModel.class);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取数据，调用ViewModel的方法获取</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">getData</span><span class="params">()</span> &#123;</span><br><span class="line">    mUserListViewModel.getUserInfo();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">observeLivaData</span><span class="params">()</span> &#123;...&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>更加高级的单向绑定与双向绑定（个人感觉更像语法糖）</p>
+<p>单向绑定：</p>
+<p>在Xml中添加这段</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">data</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">variable</span></span></span><br><span class="line"><span class="tag">         <span class="attr">name</span>=<span class="string">&quot;user&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">type</span>=<span class="string">&quot;com.llw.mvvm.User&quot;</span> /&gt;</span></span><br><span class="line"> data&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>需要绑定的组件这样写</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:id</span>=<span class="string">&quot;@+id/tv_account&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:text</span>=<span class="string">&quot;@&#123;user.account&#125;&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span>/&gt;</span></span><br><span class="line">      </span><br><span class="line">       <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:id</span>=<span class="string">&quot;@+id/tv_pwd&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:text</span>=<span class="string">&quot;@&#123;user.pwd&#125;&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>使用DataBindingUtil生成DataBinding类</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ActivityMainBinding</span> <span class="variable">dataBing</span> <span class="operator">=</span> DataBindingUtil.setContentView(<span class="built_in">this</span>,R.layout....);</span><br></pre></td></tr></table></figure></div>
+
+<p>DataBinging会在编译时为我们生成对应组件快速访问的字段，就不用findViewById了</p>
+<p>手动刷新数据，数据绑定的组件也会刷新</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user.setPwd(dataBinding.etPwd.getText().toString().Trim());</span><br></pre></td></tr></table></figure></div>
+
+<p>双向绑定：</p>
+<p>双向绑定将Xml中的data改成ViewModel</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">data</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">variable</span></span></span><br><span class="line"><span class="tag">            <span class="attr">name</span>=<span class="string">&quot;viewModel&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">type</span>=<span class="string">&quot;com.llw.mvvm.viewmodels.MainViewModel&quot;</span> /&gt;</span></span><br><span class="line">    data&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>要绑定的组件</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">&quot;@+id/tv_account&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">&quot;@&#123;viewModel.user.account&#125;&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginBottom</span>=<span class="string">&quot;24dp&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">&quot;@+id/tv_pwd&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">&quot;@&#123;viewModel.user.pwd&#125;&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>这种写法可以吧ViewModel里面的MutableLiveData数据一起改了</p>
+<p>触发更新</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user1.observe(<span class="built_in">this</span>, user2 -&gt; dataBinding.setViewModel(mainViewModel));</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+</li>
+</ol>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>License</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2023/11/19/%E5%87%A4%E5%87%B0%E6%9E%B6%E6%9E%84%E7%AC%94%E8%AE%B0/">凤凰架构笔记</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2023/10/23/%E5%AD%A6%E4%B9%A0LLVM/">学习LLVM</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Liu Yaoli</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">On This Page</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87"><span class="toc-text">准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E5%85%AB%E8%82%A1"><span class="toc-text">Android 八股</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E7%BA%A7"><span class="toc-text">初级</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Handler-%E9%87%8C%E8%97%8F%E7%9D%80%E7%9A%84-Callback-%E8%83%BD%E5%B9%B2%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">Handler 里藏着的 Callback 能干什么？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-Message-%E5%AE%9E%E4%BE%8B%E7%9A%84%E6%9C%80%E4%BD%B3%E6%96%B9%E5%BC%8F"><span class="toc-text">创建 Message 实例的最佳方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BB%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%AD%BB%E5%BE%AA%E7%8E%AF%E4%B8%80%E7%9B%B4%E8%BF%90%E8%A1%8C%E6%98%AF%E4%B8%8D%E6%98%AF%E7%89%B9%E5%88%AB%E6%B6%88%E8%80%97CPU%E8%B5%84%E6%BA%90%E5%91%A2%EF%BC%9F"><span class="toc-text">主线程的死循环一直运行是不是特别消耗CPU资源呢？</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="toc-text">计算机网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E5%8D%8F%E8%AE%AE"><span class="toc-text">HTTP协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E5%8D%8F%E8%AE%AE"><span class="toc-text">TCP协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%C2%B7SQLite%C2%B7Room"><span class="toc-text">数据库基础·SQLite·Room</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84"><span class="toc-text">设计模式与软件架构</span></a></li></ol></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>Scroll to Top</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `Just`,
+      min: `minutes ago`,
+      hour: `hours ago`,
+      day: `days ago`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js`,
+    marked: `https://cdn.jsdelivr.net/npm/marked@13.0.1/lib/marked.umd.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `Switched to Light Mode`,
+      dark: `Switched to Dark Mode`,
+      auto: `Switched to Auto Mode`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

@@ -1,0 +1,1313 @@
+
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1" theme-name="Stellar" theme-version="1.29.1">
+  
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>软件测试 - Yaoli's Blog</title>
+
+  
+    <meta name="description" content="软件测试 源代码 移动应用 智能软件  方向survey 20% 另一个方向实现工具 30% 期末考试 40% 课堂报告 5% 课堂小测试 5% 课后小测试 5% 自动化是软件测试的一个梦想 什么是bugFault：静态的，就是写错了 Error：跑的时候出错了，或者跑的时候产生的不正确状态 Failure：跑出来的结果是错的 测试用例 execution：运行到出错的代码 infection：触">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件测试">
+<meta property="og:url" content="http://blog.lsmcloud.top/2023/09/07/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:site_name" content="Yaoli&#39;s Blog">
+<meta property="og:description" content="软件测试 源代码 移动应用 智能软件  方向survey 20% 另一个方向实现工具 30% 期末考试 40% 课堂报告 5% 课堂小测试 5% 课后小测试 5% 自动化是软件测试的一个梦想 什么是bugFault：静态的，就是写错了 Error：跑的时候出错了，或者跑的时候产生的不正确状态 Failure：跑出来的结果是错的 测试用例 execution：运行到出错的代码 infection：触">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://files.lsmcloud.top/blog06bbba941c5387c93458ac82edbd47c9.png">
+<meta property="og:image" content="https://files.lsmcloud.top/blog22be9f0cd9cec48af02036fa2c409312.png">
+<meta property="og:image" content="https://files.lsmcloud.top/blogf14b200e1cf80a181e50854fc6c31d23.png">
+<meta property="og:image" content="https://files.lsmcloud.top/blog406b4ff5360a72ac3e35ffa1d5daa9b4.png">
+<meta property="article:published_time" content="2023-09-07T06:02:55.000Z">
+<meta property="article:modified_time" content="2023-12-28T06:29:05.484Z">
+<meta property="article:author" content="Liu Yaoli">
+<meta property="article:tag" content="课程笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://files.lsmcloud.top/blog06bbba941c5387c93458ac82edbd47c9.png">
+  
+  
+  
+  <meta name="keywords" content="课程笔记">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.1">
+
+  
+
+  
+
+  
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Yaoli's Blog</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="Search"></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">Recent Update</span></div><div class="widget-body fs14"><a class="item title" href="/2024/10/10/%E6%B5%81%E9%87%8F%E4%BC%AA%E8%A3%85%E5%AD%A6%E4%B9%A0/"><span class="title">流量伪装学习</span></a><a class="item title" href="/2024/03/07/ML2024-weekly-report/"><span class="title">ML2024:weekly report</span></a><a class="item title" href="/2024/09/17/%E5%9C%A8%E5%A4%A7%E9%99%86%E5%9C%B0%E5%8C%BA%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%BC%80%E5%8F%91/"><span class="title">在大陆地区如何进行最基本的开发?</span></a><a class="item title" href="/2024/04/25/%E5%9B%9B%E5%85%83%E6%95%B0%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"><span class="title">四元数与计算机图形学</span></a><a class="item title" href="/2024/09/11/%E5%BE%AE%E5%88%86%E4%B8%8E%E5%AF%BC%E6%95%B0/"><span class="title">微分与导数</span></a><a class="item title" href="/2024/04/27/Transformer%E6%9E%B6%E6%9E%84%E5%AD%A6%E4%B9%A0/"><span class="title">Transformer架构学习</span></a><a class="item title" href="/2024/07/03/%E4%BF%A1%E5%8F%B7%E9%87%8F-%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%E4%B8%8E%E7%AE%A1%E7%A8%8B/"><span class="title">信号量,条件变量与管程</span></a><a class="item title" href="/2024/07/03/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1-cookmanual/"><span class="title">概率统计-cookmanual</span></a><a class="item title" href="/2024/07/01/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-cookmanual/"><span class="title">离散数学_cookmanual</span></a><a class="item title" href="/2024/07/01/%E5%88%A9%E7%8E%87%E9%A3%8E%E9%99%A9/"><span class="title">利率风险</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">软件测试</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2023-09-07T06:02:55.000Z">2023-09-07</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2023-12-28T06:29:05.484Z">2023-12-28</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>软件测试</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="软件测试"><a href="#软件测试" class="headerlink" title="软件测试"></a>软件测试</h1><ol>
+<li>源代码</li>
+<li>移动应用</li>
+<li>智能软件</li>
+</ol>
+<p>方向survey 20%</p>
+<p>另一个方向实现工具 30%</p>
+<p>期末考试 40%</p>
+<p>课堂报告 5%</p>
+<p>课堂小测试 5%</p>
+<p>课后小测试 5%</p>
+<p>自动化是软件测试的一个梦想</p>
+<h2 id="什么是bug"><a href="#什么是bug" class="headerlink" title="什么是bug"></a>什么是bug</h2><p>Fault：静态的，就是写错了</p>
+<p>Error：跑的时候出错了，或者跑的时候产生的不正确状态</p>
+<p>Failure：跑出来的结果是错的</p>
+<p>测试用例</p>
+<p>execution：运行到出错的代码</p>
+<p>infection：触发出错误</p>
+<p>propagation：错误传播到输出</p>
+<p>bug有空间聚集的趋势</p>
+<h2 id="测试的局限性"><a href="#测试的局限性" class="headerlink" title="测试的局限性"></a>测试的局限性</h2><ol>
+<li>输入空间庞大</li>
+<li>实现逻辑复杂</li>
+<li>测试预言未知</li>
+</ol>
+<h3 id="随机测试"><a href="#随机测试" class="headerlink" title="随机测试"></a>随机测试</h3><ol>
+<li>测试执行次数够多</li>
+<li>测试数据随机生成</li>
+<li>概率低的偶然现象发生</li>
+</ol>
+<h3 id="常见bug"><a href="#常见bug" class="headerlink" title="常见bug"></a>常见bug</h3><ol>
+<li>断言失败</li>
+<li>异常崩溃</li>
+<li>无效输入</li>
+<li>错误输出</li>
+</ol>
+<h3 id="模糊测试"><a href="#模糊测试" class="headerlink" title="模糊测试"></a>模糊测试</h3><p>本质上就是带反馈的随机测试，基于bug的聚集性</p>
+<h2 id="经典测试技术"><a href="#经典测试技术" class="headerlink" title="经典测试技术"></a>经典测试技术</h2><ol>
+<li>变异测试<ul>
+<li>把程序改错，然后拿测试用例来试，如果程序出错了，那么说明测试用例是有错误检测能力的，如果用例仍然被通过了，这意味着测试用例是很弱的</li>
+<li>执行代价非常高，如何高效执行编译测试是企业面临的一大问题</li>
+</ul>
+</li>
+<li>蜕变测试<ul>
+<li>多次执行目标程序时，输入输出之间期望遵循的关系，比如sin函数应该呈现出2π周期性</li>
+</ul>
+</li>
+<li>差分测试<ul>
+<li>将同一测试用例1运行到一系列相似功能的应用中观察执行差异来检测bug</li>
+</ul>
+</li>
+</ol>
+<h2 id="自动化测试"><a href="#自动化测试" class="headerlink" title="自动化测试"></a>自动化测试</h2><h3 id="自动化测试脚本修复"><a href="#自动化测试脚本修复" class="headerlink" title="自动化测试脚本修复"></a>自动化测试脚本修复</h3><h3 id="程序修复"><a href="#程序修复" class="headerlink" title="程序修复"></a>程序修复</h3><pre class="mermaid">mindmap
+    id(自动化测试)
+        自动化测试脚本修复
+        程序修复
+        测试用例推荐
+        基于互联网群体<br>智能的软件测试</pre>
+
+<h3 id="自动化测试发展路线"><a href="#自动化测试发展路线" class="headerlink" title="自动化测试发展路线"></a>自动化测试发展路线</h3><pre class="mermaid">stateDiagram
+    确定步骤的自动化 --&gt; 非确定步骤的自动化 
+    非确定步骤的自动化 --&gt; 具有学习能力的自动化</pre>
+
+<h2 id="发展热点之智能软件测试"><a href="#发展热点之智能软件测试" class="headerlink" title="发展热点之智能软件测试"></a>发展热点之智能软件测试</h2><p>有时候删除神经网络的一部分反而会提高了系统的准确度</p>
+<h2 id="常用测试方式"><a href="#常用测试方式" class="headerlink" title="常用测试方式"></a>常用测试方式</h2><h3 id="边界值测试"><a href="#边界值测试" class="headerlink" title="边界值测试"></a>边界值测试</h3><h3 id="训练数据的偏见会带来模型的偏见"><a href="#训练数据的偏见会带来模型的偏见" class="headerlink" title="训练数据的偏见会带来模型的偏见"></a>训练数据的偏见会带来模型的偏见</h3><h3 id="变异测试"><a href="#变异测试" class="headerlink" title="变异测试"></a>变异测试</h3><h4 id="变异测试背景"><a href="#变异测试背景" class="headerlink" title="变异测试背景"></a>变异测试背景</h4><p>正向使用：修复程序的错误，产生新的测试用例</p>
+<p>反向使用：产生错误的程序片段（变异测试的主要部分），生成恶意测试用例</p>
+<p>方向控制：引导&amp;反馈</p>
+<h5 id="关心的问题"><a href="#关心的问题" class="headerlink" title="关心的问题"></a>关心的问题</h5><ol>
+<li>如何编写能够暴露缺陷的测试用例<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.054ex;" xmlns="http://www.w3.org/2000/svg" width="2.262ex" height="1.242ex" role="img" focusable="false" viewBox="0 -525 1000 549"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="21D2" d="M580 514Q580 525 596 525Q601 525 604 525T609 525T613 524T615 523T617 520T619 517T622 512Q659 438 720 381T831 300T927 263Q944 258 944 250T935 239T898 228T840 204Q696 134 622 -12Q618 -21 615 -22T600 -24Q580 -24 580 -17Q580 -13 585 0Q620 69 671 123L681 133H70Q56 140 56 153Q56 168 72 173H725L735 181Q774 211 852 250Q851 251 834 259T789 283T735 319L725 327H72Q56 332 56 347Q56 360 70 367H681L671 377Q638 412 609 458T580 514Z"></path></g></g></g></svg></mjx-container>如何引导测试</li>
+<li>如何评估测试套件的质量<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.054ex;" xmlns="http://www.w3.org/2000/svg" width="2.262ex" height="1.242ex" role="img" focusable="false" viewBox="0 -525 1000 549"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="21D2" d="M580 514Q580 525 596 525Q601 525 604 525T609 525T613 524T615 523T617 520T619 517T622 512Q659 438 720 381T831 300T927 263Q944 258 944 250T935 239T898 228T840 204Q696 134 622 -12Q618 -21 615 -22T600 -24Q580 -24 580 -17Q580 -13 585 0Q620 69 671 123L681 133H70Q56 140 56 153Q56 168 72 173H725L735 181Q774 211 852 250Q851 251 834 259T789 283T735 319L725 327H72Q56 332 56 347Q56 360 70 367H681L671 377Q638 412 609 458T580 514Z"></path></g></g></g></svg></mjx-container>如何评估测试</li>
+</ol>
+<h5 id="变异测试的产生"><a href="#变异测试的产生" class="headerlink" title="变异测试的产生"></a>变异测试的产生</h5><ol>
+<li>模拟缺陷，量化缺陷检测能力，扮演测试有效性的指示器<ul>
+<li>模拟：变异产生错误版本</li>
+<li>量化</li>
+</ul>
+</li>
+</ol>
+<h5 id="研究现状"><a href="#研究现状" class="headerlink" title="研究现状"></a>研究现状</h5><p>广泛关注（赢赢赢）</p>
+<h5 id="变异分析"><a href="#变异分析" class="headerlink" title="变异分析"></a>变异分析</h5><p>黑话：</p>
+<p>自动化生成人工缺陷：自动化变异源程序进行分析</p>
+<p>变异体：语义变体，语法上语义上与源程序都不相同</p>
+<p>变异算子：变异：程序变换规则</p>
+<p>变异得分：变异测试对测试套件错误能力检测的量化</p>
+<p>变异体的杀死与存活</p>
+<p>缺陷传播模型：PIE（Execution，Infection，Propagation），RIPR（Reachability，Infection，Propagation，Revealability）</p>
+<p>杀死条件：</p>
+<ul>
+<li>weak</li>
+<li>firm</li>
+<li>strong</li>
+</ul>
+<p>变异体的分类</p>
+<ul>
+<li>有效变异体</li>
+<li>无效变异体<ul>
+<li>夭折变异体</li>
+<li>等价变异体：和源程序语义相同</li>
+<li>重复变异体：两个变异体语义相同</li>
+<li>蕴含变异体：所有能杀死A的，都能杀死B</li>
+</ul>
+</li>
+</ul>
+<p>变异算子：</p>
+<p>一系列语法变换规则</p>
+<p>变异的依据</p>
+<p>基本形式：</p>
+<ul>
+<li>源代码变换</li>
+<li>字节码变换</li>
+<li>元变异</li>
+</ul>
+<p>变异测试为什么有效？</p>
+<ul>
+<li>假设1：缺陷是简单的，可模拟的</li>
+<li>假设2：缺陷可叠加</li>
+<li>假设3：缺陷检测有效性</li>
+</ul>
+<h4 id="变异测试过程"><a href="#变异测试过程" class="headerlink" title="变异测试过程"></a>变异测试过程</h4><pre class="mermaid">stateDiagram
+    变异体筛选、创建 --&gt; 去除重复和等价的变异体
+    去除重复和等价的变异体 --&gt; 生成测试输入
+    生成测试输入 --&gt; 执行变异体
+    执行变异体 --&gt; 计算变异得分
+    计算变异得分 --&gt; 优化、排序
+    优化、排序 --&gt; 覆盖阈值是否达到
+    覆盖阈值是否达到 --&gt; 测试套件是正确的吗: yes
+    覆盖阈值是否达到 --&gt; 生成测试输入: no
+    测试套件是正确的吗 --&gt; 结束: yes
+    测试套件是正确的吗 --&gt; fix测试套件: no
+    fix测试套件 --&gt;  变异体筛选、创建</pre>
+
+<h5 id="变异体筛选、约简"><a href="#变异体筛选、约简" class="headerlink" title="变异体筛选、约简"></a>变异体筛选、约简</h5><h5 id="变异算子定义"><a href="#变异算子定义" class="headerlink" title="变异算子定义"></a>变异算子定义</h5><p>设计原则：变异算子定义</p>
+<p>如何有效设计变异算子：</p>
+<ul>
+<li>根据编程语言</li>
+<li>根据语言设计原则</li>
+<li>根据应用场景</li>
+<li>根据bug类型</li>
+</ul>
+<p>约减策略：</p>
+<ul>
+<li>随机选取</li>
+<li>基于类型</li>
+<li>基于分部</li>
+</ul>
+<p>变异体生成</p>
+<ul>
+<li>将选中的变异体实例化</li>
+<li>基本方式：每个变体构建一个单独的源文件</li>
+<li>核心：程序模式</li>
+<li>研究方向：怎么把算子生成过程的开销减少</li>
+<li>元变异，基于中间表示的变异体生成，热替换（直接在运行时生成变异体）</li>
+</ul>
+<p>元变异</p>
+<ul>
+<li>核心：程序模式</li>
+<li>目的：减少生成变异体时所需的编译次数</li>
+</ul>
+<p>基于中间表示</p>
+<ul>
+<li>避免编译</li>
+<li>直接操作中间目标：比如操作java字节码，.NET和LLVM中间表示</li>
+</ul>
+<p>变异体优化</p>
+<p>基本形式：通过静态分析的形式，识别并移除有问题的变异体</p>
+<p>识别等价变异体，识别冗余变异体</p>
+<h4 id="变异体的执行"><a href="#变异体的执行" class="headerlink" title="变异体的执行"></a>变异体的执行</h4><p>变异测试中最昂贵的部分</p>
+<p>研究内容：</p>
+<ul>
+<li>计算变异得分：研究集中在变异杀死的条件（对于确定性系统，对于非确定性系统）、测试预言的条件（预言怎样搞出更好的的测试套件）</li>
+<li>计算变异体矩阵：注意如果测试套件中有一个测试用例把变异体杀了，就不用再往下走了，由此可以有一些优化策略比如：改变测试顺序、匹配测试用例与变异体、避免执行必定存活的变异体、限定变异体的执行时间</li>
+</ul>
+<h4 id="变异测试的应用"><a href="#变异测试的应用" class="headerlink" title="变异测试的应用"></a>变异测试的应用</h4><ul>
+<li>评估作用</li>
+<li>引导作用：利用变异测试</li>
+<li>传统应用:应用于确定性系统<ul>
+<li>测试生成</li>
+<li>预言生成</li>
+<li>测试优化</li>
+<li>Debug引导</li>
+</ul>
+</li>
+<li>变异&amp;AI：应用于非确定性系统</li>
+</ul>
+<h5 id="用例与预言生成"><a href="#用例与预言生成" class="headerlink" title="用例与预言生成"></a>用例与预言生成</h5><ul>
+<li>基于搜索的软件测试+变异分析</li>
+<li>SBST，将软件测试过程转化为搜索问题，利用启发式算法</li>
+<li>变异引导的单元测试及预言生成</li>
+</ul>
+<h5 id="变异辅助debug"><a href="#变异辅助debug" class="headerlink" title="变异辅助debug"></a>变异辅助debug</h5><ul>
+<li><p>利用变异自动为有缺陷程序推荐补丁</p>
+<ul>
+<li>缺陷定位技术：<ul>
+<li>抽象测试轨迹，计算可疑度</li>
+</ul>
+</li>
+<li>自动修复技术<ul>
+<li>根据一定的语法规则转换缺陷程序为正确版本</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>挑战：</p>
+</li>
+</ul>
+<h5 id="AI测试TCP"><a href="#AI测试TCP" class="headerlink" title="AI测试TCP"></a>AI测试TCP</h5><p>通过变异分析进行DNN测试输入排序</p>
+<ul>
+<li>变异分析+测试排序+AI测试</li>
+<li>TCP for DNN：谁应当最先被打标签</li>
+<li>MA for DNN：模型的变异、输入的变异</li>
+<li>核心思路：越能杀的测试优先级越高</li>
+</ul>
+<h3 id="模糊测试-1"><a href="#模糊测试-1" class="headerlink" title="模糊测试"></a>模糊测试</h3><h4 id="模糊测试架构"><a href="#模糊测试架构" class="headerlink" title="模糊测试架构"></a>模糊测试架构</h4><ul>
+<li>工具：模糊器</li>
+<li>目标：待测程序</li>
+<li>循环：执行程序<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="2.262ex" height="1.181ex" role="img" focusable="false" viewBox="0 -511 1000 522"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="2194" d="M263 479Q267 501 271 506T288 511Q308 511 308 500Q308 493 303 475Q293 438 278 406T246 352T215 315T185 287T165 270H835Q729 349 696 475Q691 493 691 500Q691 511 711 511Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H165Q167 228 182 216T211 189T244 152T277 96T303 25Q308 7 308 0Q308 -11 288 -11Q281 -11 278 -11T272 -7T267 2T263 21Q245 94 195 151T73 236Q58 242 55 247Q55 254 59 257T73 264Q144 292 194 349T263 479Z"></path></g></g></g></svg></mjx-container>崩溃分派</li>
+<li>三个组件</li>
+</ul>
+<pre class="mermaid">stateDiagram
+direction LR
+    Fuzzer --&gt; ExecuteProgram: Test inputs
+    ExecuteProgram --&gt; PUT
+    PUT --&gt; CrashTraige: Execution result
+    CrashTraige --&gt; Fuzzer
+    CrashTraige --&gt; Crashes</pre>
+
+<h4 id="黑话"><a href="#黑话" class="headerlink" title="黑话"></a>黑话</h4><ul>
+<li>模糊是指从输入空间采样得到的输入来执行待测工具的过程，代表着测试人员针对待测程序定义的预期输入</li>
+<li>模糊测试是一种应用模糊过程来检测</li>
+<li>模糊器：一组用于实现</li>
+<li>缺陷语言：确定一次给定执行是否违反正确性策略的程序</li>
+</ul>
+<h4 id="模糊测试家族"><a href="#模糊测试家族" class="headerlink" title="模糊测试家族"></a>模糊测试家族</h4><ul>
+<li>AFL（C/C++）</li>
+<li>LibFuzzer(C/C++)：一个基于LLVM的工具</li>
+<li>JQF(Java)：AFL搬到了java上</li>
+<li>其他(Rust（强化版c）,Python等)</li>
+</ul>
+<h4 id="模糊测试分类"><a href="#模糊测试分类" class="headerlink" title="模糊测试分类"></a>模糊测试分类</h4><p>根据组件核心或技术贡献进行分类</p>
+<ul>
+<li>按照采用的运行时信息：黑盒（很多嵌入式系统的设置）、灰盒（看一部分信息，比如覆盖率）、白盒（强力的程序分析手段融入到程序中）</li>
+<li>按照输入生成的策略：基于变异的，基于文法的</li>
+<li>按照引导过程：启发式算法、梯度下降</li>
+<li>按照测试目标：定向、非定向、某一类缺陷</li>
+<li>按照应用领域：网络协议、Compiler、DNN、IoT、内核</li>
+<li>按照优化角度：种子调度、变异策略、能量调度、过程建模</li>
+</ul>
+<h4 id="黑盒模糊测试"><a href="#黑盒模糊测试" class="headerlink" title="黑盒模糊测试"></a>黑盒模糊测试</h4><p>常用于IoT</p>
+<p>引导方式：利用输入格式或输出状态引导测试执行</p>
+<p>优点：不用插桩效率高，但是引导不好</p>
+<h4 id="白盒模糊测试"><a href="#白盒模糊测试" class="headerlink" title="白盒模糊测试"></a>白盒模糊测试</h4><p>使用混合执行、污点分析等比较昂贵的分析技术</p>
+<p>引导方式：利用详细的程序分析结果引导测试执行</p>
+<p>优点：反馈更加有效，但是效率不高、适配性差</p>
+<h4 id="灰盒模糊测试"><a href="#灰盒模糊测试" class="headerlink" title="灰盒模糊测试"></a>灰盒模糊测试</h4><p>最流行</p>
+<p>轻量级插桩进行监控</p>
+<p>利用得到的部分信息引导测试</p>
+<p>代表工作：AFL、AFLGo、EcoFuzz、Zest、BeDivFuzz</p>
+<h4 id="基于变异的模糊测试"><a href="#基于变异的模糊测试" class="headerlink" title="基于变异的模糊测试"></a>基于变异的模糊测试</h4><p>本质：将种子输入转换成bit串，对比特串进行变换</p>
+<p>优点：可拓展性强，易于泛化</p>
+<p>缺点：容易破坏输入的结构、产生无效输入；生成的大部分输入都无法通过语法检查</p>
+<p>AFL变异算子</p>
+<ul>
+<li>bitflip 翻转</li>
+<li>arith 加减小整数</li>
+<li>interest 翻转有趣的字节位</li>
+<li>havoc 总结上面的</li>
+<li>spilce 随机拼接两个种子输入</li>
+</ul>
+<h5 id="SLF"><a href="#SLF" class="headerlink" title="SLF"></a>SLF</h5><p>思想：分析程序中的语义检查、识别比特串中与影响语义检查的域、根据两者之间的关系制定变异策略</p>
+<h4 id="基于生成的模糊测试"><a href="#基于生成的模糊测试" class="headerlink" title="基于生成的模糊测试"></a>基于生成的模糊测试</h4><p>基于一定的文法规则/结构信息</p>
+<ul>
+<li>利用给定的、或者挖掘/学习得到的文法规则，来构建能够通过（语法）检查的结构化输入</li>
+<li>优点：容易生成合法、有效输入，适用于对输入结构性要求较高的场景如编译器测试</li>
+<li>缺点：需要人工赋予一定的领域知识</li>
+</ul>
+<h5 id="Inputs-from-Hell"><a href="#Inputs-from-Hell" class="headerlink" title="Inputs from Hell"></a>Inputs from Hell</h5><p>挖掘已有的测试输入，得到现有的测试输入分布，根据该分布进行输入生成以得到预期的测试输入</p>
+<p>可以生成相似输入或者相反输入</p>
+<h4 id="按引导方式分类"><a href="#按引导方式分类" class="headerlink" title="按引导方式分类"></a>按引导方式分类</h4><h5 id="基于搜索"><a href="#基于搜索" class="headerlink" title="基于搜索"></a>基于搜索</h5><p>将测试转化为搜索问题，以代码覆盖率为指示器、以启发式算法（类遗传算法）为核心，将测试导向更高覆盖的方向</p>
+<p>如CGF</p>
+<h5 id="基于梯度"><a href="#基于梯度" class="headerlink" title="基于梯度"></a>基于梯度</h5><p>将测试转化为优化问题，以最大化缺陷</p>
+<h3 id="示例：设计一个模糊测试"><a href="#示例：设计一个模糊测试" class="headerlink" title="示例：设计一个模糊测试"></a>示例：设计一个模糊测试</h3><ol>
+<li>定义输入：一个操作序列，有一系列原子操作组成</li>
+<li>定义输出：可以是插桩得到的值，也可以是程序本身的输出</li>
+<li>种子调度：种子优先级排序，更长的序列优先，得分更高的序列优先，基于feedback结果计算energy</li>
+<li>测试生成</li>
+<li>执行</li>
+<li>结果反馈</li>
+</ol>
+<h2 id="软件工程综述"><a href="#软件工程综述" class="headerlink" title="软件工程综述"></a>软件工程综述</h2><p>RWPH：SE研究的四个维度</p>
+<ul>
+<li>Reading</li>
+<li>Writing</li>
+<li>Presenting</li>
+<li>Hacking</li>
+</ul>
+<p>以新颖的的方式总结和组织最近的研究成果、整合并添加对该领域工作的理解和认识的研究工作</p>
+<ul>
+<li>总结有关技术的现有进展</li>
+<li>总结当前某个领域研究的不足</li>
+<li>提供研究框架/背景</li>
+<li>检查经验证据在多大程度上支持/反对理论假设，甚至提出新的假设</li>
+</ul>
+<h3 id="综述研究流程"><a href="#综述研究流程" class="headerlink" title="综述研究流程"></a>综述研究流程</h3><ul>
+<li>三个环节，五个步骤<ul>
+<li>规划、实施、报告</li>
+<li>五个步骤<ul>
+<li>框架搭建</li>
+<li>文献检索（这次作业要50篇，最不济20~30篇）</li>
+<li>文献阅读（主要读摘要）</li>
+<li>文献分类（分成3~6个正交类别）</li>
+<li>文献分析</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>写作的逻辑性<ul>
+<li>善用总分结构</li>
+<li>注重语句之间的连贯性</li>
+</ul>
+</li>
+</ul>
+<h2 id="测试用例优先级"><a href="#测试用例优先级" class="headerlink" title="测试用例优先级"></a>测试用例优先级</h2><p>软件演化：如何确保演化后软件产品的质量？</p>
+<h3 id="回归测试"><a href="#回归测试" class="headerlink" title="回归测试"></a>回归测试</h3><p>前一个版本的用例放到新版本跑，看看旧的功能有没有受到影响</p>
+<p>回归测试一般占测试预算80%以上，占产品维护50%以上</p>
+<h4 id="重新执行已有测试用例"><a href="#重新执行已有测试用例" class="headerlink" title="重新执行已有测试用例"></a>重新执行已有测试用例</h4><ul>
+<li>用例庞大跑不完</li>
+<li>用例冗余浪费算力</li>
+<li>用例失效，接口改了，功能砍了，逻辑变了</li>
+<li>用例缺失，新的测试需求没有被覆盖</li>
+</ul>
+<h4 id="回归测试优化"><a href="#回归测试优化" class="headerlink" title="回归测试优化"></a>回归测试优化</h4><h4 id="测试用例优先级-1"><a href="#测试用例优先级-1" class="headerlink" title="测试用例优先级"></a>测试用例优先级</h4><p>依照某种策略赋予每个测试用例不同优先级，以提高测试用例集的故障检测率</p>
+<p>采用启发式算法操纵测试用例，是的优先级较高的算法能够优于低优先级的算法执行</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="132.087ex" height="2.283ex" role="img" focusable="false" viewBox="0 -759 58382.5 1009"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">给</text></g><g data-mml-node="mi" transform="translate(1000,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">定</text></g><g data-mml-node="mi" transform="translate(2000,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">测</text></g><g data-mml-node="mi" transform="translate(3000,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">试</text></g><g data-mml-node="mi" transform="translate(4000,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">用</text></g><g data-mml-node="mi" transform="translate(5000,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">例</text></g><g data-mml-node="mi" transform="translate(6000,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">集</text></g><g data-mml-node="mi" transform="translate(7000,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mi" transform="translate(7704,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">，</text></g><g data-mml-node="mi" transform="translate(8704,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mi" transform="translate(9408,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">的</text></g><g data-mml-node="mi" transform="translate(10408,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">全</text></g><g data-mml-node="mi" transform="translate(11408,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">排</text></g><g data-mml-node="mi" transform="translate(12408,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">列</text></g><g data-mml-node="mi" transform="translate(13408,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">集</text></g><g data-mml-node="mi" transform="translate(14408,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mi" transform="translate(15159,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mi" transform="translate(15863,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">，</text></g><g data-mml-node="mi" transform="translate(16863,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">优</text></g><g data-mml-node="mi" transform="translate(17863,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">先</text></g><g data-mml-node="mi" transform="translate(18863,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">级</text></g><g data-mml-node="mi" transform="translate(19863,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">目</text></g><g data-mml-node="mi" transform="translate(20863,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">标</text></g><g data-mml-node="mi" transform="translate(21863,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">函</text></g><g data-mml-node="mi" transform="translate(22863,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">数</text></g><g data-mml-node="mi" transform="translate(23863,0)"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mi" transform="translate(24413,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">，</text></g><g data-mml-node="mi" transform="translate(25413,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">其</text></g><g data-mml-node="mi" transform="translate(26413,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">定</text></g><g data-mml-node="mi" transform="translate(27413,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">义</text></g><g data-mml-node="mi" transform="translate(28413,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">域</text></g><g data-mml-node="mi" transform="translate(29413,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">为</text></g><g data-mml-node="mi" transform="translate(30413,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mi" transform="translate(31164,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mi" transform="translate(31868,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">，</text></g><g data-mml-node="mi" transform="translate(32868,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">值</text></g><g data-mml-node="mi" transform="translate(33868,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">域</text></g><g data-mml-node="mi" transform="translate(34868,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">为</text></g><g data-mml-node="mi" transform="translate(35868,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">实</text></g><g data-mml-node="mi" transform="translate(36868,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">数</text></g><g data-mml-node="mi" transform="translate(37868,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">，</text></g><g data-mml-node="mi" transform="translate(38868,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">寻</text></g><g data-mml-node="mi" transform="translate(39868,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">找</text></g><g data-mml-node="msup" transform="translate(40868,0)"><g data-mml-node="mi"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(839.5,363) scale(0.707)"><path data-c="2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z"></path></g></g><g data-mml-node="mo" transform="translate(42229.7,0)"><path data-c="2208" d="M84 250Q84 372 166 450T360 539Q361 539 377 539T419 540T469 540H568Q583 532 583 520Q583 511 570 501L466 500Q355 499 329 494Q280 482 242 458T183 409T147 354T129 306T124 272V270H568Q583 262 583 250T568 230H124V228Q124 207 134 177T167 112T231 48T328 7Q355 1 466 0H570Q583 -10 583 -20Q583 -32 568 -40H471Q464 -40 446 -40T417 -41Q262 -41 172 45Q84 127 84 250Z"></path></g><g data-mml-node="mi" transform="translate(43174.5,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mi" transform="translate(43925.5,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(44629.5,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(45074.1,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">使</text></g><g data-mml-node="mi" transform="translate(46074.1,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">得</text></g><g data-mml-node="mi" transform="translate(47074.1,0)"><path data-c="2200" d="M0 673Q0 684 7 689T20 694Q32 694 38 680T82 567L126 451H430L473 566Q483 593 494 622T512 668T519 685Q524 694 538 694Q556 692 556 674Q556 670 426 329T293 -15Q288 -22 278 -22T263 -15Q260 -11 131 328T0 673ZM414 410Q414 411 278 411T142 410L278 55L414 410Z"></path></g><g data-mml-node="msup" transform="translate(47630.1,0)"><g data-mml-node="mi"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(839.5,363) scale(0.707)"><g data-c="2033"><path data-c="2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z"></path><path data-c="2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z" transform="translate(275,0)"></path></g></g></g><g data-mml-node="mo" transform="translate(49186.3,0)"><path data-c="2208" d="M84 250Q84 372 166 450T360 539Q361 539 377 539T419 540T469 540H568Q583 532 583 520Q583 511 570 501L466 500Q355 499 329 494Q280 482 242 458T183 409T147 354T129 306T124 272V270H568Q583 262 583 250T568 230H124V228Q124 207 134 177T167 112T231 48T328 7Q355 1 466 0H570Q583 -10 583 -20Q583 -32 568 -40H471Q464 -40 446 -40T417 -41Q262 -41 172 45Q84 127 84 250Z"></path></g><g data-mml-node="mi" transform="translate(50131,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mi" transform="translate(50882,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(51586,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(52030.7,0)"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mo" transform="translate(52580.7,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="msup" transform="translate(52969.7,0)"><g data-mml-node="mi"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(839.5,363) scale(0.707)"><path data-c="2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z"></path></g></g><g data-mml-node="mo" transform="translate(54053.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(54720.4,0)"><path data-c="3E" d="M84 520Q84 528 88 533T96 539L99 540Q106 540 253 471T544 334L687 265Q694 260 694 250T687 235Q685 233 395 96L107 -40H101Q83 -38 83 -20Q83 -19 83 -17Q82 -10 98 -1Q117 9 248 71Q326 108 378 132L626 250L378 368Q90 504 86 509Q84 513 84 520Z"></path></g><g data-mml-node="mi" transform="translate(55776.2,0)"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mo" transform="translate(56326.2,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="msup" transform="translate(56715.2,0)"><g data-mml-node="mi"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(839.5,363) scale(0.707)"><g data-c="2033"><path data-c="2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z"></path><path data-c="2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z" transform="translate(275,0)"></path></g></g></g><g data-mml-node="mo" transform="translate(57993.5,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></p>
+<h4 id="测试用例约减"><a href="#测试用例约减" class="headerlink" title="测试用例约减"></a>测试用例约减</h4><p>通过识别并移除冗余测试用例来降低成本</p>
+<p>通过覆盖来进行评价</p>
+<h4 id="优先级策略"><a href="#优先级策略" class="headerlink" title="优先级策略"></a>优先级策略</h4><ol>
+<li><p>基于贪心的TCP策略</p>
+<ol>
+<li>全局贪心<ul>
+<li>每轮挑选覆盖最多的测试用例</li>
+<li>多个用例相同随机选择</li>
+</ul>
+</li>
+<li>增量贪心<ul>
+<li>每轮优先挑选覆盖最多，且未被一选择用例覆盖代码单元的测试用例</li>
+<li>所有代码单元都被覆盖则重置优先级排序</li>
+<li>多个用例相同随机选择</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>基于相似性的TCP</p>
+<p>基本思想：如果一堆测试用例显示的异常聚在一起，那它们测到的很可能是同一个bug，所以相似的测试用例往往测到相同的bug，所以我们选择测试用例时应当选得均匀一些</p>
+</li>
+<li><p>基于搜索的TCP</p>
+<p><img class="lazy" lazyload="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/images/loading.svg" data-src="https://files.lsmcloud.top/blog06bbba941c5387c93458ac82edbd47c9.png"></p>
+<p><img class="lazy" lazyload="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/images/loading.svg" data-src="https://files.lsmcloud.top/blog22be9f0cd9cec48af02036fa2c409312.png"></p>
+</li>
+<li><p>基于机器学习的TCP</p>
+<p><img class="lazy" lazyload="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/images/loading.svg" data-src="https://files.lsmcloud.top/blogf14b200e1cf80a181e50854fc6c31d23.png"></p>
+</li>
+</ol>
+<h4 id="评估指标"><a href="#评估指标" class="headerlink" title="评估指标"></a>评估指标</h4><h5 id="APFD-平均故障检测百分比"><a href="#APFD-平均故障检测百分比" class="headerlink" title="APFD 平均故障检测百分比"></a>APFD 平均故障检测百分比</h5><p>给定包含m个故障<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="19.914ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 8802.2 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path></g><g data-mml-node="mo" transform="translate(1026.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mrow" transform="translate(2082.6,0)"><g data-mml-node="mo"><path data-c="7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path></g><g data-mml-node="msub" transform="translate(500,0)"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mn" transform="translate(523,-150) scale(0.707)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g><g data-mml-node="mo" transform="translate(1426.6,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="msub" transform="translate(1871.2,0)"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mn" transform="translate(523,-150) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(2797.8,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mo" transform="translate(3242.4,0)"><path data-c="2026" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60ZM525 60Q525 84 542 102T585 120Q609 120 627 104T646 61Q646 36 629 18T586 0T543 17T525 60ZM972 60Q972 84 989 102T1032 120Q1056 120 1074 104T1093 61Q1093 36 1076 18T1033 0T990 17T972 60Z"></path></g><g data-mml-node="mo" transform="translate(4581.1,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="msub" transform="translate(5025.8,0)"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mi" transform="translate(523,-150) scale(0.707)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g><g data-mml-node="mo" transform="translate(6219.6,0)"><path data-c="7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path></g></g></g></g></svg></mjx-container>和n个测试用例<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="18.937ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 8370.2 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mrow" transform="translate(2037.6,0)"><g data-mml-node="mo"><path data-c="7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path></g><g data-mml-node="msub" transform="translate(500,0)"><g data-mml-node="mi"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g><g data-mml-node="mn" transform="translate(394,-150) scale(0.707)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g><g data-mml-node="mo" transform="translate(1297.6,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="msub" transform="translate(1742.2,0)"><g data-mml-node="mi"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g><g data-mml-node="mn" transform="translate(394,-150) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(2539.8,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mo" transform="translate(2984.4,0)"><path data-c="2026" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60ZM525 60Q525 84 542 102T585 120Q609 120 627 104T646 61Q646 36 629 18T586 0T543 17T525 60ZM972 60Q972 84 989 102T1032 120Q1056 120 1074 104T1093 61Q1093 36 1076 18T1033 0T990 17T972 60Z"></path></g><g data-mml-node="mo" transform="translate(4323.1,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="msub" transform="translate(4767.8,0)"><g data-mml-node="mi"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g><g data-mml-node="mi" transform="translate(394,-150) scale(0.707)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g><g data-mml-node="mo" transform="translate(5832.6,0)"><path data-c="7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path></g></g></g></g></svg></mjx-container> </p>
+<p>T‘为T的一个优先级序列，TFi为地i个故障第一次被检测到时的下标，那么APFD为</p>
+<p><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -1.577ex;" xmlns="http://www.w3.org/2000/svg" width="44.782ex" height="4.645ex" role="img" focusable="false" viewBox="0 -1356 19793.7 2053"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g><g data-mml-node="mi" transform="translate(750,0)"><path data-c="1D437" d="M287 628Q287 635 230 637Q207 637 200 638T193 647Q193 655 197 667T204 682Q206 683 403 683Q570 682 590 682T630 676Q702 659 752 597T803 431Q803 275 696 151T444 3L430 1L236 0H125H72Q48 0 41 2T33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM703 469Q703 507 692 537T666 584T629 613T590 629T555 636Q553 636 541 636T512 636T479 637H436Q392 637 386 627Q384 623 313 339T242 52Q242 48 253 48T330 47Q335 47 349 47T373 46Q499 46 581 128Q617 164 640 212T683 339T703 469Z"></path></g><g data-mml-node="mi" transform="translate(1578,0)"><path data-c="1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path></g><g data-mml-node="mi" transform="translate(2327,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(3355.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(4411.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(5133.8,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mfrac" transform="translate(6134,0)"><g data-mml-node="mrow" transform="translate(220,676)"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="msub" transform="translate(704,0)"><g data-mml-node="mi"><path data-c="1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path></g><g data-mml-node="mn" transform="translate(676,-150) scale(0.707)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g><g data-mml-node="mo" transform="translate(2005.8,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(3006,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="msub" transform="translate(3710,0)"><g data-mml-node="mi"><path data-c="1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path></g><g data-mml-node="mn" transform="translate(676,-150) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(5011.8,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mo" transform="translate(6012,0)"><path data-c="2026" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60ZM525 60Q525 84 542 102T585 120Q609 120 627 104T646 61Q646 36 629 18T586 0T543 17T525 60ZM972 60Q972 84 989 102T1032 120Q1056 120 1074 104T1093 61Q1093 36 1076 18T1033 0T990 17T972 60Z"></path></g><g data-mml-node="mo" transform="translate(7406.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(8406.4,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="msub" transform="translate(9110.4,0)"><g data-mml-node="mi"><path data-c="1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path></g><g data-mml-node="mi" transform="translate(676,-150) scale(0.707)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g><g data-mml-node="mrow" transform="translate(4237.4,-686)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(822.2,0)"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path></g><g data-mml-node="mi" transform="translate(1544.4,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g><rect width="10657.3" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(17253.5,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mfrac" transform="translate(18253.7,0)"><g data-mml-node="mn" transform="translate(520,676)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mrow" transform="translate(220,-686)"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g></g><rect width="1300" height="60" x="120" y="220"></rect></g></g></g></svg></mjx-container></p>
+<p>缺点：未考虑测试用例的执行开销（有的用例一跑跑几天）和缺陷危害程度（有的只是渲染问题，有的导致用户密码泄露，有的导致服务器被注入）</p>
+<h5 id="APFD-c-开销感知平均故障检测百分比"><a href="#APFD-c-开销感知平均故障检测百分比" class="headerlink" title="$APFD_c$开销感知平均故障检测百分比"></a><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.357ex;" xmlns="http://www.w3.org/2000/svg" width="7.844ex" height="1.977ex" role="img" focusable="false" viewBox="0 -716 3467.2 873.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g><g data-mml-node="mi" transform="translate(750,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mi" transform="translate(1501,0)"><path data-c="1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path></g><g data-mml-node="msub" transform="translate(2250,0)"><g data-mml-node="mi"><path data-c="1D437" d="M287 628Q287 635 230 637Q207 637 200 638T193 647Q193 655 197 667T204 682Q206 683 403 683Q570 682 590 682T630 676Q702 659 752 597T803 431Q803 275 696 151T444 3L430 1L236 0H125H72Q48 0 41 2T33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM703 469Q703 507 692 537T666 584T629 613T590 629T555 636Q553 636 541 636T512 636T479 637H436Q392 637 386 627Q384 623 313 339T242 52Q242 48 253 48T330 47Q335 47 349 47T373 46Q499 46 581 128Q617 164 640 212T683 339T703 469Z"></path></g><g data-mml-node="mi" transform="translate(861,-150) scale(0.707)"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></g></g></g></g></svg></mjx-container>开销感知平均故障检测百分比</h5><p><img class="lazy" lazyload="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/images/loading.svg" data-src="https://files.lsmcloud.top/blog406b4ff5360a72ac3e35ffa1d5daa9b4.png"></p>
+<h5 id="NAPFD归一化平均故障检测百分比"><a href="#NAPFD归一化平均故障检测百分比" class="headerlink" title="NAPFD归一化平均故障检测百分比"></a>NAPFD归一化平均故障检测百分比</h5><p>特点：考虑实际优先级排序场景中</p>
+<ol>
+<li>测试用例集不能检测所有缺陷</li>
+<li>由于资源限制无法检测所有的测试用例</li>
+</ol>
+<h3 id="基于学习程序修复技术"><a href="#基于学习程序修复技术" class="headerlink" title="基于学习程序修复技术"></a>基于学习程序修复技术</h3><h2 id="移动应用众包测试"><a href="#移动应用众包测试" class="headerlink" title="移动应用众包测试"></a>移动应用众包测试</h2><p>众包：利用群体力量来完成传统方法中成本高昂或更耗时的大规模任务</p>
+<p>举例：很多验证码其实是一半真的有答案，一半则是在利用用户的识别能力来获取数据集</p>
+<p>移动应用碎片化问题：品牌、型号、系统、传感器…</p>
+<p>uTest、Testin、Baidu Crowd Test，Alibaba Crowd Test，TestIO，MoocTest</p>
+<ul>
+<li>申请上传</li>
+<li>任务选择和环境设置</li>
+<li>提交报告</li>
+<li>生成最终测试报告</li>
+<li>报告验证</li>
+</ul>
+<p>众包测试中的缺陷类型</p>
+<ul>
+<li>功能缺陷</li>
+<li>显示问题</li>
+<li>性能问题</li>
+<li>布局问题</li>
+<li>应用崩溃</li>
+<li>错误提示</li>
+<li>空白屏</li>
+</ul>
+<p>众包测试面临的挑战</p>
+<ul>
+<li>任务分配</li>
+<li>任务奖励</li>
+<li>众测过程引导</li>
+<li>测试报告质量控制</li>
+</ul>
+<p>协作式众包测试</p>
+<ul>
+<li>完成测试任务过程中进行信息共享与任务分配，用户在本系统中既承担测试任务也承担审核任务，充分利用用户协作，完成目标任务</li>
+<li>信息共享：用户在提交报告时进行实时相似报告推荐，避免重复报告提交</li>
+<li>任务分配：审核页面推荐待审核的报告列表，测试页面推荐待测页面</li>
+<li>协作方式：点赞点踩</li>
+<li>一键fork</li>
+</ul>
+<h3 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h3><ol>
+<li>根据需求来细分功能点</li>
+<li>根据功能点派生测试需求</li>
+<li>根据测试需求设计功能测试用例</li>
+<li>逐项执行功能测试用例验证</li>
+</ol>
+<p>测试类型</p>
+<ol>
+<li>正确性测试</li>
+<li>可靠性测试</li>
+<li>易用性测试</li>
+</ol>
+<p>性能测试度量方法</p>
+<ul>
+<li>服务器采用cpu、内存使用率</li>
+<li>客户端根据系统处理用户请求的时间</li>
+</ul>
+<h3 id="负载测试"><a href="#负载测试" class="headerlink" title="负载测试"></a>负载测试</h3><ul>
+<li>负载测试用于验证应用系统在正常负载条件下的行为</li>
+<li>性能行为通过一些性能指标体现</li>
+<li>两种方式<ul>
+<li>直接到达负载数</li>
+<li>逐步增加复杂数（可以测到系统负载的上限）</li>
+</ul>
+</li>
+</ul>
+<h3 id="压力测试"><a href="#压力测试" class="headerlink" title="压力测试"></a>压力测试</h3><p>评估系统处于超过预期负载的行为</p>
+<p>不一定是关注性能行为，可能是某种bug，比如同步、内存泄漏</p>
+<p>系统不应该崩掉</p>
+<p>可以测到系统崩溃的临界点</p>
+<h3 id="历史区测试法"><a href="#历史区测试法" class="headerlink" title="历史区测试法"></a>历史区测试法</h3><ul>
+<li>恶邻测试法：经常出bug的地方的旁边也经常出bug</li>
+<li>博物馆测试法：很久没用的代码很容易失效</li>
+</ul>
+<h3 id="娱乐区测试法"><a href="#娱乐区测试法" class="headerlink" title="娱乐区测试法"></a>娱乐区测试法</h3><ul>
+<li>配角测试法：重要功能旁边的功能重点关注</li>
+<li>深巷测试法：测试那些最不可能被用到的特性</li>
+<li>通宵测试法：一直让程序运行，看他能坚持多久</li>
+</ul>
+<h3 id="众测报告聚合"><a href="#众测报告聚合" class="headerlink" title="众测报告聚合"></a>众测报告聚合</h3><h4 id="Aggregator"><a href="#Aggregator" class="headerlink" title="Aggregator"></a>Aggregator</h4><ol>
+<li>截屏集合的距离矩阵DS计算</li>
+<li>文本集合的距离矩阵DT计算</li>
+</ol>
+<p>具体实现：合成层次聚类，Summarizer</p>
+<p>众测报告排序：</p>
+<ul>
+<li>文本<ol>
+<li>关键词提取</li>
+<li>计算文本距离</li>
+</ol>
+</li>
+<li>图片<ol>
+<li>SPM算法计算图像距离</li>
+<li>计算图片距离时要设法屏蔽掉一些无意义的内容，比如不同的主题背景造成的截图不同</li>
+</ol>
+</li>
+</ul>
+<p>将每份报告的文本距离和图片距离组合起来</p>
+<p>于是就可以将这些报告分成一个一个有层次的聚类</p>
+<h2 id="测试预言问题"><a href="#测试预言问题" class="headerlink" title="测试预言问题"></a>测试预言问题</h2><p>测试预言是自动化软件测试中不可或缺的一部分</p>
+<p>测试预言可以是：</p>
+<ul>
+<li>体现被测单元预期功能的文档</li>
+<li>是验证程序功能的机制</li>
+<li>判定程序执行是否正确的程序</li>
+<li>约束</li>
+<li>映射（比如执行结果映射到成功或失败）</li>
+</ul>
+<p>显示预言：通过assert之类进行显示检测</p>
+<p>隐式预言：通过程序崩溃等很明显的错误进行检测</p>
+<h3 id="预言问题"><a href="#预言问题" class="headerlink" title="预言问题"></a>预言问题</h3><p>给定系统输入，如何找到能够正确鉴别出符合期望的正确行为与发现潜在的不正确行为测试预言的挑战性难题</p>
+<h3 id="蜕变测试"><a href="#蜕变测试" class="headerlink" title="蜕变测试"></a>蜕变测试</h3><p>测试用例生成新思路</p>
+<p>虽然不能通过成功测试用例排除程序存在缺陷的可能，但是可以用相关的测试用例指导之后的测试</p>
+<p>蜕变测试的几大注意点：</p>
+<ul>
+<li><p>不是所有的必要属性都能作为蜕变关系</p>
+<p>蜕变关系应当和多个输入实例相关</p>
+</li>
+<li><p>不是所有的蜕变关系都能够划分成输入端和输出端</p>
+</li>
+<li><p>蜕变关系不要求一定是等式关系</p>
+</li>
+<li><p>有测试预言也可以做蜕变测试</p>
+</li>
+</ul>
+<h3 id="差分测试"><a href="#差分测试" class="headerlink" title="差分测试"></a>差分测试</h3><p>找一些竞品来，看看对于相同的输入，输出结果或者行为有没有区别，如果有就说明至少有一个竞品有问题</p>
+<h2 id="移动应用自动化GUI测试"><a href="#移动应用自动化GUI测试" class="headerlink" title="移动应用自动化GUI测试"></a>移动应用自动化GUI测试</h2><h3 id="自动化测试框架"><a href="#自动化测试框架" class="headerlink" title="自动化测试框架"></a>自动化测试框架</h3><p>selenuim web页面测试</p>
+<p>appium 扩展了selenium，可以用selenium库来编写应用测试脚本</p>
+<h3 id="appium"><a href="#appium" class="headerlink" title="appium"></a>appium</h3><ul>
+<li>基于webdriver协议</li>
+<li>客户端库</li>
+<li>会话控制</li>
+<li>命令执行</li>
+<li>元素定位与交互</li>
+<li>无需修改应用</li>
+<li>跨平台</li>
+<li>无需修改应用</li>
+<li>模拟器和真实设备</li>
+</ul>
+<p>测试往往是通过人工录制+自动化回放，也有基于模型的自动化测试技术</p>
+<h4 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h4><ul>
+<li>测试脚本的执行依赖于操作系统接口</li>
+<li>定位空间依赖GUI</li>
+<li>人工编写脚本开销大</li>
+<li>脚本随应用迭代的维护困难</li>
+</ul>
+<h4 id="基于图像的空间定位"><a href="#基于图像的空间定位" class="headerlink" title="基于图像的空间定位"></a>基于图像的空间定位</h4><p>通过图像匹配算法来完成对GUI元素的识别和定位</p>
+<ul>
+<li>捕获屏幕图像</li>
+<li>编写脚本</li>
+<li>图像识别</li>
+<li>相似度阈值</li>
+<li>执行操作</li>
+<li>反馈和调整</li>
+</ul>
+<h4 id="深度图像提取UIED"><a href="#深度图像提取UIED" class="headerlink" title="深度图像提取UIED"></a>深度图像提取UIED</h4><p>布局理解、控件意图识别</p>
+<p>基于深度图像理解的录制回放工具</p>
+<ul>
+<li>无法感知异形屏幕对UI控件的遮挡</li>
+<li>难以模拟真实场景下人的交互操作</li>
+<li>仍依赖操作系统接口执行测试操作</li>
+</ul>
+<p>解决：从侵入式转为非侵入式</p>
+<p>机械臂+AI</p>
+<h2 id="期末"><a href="#期末" class="headerlink" title="期末"></a>期末</h2><h3 id="源码测试"><a href="#源码测试" class="headerlink" title="源码测试"></a>源码测试</h3><ul>
+<li>随机测试</li>
+<li>变异测试</li>
+<li>查分测试</li>
+<li>蜕变测试</li>
+</ul>
+<h4 id="应用题"><a href="#应用题" class="headerlink" title="应用题"></a>应用题</h4><ul>
+<li>测试用例优先级<ul>
+<li>主要算法的流程及复杂度</li>
+<li>APFD计算</li>
+<li>算法应用</li>
+</ul>
+</li>
+<li>测试用例选择<ul>
+<li>主要方法</li>
+<li>动态静态</li>
+<li>与测试用例优先级的区别和联系</li>
+</ul>
+</li>
+<li>测试用例优先级&amp;</li>
+</ul>
+<h4 id="随机测试-1"><a href="#随机测试-1" class="headerlink" title="随机测试"></a>随机测试</h4><p>大数定律</p>
+<p>测试执行次数够多、测试数据随机生成</p>
+<p>概率低的偶然现象发生</p>
+<h4 id="变异测试-1"><a href="#变异测试-1" class="headerlink" title="变异测试"></a>变异测试</h4><p>变异测试旨在找到有效的测试用例，发现程序中真正的错误，用于检测测试用例是否足够强悍</p>
+<p>这里说的变异和AI测试中常用的数据增广的变异方法是相似的，但是测试的对象不同</p>
+<h4 id="蜕变测试-1"><a href="#蜕变测试-1" class="headerlink" title="蜕变测试"></a>蜕变测试</h4><p>通过输入与输出之间期望遵循的关系来判断测试是否通过，譬如sin函数的测试用例，180度互补的结果应当是一致的</p>
+<h4 id="差分测试-1"><a href="#差分测试-1" class="headerlink" title="差分测试"></a>差分测试</h4><p>通过将同一测试用例运行到一系列相似功能的应用中观察执行差异来检测bug</p>
+<h3 id="移动应用测试"><a href="#移动应用测试" class="headerlink" title="移动应用测试"></a>移动应用测试</h3><ul>
+<li>基于图像理解的移动应用自动化测试<ul>
+<li>能够了解各个任务的难点</li>
+<li>能够论述各个任务的解决方法<ul>
+<li>核心思想</li>
+<li>方法步骤</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>基于群智协同的众包测试<ul>
+<li>能够了解众包的难点</li>
+<li>能够了解基本的机制</li>
+<li>能够了解解决办法</li>
+</ul>
+</li>
+</ul>
+<h4 id="AI测试"><a href="#AI测试" class="headerlink" title="AI测试"></a>AI测试</h4><ul>
+<li>AI测试概述<ul>
+<li>与传统测试的区别</li>
+<li>测试的难点</li>
+</ul>
+</li>
+<li>模糊测试<ul>
+<li>基本流程</li>
+<li>数据生成</li>
+<li>结果反馈</li>
+<li>简单应用</li>
+</ul>
+</li>
+<li>图像测试</li>
+<li>公平性</li>
+<li>后门攻击</li>
+</ul>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>License</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2023/09/07/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">服务端开发</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2023/09/06/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">大数据分析</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Liu Yaoli</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">On This Page</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="toc-text">软件测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFbug"><span class="toc-text">什么是bug</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-text">测试的局限性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%B5%8B%E8%AF%95"><span class="toc-text">随机测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81bug"><span class="toc-text">常见bug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">模糊测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF"><span class="toc-text">经典测试技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="toc-text">自动化测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC%E4%BF%AE%E5%A4%8D"><span class="toc-text">自动化测试脚本修复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E4%BF%AE%E5%A4%8D"><span class="toc-text">程序修复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%8F%91%E5%B1%95%E8%B7%AF%E7%BA%BF"><span class="toc-text">自动化测试发展路线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E5%B1%95%E7%83%AD%E7%82%B9%E4%B9%8B%E6%99%BA%E8%83%BD%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="toc-text">发展热点之智能软件测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%B5%8B%E8%AF%95%E6%96%B9%E5%BC%8F"><span class="toc-text">常用测试方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E5%80%BC%E6%B5%8B%E8%AF%95"><span class="toc-text">边界值测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E7%9A%84%E5%81%8F%E8%A7%81%E4%BC%9A%E5%B8%A6%E6%9D%A5%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%81%8F%E8%A7%81"><span class="toc-text">训练数据的偏见会带来模型的偏见</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95"><span class="toc-text">变异测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95%E8%83%8C%E6%99%AF"><span class="toc-text">变异测试背景</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E5%BF%83%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">关心的问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BA%A7%E7%94%9F"><span class="toc-text">变异测试的产生</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E7%8E%B0%E7%8A%B6"><span class="toc-text">研究现状</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E5%88%86%E6%9E%90"><span class="toc-text">变异分析</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95%E8%BF%87%E7%A8%8B"><span class="toc-text">变异测试过程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E4%BD%93%E7%AD%9B%E9%80%89%E3%80%81%E7%BA%A6%E7%AE%80"><span class="toc-text">变异体筛选、约简</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E7%AE%97%E5%AD%90%E5%AE%9A%E4%B9%89"><span class="toc-text">变异算子定义</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E4%BD%93%E7%9A%84%E6%89%A7%E8%A1%8C"><span class="toc-text">变异体的执行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">变异测试的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%A8%E4%BE%8B%E4%B8%8E%E9%A2%84%E8%A8%80%E7%94%9F%E6%88%90"><span class="toc-text">用例与预言生成</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E8%BE%85%E5%8A%A9debug"><span class="toc-text">变异辅助debug</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AI%E6%B5%8B%E8%AF%95TCP"><span class="toc-text">AI测试TCP</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95-1"><span class="toc-text">模糊测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E6%9E%B6%E6%9E%84"><span class="toc-text">模糊测试架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BB%91%E8%AF%9D"><span class="toc-text">黑话</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E5%AE%B6%E6%97%8F"><span class="toc-text">模糊测试家族</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB"><span class="toc-text">模糊测试分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BB%91%E7%9B%92%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">黑盒模糊测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%99%BD%E7%9B%92%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">白盒模糊测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%81%B0%E7%9B%92%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">灰盒模糊测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%8F%98%E5%BC%82%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">基于变异的模糊测试</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#SLF"><span class="toc-text">SLF</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%94%9F%E6%88%90%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">基于生成的模糊测试</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Inputs-from-Hell"><span class="toc-text">Inputs from Hell</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E5%BC%95%E5%AF%BC%E6%96%B9%E5%BC%8F%E5%88%86%E7%B1%BB"><span class="toc-text">按引导方式分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%90%9C%E7%B4%A2"><span class="toc-text">基于搜索</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%A2%AF%E5%BA%A6"><span class="toc-text">基于梯度</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">示例：设计一个模糊测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%BB%BC%E8%BF%B0"><span class="toc-text">软件工程综述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E8%BF%B0%E7%A0%94%E7%A9%B6%E6%B5%81%E7%A8%8B"><span class="toc-text">综述研究流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">测试用例优先级</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95"><span class="toc-text">回归测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E6%89%A7%E8%A1%8C%E5%B7%B2%E6%9C%89%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="toc-text">重新执行已有测试用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95%E4%BC%98%E5%8C%96"><span class="toc-text">回归测试优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E4%BC%98%E5%85%88%E7%BA%A7-1"><span class="toc-text">测试用例优先级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E7%BA%A6%E5%87%8F"><span class="toc-text">测试用例约减</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E7%AD%96%E7%95%A5"><span class="toc-text">优先级策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87"><span class="toc-text">评估指标</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#APFD-%E5%B9%B3%E5%9D%87%E6%95%85%E9%9A%9C%E6%A3%80%E6%B5%8B%E7%99%BE%E5%88%86%E6%AF%94"><span class="toc-text">APFD 平均故障检测百分比</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#APFD-c-%E5%BC%80%E9%94%80%E6%84%9F%E7%9F%A5%E5%B9%B3%E5%9D%87%E6%95%85%E9%9A%9C%E6%A3%80%E6%B5%8B%E7%99%BE%E5%88%86%E6%AF%94"><span class="toc-text">开销感知平均故障检测百分比</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#NAPFD%E5%BD%92%E4%B8%80%E5%8C%96%E5%B9%B3%E5%9D%87%E6%95%85%E9%9A%9C%E6%A3%80%E6%B5%8B%E7%99%BE%E5%88%86%E6%AF%94"><span class="toc-text">NAPFD归一化平均故障检测百分比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%AD%A6%E4%B9%A0%E7%A8%8B%E5%BA%8F%E4%BF%AE%E5%A4%8D%E6%8A%80%E6%9C%AF"><span class="toc-text">基于学习程序修复技术</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95"><span class="toc-text">移动应用众包测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-text">功能测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E6%B5%8B%E8%AF%95"><span class="toc-text">负载测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95"><span class="toc-text">压力测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%86%E5%8F%B2%E5%8C%BA%E6%B5%8B%E8%AF%95%E6%B3%95"><span class="toc-text">历史区测试法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A8%B1%E4%B9%90%E5%8C%BA%E6%B5%8B%E8%AF%95%E6%B3%95"><span class="toc-text">娱乐区测试法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%97%E6%B5%8B%E6%8A%A5%E5%91%8A%E8%81%9A%E5%90%88"><span class="toc-text">众测报告聚合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Aggregator"><span class="toc-text">Aggregator</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E9%A2%84%E8%A8%80%E9%97%AE%E9%A2%98"><span class="toc-text">测试预言问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E8%A8%80%E9%97%AE%E9%A2%98"><span class="toc-text">预言问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%9C%95%E5%8F%98%E6%B5%8B%E8%AF%95"><span class="toc-text">蜕变测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%AE%E5%88%86%E6%B5%8B%E8%AF%95"><span class="toc-text">差分测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E8%87%AA%E5%8A%A8%E5%8C%96GUI%E6%B5%8B%E8%AF%95"><span class="toc-text">移动应用自动化GUI测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6"><span class="toc-text">自动化测试框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#appium"><span class="toc-text">appium</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">存在的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E7%9A%84%E7%A9%BA%E9%97%B4%E5%AE%9A%E4%BD%8D"><span class="toc-text">基于图像的空间定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%9B%BE%E5%83%8F%E6%8F%90%E5%8F%96UIED"><span class="toc-text">深度图像提取UIED</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%9F%E6%9C%AB"><span class="toc-text">期末</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E6%B5%8B%E8%AF%95"><span class="toc-text">源码测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E9%A2%98"><span class="toc-text">应用题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%B5%8B%E8%AF%95-1"><span class="toc-text">随机测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95-1"><span class="toc-text">变异测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%9C%95%E5%8F%98%E6%B5%8B%E8%AF%95-1"><span class="toc-text">蜕变测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%AE%E5%88%86%E6%B5%8B%E8%AF%95-1"><span class="toc-text">差分测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E6%B5%8B%E8%AF%95"><span class="toc-text">移动应用测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AI%E6%B5%8B%E8%AF%95"><span class="toc-text">AI测试</span></a></li></ol></li></ol></li></ol></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>Scroll to Top</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `Just`,
+      min: `minutes ago`,
+      hour: `hours ago`,
+      day: `days ago`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js`,
+    marked: `https://cdn.jsdelivr.net/npm/marked@13.0.1/lib/marked.umd.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `Switched to Light Mode`,
+      dark: `Switched to Dark Mode`,
+      auto: `Switched to Auto Mode`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    processEscapes: true
+  }
+});
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+});
+MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>
